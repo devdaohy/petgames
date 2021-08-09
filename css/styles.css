@@ -1594,7 +1594,7 @@ h2.tips {
 .store .container .list-scarces .scarces {
   width: 100%;
   height: auto;
-  display: flex;
+  /*display: flex;*/
 }
 
 .store .container .list-scarces ul:after {
@@ -1614,11 +1614,11 @@ h2.tips {
   padding-right: 10px;
   background-color: #a4e7fd; */
   float: left;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-bottom: 0px;
   padding: 10px 0;
   text-align: center;
-  width: 150px;
+  width: 130px;
 }
 
 .store .container .list-scarces .scarces li button {
