@@ -1,0 +1,115 @@
+/*------------------------------------------------------------------
+
+3. Layout / #layout
+    3.5. Testimonials / #testimonials
+
+-------------------------------------------------------------------*/
+.testimonials {
+
+    padding-top: 1.5%;
+
+    section {
+        @include mq-max-tablet {
+        text-align: center;
+        }
+    }
+
+    @include mq-large-desktop { background-attachment: fixed; }
+    background-image: radial-gradient(rgba(35, 69, 128, 1), rgba(16, 38, 57, 1));
+    background-size: cover;
+    background-position: center center;
+    box-shadow: inset 0 0px 10rem $blackerColor;
+    color: $whiteColor;
+
+    cite {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+
+            img {
+                height: auto;
+                width: 50%;
+                display: inline-block;
+            }
+
+        }
+
+    h2 {
+        margin-top: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: $bonusColor2;
+        text-shadow: 0px 0px 4px $tertiaryColorHover;
+        height: 60px;
+        font-family: $mainFont;
+        text-align: center;
+        padding: 1rem 0;
+
+        @include mq-ipad-pro-portrait {
+            font-size: 160%;
+        }
+        @include mq-tablet {
+            font-size: 160%;
+        }
+        @include mq-max-small-smartphone {
+            font-size: 140%;
+        }  
+    }
+
+    blockquote {
+        border: none;
+        color: $testimonialsColor;
+        font-family: $tertiaryFont;
+        font-size: 20px;
+        line-height: 30px;
+        margin-top: 1rem;
+        text-align: center;
+
+        @include mq-ipad-pro-portrait {
+            font-size: 16px;
+            line-height: 24px;
+        }  
+        
+        @include mq-max-tablet {
+            width: 80%;
+            display: inline-block;
+        }
+
+        @include mq-max-small-smartphone {
+            width: 100%;
+            font-size: 18px;
+        }
+
+        &:before {
+            content: '\201c';
+            font-weight: 100;
+            position: absolute;
+
+            @include mq-max-smartphone {
+                display: none;
+            }
+
+            @include mq-tablet {
+                font-size: 250%;
+                @include transform(translate(-150%, 50%));
+            }
+        }
+
+        &:after {
+            content: '\201d';
+            font-weight: 100;
+            position: absolute;
+
+            @include mq-max-smartphone {
+                display: none;
+            }
+
+            @include mq-tablet {
+                font-size: 250%;
+                @include transform(translate(50%, 50%));
+            }
+        }
+    }
+}
