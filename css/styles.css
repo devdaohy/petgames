@@ -1698,6 +1698,7 @@ h2.tips {
     width: 100%;
     height: auto;
     text-align: center;
+    padding: 0px;
 }
 
 .store .container .list-scarces ul:after {
@@ -1780,7 +1781,7 @@ h2.tips {
     float: left;
     margin-top: 10px;
     margin-right: 5px;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 900;
     color: #ffffff;
     float:right;
@@ -1790,10 +1791,10 @@ h2.tips {
 
 .panel-item__text {
     /*background: rgba(255, 255, 255, 0.85);*/
-    bottom: 125px;
+    bottom: 55px;
     left: 0;
     min-height: 54px;
-    margin-left:11%;
+    /*margin-left:11%;*/
     position: absolute;
     right: 0;
     text-align: left;
@@ -1810,6 +1811,8 @@ h2.tips {
     line-height: 30px;
     margin: 3px 0 7px;
     transition: color 0.2s;
+    text-align:center;
+
 }
 
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (min-device-height: 1366px) and (max-device-height: 1366px) and (min-width: 1024px) and (max-width: 1024px) {
@@ -6310,7 +6313,18 @@ ul#model-feats {
 }
 
 .info-pet{
+    margin-left:11%;
     width: 94%;
 }
+.imagemoney{
+    width:13% !important;
+}
+
+.background-config{
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: 100% 100%;
+}
+
 
 /*# sourceMappingURL=styles.css.map */
