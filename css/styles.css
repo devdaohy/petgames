@@ -394,13 +394,14 @@ option {
 }
 
 a.navbar-logo {
-    background-image: url(../img/logo-compact.png);
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
     width: 55px;
     height: 48px;
     background-size: 50px auto;
     padding: 0;
     margin: 0;
-    margin-top: 15px;
+    margin-top: 11px;
 }
 
 a.navbar-logo:hover {
@@ -6318,6 +6319,7 @@ ul#model-feats {
 }
 .imagemoney{
     width:13% !important;
+    margin-right:5px;
 }
 
 .background-config{
