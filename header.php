@@ -54,7 +54,7 @@
                     </div>
                     <div class="collapse navbar-collapse" id="main-nav">
                         <ul class="nav navbar-nav">
-                            <li class="plain-link"><a href="magicbox.php">Magic Egg</a></li>
+                            <li class="plain-link"><a href="magicegg.php">Magic Egg</a></li>
                             <li class="plain-link"><a href="index.php">Marketplace</a></li>
                             <li class="plain-link"><a href="mypet.php">My Pet</a></li>
                             <li class="plain-link"><a href="#monster">Monster</a></li>
@@ -65,7 +65,7 @@
                         </ul>
                     </div>
                     <ul class="nav navbar-nav navbar-right singin-btn-container">
-                        <button class="signin-btn">0x790FC...8978926</button>
+                        <button class="signin-btn" id = "btn-connect">Connect</button>
                     </ul>
                 </div>
             </nav>
