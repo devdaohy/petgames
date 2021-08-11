@@ -1586,7 +1586,7 @@ async function getAccount() {
 
 	myBalance = myBalance/1000000000000000000;
 
-	$("#my-balance").text("Balance: "+myBalance);
+	$("#my-balance img").before("Balance:  " + myBalance);
 }
 
 function encryptAccount(account){

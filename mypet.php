@@ -58,7 +58,7 @@
                     <div
                         id="item-1"
                         class="col-xs-5 col-sm-3 gallery-item item-1 thumbnail-50 background-config"
-                        style="background-image: url(img/khung-water.png); "
+                        style="background-image: url(img/khung/khung-1.png); "
                         data-toggle="modal"
                         data-target="#shop-modal"
                     >
@@ -123,7 +123,7 @@
                   thumbnail-50
                 "
                         style="
-                  background-image: url(img/khung-fire.jpg);
+                  background-image: url(img/khung/khung-2.png);
                   background-repeat: no-repeat;
                   background-position: 0px 0px;
                   background-size: 100% 100%;
@@ -194,7 +194,7 @@
                   thumbnail-50
                 "
                         style="
-                  background-image: url(img/khung-wood.jpg);
+                  background-image: url(img/khung/khung-3.png);
                   background-repeat: no-repeat;
                   background-position: 0px 0px;
                   background-size: 100% 100%;
@@ -274,7 +274,7 @@
                   thumbnail-50
                 "
                         style="
-                  background-image: url(img/khung-mental.jpg);
+                  background-image: url(img/khung/khung-4.png);
                   background-repeat: no-repeat;
                   background-position: 0px 0px;
                   background-size: 100% 100%;

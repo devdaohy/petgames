@@ -1,13 +1,9 @@
-$(document).ready(function () {
-    console.log("sdfsfsdf");
 
-    $(".gallery-item").on("click", function () {
-        console.log("sdfsfsdf");
-    });
+
+
+$(".button-game-bg-mid span").on( "click", function() {
+    console.log($(this).attr("id"));
 });
-
-
-
 getApprove();
 
 
@@ -26,6 +22,8 @@ async function getApprove(){
 
     //approve
     if(approveAmount < amount){
+     // $(".button-game-bg-mid").html("<span class=\"btn-approve\" style=\"font-size: 20px\">Approve</span>");
+         $(".button-game-bg-mid span").text("Approve");
         //approve(petGamesTokenContract, amount);
     }
     
@@ -145,5 +143,9 @@ async function getEggPrice(){
 
     eggPrice = await petNFTContract.methods.getBoxPrice().call();
 
+    $(".panel-item__text p").append(eggPrice);
     console.log(eggPrice);
 }
+
+
+

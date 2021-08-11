@@ -3,7 +3,11 @@ $(document).ready(function () {
   //        CAROUSEL SWIPE           //
   /////////////////////////////////////
 
-  $.MessageBox("A plain MessageBox can replace Javascript's window.alert(), and it looks definitely better...");
+//getDialog()
+  async function getDialog() {
+    $.MessageBox("A plain MessageBox can replace Javascript's window.alert(), and it looks definitely better...");
+
+  }
 
   var $sweetworldcarousel = $("#sweet-world-carousel");
 
@@ -50,12 +54,13 @@ $(document).ready(function () {
     img.attr("src", dataModel.attr("src"));
   });
 
-  $(
-    "div#item-1, div#item-2, div#item-3, div#item-4,div#item-5, div#item-6, div#item-7, div#item-8,div#item-9, div#item-10, div#item-11, div#item-12"
-  ).on("click", function () {
-    $("img#showcase-img").addClass("thumb-50");
-    $("ul#model-feats").addClass("hide");
-  });
+  // $(
+  //   "div#item-1, div#item-2, div#item-3, div#item-4,div#item-5, div#item-6, div#item-7, div#item-8,div#item-9, div#item-10, div#item-11, div#item-12"
+  // ).on("click", function () {
+  //   console.log('ssfsdfsdf');
+  //   $("img#showcase-img").addClass("thumb-50");
+  //   $("ul#model-feats").addClass("hide");
+  // });
 
   /////////////////////////////////////
   //          GOOGLE MAPS            //
@@ -193,40 +198,20 @@ $(window)
   .resize(function () {
     var width = $(window).width();
     if (width >= 300 && width <= 1024) {
-      $("#item-1, #item-2, #item-3, #item-4")
+      $(".item-1, .item-2, .item-3, .item-4")
         .removeClass("col-sm-3 col-xs-5")
         .addClass("col-sm-5 col-xs-12");
-      $("#item-2").removeClass("col-xs-offset-2").addClass("col-xs-offset-0");
-      $("#item-3").removeClass("col-sm-offset-1");
-      $("#item-5, #item-6, #item-7, #item-8")
-        .removeClass("col-sm-3 col-xs-5")
-        .addClass("col-sm-5 col-xs-12");
-      $("#item-6").removeClass("col-xs-offset-2").addClass("col-xs-offset-0");
-      $("#item-7").removeClass("col-sm-offset-1");
-      $("#item-9, #item-10, #item-11, #item-12")
-        .removeClass("col-sm-3 col-xs-5")
-        .addClass("col-sm-5 col-xs-12");
-      $("#item-10").removeClass("col-xs-offset-2").addClass("col-xs-offset-0");
-      $("#item-11").removeClass("col-sm-offset-1");
+      $(".item-2").removeClass("col-xs-offset-2").addClass("col-xs-offset-0");
+      $(".item-3").removeClass("col-sm-offset-1");
+
     } else {
-      $("#item-1, #item-2, #item-3, #item-4")
+      $(".item-1, .item-2, .item-3, .item-4")
         .removeClass("col-sm-5 col-xs-12")
         .addClass("col-sm-3 col-xs-5");
-      $("#item-4").removeClass("col-sm-offset-3").addClass("col-sm-offset-1");
-      $("#item-2").removeClass("col-xs-offset-0").addClass("col-xs-offset-2");
-      $("#item-3").addClass("col-sm-offset-1");
-      $("#item-5, #item-6, #item-7, #item-8")
-        .removeClass("col-sm-5 col-xs-12")
-        .addClass("col-sm-3 col-xs-5");
-      $("#item-8").removeClass("col-sm-offset-3").addClass("col-sm-offset-1");
-      $("#item-6").removeClass("col-xs-offset-0").addClass("col-xs-offset-2");
-      $("#item-7").addClass("col-sm-offset-1");
-      $("#item-9, #item-10, #item-11, #item-12")
-        .removeClass("col-sm-5 col-xs-12")
-        .addClass("col-sm-3 col-xs-5");
-      $("#item-12").removeClass("col-sm-offset-3").addClass("col-sm-offset-1");
-      $("#item-10").removeClass("col-xs-offset-0").addClass("col-xs-offset-2");
-      $("#item-11").addClass("col-sm-offset-1");
+      $(".item-4").removeClass("col-sm-offset-3").addClass("col-sm-offset-1");
+      $(".item-2").removeClass("col-xs-offset-0").addClass("col-xs-offset-2");
+      $(".item-3").addClass("col-sm-offset-1");
+
     }
   })
   .resize(); //trigger the resize event on page load.
