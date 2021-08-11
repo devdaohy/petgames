@@ -206,7 +206,7 @@
                          background-config
                        "
                             style="
-                  background-image: url(img/khung2.png);
+                  background-image: url(img/khung-random.png);
                 " data-toggle="modal" data-target="#shop-modal">
                         <button style="background-color: #b68c78" class="pet-no">
                             #0000006
@@ -292,15 +292,10 @@
             </div>
         </div>
     </div>
-    <button id="demo">DEMO</button>
 
-    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-message-box@3.2.2/dist/messagebox.min.js"></script>
+
     <script src="js/bootstrap/bootstrap.min.js"></script>
-    <script>
-        $.MessageBox("A plain MessageBox can replace Javascript's window.alert(), and it looks definitely better...");
 
-    </script>
     <script src="js/magicegg.js"></script>
 
 <?php  include "footer.php"?>

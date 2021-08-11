@@ -98,28 +98,28 @@
                                 <p class="panel-item__summary" style="text-align: center"><b>Owner: </b>0x790FC...978926</p>
                                 <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/>10000</p>
                             </div>
-                            <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
+                            <div class="button-game">
                                 <span class="button-game-bg-left-buy"></span>
                                 <span class="button-game-bg-mid">
-                    <span style="font-size: 20px">Buy</span>
-                  </span>
+                                    <span style="font-size: 20px">Buy</span>
+                                  </span>
                                 <span class="button-game-bg-right-buy"></span>
-                            </a>
+                            </div>
                         </div>
                         <div
                                 id="item-2"
                                 class="
-                  col-xs-5 col-xs-offset-2 col-sm-3 col-sm-offset-1
-                  gallery-item
-                  item-2
-                  thumbnail-50
-                "
-                                style="
-                  background-image: url(img/khung-fire.jpg);
-                  background-repeat: no-repeat;
-                  background-position: 0px 0px;
-                  background-size: 100% 100%;
-                "
+                                  col-xs-5 col-xs-offset-2 col-sm-3 col-sm-offset-1
+                                  gallery-item
+                                  item-2
+                                  thumbnail-50
+                                "
+                                                style="
+                                  background-image: url(img/khung-fire.jpg);
+                                  background-repeat: no-repeat;
+                                  background-position: 0px 0px;
+                                  background-size: 100% 100%;
+                                "
                                 data-toggle="modal"
                                 data-target="#shop-modal"
                         >

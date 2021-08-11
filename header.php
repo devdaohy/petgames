@@ -6,10 +6,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Enrich your precious game by complimenting it with the website it truly deserves. Promote your game's iconic visuals, addictive gameplay and engulfing missions, with the most vibrant way possible through Sweet World's unique design. Thriving with small details, this premium template Exp will make your visitors download your game in an instant."
+    <meta name="description" content="PET GAMES - NFT Games on Binance Smart Chain"
     />
     <meta name="keywords" content="game, premium template, gaming, online gaming, facebook, fb, pc game, android, ios, google play store, apple appstore, one page template, Sweet World, candy, bubbles, jewels, themeforest" />
-    <title>Games on Binance Smart Chain</title>
+    <title>PET GAMES</title>
     <!-- Bootstrap -->
     <link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet" />
     <link href="fonts/ionicons/2.0.1/css/ionicons.min.css" type="text/css" media="screen" rel="stylesheet" />
@@ -56,7 +56,7 @@
                         <ul class="nav navbar-nav">
                             <li class="plain-link"><a href="magicbox.php">Magic Egg</a></li>
                             <li class="plain-link"><a href="index.php">Marketplace</a></li>
-                            <li class="plain-link"><a href="#mypet">My Pet</a></li>
+                            <li class="plain-link"><a href="mypet.php">My Pet</a></li>
                             <li class="plain-link"><a href="#monster">Monster</a></li>
                             <li class="plain-link"><a href="#farm">Farm</a></li>
                             <li class="plain-link"><a href="#battlefield">Battlefield</a></li>

@@ -1676,11 +1676,11 @@ h2.tips {
 
 .store .container {
     background: url(../img/creampaper.png);
-    padding: 2rem 2rem 2rem 2rem;
+    padding: 0rem 2rem 2rem 2rem;
     border: 2px dashed #d45f42;
     border-radius: 2rem;
     margin: 2rem auto 0;
-    margin-top: 10rem;
+    margin-top: 4rem;
 }
 
 
@@ -6327,6 +6327,22 @@ ul#model-feats {
     background-position: 0px 0px;
     background-size: 100% 100%;
 }
+.messagebox{
+    border: 1px solid #262424;
+    border-radius: 13px;
+    background: whitesmoke;
+}
+.messagebox_content_wrapper{
+    padding-bottom: 10px;
+    padding: 15px 15px;
+    border-bottom: 1px solid black;
+}
+.messagebox_buttons{
+    padding: 5px 5px;
+    text-align: center;
+}
+.messagebox_buttons_button messagebox_button_done{
 
+}
 
 /*# sourceMappingURL=styles.css.map */

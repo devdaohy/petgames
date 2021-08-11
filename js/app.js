@@ -3,6 +3,8 @@ $(document).ready(function () {
   //        CAROUSEL SWIPE           //
   /////////////////////////////////////
 
+  $.MessageBox("A plain MessageBox can replace Javascript's window.alert(), and it looks definitely better...");
+
   var $sweetworldcarousel = $("#sweet-world-carousel");
 
   $sweetworldcarousel.swiperight(function () {
