@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="row" id="play">
                         <h2>MARKETPLACE</h2>
-                        <h4 style="text-align: center;font-size:25px" id = "my-balance"> Balance: 100000 </h4>
+                        <h4 style="text-align: center;font-size:25px"> Balance: 100000 <img src="img/logo.png" style="width:35px"/></h4>
                         <div class="list-scarces">
                             <ul class="scarces">
                                 <li>
@@ -1105,4 +1105,3 @@
             </section>
         </div>
         <?php  include "footer.php"?>
-        <script src="js/index.js"></script>
