@@ -57,7 +57,7 @@ Tertiary Font: "Changa", Verdana, sans-serif;
 -------------------------------------------------------------------*/
 
 @import url(vendors/bootstrap/bootstrap.min.css);
-
+@import url(marketplace.css);
 /*------------------------------------------------------------------
 
 1. Base / #base
