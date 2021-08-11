@@ -1,0 +1,112 @@
+/*------------------------------------------------------------------
+
+2. Components / #components
+    2.1. Navigations / #navigations
+        2.1.1. Main Navigation / #main-nav
+
+-------------------------------------------------------------------*/
+.navbar-custom {
+    background: $textureMenu;
+    z-index: 3;
+    box-shadow: 0 0 20px rgba(0,0,0,.5)
+}
+
+.navbar-inverse {
+    border-color: $mainColor;
+}
+
+.navbar .container {
+    font-size: 14px !important;
+}
+
+.nav-logo {
+    width: 40px;
+    height: auto;
+}
+
+a.navbar-logo {
+    background-image: $textureLogo;
+    width: 50px;
+    height: 42px;
+    background-size: 50px auto;
+    padding: 0;
+    margin-top: 0px;
+
+    &:hover {
+        background-position: 0px -50px;
+    }
+}
+
+.custom-toggle-btn {
+    background-color: rgba(255, 255, 255, 0) !important;
+    border: none;
+    right: 5px;
+    top: -1px;
+    position: absolute;
+
+    .icon-bar {
+        margin: -5px -11px 6px 0px;
+        height: 3px;
+        width: 30px;
+        background-color: $secondaryColor !important;
+    }
+}
+
+#main-nav ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.navbar-nav {
+    li {
+        a {
+    padding-top: 13px;
+    padding-bottom: 10px;
+        }
+    }
+}
+
+.plain-link {
+    font-family: $secondaryFont;
+    font-size: 0.9em;
+    margin: 0 auto;
+    padding: 5px 10px 5px 10px;
+    @include mq-tablet { padding: 0px 0px 0px 5px; }
+    @include mq-max-tablet {
+        border-bottom: 2px dashed $mainColor;
+    }
+
+    a {
+        color: $mainColor !important;
+        font-size: 120%;
+        transition: all 0.33s;
+        text-shadow: -1px 3px 0.3px $borderColorLight, 1px 3px 0.3px $borderColorLight, 0 -3px 0.3px $borderColorLight, -3px 0 0.3px $borderColorLight, 3px 0 0.3px $borderColorLight, -3px -3px 0.3px $borderColorLight, 3px -3px 0.3px $borderColorLight, -3px 3px 0.3px $borderColorLight, 3px 3px 0.3px $borderColorLight, 3px 3px 3px rgba(0, 0, 0, 0.8);
+        font-weight: 900;
+        border-left: 2px dashed $borderColor;
+        text-transform: uppercase;
+        @include mq-tablet { font-size: 100%; }
+        @include mq-desktop { font-size: 100%; }
+        @include mq-max-smartphone {border-left: none;}
+    }
+
+    &:first-child a {
+        border-left: none;
+    }
+
+    &:hover {
+        text-shadow: 0 0 15px $textShadow01, 0px -5px 20px $textShadow02, 0 5px 20px $textShadow03;
+        a { color: $mainColorHover !important; }
+    }
+}
+
+//scrollspy style
+.plain-link.active {
+    text-shadow: 0 0 15px $textShadow01, 0px -5px 20px $textShadow02, 0 5px 20px $textShadow03;
+    a {
+        background-color: transparent !important;
+        color: $mainColorHover !important;
+    }
+}
+
+//expanded nav style
+.collapsing .plain-link a, .in .plain-link a { text-align: center; }

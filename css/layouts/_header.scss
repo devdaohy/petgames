@@ -1,0 +1,60 @@
+/*------------------------------------------------------------------
+
+3. Layout / #layout
+    3.1. Header / #header
+
+-------------------------------------------------------------------*/
+header {
+    @extend %full-screen-bg;
+    background-image: linear-gradient(rgba(218, 245, 238, 0.1), rgba(98, 181, 81, 0.1)), $textureMainBg;
+    height: 75vh;
+    background-position: 0 75%;
+    @include mq-max-tablet {
+        background-position: 0 25%;
+    }
+    @include mq-ipad-pro-portrait {
+        background-position: 0 25%;
+    }
+}
+
+.big-logo {
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    opacity:0;
+    -moz-transition: opacity 2s; 
+    -webkit-transition: opacity 2s;
+    -o-transition: opacity 2s;
+    transition: opacity 2s;
+    @include transform(translate(-50%, -90%));
+
+    width: 35%;
+    z-index: 0;
+
+    @include mq-max-tablet {
+        width: 80%;
+        top: 45%;
+        @include transform(translate(-50%, -65%));
+    }
+
+    @include mq-ipad-pro-portrait {
+        width: 75%;
+        top: 48%;
+    }
+
+    @include mq-max-smartphone {
+        width: 100%;
+    }
+}
+
+.social-nav-header {
+    @extend .social-nav;
+    left: 50%;
+    @include transform(translateX(-50%));
+    bottom: 55px;
+    display: none;
+    position: absolute;
+
+    @include mq-tablet { display: block; }
+}
