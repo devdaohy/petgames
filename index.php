@@ -1,96 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Enrich your precious game by complimenting it with the website it truly deserves. Promote your game's iconic visuals, addictive gameplay and engulfing missions, with the most vibrant way possible through Sweet World's unique design. Thriving with small details, this premium template Exp will make your visitors download your game in an instant."
-    />
-    <meta name="keywords" content="game, premium template, gaming, online gaming, facebook, fb, pc game, android, ios, google play store, apple appstore, one page template, Sweet World, candy, bubbles, jewels, themeforest" />
-    <title>PET GAMES</title>
-    <!-- Bootstrap -->
-    <link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet" />
-    <link href="fonts/ionicons/2.0.1/css/ionicons.min.css" type="text/css" media="screen" rel="stylesheet" />
-    <!-- Boxicons CSS -->
-    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-    <![endif]-->
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="msapplication-TileColor" content="#181818" />
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-    <meta name="theme-color" content="#181818" />
-    <link rel="icon" type="image/png" href="img/logo.png" />
-</head>
-
-<body data-spy="scroll" data-target=".navbar-custom">
-    <div class="container-fluid">
-        <div class="row">
-            <!-- ============== HEADER =============== -->
-            <header id="home">
-                <!-- Main nav -->
-                <nav class="navbar navbar-inverse navbar-custom navbar-fixed-top">
-                    <div class="container">
-                        <div class="navbar navbar-header">
-                            <div class="logo-container">
-                                <a class="navbar-brand navbar-logo" href="#home"></a>
-                            </div>
-
-                            <button type="button" class="navbar-toggle custom-toggle-btn" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
-                            <i class="bx bx-menu"></i>
-                        </button>
-                        </div>
-                        <div class="collapse navbar-collapse" id="main-nav">
-                            <ul class="nav navbar-nav">
-                                <li class="plain-link"><a href="#magicegg">Magic Egg</a></li>
-                                <li class="plain-link"><a href="#marketplace">Marketplace</a></li>
-                                <li class="plain-link"><a href="#mypet">My Pet</a></li>
-                                <li class="plain-link"><a href="#monster">Monster</a></li>
-                                <li class="plain-link"><a href="#farm">Farm</a></li>
-                                <li class="plain-link"><a href="#battlefield">Battlefield</a></li>
-                                <li class="plain-link"><a href="#howtoplay">How to play ?</a></li>
-
-                            </ul>
-                        </div>
-                        <ul class="nav navbar-nav navbar-right singin-btn-container">
-                            <button class="signin-btn">0x790FC...8978926</button>
-                        </ul>
-                    </div>
-                </nav>
-                <!-- <h1>
-        <img
-          onload="this.style.opacity='1';"
-          class="big-logo"
-          src="img/Sweet-World-Logo.png"
-          alt="Sweet World big logo"
-        />
-      </h1> -->
-            </header>
-        </div>
-
-
-        <!-- ============== DIVIDER ============== -->
-        <div class="Divider first-divider">
-            <hr class="Divider-rule" />
-        </div>
+<?php ?>
+    <?php  include "header.php"?>
         <!-- ============== STORE SECTION =============== -->
         <div class="row pattern">
             <section class="store" id="store">
                 <div class="container">
                     <div class="row" id="play">
                         <h2>MARKETPLACE</h2>
-                        <h4 style="text-align: center;font-size:25px"> Balance: 100000 <img src="img/logo.png" style="width:3%"/></h4>
+                        <h4 style="text-align: center;font-size:25px" id = "my-balance"> Balance: 100000 </h4>
                         <div class="list-scarces">
                             <ul class="scarces">
                                 <li>
@@ -145,17 +61,9 @@
                                 data-toggle="modal"
                                 data-target="#shop-modal"
                         >
-                            <button style="background-color: #9e7293" class="pet-no">
-                                #0000001
-                            </button>
-                            <img
-                                    src="img/a1-1.png"
-                                    alt="Avatar Pet"
-                                    width="400"
-                                    height="750"
-                                    style="margin-bottom: 160px"
-                            />
-                            <span d="item-price-caption" class="item-price-caption hidden-xs" >Pay as you go</span>
+                            <button style="background-color: #9e7293" class="pet-no">#0000001</button>
+                            <img src="img/a1-1.png" alt="Avatar Pet" width="400" height="750" style="margin-bottom: 160px"/>
+                            <span id="item-price-caption" class="item-price-caption hidden-xs" >Pay as you go</span>
                             <span id="item-name-caption" class="item-name-caption hidden-xs">Online - Magic box</span>
                             <div class="panel-item__text">
                                 <h4 class="panel-item__title">Water Pet</h4>
@@ -175,7 +83,7 @@
                                     <tr>
                                         <td>
                                             <p class="panel-item__summary" >
-                                                <i style="margin-right: 5px" class="bx bxs-droplet"></i>Exp: 1500
+                                                <i style="margin-right: 5px" class="bx bxs-droplet"></i>Exp: 15000
                                             </p>
                                         </td>
                                         <td>
@@ -188,7 +96,7 @@
                                     </tr>
                                 </table>
                                 <p class="panel-item__summary" style="text-align: center"><b>Owner: </b>0x790FC...978926</p>
-                                <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img>10000</pstyle>
+                                <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/>10000</p>
                             </div>
                             <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                                 <span class="button-game-bg-left-buy"></span>
@@ -218,21 +126,9 @@
                             <button style="background-color: #9e7293" class="pet-no">
                                 #1
                             </button>
-                            <img
-                                    src="img/a2-1.png"
-                                    alt="Avatar Pet"
-                                    width="440"
-                                    height="750"
-                                    style="margin-bottom: 160px"
-                            />
-                            <span
-                                    id="item-price-caption"
-                                    class="item-price-caption hidden-xs"
-                            >$ 4.99</span
-                            >
-                            <span id="item-name-caption" class="item-name-caption hidden-xs"
-                            >AppStore - iOS Version</span
-                            >
+                            <img src="img/a2-1.png" alt="Avatar Pet" width="440" height="750" style="margin-bottom: 160px"/>
+                            <span id="item-price-caption" class="item-price-caption hidden-xs">$ 4.99</span>
+                            <span id="item-name-caption" class="item-name-caption hidden-xs">AppStore - iOS Version</span>
                             <div class="panel-item__text">
                                 <h4 class="panel-item__title">Fire Pet</h4>
                                 <table class="info-pet" >
@@ -263,7 +159,7 @@
                                     </tr>
                                 </table>
                                 <p class="panel-item__summary" style="text-align: center"><b>Owner: </b>0x790FC...978926</p>
-                                <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img>10000</pstyle>
+                                <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/>10000</p>
                             </div>
                             <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                                 <span class="button-game-bg-left-buy"></span>
@@ -304,11 +200,8 @@
                             <span
                                     id="item-price-caption"
                                     class="item-price-caption hidden-xs"
-                            >$ 4.49</span
-                            >
-                            <span id="item-name-caption" class="item-name-caption hidden-xs"
-                            >Play Store - Android Version</span
-                            >
+                            >$ 4.49</span>
+                            <span id="item-name-caption" class="item-name-caption hidden-xs">Play Store - Android Version</span>
                             <div class="panel-item__text">
                                 <h4 class="panel-item__title">Wood Pet</h4>
                                 <table class="info-pet" >
@@ -339,7 +232,7 @@
                                     </tr>
                                 </table>
                                 <p class="panel-item__summary" style="text-align: center"><b>Owner: </b>0x790FC...978926</p>
-                                <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img>10000</pstyle>
+                                <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img>10000</p>
                             </div>
                             <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                                 <span class="button-game-bg-left-buy"></span>
@@ -415,7 +308,7 @@
                                     </tr>
                                 </table>
                                 <p class="panel-item__summary" style="text-align: center"><b>Owner: </b>0x790FC...978926</p>
-                                <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img>10000</pstyle>
+                                <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img>10000</p>
                             </div>
                             <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                                 <span class="button-game-bg-left-buy"></span>
@@ -1211,56 +1104,5 @@
                 </div>
             </section>
         </div>
-            <!-- ============== DIVIDER ============== -->
-            <div class="Divider">
-                <hr class="Divider-rule" />
-            </div>
-
-            <!-- ============== FOOTER =============== -->
-            <div class="row pattern-dark">
-                <footer class="container footer">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-8">
-                            <nav class="footer-nav">
-                                <ul>
-                                    <li><a href="#store">Play Now</a></li>
-                                    <li><a href="#gallery">Gallery</a></li>
-                                    <li><a href="#features">Hints & Tips</a></li>
-                                    <li><a href="#contact">Contact</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <nav class="social-nav">
-                                <a href="#">
-                                    <span class="ion-social-facebook"></span>
-                                </a>
-                                <a href="#">
-                                    <span class="ion-social-twitter"></span>
-                                </a>
-                                <a href="#">
-                                    <span class="ion-social-youtube"></span>
-                                </a>
-                                <a href="#">
-                                    <span class="ion-social-instagram"></span>
-                                </a>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <p class="copyright">Copyright &copy; 2021 PET GAMES.</p>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <!-- ============== SCRIPTS =============== -->
-        <script src="js/jquery-1.12.4.min.js"></script>
-        <script src="https://maps-api-ssl.google.com/maps/api/js?key=AIzaSyBqGHoKDotAUnCmJJqIDUzdGO2g3xA0tnY&callback=initMap"></script>
-        <script src="js/bootstrap/bootstrap.min.js"></script>
-        <script src="js/gmaps/gmaps.js"></script>
-        <script src="js/waypoints/jquery.waypoints.min.js"></script>
-        <script src="js/app.min.js"></script>
-        <script src="js/jquery-mobile-custom/jquery.mobile.custom.min.js"></script>
-</body>
-
-</html>
+        <?php  include "footer.php"?>
+        <script src="js/index.js"></script>
