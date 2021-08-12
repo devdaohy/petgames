@@ -1,5 +1,6 @@
 <?php ?>
     <?php  include "header.php"?>
+<link href="css/marketplace.css" rel="stylesheet" />
         <!-- ============== STORE SECTION =============== -->
         <div class="row pattern">
             <section class="store" id="store">

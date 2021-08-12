@@ -2,8 +2,39 @@
 
 
 $(".button-game-bg-mid span").on( "click", function() {
-    console.log($(this).attr("id"));
+    if($(this).text()=="Approve"){
+        const web3 = new Web3(DATASEED);
+         approve(new web3.eth.Contract(petGamesTokenAbi, PETGAMES));
+        location.reload();
+
+    }else{
+      //  console.log($(this).parent().parent().parent().find('input').val());
+        if($(this).parent().parent().parent().find('input').val().length >0)
+        {
+            if(Number.isInteger(Number($(this).parent().parent().parent().find('input').val())))
+            {
+                 buyEgg(triberToNumber($(this).attr("id")),Number($(this).parent().parent().parent().find('input').val()));
+
+            }
+        }
+
+        // buyEgg()
+    }
+
 });
+
+function triberToNumber(tribername)
+{
+    if(tribername=="egg-water") return 1;
+   else if(tribername=="egg-fire") return 2;
+   else if(tribername=="egg-wood") return 3;
+   else if(tribername=="egg-metal") return 4;
+   else if(tribername=="egg-earth") return 5;
+   else{
+       return 0;
+    }
+
+}
 getApprove();
 
 
@@ -34,7 +65,7 @@ async function getApprove(){
 }
 
 
-async function approve(petGamesTokenContract, amount){
+async function approve(petGamesTokenContract){
 
     encoded = petGamesTokenContract.methods.approve(BUYEGG, "1000000000000000000000000").encodeABI();
 

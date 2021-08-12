@@ -41,18 +41,7 @@ $(document).ready(function () {
   /////////////////////////////////////
   //      MODAL WINDOW GALLERY       //
   /////////////////////////////////////
-  $(".gallery-item").on("click", function () {
-    var label = $("#myModalLabel");
-    var img = $("#showcase-img");
-    var price = $("#modal-price-tag");
-    var body = $("#modalBody");
-    var dataModel = $(this).find("img");
-    var modelfeats = $("#model-feats").find("li");
 
-    label.text("Sweet World: " + $(this).find("#item-name-caption").text());
-    price.text($(this).find("#item-price-caption").text());
-    img.attr("src", dataModel.attr("src"));
-  });
 
   // $(
   //   "div#item-1, div#item-2, div#item-3, div#item-4,div#item-5, div#item-6, div#item-7, div#item-8,div#item-9, div#item-10, div#item-11, div#item-12"
@@ -197,21 +186,29 @@ function labnolIframe() {
 $(window)
   .resize(function () {
     var width = $(window).width();
-    if (width >= 300 && width <= 1024) {
+    if (width >= 600 && width <= 1024) {
       $(".item-1, .item-2, .item-3, .item-4")
         .removeClass("col-sm-3 col-xs-5")
-        .addClass("col-sm-5 col-xs-12");
-      $(".item-2").removeClass("col-xs-offset-2").addClass("col-xs-offset-0");
+        .addClass("col-sm-5 col-xs-5");
+      $(".item-2").removeClass("col-xs-offset-2").addClass("col-xs-offset-2");
       $(".item-3").removeClass("col-sm-offset-1");
+      $(".item-4").removeClass("col-xs-offset-2").addClass("col-xs-offset-2");
 
-    } else {
+
+    } else if(width >= 10 && width <= 599){
       $(".item-1, .item-2, .item-3, .item-4")
-        .removeClass("col-sm-5 col-xs-12")
-        .addClass("col-sm-3 col-xs-5");
-      $(".item-4").removeClass("col-sm-offset-3").addClass("col-sm-offset-1");
-      $(".item-2").removeClass("col-xs-offset-0").addClass("col-xs-offset-2");
-      $(".item-3").addClass("col-sm-offset-1");
+        .removeClass("col-sm-5 col-xs-5")
+        .addClass("col-sm-3 col-xs-12");
+       $(".item-4").removeClass("col-xs-offset-2");
+       $(".item-2").removeClass("col-xs-offset-2");
+       $(".item-3").addClass("col-sm-offset-1");
 
+    }
+    else{
+      $(".item-1, .item-2, .item-3, .item-4")
+          .removeClass("col-sm-5 col-xs-12")
+          .addClass("col-sm-3 col-xs-5");
+      $(".item-3").addClass("col-sm-offset-1");
     }
   })
   .resize(); //trigger the resize event on page load.

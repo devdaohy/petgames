@@ -1,5 +1,18 @@
+
+$(".gallery-item").on("click", function () {
+	var label = $("#myModalLabel");
+	var img = $("#showcase-img");
+	var price = $("#modal-price-tag");
+	var body = $("#modalBody");
+	var dataModel = $(this).find("img");
+	var modelfeats = $("#model-feats").find("li");
+
+	label.text("Sweet World: " + $(this).find("#item-name-caption").text());
+	price.text($(this).find("#item-price-caption").text());
+	img.attr("src", dataModel.attr("src"));
+});
 var lstPetSale = new Array(), lstMyPet = new Array();
-loadMarket();
+//loadMarket();
 loadMyPet();
 
 async function loadMarket(){
@@ -87,6 +100,7 @@ function sortFunction(a, b) {
 
 function pet(i,exp,tribe,scarce,owner,price)
 {
+
 	content = " <div\n" +
 	"                                id=\"item-"+ i + "\"\n" +
 	"                                class=\""+ positionClass(i) + "\""+
@@ -95,7 +109,7 @@ function pet(i,exp,tribe,scarce,owner,price)
 	"                                data-target=\"#shop-modal\"\n" +
 	"                        >\n" +
 	"                            <button style=\"background-color: #9e7293\" class=\"pet-no\">#0000001</button>\n" +
-	"                            <img src=\""+"img/ASSET/scarce-"+ scarce +"/a"+ tribe + "-"+ levelimage(exp) +".png"+"\" alt=\"Avatar Pet\" width=\"400\" height=\"750\" style=\"margin-bottom: 160px\"/>\n" +
+	"                            <img src=\""+"img/ASSET/scarce-"+ scarce +"/a"+ tribe + "-"+ levelimage(exp) +".png"+"\" alt=\"Avatar Pet\" width=\"400\" height=\"750\"  class=\"image-pet\"/>\n" +
 	"                            <span id=\"item-price-caption\" class=\"item-price-caption hidden-xs\" >Pay as you go</span>\n" +
 	"                            <span id=\"item-name-caption\" class=\"item-name-caption hidden-xs\">Online - Magic box</span>\n" +
 	"                            <div class=\"panel-item__text\">\n" +
@@ -163,10 +177,11 @@ function positionClass(i)
 	if(i ==1) return "col-xs-5 col-sm-3 gallery-item item-1 thumbnail-50 background-config";
 	else if(i ==2) return "col-xs-5 col-xs-offset-2 col-sm-3 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
 	else if(i ==3) return "col-xs-5 col-sm-3 col-sm-offset-1 gallery-item item-3 thumbnail-50 background-config";
-	else if(i ==4) return "  col-xs-5 col-sm-3 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
+	else if(i ==4) return "  col-xs-5 col-sm-3 col-xs-offset-2 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
 
 }
 async function loadMyPet(){
+	console.log('ádfasdf');
 
 	var myAddress = ethereum.selectedAddress;
 
