@@ -5,6 +5,7 @@
         <div class="row pattern">
             <section class="store" id="store">
                 <div class="container">
+                    <div id="div_element"></div>
                     <div class="row" id="play">
                         <h2>MARKETPLACE</h2>
                       <div>

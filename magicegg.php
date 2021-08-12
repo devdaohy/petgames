@@ -68,7 +68,7 @@
                               <div class="div-amount">
                                 <div>
                                     <label>Amount</label>
-                                    <input type="text" class="amount" value="1"/>
+                                    <input type="number" class="amount" value="1"/>
                                 </div>
 
                             </div>
@@ -98,7 +98,7 @@
                               <div class="div-amount">
                                 <div>
                                     <label>Amount</label>
-                                    <input type="text" class="amount" value="1"/>
+                                    <input type="number" class="amount" value="1"/>
                                 </div>
 
                             </div>

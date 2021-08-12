@@ -1,5 +1,6 @@
 
-$(".gallery-item").on("click", function () {
+$(".store .container").on("click",".gallery-item", function () {
+	console.log('ádfasdf');
 	var label = $("#myModalLabel");
 	var img = $("#showcase-img");
 	var price = $("#modal-price-tag");
@@ -11,8 +12,16 @@ $(".gallery-item").on("click", function () {
 	price.text($(this).find("#item-price-caption").text());
 	img.attr("src", dataModel.attr("src"));
 });
+var ele =$("<p id=\"demo\" href='#'>Link</p>");
+
+$("#div_element").on("click","#demo",function(){
+	console.log($(this).attr("id"));
+});
+
+
+$("#div_element").append(ele);
 var lstPetSale = new Array(), lstMyPet = new Array();
-//loadMarket();
+loadMarket();
 loadMyPet();
 
 async function loadMarket(){
@@ -174,10 +183,31 @@ function tribename(tribe)
 
 function positionClass(i)
 {
-	if(i ==1) return "col-xs-5 col-sm-3 gallery-item item-1 thumbnail-50 background-config";
-	else if(i ==2) return "col-xs-5 col-xs-offset-2 col-sm-3 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
-	else if(i ==3) return "col-xs-5 col-sm-3 col-sm-offset-1 gallery-item item-3 thumbnail-50 background-config";
-	else if(i ==4) return "  col-xs-5 col-sm-3 col-xs-offset-2 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
+	var width = $(window).width();
+	if (width >= 600 && width <= 1024) {
+
+		if(i ==1) return "col-sm-5 col-xs-5 gallery-item item-1 thumbnail-50 background-config";
+		else if(i ==2) return "col-sm-5 col-xs-5 col-xs-offset-2 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
+		else if(i ==3) return "col-sm-5 col-xs-5  gallery-item item-3 thumbnail-50 background-config";
+		else if(i ==4) return "col-sm-5 col-xs-5 col-xs-offset-2 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
+
+
+	} else if(width >= 10 && width <= 599){
+
+
+		     if(i ==1) return "col-sm-3 col-xs-12 gallery-item item-1 thumbnail-50 background-config";
+		else if(i ==2) return "col-sm-3 col-xs-12 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
+		else if(i ==3) return "col-sm-3 col-xs-12 col-sm-offset-1 gallery-item item-3 thumbnail-50 background-config";
+		else if(i ==4) return "col-sm-3 col-xs-12 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
+
+	}
+	else{
+		if(i ==1) return "col-sm-3 col-xs-5 gallery-item item-1 thumbnail-50 background-config";
+		else if(i ==2) return "col-sm-3 col-xs-5 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
+		else if(i ==3) return "col-sm-3 col-xs-5 col-sm-offset-1 gallery-item item-3 thumbnail-50 background-config";
+		else if(i ==4) return "col-sm-3 col-xs-5 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
+	}
+
 
 }
 async function loadMyPet(){

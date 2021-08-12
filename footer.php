@@ -43,8 +43,8 @@
 </div>
 </div>
 <!-- ============== SCRIPTS =============== -->
-<script src="js/jquery-1.12.4.min.js"></script>
-<!--<script src="https://code.jquery.com/jquery-2.2.4.js"></script>-->
+<!--<script src="js/jquery-1.12.4.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-message-box@3.2.2/dist/messagebox.min.js"></script>
 <script src="https://maps-api-ssl.google.com/maps/api/js?key=AIzaSyBqGHoKDotAUnCmJJqIDUzdGO2g3xA0tnY&callback=initMap"></script>
 <script src="js/bootstrap/bootstrap.min.js"></script>
