@@ -1585,8 +1585,8 @@ async function getAccount() {
 	var myBalance = await petGamesTokenContract.methods.balanceOf(myAddress).call();
 
 	myBalance = myBalance/1000000000000000000;
-
-	$("#my-balance img").before("Balance:  " + myBalance);
+	//$("#my-balance img").clear();
+	$("#my-balance").html("Balance:  " + myBalance + "<img src=\"img/logo.png\" style=\"width:35px;margin-left: 10px\">");
 }
 
 function encryptAccount(account){

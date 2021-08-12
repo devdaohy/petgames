@@ -7,7 +7,7 @@
                     <div class="row" id="play">
                         <h2>MARKETPLACE</h2>
                       <div>
-                          <p style="text-align: center;font-size:25px" id="my-balance">  <img src="img/logo.png" style="width:35px;margin-left: 10px"/></p>
+                          <p style="text-align: center;font-size:25px" id="my-balance">  </p>
 
                       </div>
                         <div class="list-scarces">
