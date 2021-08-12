@@ -12,8 +12,8 @@ $(".gallery-item").on("click", function () {
 	img.attr("src", dataModel.attr("src"));
 });
 var lstPetSale = new Array(), lstMyPet = new Array();
-//loadMarket();
-loadMyPet();
+loadMarket();
+//loadMyPet();
 
 async function loadMarket(){
 
