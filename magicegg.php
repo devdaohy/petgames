@@ -172,7 +172,7 @@
                         <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                             <span class="button-game-bg-left-buy"></span>
                             <span class="button-game-bg-mid">
-                    <span style="font-size: 20px">Buy</span>
+                    <span id="egg-earth" style="font-size: 20px">Buy</span>
                   </span>
                             <span class="button-game-bg-right-buy"></span>
                         </a>
@@ -203,7 +203,7 @@
                         <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                             <span class="button-game-bg-left-buy"></span>
                             <span class="button-game-bg-mid">
-                    <span id="egg-earth" id="egg-random" style="font-size: 20px">Buy</span>
+                    <span id="egg-random" style="font-size: 20px">Buy</span>
                   </span>
                             <span class="button-game-bg-right-buy"></span>
                         </a>

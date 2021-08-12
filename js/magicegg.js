@@ -13,12 +13,15 @@ $(".button-game-bg-mid span").on( "click", function() {
         {
             if(Number.isInteger(Number($(this).parent().parent().parent().find('input').val())))
             {
-                 buyEgg(triberToNumber($(this).attr("id")),Number($(this).parent().parent().parent().find('input').val()));
 
+                num = triberToNumber($(this).attr("id"));
+                amount = Number($(this).parent().parent().parent().find('input').val());
+                if (num > 0)buyEgg(num,amount);
+                else {
+                    buyEggRandom(amount);
+                }
             }
         }
-
-        // buyEgg()
     }
 
 });
@@ -26,15 +29,16 @@ $(".button-game-bg-mid span").on( "click", function() {
 function triberToNumber(tribername)
 {
     if(tribername=="egg-water") return 1;
-   else if(tribername=="egg-fire") return 2;
-   else if(tribername=="egg-wood") return 3;
-   else if(tribername=="egg-metal") return 4;
-   else if(tribername=="egg-earth") return 5;
-   else{
+    else if(tribername=="egg-fire") return 2;
+    else if(tribername=="egg-wood") return 3;
+    else if(tribername=="egg-metal") return 4;
+    else if(tribername=="egg-earth") return 5;
+    else{
        return 0;
     }
 
 }
+
 getApprove();
 
 
@@ -57,10 +61,6 @@ async function getApprove(){
          $(".button-game-bg-mid span").text("Approve");
         //approve(petGamesTokenContract, amount);
     }
-    
-    //buyEgg(1,3);
-    //buyEggRandom(3);
-
     getEggPrice();
 }
 
@@ -137,32 +137,6 @@ async function buyEggRandom(amount) {
 
     console.log(txHash);
 
-
-}
-
-
-async function buyEgg(tribe, amount){
-
-    const web3 = new Web3(DATASEED);
-
-    buyEggContract = new web3.eth.Contract(buyEggAbi, BUYEGG);
-
-    encoded = buyEggContract.methods.buyBox(tribe,amount).encodeABI();
-
-    const transactionParameters = {
-      nonce: '0x00', // ignored by MetaMask
-      to: BUYEGG, // Required except during contract publications.
-      from: ethereum.selectedAddress, // must match user's active address.
-      value: '0x00', // Only required to send ether to the recipient from the initiating external account.
-      data: encoded
-    };
-
-     const txHash = await ethereum.request({
-        method: 'eth_sendTransaction',
-        params: [transactionParameters],
-    });
-
-    console.log(txHash);
 
 }
 
