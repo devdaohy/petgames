@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row" id="play">
                     <h2>MAGIC EGG</h2>
-                    <h4 style="text-align: center;font-size:25px"> Balance: 0 <img src="img/logo.png" style="width:35px"/></h4>
+                    <h4 style="text-align: center;font-size:25px" id="my-balance">  <img src="img/logo.png" style="width:35px;margin-left: 10px"/></h4>
 
                 </div>
                 <div class="row items-container">

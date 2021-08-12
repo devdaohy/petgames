@@ -7,7 +7,9 @@
             <div class="container">
                 <div class="row" id="play">
                     <h2>MYPET</h2>
-                    <h4 style="text-align: center;font-size:25px"> Balance: 100000 <img src="img/logo.png" style="width:35px"/></h4>
+                    <div>
+                        <p style="text-align: center;font-size:25px" id="my-balance">  <img src="img/logo.png" style="width:35px;margin-left: 10px"/></p>
+                    </div>
                     <div class="list-scarces">
                         <ul class="scarces">
                             <li>
