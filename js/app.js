@@ -5,8 +5,8 @@ $(document).ready(function () {
   /////////////////////////////////////
 
 //getDialog()
-  async function getDialog() {
-    $.MessageBox("A plain MessageBox can replace Javascript's window.alert(), and it looks definitely better...");
+  async function getDialog(message) {
+    $.MessageBox(message);
 
   }
 

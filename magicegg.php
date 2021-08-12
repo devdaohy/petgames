@@ -20,7 +20,7 @@
                     >
 
                         <img
-                                src="img/water-egg.png"
+                                src="img/egg/1-egg.png"
                                 class="image-egg-magic"
                                 alt="Avatar Pet"
                                 width="400"
@@ -55,7 +55,7 @@
                          data-target="#shop-modal">
 
                         <img
-                                src="img/fire-egg.png"
+                                src="img/egg/2-egg.png"
                                 class="image-egg-magic"
                                 alt="Avatar Pet"
                                 width="440"
@@ -85,7 +85,7 @@
                          style=" background-image: url(img/khung/khung-3.png);" data-toggle="modal" data-target="#shop-modal">
 
                         <img
-                                src="img/wood-egg.png"
+                                src="img/egg/3-egg.png"
                                 class="image-egg-magic"
                                 alt="Avatar Pet"
                                 width="440"
@@ -106,7 +106,7 @@
                         <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                             <span class="button-game-bg-left-buy"></span>
                             <span class="button-game-bg-mid">
-                                <span id="egg-wood" tyle="font-size: 20px">Buy</span>
+                                <span id="egg-wood" style="font-size: 20px">Buy</span>
                               </span>
                             <span class="button-game-bg-right-buy"></span>
                         </a>
@@ -116,7 +116,7 @@
                          data-toggle="modal" data-target="#shop-modal">
 
                         <img
-                                src="img/metal-egg.png"
+                                src="img/egg/4-egg.png"
                                 class="image-egg-magic"
                                 alt="Avatar Pet"
                                 width="440"
@@ -151,7 +151,7 @@
 
                 " data-toggle="modal" data-target="#shop-modal">
                         <img
-                                src="img/earth-egg.png"
+                                src="img/egg/5-egg.png"
                                 class="image-egg-magic"
                                 alt="Avatar Pet"
                                 width="440"
@@ -182,7 +182,7 @@
                   background-image: url(img/khung/khung-6.png);
                 " data-toggle="modal" data-target="#shop-modal">
                         <img
-                                src="img/random-egg.png"
+                                src="img/egg/0-egg.png"
                                 class="image-egg-magic"
                                 alt="Avatar Pet"
                                 width="440"

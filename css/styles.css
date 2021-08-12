@@ -6348,14 +6348,13 @@ ul#model-feats {
     .image-egg-magic{
         margin-bottom: 80% !important;
     }
-
-
 }
 .image-pet{
+    margin-top:20%;
     margin-bottom: 65%;
 }
 .image-egg-magic{
-    margin-top: 15%;
+    margin-top: 20%;
     width: 80% !important;
     margin-bottom: 65% ;
 }

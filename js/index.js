@@ -1,6 +1,5 @@
 
 $(".store .container").on("click",".gallery-item", function () {
-	console.log('ádfasdf');
 	var label = $("#myModalLabel");
 	var img = $("#showcase-img");
 	var price = $("#modal-price-tag");
@@ -20,9 +19,8 @@ $("#div_element").on("click","#demo",function(){
 
 
 $("#div_element").append(ele);
-var lstPetSale = new Array(), lstMyPet = new Array();
+var lstPetSale = new Array();
 loadMarket();
-loadMyPet();
 
 async function loadMarket(){
 
@@ -188,38 +186,4 @@ function positionClass(i)
 	else if(i ==3) return "col-xs-5 col-sm-3 col-sm-offset-1 gallery-item item-3 thumbnail-50 background-config";
 	else if(i ==4) return "  col-xs-5 col-sm-3 col-xs-offset-2 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
 
-}
-async function loadMyPet(){
-	console.log('ádfasdf');
-
-	var myAddress = ethereum.selectedAddress;
-
-	// testnet
-	const web3 = new Web3(DATASEED);
-
-	petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
-
-	myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
-
-	for(let from=0;from<myBalance;){
-		to = Math.min(from+12, myBalance);
-		readMyPet(from, to, myAddress);
-		from = to;
-	}
-}
-
-
-async function readMyPet(from, to, sender){
-	for(let i = from; i < to; i++){
-
-		var nftId = await petNFTContract.methods.tokenOfOwnerByIndex(sender, Number(i)).call();
-
-		var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
-
-		lstMyPet.push(petNFTInfo);
-	}
-
-	if (lstMyPet.length==myBalance){
-		console.log(lstMyPet);
-	}
 }
