@@ -649,6 +649,32 @@ petNFTAbi = [
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "expOwner1",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "expOwner2",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -757,6 +783,11 @@ petNFTAbi = [
 					},
 					{
 						"internalType": "uint256",
+						"name": "nftId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
 						"name": "tribe",
 						"type": "uint256"
 					},
@@ -784,11 +815,6 @@ petNFTAbi = [
 						"internalType": "bool",
 						"name": "isSale",
 						"type": "bool"
-					},
-					{
-						"internalType": "uint256",
-						"name": "farmTime",
-						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
@@ -1085,6 +1111,32 @@ petNFTAbi = [
 			}
 		],
 		"name": "setBuyBoxStatus",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "setExpOwner1",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "setExpOwner2",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -1549,8 +1601,8 @@ buyEggAbi = [
 
 //init var
 var PETGAMES = '0x3964870F5Fc02ECe3c4DBD29Da10a141b9AeF474';
-var PETNFT = '0xaF31b26164Fa1A5DbAcDb39b91745830246bd70B';
-var BUYEGG = '0xB217c112365D160F4fE080aa4E960B6350762caa';
+var PETNFT = '0xbf70AF287BafEc53E92266E7d9cCa4F0fD2E33a8';
+var BUYEGG = '0xDcdE9C3341f4c3e443130E26AA7e297Bb2ce33d4';
 var DATASEED = 'https://data-seed-prebsc-2-s1.binance.org:8545/';
 
 var myAddress;
