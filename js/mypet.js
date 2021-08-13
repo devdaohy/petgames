@@ -195,3 +195,27 @@
         }
     }
 
+
+    async function crackEgg(nftId){
+
+        const web3 = new Web3(DATASEED);
+
+        petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+
+        encoded = petNFTContract.methods.openBox(nftId).encodeABI();
+
+        const transactionParameters = {
+          nonce: '0x00', // ignored by MetaMask
+          to: PETNFT, // Required except during contract publications.
+          from: ethereum.selectedAddress, // must match user's active address.
+          value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+          data: encoded
+        };
+
+         const txHash = await ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [transactionParameters],
+        });
+
+        console.log(txHash);
+    }
