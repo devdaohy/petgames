@@ -125,7 +125,7 @@
                                 id="item-price-caption" class="item-price-caption hidden-xs">$ 5.99</span>
                         <span id="item-name-caption" class="item-name-caption hidden-xs">Steam - PC & Mac Version</span>
                         <div class="panel-item__text">
-                            <h4 class="panel-item__title">Matel Egg</h4>
+                            <h4 class="panel-item__title">Metal Egg</h4>
                             <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img></p>
                               <div class="div-amount">
                                 <div>
