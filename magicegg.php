@@ -31,7 +31,7 @@
                             <h4 class="panel-item__title">Water Egg</h4>
 
                             <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img></p>
-                              <div class="div-amount">
+                            <div class="div-amount">
                                 <form>
                                     <label>Amount</label>
                                     <input type="number" class="amount" value="1"/>

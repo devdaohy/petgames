@@ -1,7 +1,7 @@
 <?php ?>
 <?php  include "header.php"?>
-    <link href="css/mypet.css" rel="stylesheet" />
     <link href="css/marketplace.css" rel="stylesheet" />
+    <link href="css/mypet.css" rel="stylesheet" />
     <!-- ============== STORE SECTION =============== -->
     <div class="row pattern">
         <section class="store" id="store">
@@ -87,27 +87,39 @@
                                         class="img-thumbnail"
                                         alt="Showcase Sweet World Game"
                                     />
-                                    <ul id="model-feats">
-                                        <li>Colour: Naturale</li>
-                                        <li>Weight: 2.23kg</li>
-                                        <li>Top: Mahogany, High-Gloss</li>
-                                        <li>Strings: 6 - Nylon</li>
-                                        <li>Frets: 20Nut</li>
-                                    </ul>
+
                                     <div class="clearfix"></div>
-                                    <div class="price" id="modal-price-tag">price here</div>
+                                    <div class="div-amount">
+                                        <form>
+                                            <label>Price</label>
+                                            <input type="number" class="amount" value="1" style="width: 21% !important;"/>
+                                            <img src="img/logo.png" class="imagemoney" style="margin-bottom: 0px !important;background: none;width: 8% !important;    box-shadow: none;"/>
+                                        </form>
+
+                                    </div>
                                 </div>
                                 <div class="modal-footer pattern">
-                                    <!--<button type="button" class="btn">Order now</button>-->
-                                    <a
-                                        xmlns="http://www.w3.org/1999/xhtml"
-                                        class="button-game shop-modal-hide"
-                                        href="#store"
-                                    >
+                                    <a type="button" id="btn-nft" style="display: none"></a>
+                                    <a type="button" id="btn-nft-price" style="display: none"></a>
+                                    <a id="detail-btn-crack" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" href="#store">
                                         <span class="button-game-bg-left"></span>
                                         <span class="button-game-bg-mid">
-                          <span>Buy Now</span>
-                        </span>
+                                          <span>Crack</span>
+                                        </span>
+                                        <span class="button-game-bg-right"></span>
+                                    </a>
+                                    <a id="detail-btn-sell" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" href="#store">
+                                        <span class="button-game-bg-left"></span>
+                                        <span class="button-game-bg-mid">
+                                          <span>Sell</span>
+                                        </span>
+                                        <span class="button-game-bg-right"></span>
+                                    </a>
+                                    <a id="detail-btn-transfer" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" href="#store">
+                                        <span class="button-game-bg-left"></span>
+                                        <span class="button-game-bg-mid">
+                                          <span>Transfer</span>
+                                        </span>
                                         <span class="button-game-bg-right"></span>
                                     </a>
                                 </div>

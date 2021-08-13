@@ -11,9 +11,8 @@ $(".button-game-bg-mid span").on( "click", function() {
       //  console.log($(this).parent().parent().parent().find('input').val());
         if($(this).parent().parent().parent().find('input').val().length >0)
         {
-            if(Number.isInteger(Number($(this).parent().parent().parent().find('input').val())))
+            if(Number.isInteger(Number($(this).parent().parent().parent().find('input').val())) && Number($(this).parent().parent().parent().find('input').val()) >0)
             {
-
                 num = triberToNumber($(this).attr("id"));
                 amount = Number($(this).parent().parent().parent().find('input').val());
                 if (num > 0)buyEgg(num,amount);
