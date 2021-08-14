@@ -225,3 +225,6 @@ document.addEventListener("gesturestart", function (e) {
 //         CAROUSEL FADE           //
 /////////////////////////////////////
 $(".carousel").carousel();
+
+
+var limitPage=3;

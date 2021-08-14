@@ -1726,10 +1726,10 @@ h2.tips {
 
 .store .container .list-scarces .scarces li button {
     cursor: pointer;
-    width: 120px;
+    /*width: 120px;*/
     height: 40px;
     line-height: 30px;
-    font-size: 16px;
+    font-size: 13px;
     color: #ffffff;
     border-radius: 10px;
     border: none;
@@ -6326,6 +6326,9 @@ ul#model-feats {
     background-repeat: no-repeat;
     background-position: 0px 0px;
     background-size: 100% 100%;
+}
+.messagebox_overlay{
+    z-index: 1050;
 }
 .messagebox{
     border: 1px solid #262424;

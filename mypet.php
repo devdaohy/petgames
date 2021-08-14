@@ -1,4 +1,4 @@
-<?php ?>
+<?php $demo="Ádfasfasd";?>
 <?php  include "header.php"?>
     <link href="css/marketplace.css" rel="stylesheet" />
     <link href="css/mypet.css" rel="stylesheet" />
@@ -14,45 +14,17 @@
                     <div class="list-scarces">
                         <ul class="scarces">
                             <li>
-                                <a><button class="scarce-1">
-                                        <i class="bx bxl-sketch"></i>Scarce 1
+                                <a><button class="scarce-1" style="width: 135px">
+                                        <i class="bx bxl-sketch"></i>Pet in wallet
                                     </button></a>
                             </li>
                             <li>
-                                <a><button class="scarce-2">
-                                        <i class="bx bxl-sketch"></i>Scarce 2
+                                <a><button class="scarce-2" style="width: 135px">
+                                        <i class="bx bxl-sketch"></i>Pet in market
                                     </button></a>
                             </li>
-                            <li>
-                                <a><button class="scarce-3">
-                                        <i class="bx bxl-sketch"></i>Scarce 3
-                                    </button></a>
-                            </li>
-                            <li>
-                                <a><button class="scarce-4">
-                                        <i class="bx bxl-sketch"></i>Scarce 4
-                                    </button></a>
-                            </li>
-                            <li>
-                                <a><button class="scarce-5">
-                                        <i class="bx bxl-sketch"></i>Scarce 5
-                                    </button></a>
-                            </li>
-                            <li>
-                                <a><button class="scarce-6">
-                                        <i class="bx bxl-sketch"></i>Scarce 6
-                                    </button></a>
-                            </li>
-                            <li>
-                                <a><button class="scarce-7">
-                                        <i class="bx bxl-sketch"></i>Scarce 7
-                                    </button></a>
-                            </li>
-                            <li>
-                                <a><button class="scarce-8">
-                                        <i class="bx bxl-sketch"></i>Scarce 8
-                                    </button></a>
-                            </li>
+
+
                         </ul>
                     </div>
                 </div>
@@ -89,12 +61,12 @@
                                     />
 
                                     <div class="clearfix"></div>
-                                    <div class="div-amount">
-                                        <form>
-                                            <label>Price</label>
-                                            <input type="number" class="amount" value="1" style="width: 21% !important;"/>
-                                            <img src="img/logo.png" class="imagemoney" style="margin-bottom: 0px !important;background: none;width: 8% !important;    box-shadow: none;"/>
-                                        </form>
+                                    <div class="div-info-sell-tranfer">
+<!--                                        <form>-->
+<!--                                            <label>Id Transfer</label>-->
+<!--                                            <input type="number" class="transfer" value="1" style="width: 21% !important;"/>-->
+<!---->
+<!--                                        </form>-->
 
                                     </div>
                                 </div>
@@ -142,4 +114,8 @@
         </section>
     </div>
 <?php  include "footer.php"?>
+<script>
+
+
+</script>
 <script src="js/mypet.js"></script>

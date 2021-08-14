@@ -1,4 +1,8 @@
 
+async function getDialog(message) {
+    $.MessageBox(message);
+
+}
 
     $(".store .container").on("click",".gallery-item", function () {
         var label = $("#myModalLabel");
@@ -9,7 +13,7 @@
         var modelfeats = $("#model-feats").find("li");
         var detail_btn_sell=$("#detail-btn-sell");
         var detail_btn_crack=$("#detail-btn-crack");
-        var active_pet=$("#active-pet");
+        var active_pet=$(this).find("#active-pet");
 
         if(active_pet.text()== "true")
         {
@@ -25,7 +29,7 @@
         img.attr("src", dataModel.attr("src"));
         $("#btn-nft").text($(this).find(".pet-no").text().replace('#',''));
         $("#btn-nft-price").text($(this).find("#item-price-caption").text());
-
+        $(".div-info-sell-tranfer").html("");
 
     });
     $("#detail-btn-crack").on('click',function () {
@@ -36,18 +40,62 @@
         }
 
     });
+    var amount="1";
+    var id="";
     $("#detail-btn-sell").on('click',function () {
-        if($(this).parent().parent().find(".amount").val().length >0)
-        {
-            // console.log(Number($(this).parent().parent().find(".amount").val()));
-
-            if(Number.isInteger(Number($(this).parent().parent().find(".amount").val())) && Number($(this).parent().parent().find(".amount").val()) > 0)
-            {
-                createOrder($(this).parent().find("#btn-nft").text(),Number($(this).parent().parent().find(".amount").val()));
-            }
-        }
-
+        $(".div-info-sell-tranfer").html(" <form>\n" +
+            "                                            <label>Price</label>\n" +
+            "                                            <input type=\"text\" class=\"amount\" value=\"1\" style=\"width: 21% !important;\"/>\n" +
+            "                                            <img src=\"img/logo.png\" class=\"imagemoney\" style=\"margin-bottom: 0px !important;background: none;width: 8% !important;    box-shadow: none;\"/>\n" +
+            "                                            <p id=\"btnsellpet\">Sell</p>\n" +
+            "                                            <p id=\"btncancelsellpet\">Cancel</p>\n" +
+            "                                        </form>");
     });
+        $(".div-info-sell-tranfer").on("keyup",".amount",function () {
+            amount = $(this).val();
+        });
+        $(".div-info-sell-tranfer").on("keyup",".transfer",function () {
+
+            id =$(this).val();
+        })
+        $(".div-info-sell-tranfer").on('click',"#btncancelsellpet",function () {
+
+            $(".div-info-sell-tranfer").html("");
+        });
+        $(".div-info-sell-tranfer").on('click',"#btncanceltransferpet",function () {
+
+            $(".div-info-sell-tranfer").html("");
+        });
+        $(".div-info-sell-tranfer").on('click',"#btnsellpet",function () {
+            amont= amont.trim();
+            if(amount.length >0)
+            {
+                if(Number.isInteger(Number(amount)) && Number(amount) > 0)
+                {
+                   // createOrder($("#detail-btn-sell").parent().find("#btn-nft").text(),amount);
+                }
+            }
+        });
+        $("#detail-btn-transfer").on('click',function () {
+
+            $(".div-info-sell-tranfer").html("<form>\n" +
+                "                                            <label>Id</label>\n" +
+                "                                            <input type=\"text\" class=\"transfer\"  style=\"width: 50% !important;\"/>\n" +
+                "                                            <p id=\"btntransferpet\">Transfer</p>\n" +
+                "                                            <p id=\"btncanceltransferpet\">Cancel</p>\n" +
+                "                                        </form>");
+        });
+        $(".div-info-sell-tranfer").on('click',"#btntransferpet",function () {
+           id = id.trim();
+           console.log($("#detail-btn-sell").parent().find("#btn-nft").text());
+            if(id.length >0)
+            {
+
+                    transfer($("#detail-btn-sell").parent().find("#btn-nft").text(),id);
+            }
+        });
+
+
     var lstMyPet = new Array();
     loadMyPet();
     function sortFunction(a, b) {
@@ -133,13 +181,11 @@
     {
         if(active == true)
         {
-            if(tribe == 7 || tribe == 8)
+            if(scarce == 7 || scarce == 8)
             {
-                return  "img/ASSET/scarce-"+ scarce +"/a"+ tribe + "-"+ levelimage(exp) +".png";
-
+                return  "img/ASSET/scarce-"+ scarce +"/a"+ scarce + "-"+ levelimage(exp) +".png";
             }else{
                 return  "img/ASSET/scarce-"+ scarce +"/a"+ tribe + "-"+ levelimage(exp) +".png";
-
             }
         }
         else{

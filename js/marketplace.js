@@ -19,7 +19,25 @@ $("#div_element").on("click","#demo",function(){
 
 
 $("#div_element").append(ele);
+
+
+$(".next-btn").on("click",function () {
+
+	if(document.location.href.indexOf('?') > -1) {
+		console.log(document.location.href.indexOf('page'));
+		if(document.location.href.indexOf('page') == -1) {
+			var url = document.location.href + "&page=2";
+		}else{
+			var url = document.location.href;
+		}
+	}else{
+			var url = document.location.href+"?page=2";
+	}
+	document.location = url;
+
+});
 var lstPetSale = new Array();
+var lstPetSaleFilter = new Array();
 loadMarket();
 
 async function loadMarket(){
@@ -39,9 +57,8 @@ async function loadMarket(){
 		readMarket(from, to, PETNFT);
 		from = to;
 	}
-	
-}
 
+}
 
 async function readMarket(from, to, sender){
 	var content="";
@@ -58,56 +75,103 @@ async function readMarket(from, to, sender){
 		console.log(lstPetSale);
 
 		lstPetSale.sort(sortFunction);
-
-		var content="";
-
-		for(let i=0; i<lstPetSale.length;i++)
-		{
-			var petNFTInfo=lstPetSale[i];
-
-			if(i % 4 ==0)
-			{
-				content +=" <div class=\"row items-container\">";
-				content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
-			}
-			else if(i % 4 == 1){
-				content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
-				if(i == lstPetSale.length -1)
-				{
-					content +=" </div>";
-				}
-			}
-			else if(i % 4 == 2){
-				content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
-				if(i == lstPetSale.length -1)
-				{
-					content +=" </div>";
-				}
-			}
-			else if (i % 4 == 3){
-				content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
-
-				content +=" </div>";
-			}
-		
-
-		}
-		$(content).insertBefore(".store .container .pickup-pagination");
+		forLstPetSale(lstPetSale.length)
+		// for(let i=0; i<lstPetSale.length;i++)
+		// {
+		// 	if(scarce)
+		// 	var petNFTInfo=lstPetSale[i];
+		//
+		// 	if(i % 4 ==0)
+		// 	{
+		// 		content +=" <div class=\"row items-container\">";
+		// 		content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
+		// 	}
+		// 	else if(i % 4 == 1){
+		// 		content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
+		// 		if(i == lstPetSale.length -1)
+		// 		{
+		// 			content +=" </div>";
+		// 		}
+		// 	}
+		// 	else if(i % 4 == 2){
+		// 		content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
+		// 		if(i == lstPetSale.length -1)
+		// 		{
+		// 			content +=" </div>";
+		// 		}
+		// 	}
+		// 	else if (i % 4 == 3){
+		// 		content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
+		//
+		// 		content +=" </div>";
+		// 	}
+		//
+		//
+		// }
+		// $(content).insertBefore(".store .container .pickup-pagination");
 		
 	}
 	// $(content).insertBefore(".store .container .pickup-pagination");
+}
 
+function forLstPetSale(length)
+{
 
+	var content="";
+	if(scarce >0)
+	{
+		lstPetSaleFilter =lstPetSale.filter(function (a) {
+			return a['scarce'] === scarce;
+		});
+	}else{
+		lstPetSaleFilter=lstPetSale;
+	}
+
+	console.log(lstPetSaleFilter);
+	if(page == null )page=1;
+	var count =0;
+	for(let i=((page - 1) * limitPage); i<Math.min(page*limitPage,lstPetSaleFilter.length);i++)
+	{
+
+		var petNFTInfo=lstPetSaleFilter[i];
+
+		if(count % 4 ==0)
+		{
+			content +=" <div class=\"row items-container\">";
+			content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
+		}
+		else if(count % 4 == 1){
+			content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
+			if(i == lstPetSale.length -1)
+			{
+				content +=" </div>";
+			}
+		}
+		else if(count % 4 == 2){
+			content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
+			if(i == lstPetSale.length -1)
+			{
+				content +=" </div>";
+			}
+		}
+		else if (count % 4 == 3){
+			content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
+
+			content +=" </div>";
+		}
+		count++;
+
+	}
+	$(content).insertBefore(".store .container .pickup-pagination");
+	$(".total-page").text(Math.ceil(lstPetSaleFilter.length / limitPage));
 }
 
 function sortFunction(a, b) {
-
-	return a['salePrice'] - b['salePrice']
+	return a['salePrice'] - b['salePrice'];
 }
 
 function pet(i,exp,tribe,scarce,owner,price,id)
 {
-
 	content = " <div\n" +
 	"                                id=\"item-"+ i + "\"\n" +
 	"                                class=\""+ positionClass(i) + "\""+
@@ -120,7 +184,7 @@ function pet(i,exp,tribe,scarce,owner,price,id)
 	"                            <span id=\"item-price-caption\" class=\"item-price-caption hidden-xs\" >Pay as you go</span>\n" +
 	"                            <span id=\"item-name-caption\" class=\"item-name-caption hidden-xs\">Online - Magic box</span>\n" +
 	"                            <div class=\"panel-item__text\">\n" +
-	"                                <h4 class=\"panel-item__title\">"+ tribename(tribe) +" Pet</h4>\n" +
+	"                                <h4 class=\"panel-item__title\">"+ petName(scarce) +"</h4>\n" +
 	"                                <table class=\"info-pet\" >\n" +
 	"                                    <tr >\n" +
 	"                                        <td>\n" +
@@ -186,6 +250,17 @@ function tribename(tribe)
 	else if(tribe == 3) return "Wood";
 	else if(tribe == 4) return "Metal";
 	else if(tribe == 5) return "Earth";
+}
+
+function petName(scarce){
+	if(scarce == 1) return "Mushroom";
+	else if(scarce == 2) return "Tree God";
+	else if(scarce == 3) return "Sagittarius";
+	else if(scarce == 4) return "Rabbit Ninja";
+	else if(scarce == 5) return "Druid";
+	else if(scarce == 6) return "Robo X";
+	else if(scarce == 7) return "Ghost Knight";
+	else if(scarce == 8) return "Super Knight";
 }
 
 function positionClass(i)
