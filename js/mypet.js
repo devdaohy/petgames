@@ -68,7 +68,6 @@ async function getDialog(message) {
         });
         $(".div-info-sell-tranfer").on('click',"#btnsellpet",function () {
             amount= amount.trim();
-            console.log(amount.length);
             if(amount.length >0)
             {
                 if(Number.isInteger(Number(amount)) && Number(amount) > 0)
@@ -99,12 +98,13 @@ async function getDialog(message) {
 
     var lstMyPet = new Array();
     loadMyPet();
-    function sortByNftId(a, b) {
+    function sortFunction(a, b) {
 
-        return a['nftId'] - b['nftId']
+        return a['salePrice'] - b['salePrice']
     }
 
-    function pet(i,exp,tribe,scarce,owner,price,active,id) {
+    function pet(i,exp,tribe,scarce,owner,price,active,id)
+    {
     var id_hidden = (active==true)?"":";display:none";
         content = " <div\n" +
             "                                id=\"item-"+ i + "\"\n" +
@@ -119,7 +119,7 @@ async function getDialog(message) {
             "                            <span id=\"active-pet\" class=\"item-price-caption hidden-xs\" >"+ active +"</span>\n" +
             "                            <span id=\"item-name-caption\" class=\"item-name-caption hidden-xs\">"+ tribename(tribe) +" "+petOrEgg(active)+"</span>\n" +
             "                            <div class=\"panel-item__text\">\n" +
-            "                                <h4 class=\"panel-item__title\">"+ petName(scarce)+"</h4>\n" +
+            "                                <h4 class=\"panel-item__title\">"+ tribename(tribe) +" "+petOrEgg(active)+"</h4>\n" +
                                             petInfo(active,price,exp,tribe,scarce) +
             "                            </div>\n" +
             "                            <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
@@ -268,6 +268,8 @@ async function getDialog(message) {
 
         }
     }
+
+
     async function crackEgg(nftId){
 
         const web3 = new Web3(DATASEED);
@@ -336,6 +338,101 @@ async function getDialog(message) {
         });
         console.log(txHash);
     }
-    
+
+
+
+    //update pet in market
+    loadMyPetMarket();
+
+    var lstMyPetMarket = new Array();
+    var yourSaleSize;
+
+    async function loadMyPetMarket(){
+
+        var myAddress =await ethereum.selectedAddress;
+
+        // testnet
+        const web3 = new Web3(DATASEED);
+
+        petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+
+        yourSaleSize = await petNFTContract.methods.yourSaleSize(myAddress).call();
+        console.log(yourSaleSize);
+
+        for(let from=0;from<yourSaleSize;){
+            to = Math.min(from+12, yourSaleSize);
+            readMyPetMarket(from, to, myAddress);
+            from = to;
+        }
+    }
+
+    async function readMyPetMarket(from, to, sender){
+
+        for(let i = from; i < to; i++){
+
+            var nftId = await petNFTContract.methods.yourSaleByIndex(sender, Number(i)).call();
+
+            var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
+
+            lstMyPetMarket.push(petNFTInfo);
+        }
+
+        if(lstMyPetMarket.length == yourSaleSize){
+            console.log("CMM");
+            console.log(lstMyPetMarket);
+        }
+    }
+
+
+
+    async function cancelOrder(nftId){
+
+        const web3 = new Web3(DATASEED);
+
+        petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+
+        encoded = petNFTContract.methods.cancelOrderNFT(nftId).encodeABI();
+
+        const transactionParameters = {
+          nonce: '0x00', // ignored by MetaMask
+          to: PETNFT, // Required except during contract publications.
+          from: ethereum.selectedAddress, // must match user's active address.
+          value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+          data: encoded
+        };
+
+         const txHash = await ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [transactionParameters],
+        });
+        console.log(txHash);
+    }
+
+
+    async function updatePriceOrder(nftId, price){
+
+        const web3 = new Web3(DATASEED);
+
+        petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+
+        encoded = petNFTContract.methods.updatePriceOrderNFT(nftId, price).encodeABI();
+
+        const transactionParameters = {
+          nonce: '0x00', // ignored by MetaMask
+          to: PETNFT, // Required except during contract publications.
+          from: ethereum.selectedAddress, // must match user's active address.
+          value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+          data: encoded
+        };
+
+         const txHash = await ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [transactionParameters],
+        });
+        console.log(txHash);
+    }
+
+
+
 
 

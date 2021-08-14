@@ -228,3 +228,95 @@ function pet(i,exp,tribe,scarce,owner,price,id)
 
 
 
+
+
+
+//getApprove();
+
+async function getApprove(){
+
+    myAddress = ethereum.selectedAddress;
+
+    const web3 = new Web3(DATASEED);
+
+    petGamesTokenContract = new web3.eth.Contract(petGamesTokenAbi, PETGAMES);
+
+    var approveAmount = await petGamesTokenContract.methods.allowance(myAddress, PETNFT).call();
+
+    amount = 1000000 * 1000000000000000000;
+
+    //approve
+    if(approveAmount < amount){
+
+    }
+    approve(petGamesTokenContract);
+}
+
+
+async function approve(petGamesTokenContract){
+
+    encoded = petGamesTokenContract.methods.approve(PETNFT, "1000000000000000000000000").encodeABI();
+
+    const transactionParameters = {
+      nonce: '0x00', // ignored by MetaMask
+      to: PETGAMES, // Required except during contract publications.
+      from: ethereum.selectedAddress, // must match user's active address.
+      value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+      data: encoded
+    };
+
+
+    const txHash = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+    });
+
+    console.log(txHash);
+
+}
+
+async function buyOrder(nftId){
+
+    const web3 = new Web3(DATASEED);
+
+    petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+
+    encoded = petNFTContract.methods.buyOrderNFT(nftId).encodeABI();
+
+    const transactionParameters = {
+      nonce: '0x00', // ignored by MetaMask
+      to: PETNFT, // Required except during contract publications.
+      from: ethereum.selectedAddress, // must match user's active address.
+      value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+      data: encoded
+    };
+
+     const txHash = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+    });
+    console.log(txHash);
+}
+
+async function cancelOrder(nftId){
+
+        const web3 = new Web3(DATASEED);
+
+        petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+
+        encoded = petNFTContract.methods.cancelOrderNFT(nftId).encodeABI();
+
+        const transactionParameters = {
+          nonce: '0x00', // ignored by MetaMask
+          to: PETNFT, // Required except during contract publications.
+          from: ethereum.selectedAddress, // must match user's active address.
+          value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+          data: encoded
+        };
+
+         const txHash = await ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [transactionParameters],
+        });
+        console.log(txHash);
+    }
