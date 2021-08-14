@@ -67,12 +67,12 @@ async function getDialog(message) {
             $(".div-info-sell-tranfer").html("");
         });
         $(".div-info-sell-tranfer").on('click',"#btnsellpet",function () {
-            amont= amont.trim();
+            amount= amount.trim();
             if(amount.length >0)
             {
                 if(Number.isInteger(Number(amount)) && Number(amount) > 0)
                 {
-                   // createOrder($("#detail-btn-sell").parent().find("#btn-nft").text(),amount);
+                   createOrder($("#detail-btn-sell").parent().find("#btn-nft").text(),amount);
                 }
             }
         });
@@ -400,5 +400,100 @@ async function getDialog(message) {
         console.log(txHash);
     }
     
+
+
+    //update pet in market
+    loadMyPetMarket();
+
+    var lstMyPetMarket = new Array();
+    var yourSaleSize;
+
+    async function loadMyPetMarket(){
+        
+        var myAddress =await ethereum.selectedAddress;
+        
+        // testnet
+        const web3 = new Web3(DATASEED);
+
+        petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+
+        yourSaleSize = await petNFTContract.methods.yourSaleSize(myAddress).call();
+        console.log(yourSaleSize);
+
+        for(let from=0;from<yourSaleSize;){
+            to = Math.min(from+12, yourSaleSize);
+            readMyPetMarket(from, to, myAddress);
+            from = to;
+        }
+    }
+
+    async function readMyPetMarket(from, to, sender){
+        
+        for(let i = from; i < to; i++){
+
+            var nftId = await petNFTContract.methods.yourSaleByIndex(sender, Number(i)).call();
+
+            var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
+
+            lstMyPetMarket.push(petNFTInfo);
+        }
+
+        if(lstMyPetMarket.length == yourSaleSize){
+            console.log("CMM");
+            console.log(lstMyPetMarket);
+        }
+    }
+
+
+
+    async function cancelOrder(nftId){
+
+        const web3 = new Web3(DATASEED);
+
+        petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+
+        encoded = petNFTContract.methods.cancelOrderNFT(nftId).encodeABI();
+
+        const transactionParameters = {
+          nonce: '0x00', // ignored by MetaMask
+          to: PETNFT, // Required except during contract publications.
+          from: ethereum.selectedAddress, // must match user's active address.
+          value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+          data: encoded
+        };
+
+         const txHash = await ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [transactionParameters],
+        });
+        console.log(txHash);
+    }
+
+    
+    async function updatePriceOrder(nftId, price){
+
+        const web3 = new Web3(DATASEED);
+
+        petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+
+        encoded = petNFTContract.methods.updatePriceOrderNFT(nftId, price).encodeABI();
+
+        const transactionParameters = {
+          nonce: '0x00', // ignored by MetaMask
+          to: PETNFT, // Required except during contract publications.
+          from: ethereum.selectedAddress, // must match user's active address.
+          value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+          data: encoded
+        };
+
+         const txHash = await ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [transactionParameters],
+        });
+        console.log(txHash);
+    }
+
+
+
 
 
