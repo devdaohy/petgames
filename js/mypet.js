@@ -1,4 +1,4 @@
-
+document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 async function getDialog(message) {
     $.MessageBox(message);
 
@@ -67,12 +67,13 @@ async function getDialog(message) {
             $(".div-info-sell-tranfer").html("");
         });
         $(".div-info-sell-tranfer").on('click',"#btnsellpet",function () {
-            amont= amont.trim();
+            amount= amount.trim();
+            console.log(amount.length);
             if(amount.length >0)
             {
                 if(Number.isInteger(Number(amount)) && Number(amount) > 0)
                 {
-                   // createOrder($("#detail-btn-sell").parent().find("#btn-nft").text(),amount);
+                   createOrder($("#detail-btn-sell").parent().find("#btn-nft").text(),amount);
                 }
             }
         });
@@ -98,13 +99,12 @@ async function getDialog(message) {
 
     var lstMyPet = new Array();
     loadMyPet();
-    function sortFunction(a, b) {
+    function sortByNftId(a, b) {
 
-        return a['salePrice'] - b['salePrice']
+        return a['nftId'] - b['nftId']
     }
 
-    function pet(i,exp,tribe,scarce,owner,price,active,id)
-    {
+    function pet(i,exp,tribe,scarce,owner,price,active,id) {
     var id_hidden = (active==true)?"":";display:none";
         content = " <div\n" +
             "                                id=\"item-"+ i + "\"\n" +
@@ -119,7 +119,7 @@ async function getDialog(message) {
             "                            <span id=\"active-pet\" class=\"item-price-caption hidden-xs\" >"+ active +"</span>\n" +
             "                            <span id=\"item-name-caption\" class=\"item-name-caption hidden-xs\">"+ tribename(tribe) +" "+petOrEgg(active)+"</span>\n" +
             "                            <div class=\"panel-item__text\">\n" +
-            "                                <h4 class=\"panel-item__title\">"+ tribename(tribe) +" "+petOrEgg(active)+"</h4>\n" +
+            "                                <h4 class=\"panel-item__title\">"+ petName(scarce)+"</h4>\n" +
                                             petInfo(active,price,exp,tribe,scarce) +
             "                            </div>\n" +
             "                            <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
@@ -132,53 +132,7 @@ async function getDialog(message) {
             "                        </div>";
         return content;
     }
-
-    function levelimage(exp)
-    {
-        if(exp < 300) return 1;
-        else if(exp >=300 && exp <1800) return 2;
-        else return 3;
-    }
-
-    function tribename(tribe)
-    {
-        if(tribe == 1) return "Water";
-        else if(tribe == 2) return "Fire";
-        else if(tribe == 3) return "Wood";
-        else if(tribe == 4) return "Metal";
-        else if(tribe == 5) return "Earth";
-    }
-
-    function positionClass(i)
-    {
-        var width = $(window).width();
-        if (width >= 600 && width <= 1024) {
-
-            if(i ==1) return "col-sm-5 col-xs-5 gallery-item item-1 thumbnail-50 background-config";
-            else if(i ==2) return "col-sm-5 col-xs-5 col-xs-offset-2 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
-            else if(i ==3) return "col-sm-5 col-xs-5  gallery-item item-3 thumbnail-50 background-config";
-            else if(i ==4) return "col-sm-5 col-xs-5 col-xs-offset-2 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
-
-
-        } else if(width >= 10 && width <= 599){
-
-
-            if(i ==1) return "col-sm-3 col-xs-12 gallery-item item-1 thumbnail-50 background-config";
-            else if(i ==2) return "col-sm-3 col-xs-12 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
-            else if(i ==3) return "col-sm-3 col-xs-12 col-sm-offset-1 gallery-item item-3 thumbnail-50 background-config";
-            else if(i ==4) return "col-sm-3 col-xs-12 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
-
-        }
-        else{
-            if(i ==1) return "col-sm-3 col-xs-5 gallery-item item-1 thumbnail-50 background-config";
-            else if(i ==2) return "col-sm-3 col-xs-5 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
-            else if(i ==3) return "col-sm-3 col-xs-5 col-sm-offset-1 gallery-item item-3 thumbnail-50 background-config";
-            else if(i ==4) return "col-sm-3 col-xs-5 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
-        }
-    }
-
-    function imagePetOrEgg(tribe,scarce,exp,active)
-    {
+    function imagePetOrEgg(tribe,scarce,exp,active) {
         if(active == true)
         {
             if(scarce == 7 || scarce == 8)
@@ -241,17 +195,8 @@ async function getDialog(message) {
         }
     }
 
-    function level(exp){
-        if(exp < 100) return 1;
-        if(exp < 300) return 2;
-        if(exp < 900) return 3;
-        if(exp < 1800) return 4;
-        if(exp < 3600) return 5;
-        if(exp < 7200) return 6;
-        if(exp < 12000) return 7;
 
-        return 8;
-    }
+
 
     async function loadMyPet(){
         // var myAddress =await ethereum.selectedAddress;
@@ -272,7 +217,6 @@ async function getDialog(message) {
             from = to;
         }
     }
-
     async function readMyPet(from, to, sender){
         console.log(from);
         for(let i = from; i < to; i++){
@@ -286,10 +230,9 @@ async function getDialog(message) {
 
 
         if(lstMyPet.length == myBalance){
-
-            console.log(lstMyPet);
             var content="";
-
+            lstMyPet.sort(sortByNftId);
+            console.log(lstMyPet);
             for(let i=0; i<lstMyPet.length;i++)
             {
                 var petNFTInfo=lstMyPet[i];
@@ -325,8 +268,6 @@ async function getDialog(message) {
 
         }
     }
-
-
     async function crackEgg(nftId){
 
         const web3 = new Web3(DATASEED);
@@ -350,8 +291,6 @@ async function getDialog(message) {
 
         console.log(txHash);
     }
-
-
     async function createOrder(nftId, price){
 
         const web3 = new Web3(DATASEED);
@@ -375,8 +314,6 @@ async function getDialog(message) {
 
         console.log(txHash);
     }
-
-
     async function transfer(nftId, toAddress){
 
         const web3 = new Web3(DATASEED);

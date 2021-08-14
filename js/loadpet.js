@@ -1,0 +1,67 @@
+function petName(scarce){
+    if(scarce == 1) return "Mushroom";
+    else if(scarce == 2) return "Tree God";
+    else if(scarce == 3) return "Sagittarius";
+    else if(scarce == 4) return "Rabbit Ninja";
+    else if(scarce == 5) return "Druid";
+    else if(scarce == 6) return "Robo X";
+    else if(scarce == 7) return "Ghost Knight";
+    else if(scarce == 8) return "Super Knight";
+}
+
+function levelimage(exp)
+{
+    if(exp < 300) return 1;
+    else if(exp >=300 && exp <1800) return 2;
+    else return 3;
+}
+
+function tribename(tribe)
+{
+    if(tribe == 1) return "Water";
+    else if(tribe == 2) return "Fire";
+    else if(tribe == 3) return "Wood";
+    else if(tribe == 4) return "Metal";
+    else if(tribe == 5) return "Earth";
+}
+
+function positionClass(i)
+{
+    var width = $(window).width();
+    if (width >= 600 && width <= 1024) {
+
+        if(i ==1) return "col-sm-5 col-xs-5 gallery-item item-1 thumbnail-50 background-config";
+        else if(i ==2) return "col-sm-5 col-xs-5 col-xs-offset-2 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
+        else if(i ==3) return "col-sm-5 col-xs-5  gallery-item item-3 thumbnail-50 background-config";
+        else if(i ==4) return "col-sm-5 col-xs-5 col-xs-offset-2 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
+
+
+    } else if(width >= 10 && width <= 599){
+
+
+        if(i ==1) return "col-sm-3 col-xs-12 gallery-item item-1 thumbnail-50 background-config";
+        else if(i ==2) return "col-sm-3 col-xs-12 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
+        else if(i ==3) return "col-sm-3 col-xs-12 col-sm-offset-1 gallery-item item-3 thumbnail-50 background-config";
+        else if(i ==4) return "col-sm-3 col-xs-12 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
+
+    }
+    else{
+        if(i ==1) return "col-sm-3 col-xs-5 gallery-item item-1 thumbnail-50 background-config";
+        else if(i ==2) return "col-sm-3 col-xs-5 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
+        else if(i ==3) return "col-sm-3 col-xs-5 col-sm-offset-1 gallery-item item-3 thumbnail-50 background-config";
+        else if(i ==4) return "col-sm-3 col-xs-5 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
+    }
+}
+
+function level(exp){
+    if(exp < 100) return 1;
+    if(exp < 300) return 2;
+    if(exp < 900) return 3;
+    if(exp < 1800) return 4;
+    if(exp < 3600) return 5;
+    if(exp < 7200) return 6;
+    if(exp < 12000) return 7;
+
+    return 8;
+}
+
