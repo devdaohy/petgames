@@ -7,23 +7,23 @@ $(".store .container").on("click",".gallery-item", function () {
 	var body = $("#modalBody");
 	var dataModel = $(this).find("img");
 	var modelfeats = $("#model-feats").find("li");
-
-	label.text("Sweet World: " + $(this).find("#item-name-caption").text());
-	price.text($(this).find("#item-price-caption").text());
+	label.text($(this).find("#item-name-caption").text());
 	img.attr("src", dataModel.attr("src"));
-});
-var ele =$("<p id=\"demo\" href='#'>Link</p>");
-
-$("#div_element").on("click","#demo",function(){
-	console.log($(this).attr("id"));
+	$(".detail-info-pet").html($(this).find(".panel-item__text").html());
+	$(".btn-nft-id").text($(this).find("button").text().replace('#',''));
 });
 
+$(".store .container").on("click",".btn-cancel", function () {
+	var nft_id=$(this).parent().parent().parent().find("button").text().replace('#','');
+	 cancelOrder(nft_id);
+});
+$(".button-game-bg-mid").on("click", function () {
+	buyOrder($(this).parent().parent().find("button").text());
 
-$("#div_element").append(ele);
+});
 
 
 $(".next-btn").on("click",function () {
-
 	if(document.location.href.indexOf('?') > -1) {
 		console.log(document.location.href.indexOf('page'));
 		if(document.location.href.indexOf('page') == -1) {
@@ -42,14 +42,13 @@ var lstPetSaleFilter = new Array();
 loadMarket();
 
 async function loadMarket(){
-
 	// testnet
 	const web3 = new Web3(DATASEED);
 
 	petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
 
 	marketSize = await petNFTContract.methods.balanceOf(PETNFT).call();
-
+	$("#amount-pet-sale").text(marketSize+" Pets For Sales");
 	myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
 
 	for(let from=0;from<marketSize;){
@@ -117,7 +116,6 @@ async function readMarket(from, to, sender){
 
 function forLstPetSale(length)
 {
-
 	var content="";
 	if(scarce >0)
 	{
@@ -139,24 +137,24 @@ function forLstPetSale(length)
 		if(count % 4 ==0)
 		{
 			content +=" <div class=\"row items-container\">";
-			content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
+			content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],petNFTInfo['nftOwner'],petNFTInfo['salePrice'],petNFTInfo['nftId'])
 		}
 		else if(count % 4 == 1){
-			content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
+			content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],petNFTInfo['nftOwner'],petNFTInfo['salePrice'],petNFTInfo['nftId'])
 			if(i == lstPetSale.length -1)
 			{
 				content +=" </div>";
 			}
 		}
 		else if(count % 4 == 2){
-			content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
+			content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],petNFTInfo['nftOwner'],petNFTInfo['salePrice'],petNFTInfo['nftId'])
 			if(i == lstPetSale.length -1)
 			{
 				content +=" </div>";
 			}
 		}
 		else if (count % 4 == 3){
-			content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
+			content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],petNFTInfo['nftOwner'],petNFTInfo['salePrice'],petNFTInfo['nftId'])
 
 			content +=" </div>";
 		}
@@ -177,15 +175,14 @@ function pet(i,exp,tribe,scarce,owner,price,id)
 	"                                id=\"item-"+ i + "\"\n" +
 	"                                class=\""+ positionClass(i) + "\""+
 	"                                style=\"background-image: url(img/khung/khung-"+tribe+".png); \"\n" +
-	"                                data-toggle=\"modal\"\n" +
-	"                                data-target=\"#shop-modal\"\n" +
+		modalEnable(owner)+
 	"                        >\n" +
 	"                            <button style=\"background-color: #9e7293\" class=\"pet-no\">#"+id+"</button>\n" +
 	"                            <img src=\""+"img/ASSET/scarce-"+ scarce +"/a"+ tribe + "-"+ levelimage(exp) +".png"+"\" alt=\"Avatar Pet\" width=\"400\" height=\"750\"  class=\"image-pet\"/>\n" +
-	"                            <span id=\"item-price-caption\" class=\"item-price-caption hidden-xs\" >Pay as you go</span>\n" +
-	"                            <span id=\"item-name-caption\" class=\"item-name-caption hidden-xs\">Online - Magic box</span>\n" +
+	"                            <span id=\"item-price-caption\" class=\"item-price-caption hidden-xs\" >"+price+"</span>\n" +
+	"                            <span id=\"item-name-caption\" class=\"item-name-caption hidden-xs\">"+petName(scarce,true,tribe)+"</span>\n" +
 	"                            <div class=\"panel-item__text\">\n" +
-	"                                <h4 class=\"panel-item__title\">"+ petName(scarce) +"</h4>\n" +
+	"                                <h4 class=\"panel-item__title\">"+ petName(scarce,true,tribe) +"</h4>\n" +
 	"                                <table class=\"info-pet\" >\n" +
 	"                                    <tr >\n" +
 	"                                        <td>\n" +
@@ -212,24 +209,19 @@ function pet(i,exp,tribe,scarce,owner,price,id)
 	"                                        </td>\n" +
 	"                                    </tr>\n" +
 	"                                </table>\n" +
-	"                                <p class=\"panel-item__summary\" style=\"text-align: center\"><b>Owner: </b>" +owner+"</p>\n" +
+	"                                <p class=\"panel-item__summary\" style=\"text-align: center\"><b>Owner: </b>" +encryptAccount(owner)+"</p>\n" +
 	"                                <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/>"+ price +"</p>\n" +
 	"                            </div>\n" +
 	"                            <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
 	"                                <span class=\"button-game-bg-left-buy\"></span>\n" +
 	"                                <span class=\"button-game-bg-mid\">\n" +
-	"                    <span style=\"font-size: 20px\">Buy</span>\n" +
+									buttonBuyOrCancle(owner)+
 	"                  </span>\n" +
 	"                                <span class=\"button-game-bg-right-buy\"></span>\n" +
 	"                            </a>\n" +
 	"                        </div>";
 	return content;
 }
-
-
-
-
-
 
 //getApprove();
 
@@ -251,7 +243,6 @@ async function getApprove(){
     }
     approve(petGamesTokenContract);
 }
-
 
 async function approve(petGamesTokenContract){
 
@@ -320,3 +311,28 @@ async function cancelOrder(nftId){
         });
         console.log(txHash);
     }
+ function buttonBuyOrCancle(owner){
+		 var myAddress = ethereum.selectedAddress;
+
+		if(myAddress.toString().trim().toUpperCase() == owner.toString().trim().toUpperCase()){
+			console.log(owner);
+
+			return "<span class=\"btn-cancel\" style=\"font-size: 20px\">Cancle</span>\n";
+
+		}else{
+			return "<span class=\"btn-buy\" style=\"font-size: 20px\">Buy</span>\n";
+		}
+	}
+
+function modalEnable(owner){
+	var myAddress = ethereum.selectedAddress;
+	if(myAddress.toString().trim().toUpperCase() == owner.toString().trim().toUpperCase()){
+		console.log(owner);
+
+		return "";
+
+	}else{
+		return 	"data-toggle=\"modal\"\n" +
+			"data-target=\"#shop-modal\"\n";
+	}
+}

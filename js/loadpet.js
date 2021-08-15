@@ -1,12 +1,18 @@
-function petName(scarce){
-    if(scarce == 1) return "Mushroom";
-    else if(scarce == 2) return "Tree God";
-    else if(scarce == 3) return "Sagittarius";
-    else if(scarce == 4) return "Rabbit Ninja";
-    else if(scarce == 5) return "Druid";
-    else if(scarce == 6) return "Robo X";
-    else if(scarce == 7) return "Ghost Knight";
-    else if(scarce == 8) return "Super Knight";
+function petName(scarce,active,tribe){
+    if(active ==true) {
+
+
+        if (scarce == 1) return "Mushroom";
+        else if (scarce == 2) return "Tree God";
+        else if (scarce == 3) return "Sagittarius";
+        else if (scarce == 4) return "Rabbit Ninja";
+        else if (scarce == 5) return "Druid";
+        else if (scarce == 6) return "Robo X";
+        else if (scarce == 7) return "Ghost Knight";
+        else if (scarce == 8) return "Super Knight";
+    }else{
+        return tribename(tribe) +" "+petOrEgg(active);
+    }
 }
 
 function levelimage(exp)
@@ -23,6 +29,7 @@ function tribename(tribe)
     else if(tribe == 3) return "Wood";
     else if(tribe == 4) return "Metal";
     else if(tribe == 5) return "Earth";
+    else if(tribe == 6) return "All";
 }
 
 function positionClass(i)

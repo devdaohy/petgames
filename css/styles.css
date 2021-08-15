@@ -6354,7 +6354,7 @@ ul#model-feats {
 }
 .image-pet{
     margin-top:10%;
-    margin-bottom: 65%;
+    margin-bottom: 75%;
 }
 .image-egg-magic{
     margin-top: 20%;
@@ -6367,5 +6367,44 @@ ul#model-feats {
 .div-amount{
     text-align: center;
     margin-bottom: 15px;
+}
+.modal .detail-info-pet img{
+    margin-bottom: 4px !important;
+    background: none;
+    width: 8% !important;
+    box-shadow: none;
+}
+.modal .modal-dialog{
+    width: 30%;
+    margin: 5% 35%;
+}
+.modal .modal-title{
+    margin: 1px;
+}
+.modal .modal-body{
+    padding: 0px;
+}
+.modal .info-pet{
+    margin: 0px;
+}
+
+.modal img{
+    width: 70%;
+
+}
+@media (max-width: 500px)  {
+    .modal .modal-dialog{
+        width: 80%;
+        margin: 5% 10%;
+    }
+
+}
+
+@media (min-width: 501px) and (max-width: 800px)  {
+    .modal .modal-dialog{
+        width: 70%;
+        margin: 5% 15%;
+    }
+
 }
 /*# sourceMappingURL=styles.css.map */

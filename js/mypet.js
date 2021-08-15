@@ -1,12 +1,13 @@
-document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
-async function getDialog(message) {
-    $.MessageBox(message);
+    document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
+    async function getDialog(message) {
+        $.MessageBox(message);
 
-}
+    }
+    var pricePet ="";
 
     $(".store .container").on("click",".gallery-item", function () {
-        var label = $("#myModalLabel");
-        var img = $("#showcase-img");
+        var label = $(".modal-title");
+        var img = $(".showcase-img");
         var price = $("#modal-price-tag");
         var body = $("#modalBody");
         var dataModel = $(this).find("img");
@@ -26,16 +27,19 @@ async function getDialog(message) {
         }
         label.text($(this).find("#item-name-caption").text());
         price.text($(this).find("#item-price-caption").text());
+        pricePet =$(this).find("#item-price-caption").text();
+        $(".price").val($(this).find("#item-price-caption").text());
         img.attr("src", dataModel.attr("src"));
-        $("#btn-nft").text($(this).find(".pet-no").text().replace('#',''));
-        $("#btn-nft-price").text($(this).find("#item-price-caption").text());
+        $(".btn-nft").text($(this).find(".pet-no").text().replace('#',''));
+        $(".btn-nft-price").text($(this).find("#item-price-caption").text());
         $(".div-info-sell-tranfer").html("");
+        $(".detail-info-pet").html($(this).find(".panel-item__text").html());
 
     });
     $("#detail-btn-crack").on('click',function () {
 
-        if($(this).parent().find("#btn-nft").text().length >=1){
-            crackEgg($(this).parent().find("#btn-nft").text());
+        if($(this).parent().find(".btn-nft").text().length >=1){
+            crackEgg($(this).parent().find(".btn-nft").text());
         }else{
         }
 
@@ -45,65 +49,90 @@ async function getDialog(message) {
     $("#detail-btn-sell").on('click',function () {
         $(".div-info-sell-tranfer").html(" <form>\n" +
             "                                            <label>Price</label>\n" +
-            "                                            <input type=\"text\" class=\"amount\" value=\"1\" style=\"width: 21% !important;\"/>\n" +
+            "                                            <input type=\"text\" class=\"amount\" value=\"1\" style=\"width: 21% !important;border-radius: 13px\"/>\n" +
             "                                            <img src=\"img/logo.png\" class=\"imagemoney\" style=\"margin-bottom: 0px !important;background: none;width: 8% !important;    box-shadow: none;\"/>\n" +
-            "                                            <p id=\"btnsellpet\">Sell</p>\n" +
-            "                                            <p id=\"btncancelsellpet\">Cancel</p>\n" +
+            "                                            <label id=\"btnsellpet\">Sell</label>\n" +
+            "                                            <label id=\"btncancelsellpet\">Cancel</label>\n" +
             "                                        </form>");
     });
-        $(".div-info-sell-tranfer").on("keyup",".amount",function () {
-            amount = $(this).val();
-        });
-        $(".div-info-sell-tranfer").on("keyup",".transfer",function () {
-
-            id =$(this).val();
-        })
-        $(".div-info-sell-tranfer").on('click',"#btncancelsellpet",function () {
-
-            $(".div-info-sell-tranfer").html("");
-        });
-        $(".div-info-sell-tranfer").on('click',"#btncanceltransferpet",function () {
-
-            $(".div-info-sell-tranfer").html("");
-        });
-        $(".div-info-sell-tranfer").on('click',"#btnsellpet",function () {
-            amount= amount.trim();
-            if(amount.length >0)
+    $("#detail-btn-transfer").on('click',function () {
+    $(".div-info-sell-tranfer").html("<form>\n" +
+        "                                            <label>Id</label>\n" +
+        "                                            <input type=\"text\" class=\"transfer\"  style=\"width: 40% !important;border-radius: 13px\"/>\n" +
+        "                                            <label id=\"btntransferpet\">Transfer</label>\n" +
+        "                                            <label id=\"btncanceltransferpet\">Cancel</label>\n" +
+        "                                        </form>");
+});
+    $(".div-info-sell-tranfer").on("keyup",".amount",function () {
+        amount = $(this).val();
+    });
+    $(".div-info-sell-tranfer").on("keyup",".transfer",function () {
+        id =$(this).val();
+    });
+    $(".div-info-sell-tranfer").on('click',"#btncancelsellpet",function () {
+        $(".div-info-sell-tranfer").html("");
+    });
+    $(".div-info-sell-tranfer").on('click',"#btncanceltransferpet",function () {
+        $(".div-info-sell-tranfer").html("");
+    });
+    $("#detail-btn-cancel-sell-market").on('click',function () {
+        cancelOrder($("#detail-btn-cancel-sell-market").parent().find(".btn-nft").text());
+    });
+    $(".div-info-sell-tranfer").on('click',"#btnsellpet",function () {
+        amount= amount.trim();
+        if(amount.length >0)
+        {
+            if(Number.isInteger(Number(amount)) && Number(amount) > 0)
             {
-                if(Number.isInteger(Number(amount)) && Number(amount) > 0)
-                {
-                   createOrder($("#detail-btn-sell").parent().find("#btn-nft").text(),amount);
-                }
+               createOrder($("#detail-btn-sell").parent().find(".btn-nft").text(),amount);
             }
-        });
-        $("#detail-btn-transfer").on('click',function () {
+        }
+    });
+    $(".div-info-sell-tranfer").on('click',"#btntransferpet",function () {
+       id = id.trim();
+         if(id.length >0)
+        {
+                transfer($("#detail-btn-sell").parent().find(".btn-nft").text(),id);
+        }
+    });
 
-            $(".div-info-sell-tranfer").html("<form>\n" +
-                "                                            <label>Id</label>\n" +
-                "                                            <input type=\"text\" class=\"transfer\"  style=\"width: 50% !important;\"/>\n" +
-                "                                            <p id=\"btntransferpet\">Transfer</p>\n" +
-                "                                            <p id=\"btncanceltransferpet\">Cancel</p>\n" +
-                "                                        </form>");
-        });
-        $(".div-info-sell-tranfer").on('click',"#btntransferpet",function () {
-           id = id.trim();
-           console.log($("#detail-btn-sell").parent().find("#btn-nft").text());
-            if(id.length >0)
-            {
 
-                    transfer($("#detail-btn-sell").parent().find("#btn-nft").text(),id);
-            }
-        });
 
+    $("#detail-btn-cancel-sell-market").on('click',function () {
+        cancelOrder($("#detail-btn-cancel-sell-market").parent().find(".btn-nft").text());
+    });
+    $(".div-info-sell-update").on("keyup",".price",function () {
+        pricePet = $(this).val();
+    });
+    $("#detail-btn-update").on('click',function () {
+
+        updatePriceOrder($("#detail-btn-cancel-sell-market").parent().find(".btn-nft").text(), pricePet);
+    });
+
+
+
+    $(".scarce-2").on("click",function () {
+        $("div").remove(".item-pet");
+        forLstMyPetMarket();
+
+    });
+    $(".scarce-1").on("click",function () {
+        $("div").remove(".item-pet");
+        forLstMyPet();
+
+    });
 
     var lstMyPet = new Array();
+    var lstMyPetMarket = new Array();
+    var yourSaleSize;
     loadMyPet();
-    function sortFunction(a, b) {
+    loadMyPetMarket();
+    function sortByNftId(a, b) {
 
-        return a['salePrice'] - b['salePrice']
+        return a['nftId'] - b['nftId']
     }
 
-    function pet(i,exp,tribe,scarce,owner,price,active,id)
+    function pet(i,exp,tribe,scarce,owner,price,active,id,modalwalletormarket)
     {
     var id_hidden = (active==true)?"":";display:none";
         content = " <div\n" +
@@ -111,7 +140,7 @@ async function getDialog(message) {
             "                                class=\""+ positionClass(i) + "\""+
             "                                style=\"background-image: url(img/khung/khung-"+tribe+".png); \"\n" +
             "                                data-toggle=\"modal\"\n" +
-            "                                data-target=\"#shop-modal\"\n" +
+            "                                data-target=\"#shop-modal"+modalwalletormarket+"\"\n" +
             "                        >\n" +
             "                             <button style=\"background-color: #9e7293"+id_hidden+"\" class=\"pet-no\">#"+id+"</button>\n" +
             "                            <img src=\""+imagePetOrEgg(tribe,scarce,exp,active)+"\" alt=\"Avatar Pet\" width=\"400\" height=\"750\"  class=\""+classimage(active)+"\"/>\n" +
@@ -119,7 +148,7 @@ async function getDialog(message) {
             "                            <span id=\"active-pet\" class=\"item-price-caption hidden-xs\" >"+ active +"</span>\n" +
             "                            <span id=\"item-name-caption\" class=\"item-name-caption hidden-xs\">"+ tribename(tribe) +" "+petOrEgg(active)+"</span>\n" +
             "                            <div class=\"panel-item__text\">\n" +
-            "                                <h4 class=\"panel-item__title\">"+ tribename(tribe) +" "+petOrEgg(active)+"</h4>\n" +
+            "                                <h4 class=\"panel-item__title\">"+ petName(scarce,active,tribe)+"</h4>\n" +
                                             petInfo(active,price,exp,tribe,scarce) +
             "                            </div>\n" +
             "                            <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
@@ -143,7 +172,14 @@ async function getDialog(message) {
             }
         }
         else{
-            return "img/egg/"+tribe+"-egg.png";
+            if(scarce == 7 || scarce == 8)
+            {
+                return "img/egg/0-egg.png";
+
+            }else{
+                return "img/egg/"+tribe+"-egg.png";
+
+            }
         }
 
     }
@@ -195,9 +231,6 @@ async function getDialog(message) {
         }
     }
 
-
-
-
     async function loadMyPet(){
         // var myAddress =await ethereum.selectedAddress;
         const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
@@ -218,7 +251,6 @@ async function getDialog(message) {
         }
     }
     async function readMyPet(from, to, sender){
-        console.log(from);
         for(let i = from; i < to; i++){
 
             var nftId = await petNFTContract.methods.tokenOfOwnerByIndex(sender, Number(i)).call();
@@ -233,43 +265,79 @@ async function getDialog(message) {
             var content="";
             lstMyPet.sort(sortByNftId);
             console.log(lstMyPet);
-            for(let i=0; i<lstMyPet.length;i++)
-            {
-                var petNFTInfo=lstMyPet[i];
-
-                if(i % 4 ==0)
-                {
-                    content +=" <div class=\"row items-container\">";
-                    content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'])
-                }
-                else if(i % 4 == 1){
-                    content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'])
-                    if(i == lstMyPet.length -1)
-                    {
-                        content +=" </div>";
-                    }
-                }
-                else if(i % 4 == 2){
-                    content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'])
-                    if(i == lstMyPet.length -1)
-                    {
-                        content +=" </div>";
-                    }
-                }
-                else if (i % 4 == 3){
-                    content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'])
-
-                    content +=" </div>";
-                }
-
-
-            }
+            forLstMyPet();
+            // for(let i=0; i<lstMyPet.length;i++)
+            // {
+            //     var petNFTInfo=lstMyPet[i];
+            //
+            //     if(i % 4 ==0)
+            //     {
+            //         content +=" <div class=\"row items-container\">";
+            //         content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'])
+            //     }
+            //     else if(i % 4 == 1){
+            //         content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'])
+            //         if(i == lstMyPet.length -1)
+            //         {
+            //             content +=" </div>";
+            //         }
+            //     }
+            //     else if(i % 4 == 2){
+            //         content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'])
+            //         if(i == lstMyPet.length -1)
+            //         {
+            //             content +=" </div>";
+            //         }
+            //     }
+            //     else if (i % 4 == 3){
+            //         content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'])
+            //
+            //         content +=" </div>";
+            //     }
+            //
+            //
+            // }
             $(content).insertBefore(".store .container .pickup-pagination");
 
         }
     }
 
+    function forLstMyPet()
+    {
+        var content="";
+        for(let i=0; i<lstMyPet.length;i++)
+        {
+            var petNFTInfo=lstMyPet[i];
 
+            if(i % 4 ==0)
+            {
+                content +=" <div class=\"row items-container item-pet\">";
+                content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
+            }
+            else if(i % 4 == 1){
+                content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
+                if(i == lstMyPet.length -1)
+                {
+                    content +=" </div>";
+                }
+            }
+            else if(i % 4 == 2){
+                content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
+                if(i == lstMyPet.length -1)
+                {
+                    content +=" </div>";
+                }
+            }
+            else if (i % 4 == 3){
+                content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
+
+                content +=" </div>";
+            }
+
+
+        }
+        $(content).insertBefore(".store .container .pickup-pagination");
+    }
     async function crackEgg(nftId){
 
         const web3 = new Web3(DATASEED);
@@ -340,17 +408,12 @@ async function getDialog(message) {
     }
 
 
-
     //update pet in market
-    loadMyPetMarket();
-
-    var lstMyPetMarket = new Array();
-    var yourSaleSize;
-
     async function loadMyPetMarket(){
 
-        var myAddress =await ethereum.selectedAddress;
-
+        // var myAddress =await ethereum.selectedAddress;
+        const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+        myAddress = accounts[0];
         // testnet
         const web3 = new Web3(DATASEED);
 
@@ -378,12 +441,46 @@ async function getDialog(message) {
         }
 
         if(lstMyPetMarket.length == yourSaleSize){
-            console.log("CMM");
             console.log(lstMyPetMarket);
         }
     }
 
+    function forLstMyPetMarket()
+    {
+        var content="";
+        for(let i=0; i<lstMyPetMarket.length;i++)
+        {
+            var petNFTInfo=lstMyPetMarket[i];
 
+            if(i % 4 ==0)
+            {
+                content +=" <div class=\"row items-container item-pet\">";
+                content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"1")
+            }
+            else if(i % 4 == 1){
+                content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"1")
+                if(i == lstMyPet.length -1)
+                {
+                    content +=" </div>";
+                }
+            }
+            else if(i % 4 == 2){
+                content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"1")
+                if(i == lstMyPet.length -1)
+                {
+                    content +=" </div>";
+                }
+            }
+            else if (i % 4 == 3){
+                content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"1")
+
+                content +=" </div>";
+            }
+
+
+        }
+        $(content).insertBefore(".store .container .pickup-pagination");
+    }
 
     async function cancelOrder(nftId){
 
