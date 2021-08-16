@@ -68,6 +68,7 @@ async function readMarket(from, to, sender){
 		forLstPetSale()
 		if(approveAmount < amount){
 			$(".btn-buy").text("Approve");
+
 			$(".btn-buy").on("click",function () {
 				approve(petGamesTokenContract);
 			});
@@ -192,7 +193,7 @@ async function getApprove(){
     const web3 = new Web3(DATASEED);
     petGamesTokenContract = new web3.eth.Contract(petGamesTokenAbi, PETGAMES);
      approveAmount = await petGamesTokenContract.methods.allowance(myAddress, PETNFT).call();
-    //approve
+
 }
 
 async function approve(petGamesTokenContract){
@@ -264,15 +265,19 @@ async function cancelOrder(nftId){
     }
  function buttonBuyOrCancle(owner){
 		 var myAddress = ethereum.selectedAddress;
-
+	 if(approveAmount < amount){
+		 return "<span class=\"btn-buy\" style=\"font-size: 20px\">Buy</span>\n";
+	 }else{
 		if(myAddress.toString().trim().toUpperCase() == owner.toString().trim().toUpperCase()){
 			console.log(owner);
 
 			return "<span class=\"btn-cancel\" style=\"font-size: 20px\">Cancle</span>\n";
 
-		}else{
+		}else {
 			return "<span class=\"btn-buy\" style=\"font-size: 20px\">Buy</span>\n";
+
 		}
+	 }
 	}
 
 function modalEnable(owner){
