@@ -29,12 +29,12 @@ var lstPetSaleFilter = new Array();
 var amount = 1000000 * 1000000000000000000;
 var approveAmount ="";
 var petGamesTokenContract="";
-
+getApprove();
 loadMarket();
 
 async function loadMarket(){
 	// testnet
-	await getApprove();
+ await getApprove();
 	const web3 = new Web3(DATASEED);
 
 	petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
@@ -190,7 +190,9 @@ function pet(i,exp,tribe,scarce,owner,price,id)
 //getApprove();
 
 async function getApprove(){
-    myAddress = ethereum.selectedAddress;
+    // var myAddress = await ethereum.selectedAddress;
+	const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+	var myAddress = accounts[0];
     const web3 = new Web3(DATASEED);
     petGamesTokenContract = new web3.eth.Contract(petGamesTokenAbi, PETGAMES);
      approveAmount = await petGamesTokenContract.methods.allowance(myAddress, PETNFT).call();
