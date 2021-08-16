@@ -23,22 +23,13 @@ $(".button-game-bg-mid").on("click", function () {
 });
 
 
-$(".next-btn").on("click",function () {
-	if(document.location.href.indexOf('?') > -1) {
-		console.log(document.location.href.indexOf('page'));
-		if(document.location.href.indexOf('page') == -1) {
-			var url = document.location.href + "&page=2";
-		}else{
-			var url = document.location.href;
-		}
-	}else{
-			var url = document.location.href+"?page=2";
-	}
-	document.location = url;
 
-});
 var lstPetSale = new Array();
 var lstPetSaleFilter = new Array();
+var amount = 1000000 * 1000000000000000000;
+var approveAmount ="";
+var petGamesTokenContract="";
+getApprove();
 loadMarket();
 
 async function loadMarket(){
@@ -73,50 +64,21 @@ async function readMarket(from, to, sender){
 	if(lstPetSale.length == marketSize){
 
 		console.log(lstPetSale);
-
 		lstPetSale.sort(sortFunction);
-		forLstPetSale(lstPetSale.length)
-		// for(let i=0; i<lstPetSale.length;i++)
-		// {
-		// 	if(scarce)
-		// 	var petNFTInfo=lstPetSale[i];
-		//
-		// 	if(i % 4 ==0)
-		// 	{
-		// 		content +=" <div class=\"row items-container\">";
-		// 		content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
-		// 	}
-		// 	else if(i % 4 == 1){
-		// 		content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
-		// 		if(i == lstPetSale.length -1)
-		// 		{
-		// 			content +=" </div>";
-		// 		}
-		// 	}
-		// 	else if(i % 4 == 2){
-		// 		content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
-		// 		if(i == lstPetSale.length -1)
-		// 		{
-		// 			content +=" </div>";
-		// 		}
-		// 	}
-		// 	else if (i % 4 == 3){
-		// 		content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['nftId'])
-		//
-		// 		content +=" </div>";
-		// 	}
-		//
-		//
-		// }
-		// $(content).insertBefore(".store .container .pickup-pagination");
-		
+		forLstPetSale()
+		if(approveAmount < amount){
+			$(".btn-buy").text("Approve");
+			$(".btn-buy").on("click",function () {
+				approve(petGamesTokenContract);
+			});
+		}
 	}
-	// $(content).insertBefore(".store .container .pickup-pagination");
 }
 
-function forLstPetSale(length)
+function forLstPetSale()
 {
 	var content="";
+	console.log(scarce);
 	if(scarce >0)
 	{
 		lstPetSaleFilter =lstPetSale.filter(function (a) {
@@ -141,14 +103,14 @@ function forLstPetSale(length)
 		}
 		else if(count % 4 == 1){
 			content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],petNFTInfo['nftOwner'],petNFTInfo['salePrice'],petNFTInfo['nftId'])
-			if(i == lstPetSale.length -1)
+			if(count == lstPetSale.length -1)
 			{
 				content +=" </div>";
 			}
 		}
 		else if(count % 4 == 2){
 			content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],petNFTInfo['nftOwner'],petNFTInfo['salePrice'],petNFTInfo['nftId'])
-			if(i == lstPetSale.length -1)
+			if(count == lstPetSale.length -1)
 			{
 				content +=" </div>";
 			}
@@ -178,7 +140,7 @@ function pet(i,exp,tribe,scarce,owner,price,id)
 		modalEnable(owner)+
 	"                        >\n" +
 	"                            <button style=\"background-color: #9e7293\" class=\"pet-no\">#"+id+"</button>\n" +
-	"                            <img src=\""+"img/ASSET/scarce-"+ scarce +"/a"+ tribe + "-"+ levelimage(exp) +".png"+"\" alt=\"Avatar Pet\" width=\"400\" height=\"750\"  class=\"image-pet\"/>\n" +
+	"                            <img src=\""+imagePetOrEgg(tribe,scarce,exp,true)+"\" alt=\"Avatar Pet\" width=\"400\" height=\"750\"  class=\"image-pet\"/>\n" +
 	"                            <span id=\"item-price-caption\" class=\"item-price-caption hidden-xs\" >"+price+"</span>\n" +
 	"                            <span id=\"item-name-caption\" class=\"item-name-caption hidden-xs\">"+petName(scarce,true,tribe)+"</span>\n" +
 	"                            <div class=\"panel-item__text\">\n" +
@@ -226,22 +188,11 @@ function pet(i,exp,tribe,scarce,owner,price,id)
 //getApprove();
 
 async function getApprove(){
-
     myAddress = ethereum.selectedAddress;
-
     const web3 = new Web3(DATASEED);
-
     petGamesTokenContract = new web3.eth.Contract(petGamesTokenAbi, PETGAMES);
-
-    var approveAmount = await petGamesTokenContract.methods.allowance(myAddress, PETNFT).call();
-
-    amount = 1000000 * 1000000000000000000;
-
+     approveAmount = await petGamesTokenContract.methods.allowance(myAddress, PETNFT).call();
     //approve
-    if(approveAmount < amount){
-
-    }
-    approve(petGamesTokenContract);
 }
 
 async function approve(petGamesTokenContract){
@@ -326,13 +277,17 @@ async function cancelOrder(nftId){
 
 function modalEnable(owner){
 	var myAddress = ethereum.selectedAddress;
-	if(myAddress.toString().trim().toUpperCase() == owner.toString().trim().toUpperCase()){
-		console.log(owner);
 
+	if(approveAmount < amount){
 		return "";
-
 	}else{
-		return 	"data-toggle=\"modal\"\n" +
-			"data-target=\"#shop-modal\"\n";
+		if(myAddress.toString().trim().toUpperCase() == owner.toString().trim().toUpperCase()){
+			return "";
+
+		}else{
+			return 	"data-toggle=\"modal\"\n" +
+				"data-target=\"#shop-modal\"\n";
+		}
 	}
+
 }

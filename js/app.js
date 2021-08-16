@@ -227,4 +227,4 @@ document.addEventListener("gesturestart", function (e) {
 $(".carousel").carousel();
 
 
-var limitPage=3;
+var limitPage=4;

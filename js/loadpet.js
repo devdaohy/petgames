@@ -38,9 +38,9 @@ function positionClass(i)
     if (width >= 600 && width <= 1024) {
 
         if(i ==1) return "col-sm-5 col-xs-5 gallery-item item-1 thumbnail-50 background-config";
-        else if(i ==2) return "col-sm-5 col-xs-5 col-xs-offset-2 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
+        else if(i ==2) return "col-sm-5 col-xs-5 col-xs-offset-1 col-sm-offset-1 gallery-item item-2 thumbnail-50 background-config";
         else if(i ==3) return "col-sm-5 col-xs-5  gallery-item item-3 thumbnail-50 background-config";
-        else if(i ==4) return "col-sm-5 col-xs-5 col-xs-offset-2 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
+        else if(i ==4) return "col-sm-5 col-xs-5 col-xs-offset-1 col-sm-offset-1 gallery-item item-4 humbnail-50 background-config";
 
 
     } else if(width >= 10 && width <= 599){
@@ -72,3 +72,61 @@ function level(exp){
     return 8;
 }
 
+function imagePetOrEgg(tribe,scarce,exp,active) {
+    if(active == true)
+    {
+        if(scarce == 7 || scarce == 8)
+        {
+            return  "img/ASSET/scarce-"+ scarce +"/a"+ scarce + "-"+ levelimage(exp) +".png";
+        }else{
+            return  "img/ASSET/scarce-"+ scarce +"/a"+ tribe + "-"+ levelimage(exp) +".png";
+        }
+    }
+    else{
+        if(scarce == 7 || scarce == 8)
+        {
+            return "img/egg/0-egg.png";
+
+        }else{
+            return "img/egg/"+tribe+"-egg.png";
+
+        }
+    }
+
+}
+
+$(".current-page").text(page >=1 ? page: "1");
+$(".next-btn").on("click",function () {
+    page=Number(page)+1;
+    if(page > Number($(".total-page").text()))
+    {
+        page = page -1;
+    }
+    var url=new URLSearchParams(window.location.search);
+    if(url.has("page"))
+    {
+        url.set("page",page);
+    }else{
+        url.append("page",page);
+    }
+
+    document.location = "?"+url.toString();
+
+});
+$(".prev-btn").on("click",function () {
+    page=Number(page)-1;
+    if(page == 0 )
+    {
+        page = page + 1;
+    }
+    var url=new URLSearchParams(window.location.search);
+    if(url.has("page"))
+    {
+        url.set("page",page);
+    }else{
+        url.append("page",page);
+    }
+
+    document.location = "?"+url.toString();
+
+});

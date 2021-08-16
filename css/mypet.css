@@ -18,13 +18,13 @@
 
 @media (max-width: 320px)  {
     .image-pet{
-        margin-bottom: 52% !important;
+        margin-bottom: 55% !important;
     }
     .info-pet .p{
-        font-size: 11px !important;
+        font-size: 9px !important;
     }
     .panel-item__summary{
-        font-size: 11px !important;
+        font-size: 9px !important;
     }
 
 }

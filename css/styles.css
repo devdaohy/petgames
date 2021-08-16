@@ -1852,7 +1852,7 @@ h2.tips {
     border-radius: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
     .gallery-item {
         margin-top: 3rem;
         margin-bottom: 2rem;
@@ -6363,6 +6363,8 @@ ul#model-feats {
 }
 .amount{
     width: 30%;
+    border-radius: 13px;
+
 }
 .div-amount{
     text-align: center;

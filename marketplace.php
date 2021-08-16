@@ -16,43 +16,43 @@
                             <ul class="scarces">
                                 <li>
                                     <a href="marketplace.php?scarce=1"><button class="scarce-1">
-                                        <i class="bx bxl-sketch"></i>Mushroom
+                                        <i class="bx bxl-sketch"></i>Scarce 1
                                     </button></a>
                                 </li>
                                 <li>
                                     <a href="marketplace.php?scarce=2"><button class="scarce-2">
-                                        <i class="bx bxl-sketch"></i>Tree God
+                                        <i class="bx bxl-sketch"></i>Scarce 2
                                     </button></a>
                                 </li>
                                 <li>
                                     <a href="marketplace.php?scarce=3"><button class="scarce-3">
-                                        <i class="bx bxl-sketch"></i>Sagittarius
-                                    </button></a>
+                                        <i class="bx bxl-sketch"></i> Scarce 3
+                                        </button></a>
                                 </li>
                                 <li>
                                     <a href="marketplace.php?scarce=4"><button class="scarce-4">
-                                        <i class="bx bxl-sketch"></i>Rabbit Ninja
-                                    </button></a>
+                                        <i class="bx bxl-sketch"></i>Scarce 4
+                                        </button></a>
                                 </li>
                                 <li>
                                     <a href="marketplace.php?scarce=5"><button class="scarce-5">
-                                        <i class="bx bxl-sketch"></i>Druid
-                                    </button></a>
+                                        <i class="bx bxl-sketch"></i>Scarce 5
+                                        </button></a>
                                 </li>
                                 <li>
                                     <a href="marketplace.php?scarce=6"><button class="scarce-6">
-                                        <i class="bx bxl-sketch"></i>Robo X
-                                    </button></a>
+                                        <i class="bx bxl-sketch"></i>Scarce 6
+                                        </button></a>
                                 </li>
                                 <li>
                                     <a href="marketplace.php?scarce=7"><button class="scarce-7">
-                                        <i class="bx bxl-sketch"></i>Ghost Knight
-                                    </button></a>
+                                        <i class="bx bxl-sketch"></i>Scarce 7
+                                        </button></a>
                                 </li>
                                 <li>
                                     <a href="marketplace.php?scarce=8"><button class="scarce-8">
-                                        <i class="bx bxl-sketch"></i>Super Knight
-                                    </button></a>
+                                        <i class="bx bxl-sketch"></i>Scarce 8
+                                        </button></a>
                                 </li>
                             </ul>
                             <h3 id="amount-pet-sale" style="text-align: center;margin-bottom: 0px"></h3>
