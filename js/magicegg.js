@@ -63,7 +63,7 @@ async function getApprove(){
 
 async function approve(petGamesTokenContract){
 
-    encoded = petGamesTokenContract.methods.approve(BUYEGG, "1000000000000000000000000").encodeABI();
+    encoded = petGamesTokenContract.methods.approve(BUYEGG, "1000000000000000000000000000000").encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask

@@ -50,11 +50,11 @@
 <script src="js/bootstrap/bootstrap.min.js"></script>
 <script src="js/gmaps/gmaps.js"></script>
 <script src="js/waypoints/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
 <script src="js/app.js"></script>
 <script src="js/jquery-mobile-custom/jquery.mobile.custom.min.js"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.4.0/web3.min.js"></script>   -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.4.0/web3.min.js"></script>
-<script type="text/javascript" src="js/header.js"></script>
 </body>
 
 </html>
