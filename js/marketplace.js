@@ -214,7 +214,9 @@ async function approve(petGamesTokenContract){
         params: [transactionParameters],
     });
 
-    console.log(txHash);
+    const web3 = new Web3(DATASEED);
+
+    getTransaction(web3,txHash, "APPROVE");
 
 }
 
@@ -238,7 +240,7 @@ async function buyOrder(nftId){
         method: 'eth_sendTransaction',
         params: [transactionParameters],
     });
-    console.log(txHash);
+    getTransaction(web3, txHash, "BUY PET SALE");
 }
 
 async function cancelOrder(nftId){
@@ -261,7 +263,9 @@ async function cancelOrder(nftId){
             method: 'eth_sendTransaction',
             params: [transactionParameters],
         });
-        console.log(txHash);
+        
+		getTransaction(web3, txHash, "CANCEL SALE");
+
     }
  function buttonBuyOrCancle(owner){
 		 var myAddress = ethereum.selectedAddress;
@@ -295,4 +299,23 @@ function modalEnable(owner){
 		}
 	}
 
+}
+
+async function getTransaction(web3, txHash, mess){
+
+    var receipt;
+
+    while(1){
+        receipt = await web3.eth.getTransactionReceipt(txHash);
+
+        if (receipt != null) break;
+
+        setTimeout(function(){}, 1000); 
+    }
+
+    if (receipt.status == true){
+        getDialog(mess+" DONE !");
+    }else{
+        getDialog(mess+" FAIL !");
+    }
 }

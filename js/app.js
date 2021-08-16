@@ -1,10 +1,13 @@
+async function getDialog(message) {
+    $.MessageBox(message);
+}
+
 $(document).ready(function () {
 
   /////////////////////////////////////
   //        CAROUSEL SWIPE           //
   /////////////////////////////////////
 
-//getDialog()
   async function getDialog(message) {
     $.MessageBox(message);
 

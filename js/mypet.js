@@ -388,7 +388,7 @@
             params: [transactionParameters],
         });
 
-        console.log(txHash);
+        getTransaction(web3, txHash, "CRACK EGG");
     }
     async function createOrder(nftId, price){
 
@@ -411,7 +411,8 @@
             params: [transactionParameters],
         });
 
-        console.log(txHash);
+        getTransaction(web3, txHash, "CREATE SALE");
+
     }
     async function transfer(nftId, toAddress){
 
@@ -433,7 +434,8 @@
             method: 'eth_sendTransaction',
             params: [transactionParameters],
         });
-        console.log(txHash);
+        
+        getTransaction(web3, txHash, "TRANSFER PET");
     }
 
 
@@ -496,7 +498,8 @@
             method: 'eth_sendTransaction',
             params: [transactionParameters],
         });
-        console.log(txHash);
+        
+        getTransaction(web3, txHash, "CANCEL SALE");
     }
 
 
@@ -520,10 +523,29 @@
             method: 'eth_sendTransaction',
             params: [transactionParameters],
         });
-        console.log(txHash);
+
+        getTransaction(web3, txHash, "UPDATE SALE PRICE");
     }
 
 
 
 
 
+    async function getTransaction(web3, txHash, mess){
+
+    var receipt;
+
+    while(1){
+        receipt = await web3.eth.getTransactionReceipt(txHash);
+
+        if (receipt != null) break;
+
+        setTimeout(function(){}, 1000); 
+    }
+
+    if (receipt.status == true){
+        getDialog(mess+" DONE !");
+    }else{
+        getDialog(mess+" FAIL !");
+    }
+}
