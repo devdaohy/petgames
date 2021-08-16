@@ -29,11 +29,12 @@ var lstPetSaleFilter = new Array();
 var amount = 1000000 * 1000000000000000000;
 var approveAmount ="";
 var petGamesTokenContract="";
-getApprove();
+
 loadMarket();
 
 async function loadMarket(){
 	// testnet
+	await getApprove();
 	const web3 = new Web3(DATASEED);
 
 	petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
@@ -301,21 +302,3 @@ function modalEnable(owner){
 
 }
 
-async function getTransaction(web3, txHash, mess){
-
-    var receipt;
-
-    while(1){
-        receipt = await web3.eth.getTransactionReceipt(txHash);
-
-        if (receipt != null) break;
-
-        setTimeout(function(){}, 1000); 
-    }
-
-    if (receipt.status == true){
-        getDialog(mess+" DONE !");
-    }else{
-        getDialog(mess+" FAIL !");
-    }
-}

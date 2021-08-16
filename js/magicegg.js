@@ -134,26 +134,6 @@ async function buyEggRandom(amount) {
     getTransaction(web3, txHash, "BUY EGG");
 }
 
-
-async function getTransaction(web3, txHash, mess){
-
-    var receipt;
-
-    while(1){
-        receipt = await web3.eth.getTransactionReceipt(txHash);
-
-        if (receipt != null) break;
-
-        setTimeout(function(){}, 1000); 
-    }
-
-    if (receipt.status == true){
-        getDialog(mess+" DONE !");
-    }else{
-        getDialog(mess+" FAIL !");
-    }
-}
-
 async function getEggPrice(){
 
     const web3 = new Web3(DATASEED);
