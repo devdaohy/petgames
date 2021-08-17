@@ -85,10 +85,10 @@
     </div>
     <div class="row pattern">
         <section class="store" id="store">
-            <div class="container" >
-                <div class="row" style="margin-top: 20px">
+            <div class="container" style="padding: 2px 0px">
+                <div class="row" style="margin: 10px">
                     <div class="list-scarces">
-                        <ul class="scarces">
+                        <ul class="scarces" style="margin: 0px">
                             <li>
                                 <a href="marketplace.php?scarce=1">
                                     <img src="img/logo.png" style="width:35px;margin-left: 10px">
@@ -106,6 +106,9 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+            <div class="container" style="margin-top: 2rem">
+
 
 
 

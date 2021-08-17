@@ -3,7 +3,7 @@
 
     <!-- ============== STORE SECTION =============== -->
 
-<div class="container" style="margin-top: 0px">
+
                 <div class="row" id="play">
                     <h2 style="margin-bottom: 0px">MAGIC EGG</h2>
 

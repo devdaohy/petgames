@@ -1732,7 +1732,7 @@ h2.tips {
 
 .store .container .list-scarces .scarces li button {
     cursor: pointer;
-    /*width: 120px;*/
+    width: 120px;
     height: 40px;
     line-height: 30px;
     font-size: 13px;
