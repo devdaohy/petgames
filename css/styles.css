@@ -502,6 +502,12 @@ a.navbar-logo:hover {
         margin-right: 0px;
         transform: translateY(-8px) !important;
     }
+    .Divider.first-divider {
+        display: none;
+    }
+    .navbar-collapse.in .plain-link a {
+        border: none;
+    }
 }
 
 .plain-link a {
@@ -2526,6 +2532,7 @@ ul#model-feats {
     letter-spacing: 0.2rem;
     text-align: center;
     margin-top: 1.75rem;
+    margin-bottom: 1.75rem;
     color: #3fd7e2;
     font-size: 140%;
 }
@@ -6417,7 +6424,12 @@ ul#model-feats {
     cursor: pointer;
 }
 .image-load{
-    height:185px;
+    height:300px;
     background-image: url(../img/other/Gif2.gif);
 }
+/*@media (max-width: 480px)  {*/
+/*    .plain-link a*/
+
+/*}*/
+
 /*# sourceMappingURL=styles.css.map */

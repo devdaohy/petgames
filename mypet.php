@@ -5,7 +5,7 @@
     <!-- ============== STORE SECTION =============== -->
 
 
-            <div class="container" style="margin-top: 0px">
+
                 <div class="row" id="play">
                     <h2>MYPET</h2>
 

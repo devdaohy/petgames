@@ -29,11 +29,12 @@ $(".store .container").on("click",".gallery-item", function () {
 	}
 });
 
-$(".store .container").on("click",".btn-cancel", function () {
-	var nft_id=$(this).parent().parent().parent().find("button").text().replace('#','');
+$(".store .container").on("click","#detail-btn-cancel-market", function () {
+	var nft_id=$(this).parent().parent().find("button").text();
+	// console.log(nft_id);
 	 cancelOrder(nft_id);
 });
-$(".button-game-bg-mid").on("click", function () {
+$(".store .container").on("click", "#detail-btn-buy",function () {
 	buyOrder($(this).parent().parent().find("button").text());
 
 });
@@ -240,7 +241,8 @@ async function approve(petGamesTokenContract){
 
     const web3 = new Web3(DATASEED);
 
-    getTransaction(web3,txHash, "APPROVE");
+   await getTransaction(web3,txHash, "APPROVE");
+	location.reload();
 
 }
 
@@ -264,7 +266,8 @@ async function buyOrder(nftId){
         method: 'eth_sendTransaction',
         params: [transactionParameters],
     });
-    getTransaction(web3, txHash, "BUY PET SALE");
+    await getTransaction(web3, txHash, "BUY PET SALE");
+	location.reload();
 }
 
 async function cancelOrder(nftId){
@@ -288,7 +291,8 @@ async function cancelOrder(nftId){
             params: [transactionParameters],
         });
         
-		getTransaction(web3, txHash, "CANCEL SALE");
+		await getTransaction(web3, txHash, "CANCEL SALE");
+	location.reload();
 
     }
  function buttonBuyOrCancle(owner){

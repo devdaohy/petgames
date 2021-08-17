@@ -231,7 +231,6 @@ $(".carousel").carousel();
 
 
 var limitPage=12;
-var done ="";
 async function getTransaction(web3, txHash, mess){
 
   var receipt;
@@ -243,7 +242,7 @@ async function getTransaction(web3, txHash, mess){
 
     // setTimeout(function(){}, 500);
   }
-
+  console.log(mess);
   if (receipt.status == true){
     $("#shop-modal").modal('toggle');
 
@@ -253,6 +252,5 @@ async function getTransaction(web3, txHash, mess){
 
     getDialog(mess+" FAIL !");
   }
-  done="done";
 
 }

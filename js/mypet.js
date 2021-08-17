@@ -513,7 +513,7 @@
         });
 
         await   getTransaction(web3, txHash, "CANCEL SALE");
-
+        location.reload();
     }
 
 
@@ -539,6 +539,7 @@
         });
 
         await getTransaction(web3, txHash, "UPDATE SALE PRICE");
+        location.reload();
     }
 
 

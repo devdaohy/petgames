@@ -4,7 +4,8 @@
         <!-- ============== STORE SECTION =============== -->
 
 
-                <div class="container" style="margin-top: 0px">
+
+
                     <div id="div_element"></div>
                     <div class="row" id="play">
                         <h2>MARKETPLACE</h2>

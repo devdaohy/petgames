@@ -85,8 +85,8 @@
     </div>
     <div class="row pattern">
         <section class="store" id="store">
-            <div class="container" style="background: none;border: none;padding: 0px;margin-top: 20px">
-                <div class="row">
+            <div class="container" >
+                <div class="row" style="margin-top: 20px">
                     <div class="list-scarces">
                         <ul class="scarces">
                             <li>
@@ -106,7 +106,6 @@
                         </ul>
                     </div>
                 </div>
-            </div>
 
 
 
