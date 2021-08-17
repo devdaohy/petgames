@@ -2,19 +2,17 @@
 <?php  include "header.php"?>
 
     <!-- ============== STORE SECTION =============== -->
-    <div class="row pattern">
-        <section class="store" id="store">
-            <div class="container">
+
+<div class="container" style="margin-top: 0px">
                 <div class="row" id="play">
-                    <h2>MAGIC EGG</h2>
-                    <h4 style="text-align: center;font-size:25px" id="my-balance">  <img src="img/logo.png" style="width:35px;margin-left: 10px"/></h4>
+                    <h2 style="margin-bottom: 0px">MAGIC EGG</h2>
 
                 </div>
                 <div class="row items-container">
                     <div
                             id="item-1"
                             class="col-xs-5 col-sm-3 gallery-item item-1 thumbnail-50 background-config"
-                            style="background-image: url(img/khung/khung-1.png); "
+                            style="background-image: url(img/imageframe/khung-1.png); "
                             data-toggle="modal"
                             data-target="#shop-modal"
                     >
@@ -50,7 +48,7 @@
                         </a>
                     </div>
                     <div id="item-2" class="col-xs-5 col-xs-offset-2 col-sm-3 col-sm-offset-1  gallery-item item-2 thumbnail-50 background-config"
-                         style="background-image: url(img/khung/khung-2.png);"
+                         style="background-image: url(img/imageframe/khung-2.png);"
                          data-toggle="modal"
                          data-target="#shop-modal">
 
@@ -82,7 +80,7 @@
                         </a>
                     </div>
                     <div id="item-3" class="col-xs-5 col-sm-3 col-sm-offset-1 gallery-item item-3 thumbnail-50 background-config"
-                         style=" background-image: url(img/khung/khung-3.png);" data-toggle="modal" data-target="#shop-modal">
+                         style=" background-image: url(img/imageframe/khung-3.png);" data-toggle="modal" data-target="#shop-modal">
 
                         <img
                                 src="img/egg/3-egg.png"
@@ -112,7 +110,7 @@
                         </a>
                     </div>
                     <div id="item-4" class="col-xs-5 col-sm-3 col-xs-offset-2 col-sm-offset-1 gallery-item  item-4  thumbnail-50 background-config"
-                         style=" background-image: url(img/khung/khung-4.png);"
+                         style=" background-image: url(img/imageframe/khung-4.png);"
                          data-toggle="modal" data-target="#shop-modal">
 
                         <img
@@ -147,7 +145,7 @@
                 <div class="row items-container">
                     <div id="item-5" class="col-xs-5 col-sm-3 gallery-item item-1 thumbnail-50 background-config"
                             style="
-                  background-image: url(img/khung/khung-5.png);
+                  background-image: url(img/imageframe/khung-5.png);
 
                 " data-toggle="modal" data-target="#shop-modal">
                         <img
@@ -179,7 +177,7 @@
                     </div>
                     <div id="item-6" class="col-xs-5 col-xs-offset-2 col-sm-3 col-sm-offset-1 gallery-item   item-2  thumbnail-50  background-config "
                          style="
-                  background-image: url(img/khung/khung-6.png);
+                  background-image: url(img/imageframe/khung-6.png);
                 " data-toggle="modal" data-target="#shop-modal">
                         <img
                                 src="img/egg/0-egg.png"

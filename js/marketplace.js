@@ -9,8 +9,24 @@ $(".store .container").on("click",".gallery-item", function () {
 	var modelfeats = $("#model-feats").find("li");
 	label.text($(this).find("#item-name-caption").text());
 	img.attr("src", dataModel.attr("src"));
+	img.attr("style", "background-image: url(img/backgroundpet/background-"+$(this).find("#item-tribe-caption").text()+".png);background-size: 100%;");
+
 	$(".detail-info-pet").html($(this).find(".panel-item__text").html());
 	$(".btn-nft-id").text($(this).find("button").text().replace('#',''));
+
+	var detail_btn_buy=$("#detail-btn-buy");
+	var detail_btn_cancel_market=$("#detail-btn-cancel-market");
+	var item_btn_buy_or_cancel=$(this).find("#item-btn-buy-or-cancel");
+
+	if(item_btn_buy_or_cancel.text()== "cancel")
+	{
+		detail_btn_buy.attr("style","display:none");
+		detail_btn_cancel_market.attr("style","display:block");
+	}else{
+
+		detail_btn_buy.attr("style","display:block");
+		detail_btn_cancel_market.attr("style","display:none");
+	}
 });
 
 $(".store .container").on("click",".btn-cancel", function () {
@@ -26,7 +42,7 @@ $(".button-game-bg-mid").on("click", function () {
 
 var lstPetSale = new Array();
 var lstPetSaleFilter = new Array();
-var amount = 1000000 * 1000000000000000000;
+var amount = 1000000 * 100000000000;
 var approveAmount ="";
 var petGamesTokenContract="";
 getApprove();
@@ -66,14 +82,16 @@ async function readMarket(from, to, sender){
 
 		console.log(lstPetSale);
 		lstPetSale.sort(sortFunction);
-		forLstPetSale()
+		forLstPetSale();
+		console.log(approveAmount);
+		console.log(amount);
 		if(approveAmount < amount){
 			$(".btn-buy").text("Approve");
-
 			$(".btn-buy").on("click",function () {
 				approve(petGamesTokenContract);
 			});
 		}
+		$(".image-load").attr("style","display:none");
 	}
 }
 
@@ -127,6 +145,7 @@ function forLstPetSale()
 	}
 	$(content).insertBefore(".store .container .pickup-pagination");
 	$(".total-page").text(Math.ceil(lstPetSaleFilter.length / limitPage));
+	$(".pickup-pagination").attr("style","display:flex");
 }
 
 function sortFunction(a, b) {
@@ -138,12 +157,14 @@ function pet(i,exp,tribe,scarce,owner,price,id)
 	content = " <div\n" +
 	"                                id=\"item-"+ i + "\"\n" +
 	"                                class=\""+ positionClass(i) + "\""+
-	"                                style=\"background-image: url(img/khung/khung-"+tribe+".png); \"\n" +
+	"                                style=\"background-image: url(img/imageframe/imageframe-"+tribe+".png); \"\n" +
 		modalEnable(owner)+
 	"                        >\n" +
 	"                            <button style=\"background-color: #9e7293\" class=\"pet-no\">#"+id+"</button>\n" +
 	"                            <img src=\""+imagePetOrEgg(tribe,scarce,exp,true)+"\" alt=\"Avatar Pet\" width=\"400\" height=\"750\"  class=\"image-pet\"/>\n" +
 	"                            <span id=\"item-price-caption\" class=\"item-price-caption hidden-xs\" >"+price+"</span>\n" +
+		"                            <span id=\"item-tribe-caption\" class=\"item-price-caption hidden-xs\" >"+tribe+"</span>\n" +
+		"                            <span id=\"item-btn-buy-or-cancel\" class=\"item-price-caption hidden-xs\" >"+buyOrCancelText(owner)+"</span>\n" +
 	"                            <span id=\"item-name-caption\" class=\"item-name-caption hidden-xs\">"+petName(scarce,true,tribe)+"</span>\n" +
 	"                            <div class=\"panel-item__text\">\n" +
 	"                                <h4 class=\"panel-item__title\">"+ petName(scarce,true,tribe) +"</h4>\n" +
@@ -289,18 +310,25 @@ async function cancelOrder(nftId){
 
 function modalEnable(owner){
 	var myAddress = ethereum.selectedAddress;
-
 	if(approveAmount < amount){
 		return "";
 	}else{
 		if(myAddress.toString().trim().toUpperCase() == owner.toString().trim().toUpperCase()){
-			return "";
-
+			return 	"data-toggle=\"modal\"\n" + "data-target=\"#shop-modal\"\n";
 		}else{
-			return 	"data-toggle=\"modal\"\n" +
-				"data-target=\"#shop-modal\"\n";
+			return 	"data-toggle=\"modal\"\n" + "data-target=\"#shop-modal\"\n";
 		}
 	}
-
 }
-
+function buyOrCancelText(owner){
+	var myAddress = ethereum.selectedAddress;
+	if(approveAmount < amount){
+		return "";
+	}else{
+		if(myAddress.toString().trim().toUpperCase() == owner.toString().trim().toUpperCase()){
+			return "cancel"
+		}else{
+			return 	"buy";
+		}
+	}
+}

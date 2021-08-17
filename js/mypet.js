@@ -20,10 +20,14 @@
         {
             detail_btn_crack.attr("style","display:none");
             detail_btn_sell.attr("style","display:block");
+            img.attr("style", "background-image: url(img/backgroundpet/background-"+$(this).find("#item-tribe-caption").text()+".png);background-size: 100%;");
+
         }else{
 
             detail_btn_crack.attr("style","display:block");
             detail_btn_sell.attr("style","display:none");
+            img.attr("style", "background-image: url(img/backgroundpet/background-"+$(this).find("#item-tribe-caption").text()+".png);background-size: 100%;padding:10%");
+
         }
         label.text($(this).find("#item-name-caption").text());
         price.text($(this).find("#item-price-caption").text());
@@ -34,7 +38,7 @@
         $(".btn-nft-price").text($(this).find("#item-price-caption").text());
         $(".div-info-sell-tranfer").html("");
         $(".detail-info-pet").html($(this).find(".panel-item__text").html());
-
+        console.log($(this).find("#item-tribe-caption").text());
     });
     $("#detail-btn-crack").on('click',function () {
 
@@ -52,8 +56,8 @@
             "                                            <img src=\"img/logo.png\" class=\"imagemoney\" style=\"margin-bottom: 0px !important;background: none;width: 8% !important;    box-shadow: none;\"/>\n" +
             "                                            <label id=\"btnsellpet\">Sell</label>\n" +
             "                                            <label id=\"btncancelsellpet\">Cancel</label>\n" +
-            "<p class='error-price-empty' style='color: red;font-size: 70%;display: none'>Vui lòng nhập giá</p>"+
-            "<p class='error-price-syntax' style='color: red;font-size: 70%;display: none'>Vui lòng chỉ nhập số</p>"+
+            "<p class='error-price-empty' style='color: red;font-size: 70%;display: none'>Please enter price</p>"+
+            "<p class='error-price-syntax' style='color: red;font-size: 70%;display: none'>Please enter only number</p>"+
             "                                        </form>");
     });
     $("#detail-btn-transfer").on('click',function () {
@@ -61,7 +65,7 @@
         "                                            <input type=\"text\" class=\"transfer\" placeholder=\"Address\"  style=\"width: 40% !important;border-radius: 13px\"/>\n" +
         "                                            <label id=\"btntransferpet\">Transfer</label>\n" +
         "                                            <label id=\"btncanceltransferpet\">Cancel</label>\n" +
-        "<p class='error-transfer-empty' style='color: red;font-size: 70%;display: none'>Vui lòng địa chỉ</p>"+
+        "<p class='error-transfer-empty' style='color: red;font-size: 70%;display: none'>Please enter address</p>"+
         "                                        </form>");
 });
 
@@ -128,11 +132,13 @@
 
     $(".scarce-2").on("click",function () {
         $("div").remove(".item-pet");
+        $(".pickup-pagination").attr("style","display:none");
         forLstMyPetMarket();
 
     });
     $(".scarce-1").on("click",function () {
         $("div").remove(".item-pet");
+        $(".pickup-pagination").attr("style","display:plex");
         forLstMyPet();
 
     });
@@ -153,13 +159,14 @@
         content = " <div\n" +
             "                                id=\"item-"+ i + "\"\n" +
             "                                class=\""+ positionClass(i) + "\""+
-            "                                style=\"background-image: url(img/khung/khung-"+tribe+".png); \"\n" +
+            "                                style=\"background-image: url(img/imageframe/imageframe-"+tribe+".png); \"\n" +
             "                                data-toggle=\"modal\"\n" +
             "                                data-target=\"#shop-modal"+modalwalletormarket+"\"\n" +
             "                        >\n" +
             "                             <button style=\"background-color: #9e7293"+id_hidden+"\" class=\"pet-no\">#"+id+"</button>\n" +
             "                            <img src=\""+imagePetOrEgg(tribe,scarce,exp,active)+"\" alt=\"Avatar Pet\" width=\"400\" height=\"750\"  class=\""+classimage(active)+"\"/>\n" +
             "                            <span id=\"item-price-caption\" class=\"item-price-caption hidden-xs\" >"+price+"</span>\n" +
+            "                            <span id=\"item-tribe-caption\" class=\"item-price-caption hidden-xs\" >"+tribe+"</span>\n" +
             "                            <span id=\"active-pet\" class=\"item-price-caption hidden-xs\" >"+ active +"</span>\n" +
             "                            <span id=\"item-name-caption\" class=\"item-name-caption hidden-xs\">"+ petName(scarce,active,tribe)+"</span>\n" +
             "                            <div class=\"panel-item__text\">\n" +
@@ -282,11 +289,12 @@
             console.log(lstMyPet);
             forLstMyPet();
             $(".scarce-2").removeAttr("disabled");
+            $(".image-load").attr("style","display:none");
+
         }
     }
 
-    function forLstMyPet()
-    {
+    function forLstMyPet() {
         var content="";
         var count =0;
         if(page == null )page=1;
@@ -324,14 +332,16 @@
         }
         $(content).insertBefore(".store .container .pickup-pagination");
         $(".total-page").text(Math.ceil(lstMyPet.length / limitPage));
+        $(".pickup-pagination").attr("style","display:flex");
+
 
     }
-    function forLstMyPetMarket()
-    {
+    function forLstMyPetMarket() {
         var content="";
         var count =0;
         if(page == null )page=1;
-        for(let i=((page - 1) * limitPage); i<Math.min(page*limitPage,lstMyPetMarket.length);i++)
+        // for(let i=((page - 1) * limitPage); i<Math.min(page*limitPage,lstMyPetMarket.length);i++)
+        for(let i=0; i<lstMyPetMarket.length;i++)
 
         {
             var petNFTInfo=lstMyPetMarket[i];
@@ -387,8 +397,9 @@
             method: 'eth_sendTransaction',
             params: [transactionParameters],
         });
+        await getTransaction(web3, txHash, "CRACK EGG");
+        location.reload();
 
-        getTransaction(web3, txHash, "CRACK EGG");
     }
     async function createOrder(nftId, price){
 
@@ -411,7 +422,8 @@
             params: [transactionParameters],
         });
 
-        getTransaction(web3, txHash, "CREATE SALE");
+        await getTransaction(web3, txHash, "CREATE SALE");
+        location.reload();
 
     }
     async function transfer(nftId, toAddress){
@@ -435,7 +447,8 @@
             params: [transactionParameters],
         });
         
-        getTransaction(web3, txHash, "TRANSFER PET");
+       await getTransaction(web3, txHash, "TRANSFER PET");
+        location.reload();
     }
 
 
@@ -498,8 +511,9 @@
             method: 'eth_sendTransaction',
             params: [transactionParameters],
         });
-        
-        getTransaction(web3, txHash, "CANCEL SALE");
+
+        await   getTransaction(web3, txHash, "CANCEL SALE");
+
     }
 
 
@@ -524,7 +538,7 @@
             params: [transactionParameters],
         });
 
-        getTransaction(web3, txHash, "UPDATE SALE PRICE");
+        await getTransaction(web3, txHash, "UPDATE SALE PRICE");
     }
 
 

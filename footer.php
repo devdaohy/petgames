@@ -8,34 +8,7 @@
 <!-- ============== FOOTER =============== -->
 <div class="row pattern-dark">
     <footer class="container footer">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8">
-                <nav class="footer-nav">
-                    <ul>
-                        <li><a href="#store">Play Now</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#features">Hints & Tips</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="col-xs-12 col-sm-4">
-                <nav class="social-nav">
-                    <a href="#">
-                        <span class="ion-social-facebook"></span>
-                    </a>
-                    <a href="#">
-                        <span class="ion-social-twitter"></span>
-                    </a>
-                    <a href="#">
-                        <span class="ion-social-youtube"></span>
-                    </a>
-                    <a href="#">
-                        <span class="ion-social-instagram"></span>
-                    </a>
-                </nav>
-            </div>
-        </div>
+
         <div class="row">
             <p class="copyright">Copyright &copy; 2021 PET GAMES.</p>
         </div>

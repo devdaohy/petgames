@@ -3,14 +3,12 @@
     <link href="css/marketplace.css" rel="stylesheet" />
     <link href="css/mypet.css" rel="stylesheet" />
     <!-- ============== STORE SECTION =============== -->
-    <div class="row pattern">
-        <section class="store" id="store">
-            <div class="container">
+
+
+            <div class="container" style="margin-top: 0px">
                 <div class="row" id="play">
                     <h2>MYPET</h2>
-                    <div>
-                        <p style="text-align: center;font-size:25px" id="my-balance">  <img src="img/logo.png" style="width:35px;margin-left: 10px"/></p>
-                    </div>
+
                     <div class="list-scarces">
                         <ul class="scarces">
                             <li>
@@ -26,6 +24,7 @@
                         </ul>
                     </div>
                 </div>
+                <div class="image-load row items-container bottom-wrapper" ></div>
 
 
                 <div class="row items-container bottom-wrapper">
@@ -124,7 +123,7 @@
                 </div>
 
                 <!-- Paginator -->
-                <div class="pickup-pagination">
+                <div class="pickup-pagination" style="display: none">
                     <button class="prev-btn"><span>❮</span></button>
                     <div>
                         <span class="current-page">1</span>/<span class="total-page"

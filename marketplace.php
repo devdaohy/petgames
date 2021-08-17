@@ -2,13 +2,15 @@
     <?php  include "header.php"?>
 <link href="css/marketplace.css" rel="stylesheet" />
         <!-- ============== STORE SECTION =============== -->
-        <div class="row pattern">
-            <section class="store" id="store">
-                <div class="container">
+
+
+                <div class="container" style="margin-top: 0px">
                     <div id="div_element"></div>
                     <div class="row" id="play">
                         <h2>MARKETPLACE</h2>
-                      <div>
+                        <h3 id="amount-pet-sale" style="text-align: center;margin-bottom: 0px"></h3>
+
+                        <div>
                           <p style="text-align: center;font-size:25px" id="my-balance">  </p>
 
                       </div>
@@ -55,7 +57,6 @@
                                         </button></a>
                                 </li>
                             </ul>
-                            <h3 id="amount-pet-sale" style="text-align: center;margin-bottom: 0px"></h3>
                         </div>
                     </div>
                     <div class="row items-container bottom-wrapper">
@@ -78,8 +79,11 @@
                                         <button type="button" class="btn hidden btn-nft-id"></button>
                                         <a xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide">
                                             <span class="button-game-bg-left"></span>
-                                            <span class="button-game-bg-mid">
+                                            <span id="detail-btn-buy" class="button-game-bg-mid ">
                                               <span>Buy Now</span>
+                                            </span>
+                                            <span id="detail-btn-cancel-market" class="button-game-bg-mid ">
+                                              <span>Cancel</span>
                                             </span>
                                             <span class="button-game-bg-right"></span>
                                         </a>
@@ -88,9 +92,11 @@
                             </div>
                         </div>
                     </div>
+                <div class="image-load row items-container bottom-wrapper" style=""></div>
+
 
                     <!-- Paginator -->
-                    <div class="pickup-pagination">
+                    <div class="pickup-pagination" style="display: none">
                         <button class="prev-btn"><span>❮</span></button>
                         <div>
                             <span class="current-page">1</span>/<span class="total-page"

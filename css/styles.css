@@ -405,7 +405,7 @@ a.navbar-logo {
 }
 
 a.navbar-logo:hover {
-    background-position: 0px -50px;
+    /*background-position: 0px -50px;*/
 }
 
 .custom-toggle-btn {
@@ -2452,8 +2452,6 @@ ul#model-feats {
     text-shadow: -1px 3px 0.3px #eee8d0, 1px 3px 0.3px #eee8d0, 0 -3px 0.3px #eee8d0, -3px 0 0.3px #eee8d0, 3px 0 0.3px #eee8d0, -3px -3px 0.3px #eee8d0, 3px -3px 0.3px #eee8d0, -3px 3px 0.3px #eee8d0, 3px 3px 0.3px #eee8d0, 3px 3px 3px rgba(0, 0, 0, 0.8);
     font-weight: 900;
     text-transform: uppercase;
-    padding-top: 4rem;
-    padding-bottom: 2rem;
 }
 
 .footer a {
@@ -6358,7 +6356,7 @@ ul#model-feats {
 }
 .image-egg-magic{
     margin-top: 20%;
-    width: 80% !important;
+    width: 70% !important;
     margin-bottom: 65% ;
 }
 .amount{
@@ -6408,5 +6406,18 @@ ul#model-feats {
         margin: 5% 15%;
     }
 
+}
+@media (max-width: 480px)  {
+    .modal .modal-header button{
+        transform: translate(0px, 0px);
+    }
+
+}
+.button-game-bg-mid{
+    cursor: pointer;
+}
+.image-load{
+    height:185px;
+    background-image: url(../img/other/Gif2.gif);
 }
 /*# sourceMappingURL=styles.css.map */

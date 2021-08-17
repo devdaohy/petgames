@@ -49,7 +49,7 @@ async function getApprove(){
 
     var approveAmount = await petGamesTokenContract.methods.allowance(myAddress, BUYEGG).call();
 
-    amount = 1000000 * 1000000000000000000;
+    amount = 1000000 * 100000000000;
 
     //approve
     if(approveAmount < amount){

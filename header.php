@@ -45,7 +45,7 @@
                 <div class="container">
                     <div class="navbar navbar-header">
                         <div class="logo-container">
-                            <a class="navbar-brand navbar-logo" href="#home"></a>
+                            <a class="navbar-brand navbar-logo" ></a>
                         </div>
 
                         <button type="button" class="navbar-toggle custom-toggle-btn" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
@@ -68,6 +68,10 @@
                         <button class="signin-btn" id = "btn-connect">Connect</button>
                     </ul>
                 </div>
+                <!-- ============== DIVIDER ============== -->
+                <div class="Divider first-divider">
+                    <hr class="Divider-rule" />
+                </div>
             </nav>
             <!-- <h1>
     <img
@@ -79,9 +83,30 @@
   </h1> -->
         </header>
     </div>
+    <div class="row pattern">
+        <section class="store" id="store">
+            <div class="container" style="background: none;border: none;padding: 0px;margin-top: 20px">
+                <div class="row">
+                    <div class="list-scarces">
+                        <ul class="scarces">
+                            <li>
+                                <a href="marketplace.php?scarce=1">
+                                    <img src="img/logo.png" style="width:35px;margin-left: 10px">
+                                </a>
+                            </li>
+                            <li>
+                                <p style="text-align: center;font-size:25px;line-height: 30px;margin: 0px" id="my-balance">Balance: <img src="img/logo.png" style="width:35px;margin-left: 10px"></p>
+                            </li>
+                            <li>
+                                <a href="marketplace.php?scarce=3">
+                                    <img src="img/logo.png" style="width:35px;margin-left: 10px">
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
 
-    <!-- ============== DIVIDER ============== -->
-    <div class="Divider first-divider">
-        <hr class="Divider-rule" />
-    </div>
+
