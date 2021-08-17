@@ -6424,7 +6424,8 @@ ul#model-feats {
     cursor: pointer;
 }
 .image-load{
-    height:300px;
+    margin: 30px;
+    height:165px;
     background-image: url(../img/other/Gif2.gif);
 }
 /*@media (max-width: 480px)  {*/
