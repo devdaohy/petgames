@@ -235,7 +235,7 @@ var limitPage=12;
 async function getTransaction(web3, txHash, mess){
 
   var receipt;
-  // $("#shop-modal").modal('toggle');
+  $("#shop-modal").modal('toggle');
 
   while(1){
     receipt = await web3.eth.getTransactionReceipt(txHash);
