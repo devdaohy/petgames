@@ -77,6 +77,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="row items-container bottom-wrapper">
                     <!-- Modal -->
@@ -128,6 +129,23 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row items-container bottom-wrapper">
+    <!-- Modal -->
+    <div class="modal fade" id="shop-modal-loading" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width: 100px;height:100px;margin: auto;background-image: url(img/other/loading-buffering.gif);background-repeat: no-repeat;background-size: 100%">
+
+                <div class="modal-body pattern clearfix" id="modalBody" style="">
+<!--                    <img src="img/other/loading-buffering.gif" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>-->
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 
                 <!-- Paginator -->
                 <div class="pickup-pagination" style="display: none">

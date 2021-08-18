@@ -47,14 +47,9 @@
 
   $("#detail-btn-crack").on('click',async function () {
       if ($(this).parent().find(".btn-nft").text().length >= 1) {
-          crackEgg($(this).parent().find(".btn-nft").text(),$(this));
-          // var scarce = Number($(this).parent().find(".btn-nft-scarce").text());
-          // var tribe = Number($(this).parent().find(".btn-nft-tribe").text());
-          // $(".detail-info-pet").find("h4").text(petName(scarce, true, tribe));
-          // $(this).parent().parent().find(".modal-header").find('.modal-title').text(petName(scarce, true, tribe));
-          // $(".detail-info-pet").find(".info-pet").attr('style', "display:table");
-          // $(".showcase-img").attr("src", imagePetOrEgg(tribe, scarce, 0, true));
+          $("#shop-modal-loading").modal('toggle');
 
+          crackEgg($(this).parent().find(".btn-nft").text(),$(this));
       } else {
       }
 
@@ -433,6 +428,7 @@
             // setTimeout(function(){}, 500);
         }
         if (receipt.status == true){
+            $("#shop-modal-loading").modal('toggle');
 
             var scarce = Number(thiss.parent().find(".btn-nft-scarce").text());
             var tribe = Number(thiss.parent().find(".btn-nft-tribe").text());
@@ -443,8 +439,6 @@
 
             getDialog("CRACK EGG"+" DONE ! Please refesh page to update");
         }else{
-            $(".shop-modal").attr("style","display:none");
-
             getDialog("CRACK EGG"+" FAIL !");
         }
         // getTransaction(web3, txHash, "CRACK EGG");
