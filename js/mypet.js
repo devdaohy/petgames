@@ -41,6 +41,7 @@
         $(".btn-nft-scarce").text($(this).find("#item-scarce-caption").text());
         $(".div-info-sell-tranfer").html("");
         $(".detail-info-pet").html($(this).find(".panel-item__text").html());
+        $(".detail-info-pet").find("h4").remove();
         console.log($(this).find("#item-tribe-caption").text());
     });
 
@@ -435,7 +436,7 @@
 
             var scarce = Number(thiss.parent().find(".btn-nft-scarce").text());
             var tribe = Number(thiss.parent().find(".btn-nft-tribe").text());
-            $(".detail-info-pet").find("h4").text(petName(scarce, true, tribe));
+
             thiss.parent().parent().find(".modal-header").find('.modal-title').text(petName(scarce, true, tribe));
             $(".detail-info-pet").find(".info-pet").attr('style', "display:table");
             $(".showcase-img").attr("src", imagePetOrEgg(tribe, scarce, 0, true));

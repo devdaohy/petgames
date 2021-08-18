@@ -41,10 +41,11 @@
                                 <div class="modal-body pattern clearfix" id="modalBody">
                                     <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
 
-                                    <div class="detail-info-pet"></div>
-<!--                                    <div class="div-info-sell-tranfer">-->
-<!---->
-<!--                                    </div>-->
+                                    <div class="detail-info-pet" style=" margin-top: 10px;padding-top: 40px;"></div>
+                                    <div class="div-info-sell-tranfer">
+
+                                    </div>
+
                                 </div>
                                 <div class="modal-footer pattern" style="border-top: 0px">
                                     <a type="button" class="btn-nft" style="display: none"></a>

@@ -78,7 +78,8 @@
                                     </div>
                                     <div class="modal-body pattern clearfix" id="modalBody">
                                         <img src="" id="showcase-img" class="img-thumbnail" alt="Showcase Sweet World Game"/>
-                                        <div class="detail-info-pet""></div>
+                                        <div class="detail-info-pet" style=" margin-top: 10px;padding-top: 40px;"></div>
+
                                         <div class="price" id="modal-price-tag"></div>
                                     </div>
                                     <div class="modal-footer pattern">

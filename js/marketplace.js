@@ -12,6 +12,7 @@ $(".store .container").on("click",".gallery-item", function () {
 	img.attr("style", "background-image: url(img/backgroundpet/background-"+$(this).find("#item-tribe-caption").text()+".png);background-size: 100%;");
 
 	$(".detail-info-pet").html($(this).find(".panel-item__text").html());
+	$(".detail-info-pet").find("h4").remove();
 	$(".btn-nft-id").text($(this).find("button").text().replace('#',''));
 
 	var detail_btn_buy=$("#detail-btn-buy");
