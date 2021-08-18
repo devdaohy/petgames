@@ -29,7 +29,7 @@
 
                 <div class="row items-container bottom-wrapper">
                     <!-- Modal -->
-                    <div class="modal fade" id="shop-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal fade modalpet" id="shop-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header pattern">
@@ -42,11 +42,11 @@
                                     <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
 
                                     <div class="detail-info-pet"></div>
-                                    <div class="div-info-sell-tranfer">
-
-                                    </div>
+<!--                                    <div class="div-info-sell-tranfer">-->
+<!---->
+<!--                                    </div>-->
                                 </div>
-                                <div class="modal-footer pattern">
+                                <div class="modal-footer pattern" style="border-top: 0px">
                                     <a type="button" class="btn-nft" style="display: none"></a>
                                     <a type="button" class="btn-nft-price" style="display: none"></a>
                                     <a type="button" class="btn-nft-tribe" style="display: none"></a>

@@ -111,6 +111,9 @@
     .image-pet{
         margin-bottom: 75% !important;
     }
+    .modal .panel-item__summary {
+        font-size: 14px !important;
+    }
 
 
 }

@@ -16,6 +16,7 @@
     <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/fontawesome/fontawesome/css/all.css" rel="stylesheet" />
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <![endif]-->
@@ -86,12 +87,12 @@
     <div class="row pattern">
         <section class="store" id="store">
             <div class="container" style="padding: 2px 0px">
-                <div class="row" style="margin: 10px">
+                <div class="row" style="margin: 4px">
                     <div class="list-scarces">
                         <ul class="scarces" style="margin: 0px">
                             <li>
                                 <a href="#" style="color: black">
-                                  Telegram  <img src="img/logo.png" style="width:35px;margin-left: 10px">
+                                 <p>Telegram  <i class="fab fa-telegram" style="color: #2e6da4;font-size: 26px"></i></p>
                                 </a>
                             </li>
                             <li style="border-left: 2px dashed #d45f42;padding-left: 15px">
@@ -99,7 +100,7 @@
                             </li>
                             <li style="border-left: 2px dashed #d45f42;padding-left: 15px">
                                 <a href="#" style="color: black">
-                                   Twitter <img src="img/logo.png" style="width:35px;margin-left: 10px">
+                                 <p>Twitter <i class="fab fa-twitter" style="color: #2e6da4;font-size: 26px"></i></p>
                                 </a>
                             </li>
 

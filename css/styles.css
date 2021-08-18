@@ -1820,7 +1820,7 @@ h2.tips {
     font-size: 155%;
     font-weight: normal;
     line-height: 30px;
-    margin: 3px 0 7px;
+    margin: 6px 0 7px;
     transition: color 0.2s;
     text-align:center;
 
@@ -1980,6 +1980,7 @@ h2.tips {
 }
 
 .modal .modal-footer {
+    border-top:0px;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding: 1rem 1.33rem 1.33rem;
@@ -1998,7 +1999,7 @@ h2.tips {
 .modal img {
     width: 400px;
     height: auto;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     display: inline-block;
     box-shadow: -1px 6px 0.3px #eee8d0, 1px 6px 0.3px #eee8d0, 0 -6px 0.3px #eee8d0, -6px 0 0.3px #eee8d0, 6px 0 0.3px #eee8d0, -6px -6px 0.3px #eee8d0, 6px -6px 0.3px #eee8d0, -6px 6px 0.3px #eee8d0, 6px 6px 0.3px #eee8d0, 6px 6px 3px rgba(0, 0, 0, 0.8);
     /*background-color: #d45f42;*/
@@ -6427,6 +6428,12 @@ ul#model-feats {
     .modal .panel-item__summary{
         font-size: 10px !important;
     }
+    .modal .detail-info-pet {
+        height: 173px !important;
+        background-repeat: no-repeat !important;
+        background-position: 2px -56px !important;
+        background-size: 100% 145% !important;
+    }
 
 }
 
@@ -6435,7 +6442,12 @@ ul#model-feats {
     .modal .panel-item__summary{
         font-size: 11px !important;
     }
-
+    .modal .detail-info-pet {
+        height: 173px !important;
+        background-repeat: no-repeat !important;
+        background-position: 2px -56px !important;
+        background-size: 100% 145% !important;
+    }
 }
 
 @media (min-width: 446px) and (max-width: 500px)  {
@@ -6443,15 +6455,27 @@ ul#model-feats {
     .modal .panel-item__summary{
         font-size: 13px !important;
     }
+    .modal .detail-info-pet {
+    height: 181px !important;
+    background-position: 4px -60px !important;
+        background-size: 100% 145% !important;
+
+    }
 
 }
 
 @media (min-width: 501px) and (max-width: 600px)  {
 
     .modal .panel-item__summary{
-        font-size: 14px !important;
+        font-size: 12px !important;
     }
+    .modal .detail-info-pet {
+        height: 189px !important;
+        background-repeat: no-repeat !important;
+        background-position: 3px -66px !important;
+        background-size: 100% 148% !important;
 
+    }
 }
 
 @media (max-width: 500px)  {
@@ -6484,6 +6508,15 @@ ul#model-feats {
     margin: 30px;
     height:165px;
     background-image: url(../img/other/Gif2.gif);
+}
+
+.modal .detail-info-pet{
+    height: 224px;
+    background-repeat: no-repeat;
+    background-position: 4px -85px;
+
+    background-size: 100% 150%;
+    background-image: url(../img/other/image_2021-08-18_20-21-56.png);
 }
 /*@media (max-width: 480px)  {*/
 /*    .plain-link a*/

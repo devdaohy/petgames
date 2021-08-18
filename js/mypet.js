@@ -423,7 +423,7 @@
         });
 
         var receipt;
-        getDialog("Please wait!");
+        thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Cracking...");
         while(1){
             receipt = await web3.eth.getTransactionReceipt(txHash);
 
