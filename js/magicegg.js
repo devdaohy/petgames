@@ -2,7 +2,7 @@ $(".button-game-bg-mid span").on( "click", function() {
     if($(this).text()=="Approve"){
         const web3 = new Web3(DATASEED);
          approve(new web3.eth.Contract(petGamesTokenAbi, PETGAMES));
-        location.reload();
+        // location.reload();
 
     }else{
       //  console.log($(this).parent().parent().parent().find('input').val());

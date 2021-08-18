@@ -25,22 +25,22 @@ $(document).ready(function () {
   //////////////////////////////////////
   //          SNIPPETS                //
   //////////////////////////////////////
-  (function () {
-    $('a[href^="#"]').on("click", function (e) {
-      e.preventDefault();
-
-      var target = this.hash;
-      var $target = $(target);
-
-      $("html, body").stop().animate(
-        {
-          scrollTop: $target.offset().top,
-        },
-        900,
-        "swing"
-      );
-    });
-  })();
+  // (function () {
+  //   $('a[href^="#"]').on("click", function (e) {
+  //     e.preventDefault();
+  //
+  //     var target = this.hash;
+  //     var $target = $(target);
+  //
+  //     $("html, body").stop().animate(
+  //       {
+  //         scrollTop: $target.offset().top,
+  //       },
+  //       900,
+  //       "swing"
+  //     );
+  //   });
+  // })();
 
   /////////////////////////////////////
   //      MODAL WINDOW GALLERY       //
@@ -192,20 +192,20 @@ $(window)
     var width = $(window).width();
     if (width >= 600 && width <= 1024) {
       $(".item-1, .item-2, .item-3, .item-4")
-        .removeClass("col-sm-3 col-xs-5")
+        .removeClass("col-sm-3 col-xs-12")
         .addClass("col-sm-5 col-xs-5");
-      $(".item-2").removeClass("col-xs-offset-2").addClass("col-xs-offset-2");
+      $(".item-2").removeClass("col-xs-offset-2").addClass("col-xs-offset-1");
+      $(".item-4").removeClass("col-xs-offset-2").addClass("col-xs-offset-1");
+      // $(".item-3").removeClass("col-xs-offset-2").addClass("col-xs-offset-1");
       $(".item-3").removeClass("col-sm-offset-1");
-      $(".item-4").removeClass("col-xs-offset-2").addClass("col-xs-offset-2");
 
 
     } else if(width >= 10 && width <= 599){
       $(".item-1, .item-2, .item-3, .item-4")
         .removeClass("col-sm-5 col-xs-5")
         .addClass("col-sm-3 col-xs-12");
-       $(".item-4").removeClass("col-xs-offset-2");
-       $(".item-2").removeClass("col-xs-offset-2");
-       $(".item-3").addClass("col-sm-offset-1");
+       $(".item-4").removeClass("col-xs-offset-1");
+       $(".item-2").removeClass("col-xs-offset-1");
 
     }
     else{
@@ -213,6 +213,7 @@ $(window)
           .removeClass("col-sm-5 col-xs-12")
           .addClass("col-sm-3 col-xs-5");
       $(".item-3").addClass("col-sm-offset-1");
+
     }
   })
   .resize(); //trigger the resize event on page load.
@@ -234,7 +235,7 @@ var limitPage=12;
 async function getTransaction(web3, txHash, mess){
 
   var receipt;
-  getDialog("Please wait!");
+
   while(1){
     receipt = await web3.eth.getTransactionReceipt(txHash);
 
@@ -246,7 +247,7 @@ async function getTransaction(web3, txHash, mess){
   if (receipt.status == true){
     $("#shop-modal").modal('toggle');
 
-    getDialog(mess+" DONE !");
+    getDialog(mess+" DONE ! Please refesh page to update");
   }else{
     $(".shop-modal").attr("style","display:none");
 

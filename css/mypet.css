@@ -4,9 +4,7 @@
 /*.btn-transfer{*/
 /*    color: green;*/
 /*}*/
-.detail-info-pet .info-pet{
-    margin-left: 0px;
-}
+
 
 .image-egg-magic{
     margin-bottom: 42% !important;
@@ -17,8 +15,8 @@
 }
 
 @media (max-width: 320px)  {
-    .image-pet{
-        margin-bottom: 55% !important;
+    .item-special .image-pet{
+        margin-bottom: 45% !important;
     }
     .info-pet .p{
         font-size: 9px !important;
@@ -30,7 +28,7 @@
 }
 
 @media (min-width: 321px) and (max-width: 360px)  {
-    .image-pet{
+    .item-special .image-pet{
         margin-bottom: 54% !important;
     }
     .info-pet .p{
@@ -43,7 +41,7 @@
 }
 
 @media (min-width: 361px) and (max-width: 400px) {
-    .image-pet{
+    .item-special .image-pet{
         margin-bottom: 46% !important;
     }
     .info-pet .p{
@@ -55,7 +53,7 @@
 }
 
 @media (min-width: 401px) and (max-width: 419px) {
-    .image-pet{
+    .item-special .image-pet{
         margin-bottom: 42% !important;
     }
     .info-pet .p{
@@ -75,7 +73,7 @@
         font-size: 17px !important;
     }
 
-    .image-pet{
+    .item-special .image-pet{
         margin-bottom: 42% !important;
     }
 
@@ -89,7 +87,7 @@
     .panel-item__summary{
         font-size: 19px !important;
     }
-    .image-pet{
+    .item-special .image-pet{
         margin-bottom: 38% !important;
     }
 }
@@ -103,8 +101,8 @@
         font-size: 20px !important;
     }
 
-    .image-pet{
-        margin-bottom: 33% !important;
+    .item-special .image-pet{
+        margin-bottom: 35% !important;
     }
 
 
@@ -117,7 +115,7 @@
     .panel-item__summary{
         font-size: 11px !important;
     }
-    .image-pet{
+    .item-special .image-pet{
         margin-bottom: 55% !important;
     }
 }
@@ -129,7 +127,7 @@
     .panel-item__summary{
         font-size: 11px !important;
     }
-    .image-pet{
+    .item-special .image-pet{
         margin-bottom: 50% !important;;
     }
 }
@@ -141,13 +139,13 @@
     .panel-item__summary{
         font-size: 15px !important;
     }
-    .image-pet{
+    .item-special .image-pet{
         margin-bottom: 40% !important;;
     }
 }
 
 @media (min-width: 990px) and (max-width: 1024px) {
-    .image-pet{
+    .item-special .image-pet{
         margin-bottom: 36% !important;
     }
     .info-pet .p{
@@ -165,12 +163,12 @@
     .panel-item__summary{
         font-size: 11px !important;
     }
-    .image-pet{
+    .item-special .image-pet{
         margin-bottom: 55% !important;
     }
 }
 @media (min-width: 1201px)  {
-    .image-pet{
+    .item-special .image-pet{
         margin-bottom: 55% !important;
     }
 }

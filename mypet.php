@@ -49,6 +49,8 @@
                                 <div class="modal-footer pattern">
                                     <a type="button" class="btn-nft" style="display: none"></a>
                                     <a type="button" class="btn-nft-price" style="display: none"></a>
+                                    <a type="button" class="btn-nft-tribe" style="display: none"></a>
+                                    <a type="button" class="btn-nft-scarce" style="display: none"></a>
                                     <a id="detail-btn-crack" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
                                         <span class="button-game-bg-left"></span>
                                         <span class="button-game-bg-mid">
@@ -100,6 +102,10 @@
                                 <div class="modal-footer pattern">
                                     <a type="button" class="btn-nft" style="display: none"></a>
                                     <a type="button" class="btn-nft-price" style="display: none"></a>
+                                    <a type="button" class="btn-nft-img" style="display: none"></a>
+                                    <a type="button" class="btn-nft-name" style="display: none"></a>
+                                    <a type="button" class="btn-nft-tribe" style="display: none"></a>
+                                    <a type="button" class="btn-nft-scarce" style="display: none"></a>
                                     <a id="detail-btn-update" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
                                         <span class="button-game-bg-left"></span>
                                         <span class="button-game-bg-mid">

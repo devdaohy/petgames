@@ -242,7 +242,7 @@ async function approve(petGamesTokenContract){
     const web3 = new Web3(DATASEED);
 
    await getTransaction(web3,txHash, "APPROVE");
-	location.reload();
+	// location.reload();
 
 }
 
@@ -267,7 +267,7 @@ async function buyOrder(nftId){
         params: [transactionParameters],
     });
     await getTransaction(web3, txHash, "BUY PET SALE");
-	location.reload();
+	// location.reload();
 }
 
 async function cancelOrder(nftId){
@@ -292,7 +292,7 @@ async function cancelOrder(nftId){
         });
         
 		await getTransaction(web3, txHash, "CANCEL SALE");
-	location.reload();
+	// location.reload();
 
     }
  function buttonBuyOrCancle(owner){

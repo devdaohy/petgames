@@ -90,16 +90,16 @@
                     <div class="list-scarces">
                         <ul class="scarces" style="margin: 0px">
                             <li>
-                                <a href="marketplace.php?scarce=1">
-                                    <img src="img/logo.png" style="width:35px;margin-left: 10px">
+                                <a href="#" style="color: black">
+                                  Telegram  <img src="img/logo.png" style="width:35px;margin-left: 10px">
                                 </a>
                             </li>
-                            <li>
+                            <li style="border-left: 2px dashed #d45f42;padding-left: 15px">
                                 <p style="text-align: center;font-size:25px;line-height: 30px;margin: 0px" id="my-balance">Balance: <img src="img/logo.png" style="width:35px;margin-left: 10px"></p>
                             </li>
-                            <li>
-                                <a href="marketplace.php?scarce=3">
-                                    <img src="img/logo.png" style="width:35px;margin-left: 10px">
+                            <li style="border-left: 2px dashed #d45f42;padding-left: 15px">
+                                <a href="#" style="color: black">
+                                   Twitter <img src="img/logo.png" style="width:35px;margin-left: 10px">
                                 </a>
                             </li>
 

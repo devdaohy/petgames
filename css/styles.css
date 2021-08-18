@@ -480,12 +480,15 @@ a.navbar-logo:hover {
 }
 
 @media (max-width: 768px) {
+    .navbar-collapse.in .plain-link a {
+        border: none;
+    }
     .plain-link {
         background: url(../img/menu-pattern.jpg);
         border-bottom: 2px dashed #d45f42;
     }
     .navbar-logo {
-        margin-left: 42% !important;
+        margin:11px 46% !important;
         transform: translateY(-5px) !important;
     }
     /*.plain-link a {*/
@@ -505,9 +508,7 @@ a.navbar-logo:hover {
     .Divider.first-divider {
         display: none;
     }
-    .navbar-collapse.in .plain-link a {
-        border: none;
-    }
+
 }
 
 .plain-link a {
@@ -520,7 +521,7 @@ a.navbar-logo:hover {
     text-transform: uppercase;
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 769px) and (max-width: 992px) {
     /* .navbar-collapse {
         width: auto;
         border-top: 0;
@@ -1740,6 +1741,9 @@ h2.tips {
     border-radius: 10px;
     border: none;
 }
+.store .container .list-scarces .scarces li button.scarce-all {
+    background-color: #759e72;
+}
 
 .store .container .list-scarces .scarces li button.scarce-1 {
     background-color: #9e7293;
@@ -1997,7 +2001,7 @@ h2.tips {
     margin-bottom: 15px;
     display: inline-block;
     box-shadow: -1px 6px 0.3px #eee8d0, 1px 6px 0.3px #eee8d0, 0 -6px 0.3px #eee8d0, -6px 0 0.3px #eee8d0, 6px 0 0.3px #eee8d0, -6px -6px 0.3px #eee8d0, 6px -6px 0.3px #eee8d0, -6px 6px 0.3px #eee8d0, 6px 6px 0.3px #eee8d0, 6px 6px 3px rgba(0, 0, 0, 0.8);
-    background-color: #d45f42;
+    /*background-color: #d45f42;*/
 }
 
 @media (max-width: 480px) {
@@ -6362,7 +6366,7 @@ ul#model-feats {
     margin-bottom: 75%;
 }
 .image-egg-magic{
-    margin-top: 20%;
+    margin-top: 30%;
     width: 70% !important;
     margin-bottom: 65% ;
 }
@@ -6382,10 +6386,11 @@ ul#model-feats {
     box-shadow: none;
 }
 .modal .modal-dialog{
-    width: 30%;
-    margin: 5% 35%;
+    width: 34%;
+    margin: 5% 33%;
 }
 .modal .modal-title{
+    font-size: 30px;
     margin: 1px;
 }
 .modal .modal-body{
@@ -6399,19 +6404,71 @@ ul#model-feats {
     width: 70%;
 
 }
-@media (max-width: 500px)  {
-    .modal .modal-dialog{
-        width: 80%;
-        margin: 5% 10%;
+.modal .panel-item__summary{
+    font-weight: bold;
+}
+.modal .panel-item__summary{
+    font-size: 17px !important;
+}
+.modal .info-pet{
+    margin: 0px 15%;
+    width: 70%;
+}
+.modal .info-pet tr > td:first-child{
+   width: 50%;
+}
+.modal .info-pet tr > td{
+    text-align: left;
+}
+
+
+@media (max-width: 399px)  {
+
+    .modal .panel-item__summary{
+        font-size: 10px !important;
     }
 
 }
 
-@media (min-width: 501px) and (max-width: 800px)  {
-    .modal .modal-dialog{
-        width: 70%;
-        margin: 5% 15%;
+@media (min-width: 400px)  and (max-width: 445px)  {
+
+    .modal .panel-item__summary{
+        font-size: 11px !important;
     }
+
+}
+
+@media (min-width: 446px) and (max-width: 500px)  {
+
+    .modal .panel-item__summary{
+        font-size: 13px !important;
+    }
+
+}
+
+@media (min-width: 501px) and (max-width: 600px)  {
+
+    .modal .panel-item__summary{
+        font-size: 14px !important;
+    }
+
+}
+
+@media (max-width: 500px)  {
+    .modal .modal-dialog{
+        width: 60%;
+        margin: 5% 20%;
+    }
+
+
+}
+
+@media (min-width: 501px) and (max-width: 1024px)  {
+    .modal .modal-dialog{
+        width: 50%;
+        margin: 5% 25%;
+    }
+
 
 }
 @media (max-width: 480px)  {

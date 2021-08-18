@@ -3,6 +3,7 @@
         $.MessageBox(message);
 
     }
+
     var pricePet ="";
 
     $(".store .container").on("click",".gallery-item", function () {
@@ -36,18 +37,27 @@
         img.attr("src", dataModel.attr("src"));
         $(".btn-nft").text($(this).find(".pet-no").text().replace('#',''));
         $(".btn-nft-price").text($(this).find("#item-price-caption").text());
+        $(".btn-nft-tribe").text($(this).find("#item-tribe-caption").text());
+        $(".btn-nft-scarce").text($(this).find("#item-scarce-caption").text());
         $(".div-info-sell-tranfer").html("");
         $(".detail-info-pet").html($(this).find(".panel-item__text").html());
         console.log($(this).find("#item-tribe-caption").text());
     });
-    $("#detail-btn-crack").on('click',function () {
 
-        if($(this).parent().find(".btn-nft").text().length >=1){
-            crackEgg($(this).parent().find(".btn-nft").text());
-        }else{
-        }
+  $("#detail-btn-crack").on('click',async function () {
+      if ($(this).parent().find(".btn-nft").text().length >= 1) {
+          crackEgg($(this).parent().find(".btn-nft").text(),$(this));
+          // var scarce = Number($(this).parent().find(".btn-nft-scarce").text());
+          // var tribe = Number($(this).parent().find(".btn-nft-tribe").text());
+          // $(".detail-info-pet").find("h4").text(petName(scarce, true, tribe));
+          // $(this).parent().parent().find(".modal-header").find('.modal-title').text(petName(scarce, true, tribe));
+          // $(".detail-info-pet").find(".info-pet").attr('style', "display:table");
+          // $(".showcase-img").attr("src", imagePetOrEgg(tribe, scarce, 0, true));
 
-    });
+      } else {
+      }
+
+  });
     var amount="";
     var id="";
     $("#detail-btn-sell").on('click',function () {
@@ -156,9 +166,10 @@
     function pet(i,exp,tribe,scarce,owner,price,active,id,modalwalletormarket)
     {
     var id_hidden = (active==true)?"":";display:none";
+    var class_special = (modalwalletormarket == "") ? "item-special":"";
         content = " <div\n" +
             "                                id=\"item-"+ i + "\"\n" +
-            "                                class=\""+ positionClass(i) + "\""+
+            "                                class=\""+ positionClass(i) +" "+ class_special +"\""+
             "                                style=\"background-image: url(img/imageframe/imageframe-"+tribe+".png); \"\n" +
             "                                data-toggle=\"modal\"\n" +
             "                                data-target=\"#shop-modal"+modalwalletormarket+"\"\n" +
@@ -167,11 +178,12 @@
             "                            <img src=\""+imagePetOrEgg(tribe,scarce,exp,active)+"\" alt=\"Avatar Pet\" width=\"400\" height=\"750\"  class=\""+classimage(active)+"\"/>\n" +
             "                            <span id=\"item-price-caption\" class=\"item-price-caption hidden-xs\" >"+price+"</span>\n" +
             "                            <span id=\"item-tribe-caption\" class=\"item-price-caption hidden-xs\" >"+tribe+"</span>\n" +
+            "                            <span id=\"item-scarce-caption\" class=\"item-price-caption hidden-xs\" >"+scarce+"</span>\n" +
             "                            <span id=\"active-pet\" class=\"item-price-caption hidden-xs\" >"+ active +"</span>\n" +
             "                            <span id=\"item-name-caption\" class=\"item-name-caption hidden-xs\">"+ petName(scarce,active,tribe)+"</span>\n" +
             "                            <div class=\"panel-item__text\">\n" +
             "                                <h4 class=\"panel-item__title\">"+ petName(scarce,active,tribe)+"</h4>\n" +
-                                            petInfo(active,price,exp,tribe,scarce) +
+                                            petInfo(active,price,exp,tribe,scarce,modalwalletormarket) +
             "                            </div>\n" +
 
             "                            <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
@@ -220,14 +232,20 @@
             return "Egg";
         }
     }
-    function petInfo(active,price,exp,tribe,scarce){
+    function petInfo(active,price,exp,tribe,scarce,modalwalletormarket){
+        var content = "";
         if(active == true) {
-            return "<table class=\"info-pet\" >\n" +
-            "                                    <tr >\n" +
-                "                                        <td>\n" +
-                    "                                            <p class=\"panel-item__summary\">\n" +
+            content = "<table class=\"info-pet\" >\n";
+
+        }
+        else{
+            content = "<table class=\"info-pet\" style='display:none' >\n";
+        }
+      var content1 =  " <tr >\n" +
+            "                                        <td>\n" +
+            "                                            <p class=\"panel-item__summary\">\n" +
             "                                                <i style=\"margin-right: 5px\" class=\"bx bxs-graduation\"></i>Lv: "+ level(exp)+"\n" +
-                "                                            </p>\n" +
+            "                                            </p>\n" +
             "                                        </td>\n" +
             "                                        <td>\n" +
             "                                            <p class=\"panel-item__summary\" >\n" +
@@ -248,10 +266,16 @@
             "                                        </td>\n" +
             "                                    </tr>\n"  +
             "                                </table>\n";
+        if(modalwalletormarket == "")
+        {
+            return content+  content1;
+
+        }else{
+            return content+  content1 +
+            "<p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/>"+ price +"</p>\n";
+
         }
-        else{
-            return "";
-        }
+
     }
 
     async function loadMyPet(){
@@ -377,7 +401,7 @@
         $(".total-page").text(Math.ceil(lstMyPetMarket.length / limitPage));
 
     }
-    async function crackEgg(nftId){
+    async function crackEgg(nftId,thiss){
 
         const web3 = new Web3(DATASEED);
 
@@ -397,8 +421,33 @@
             method: 'eth_sendTransaction',
             params: [transactionParameters],
         });
-        await getTransaction(web3, txHash, "CRACK EGG");
-        location.reload();
+
+        var receipt;
+        getDialog("Please wait!");
+        while(1){
+            receipt = await web3.eth.getTransactionReceipt(txHash);
+
+            if (receipt != null) break;
+
+            // setTimeout(function(){}, 500);
+        }
+        if (receipt.status == true){
+
+            var scarce = Number(thiss.parent().find(".btn-nft-scarce").text());
+            var tribe = Number(thiss.parent().find(".btn-nft-tribe").text());
+            $(".detail-info-pet").find("h4").text(petName(scarce, true, tribe));
+            thiss.parent().parent().find(".modal-header").find('.modal-title').text(petName(scarce, true, tribe));
+            $(".detail-info-pet").find(".info-pet").attr('style', "display:table");
+            $(".showcase-img").attr("src", imagePetOrEgg(tribe, scarce, 0, true));
+
+            getDialog("CRACK EGG"+" DONE ! Please refesh page to update");
+        }else{
+            $(".shop-modal").attr("style","display:none");
+
+            getDialog("CRACK EGG"+" FAIL !");
+        }
+        // getTransaction(web3, txHash, "CRACK EGG");
+
 
     }
     async function createOrder(nftId, price){
@@ -423,7 +472,7 @@
         });
 
         await getTransaction(web3, txHash, "CREATE SALE");
-        location.reload();
+        // location.reload();
 
     }
     async function transfer(nftId, toAddress){
@@ -448,7 +497,7 @@
         });
         
        await getTransaction(web3, txHash, "TRANSFER PET");
-        location.reload();
+        // location.reload();
     }
 
 
@@ -513,7 +562,7 @@
         });
 
         await   getTransaction(web3, txHash, "CANCEL SALE");
-        location.reload();
+        // location.reload();
     }
 
 
@@ -539,7 +588,7 @@
         });
 
         await getTransaction(web3, txHash, "UPDATE SALE PRICE");
-        location.reload();
+        // location.reload();
     }
 
 

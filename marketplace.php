@@ -18,6 +18,11 @@
                         <div class="list-scarces">
                             <ul class="scarces">
                                 <li>
+                                    <a href="marketplace.php"><button class="scarce-all">
+                                            <i class="bx bxl-sketch"></i>All Scarce
+                                        </button></a>
+                                </li>
+                                <li>
                                     <a href="marketplace.php?scarce=1"><button class="scarce-1">
                                         <i class="bx bxl-sketch"></i>Scarce 1
                                     </button></a>
