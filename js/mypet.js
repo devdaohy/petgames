@@ -19,11 +19,14 @@
 
         if(active_pet.text()== "true")
         {
+            $(".detail-info-pet").attr("style","display:block");
+
             detail_btn_crack.attr("style","display:none");
             detail_btn_sell.attr("style","display:block");
             img.attr("style", "background-image: url(img/backgroundpet/background-"+$(this).find("#item-tribe-caption").text()+".png);background-size: 100%;");
 
         }else{
+            $(".detail-info-pet").attr("style","display:none");
 
             detail_btn_crack.attr("style","display:block");
             detail_btn_sell.attr("style","display:none");
@@ -429,6 +432,7 @@
 
             var scarce = Number(thiss.parent().find(".btn-nft-scarce").text());
             var tribe = Number(thiss.parent().find(".btn-nft-tribe").text());
+            $(".detail-info-pet").attr("style","display:block");
 
             thiss.parent().parent().find(".modal-header").find('.modal-title').text(petName(scarce, true, tribe));
             $(".detail-info-pet").find(".info-pet").attr('style', "display:table");

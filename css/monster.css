@@ -4,3 +4,44 @@
 .info-monster td{
     font-size: 15px;
 }
+.carousel-control-prev-icon{
+    background-image: url(../img/other/left.png);
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-repeat:no-repeat;
+    background-position: -17px
+}
+
+.carousel-control-next-icon{
+    background-image: url(../img/other/right.png);
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-repeat:no-repeat;
+    background-position: -17px
+}
+
+.carousel-control-prev , .carousel-control-next{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 15%;
+
+    text-align: center;
+    opacity: .5;
+    transition: opacity .15s ease;">
+}
+.carousel-control-prev{
+    left: 0;
+}
+.carousel-control-next{
+   right: 0;
+}

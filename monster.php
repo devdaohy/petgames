@@ -6,20 +6,26 @@
 <!-- ============== STORE SECTION =============== -->
 
 
-<div class="row" id="play">
+<div class="row" id="play" >
     <h2 style="margin-bottom: 0px">MONSTER</h2>
 
 </div>
-<div class="row items-container">
+<div class="row items-container" >
     <div class="col-xs-6 col-sm-4 gallery-item item1-1" style="box-shadow: none;background: none">
         <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" data-interval="false">
-            <div class="controls-top">
-                <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-                <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-                            class="fas fa-chevron-right"></i></a>
-            </div>
+
+           
             <div class="carousel-inner" role="listbox">
+
             </div>
+            <a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev" >
+                <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#multi-item-example" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
 </div>
@@ -43,11 +49,11 @@
                     <td>1</td>
                 </tr>
                 <tr>
-                    <td>Reward Estimated</td>
+                    <td>Reward</td>
                     <td>1</td>
                 </tr>
                 <tr>
-                    <td>EXP Estimated</td>
+                    <td>EXP</td>
                     <td>1</td>
                 </tr>
                 </tbody>
@@ -79,11 +85,11 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Reward Estimated</td>
+                    <td>Reward</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>EXP Estimated</td>
+                    <td>EXP</td>
                     <td></td>
                 </tr>
                 </tbody>
@@ -114,11 +120,11 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Reward Estimated</td>
+                    <td>Reward</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>EXP Estimated</td>
+                    <td>EXP</td>
                     <td></td>
                 </tr>
                 </tbody>
@@ -149,11 +155,11 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Reward Estimated</td>
+                    <td>Reward</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>EXP Estimated</td>
+                    <td>EXP</td>
                     <td></td>
                 </tr>
                 </tbody>

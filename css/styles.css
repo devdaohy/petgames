@@ -6511,10 +6511,10 @@ ul#model-feats {
 }
 
 .modal .detail-info-pet{
-    width: 70%;
+    width: 72%;
     border: 2px dashed #d45f42;
     background: url(../img/creampaper.png);
-    margin: 12px 15%;
+    margin: 12px 14%;
     padding: 10px;
     border-radius: 15px;
 }
