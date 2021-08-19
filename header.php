@@ -58,7 +58,7 @@
                             <li class="plain-link"><a href="magicegg.php">Magic Egg</a></li>
                             <li class="plain-link"><a href="marketplace.php">Marketplace</a></li>
                             <li class="plain-link"><a href="mypet.php">My Pet</a></li>
-                            <li class="plain-link"><a href="#monster">Monster</a></li>
+                            <li class="plain-link"><a href="monster.php">Monster</a></li>
                             <li class="plain-link"><a href="#farm">Farm</a></li>
                             <li class="plain-link"><a href="#battlefield">Battlefield</a></li>
                             <li class="plain-link"><a href="#howtoplay">How to play ?</a></li>

@@ -9,7 +9,7 @@
         font-size: 11px !important;
     }
     .panel-item__summary{
-        font-size: 11px !important;
+        font-size: 7px !important;
     }
 
 }
@@ -24,6 +24,9 @@
     .panel-item__summary{
         font-size: 12px !important;
     }
+    .modal  .panel-item__summary{
+        font-size: 7px !important;
+    }
 
 }
 
@@ -37,6 +40,9 @@
     .panel-item__summary{
         font-size: 13px !important;
     }
+    .modal  .panel-item__summary{
+        font-size: 8px !important;
+    }
 }
 
 @media (min-width: 401px) and (max-width: 419px) {
@@ -49,6 +55,9 @@
     .panel-item__summary{
         font-size: 15px !important;
     }
+    .modal  .panel-item__summary{
+        font-size: 9px !important;
+    }
 }
 
 @media (min-width: 420px) and (max-width: 479px) {
@@ -60,6 +69,9 @@
         font-size: 17px !important;
     }
 
+    .modal  .panel-item__summary{
+        font-size: 10px !important;
+    }
     .image-pet{
         margin-bottom: 65% !important;
     }
@@ -75,7 +87,9 @@
     .panel-item__summary{
         font-size: 19px !important;
     }
-
+    .modal  .panel-item__summary{
+        font-size: 10px !important;
+    }
     .image-pet{
         margin-bottom: 60% !important;
     }
@@ -90,6 +104,9 @@
     }
     .panel-item__summary{
         font-size: 19px !important;
+    }
+    .modal  .panel-item__summary{
+        font-size: 10px !important;
     }
 
     .image-pet{
@@ -112,18 +129,21 @@
         margin-bottom: 75% !important;
     }
     .modal .panel-item__summary {
-        font-size: 14px !important;
+        font-size: 12px !important;
     }
 
 
 }
-@media (min-width: 681px) and (max-width: 770px) {
+@media (min-width: 681px) and (max-width: 780px) {
 
     .info-pet .p{
         font-size: 10px !important;
     }
     .panel-item__summary{
         font-size: 10px !important;
+    }
+    .modal  .panel-item__summary{
+        font-size: 13px !important;
     }
     .image-pet{
         margin-bottom: 58% !important;
@@ -135,6 +155,9 @@
     .image-pet{
         margin-bottom: 54% !important;
     }
+    .modal  .panel-item__summary{
+        font-size: 19px !important;
+    }
 
 
 }
@@ -144,6 +167,9 @@
     }
     .panel-item__summary{
         font-size: 11px !important;
+    }
+    .modal  .panel-item__summary{
+        font-size: 15px !important;
     }
     .image-pet{
         margin-bottom: 75% !important;

@@ -29,7 +29,7 @@
         font-size: 9px !important;
     }
     .modal .panel-item__summary {
-        font-size: 9px !important;
+        font-size: 6px !important;
     }
 }
 
@@ -44,7 +44,7 @@
         font-size: 12px !important;
     }
     .modal .panel-item__summary{
-        font-size: 12px !important;
+        font-size: 7px !important;
     }
 }
 
@@ -59,7 +59,7 @@
         font-size: 13px !important;
     }
     .modal  .panel-item__summary{
-        font-size: 13px !important;
+        font-size: 8px !important;
     }
 }
 
@@ -74,7 +74,7 @@
         font-size: 15px !important;
     }
     .modal .panel-item__summary{
-        font-size: 15px !important;
+        font-size: 9px !important;
     }
 }
 
@@ -87,7 +87,7 @@
         font-size: 17px !important;
     }
     .modal  .panel-item__summary{
-        font-size: 17px !important;
+        font-size: 9px !important;
     }
 
     .item-special .image-pet{
@@ -105,7 +105,7 @@
         font-size: 19px !important;
     }
     .modal .panel-item__summary{
-        font-size: 19px !important;
+        font-size: 9px !important;
     }
     .item-special .image-pet{
         margin-bottom: 38% !important;
@@ -121,7 +121,7 @@
         font-size: 20px !important;
     }
 .modal  .panel-item__summary{
-    font-size: 13px !important;
+    font-size: 11px !important;
 }
     .item-special .image-pet{
         margin-bottom: 35% !important;
@@ -138,7 +138,7 @@
         font-size: 11px !important;
     }
     .modal .panel-item__summary{
-        font-size: 14px !important;
+        font-size: 12px !important;
     }
     .item-special .image-pet{
         margin-bottom: 55% !important;
@@ -217,51 +217,51 @@
     cursor:pointer;
 }
 
-.modalpet .detail-info-pet{
-    height: 171px !important;
-    background-repeat: no-repeat !important;
-    background-position: 5px -34px !important;
-    background-size: 99% 113% !important;
-    background-image: url(../img/other/backgroup-detail-infopet1.png) !important;
-}
-@media (max-width: 399px)  {
-    .modalpet .detail-info-pet {
-        height: 116px !important;
-        background-repeat: no-repeat !important;
-        background-position: 5px -20px !important;
-        background-size: 99% 126% !important;
+/*.modalpet .detail-info-pet{*/
+/*    height: 171px !important;*/
+/*    background-repeat: no-repeat !important;*/
+/*    background-position: 5px -34px !important;*/
+/*    background-size: 99% 113% !important;*/
+/*    background-image: url(../img/other/backgroup-detail-infopet1.png) !important;*/
+/*}*/
+/*@media (max-width: 399px)  {*/
+/*    .modalpet .detail-info-pet {*/
+/*        height: 116px !important;*/
+/*        background-repeat: no-repeat !important;*/
+/*        background-position: 5px -20px !important;*/
+/*        background-size: 99% 126% !important;*/
 
-    }
-}
-@media (min-width: 400px) and (max-width: 445px) {
-    .modalpet .detail-info-pet {
-        height: 132px !important;
-        background-repeat: no-repeat !important;
-        background-position: 5px -27px !important;
-        background-size: 99% 126% !important;
+/*    }*/
+/*}*/
+/*@media (min-width: 400px) and (max-width: 445px) {*/
+/*    .modalpet .detail-info-pet {*/
+/*        height: 132px !important;*/
+/*        background-repeat: no-repeat !important;*/
+/*        background-position: 5px -27px !important;*/
+/*        background-size: 99% 126% !important;*/
 
-    }
-}
-@media (min-width: 446px) and (max-width: 500px) {
-    .modalpet .detail-info-pet {
-        height: 141px !important;
-        background-position: 4px -35px !important;
-        background-size: 100% 133% !important;
-    }
-}
-@media (min-width: 501px) and (max-width: 680px) {
-    .modal .detail-info-pet {
-        height: 137px !important;
-        background-repeat: no-repeat !important;
-        background-position: 3px -27px !important;
-        background-size: 100% 122% !important;
-    }
-}
-@media (min-width: 681px) and (max-width: 770px) {
-    .modal .detail-info-pet {
-        height: 122px !important;
-        background-repeat: no-repeat !important;
-        background-position: 3px -22px !important;
-        background-size: 100% 122% !important;
-    }
-}
+/*    }*/
+/*}*/
+/*@media (min-width: 446px) and (max-width: 500px) {*/
+/*    .modalpet .detail-info-pet {*/
+/*        height: 141px !important;*/
+/*        background-position: 4px -35px !important;*/
+/*        background-size: 100% 133% !important;*/
+/*    }*/
+/*}*/
+/*@media (min-width: 501px) and (max-width: 680px) {*/
+/*    .modal .detail-info-pet {*/
+/*        height: 137px !important;*/
+/*        background-repeat: no-repeat !important;*/
+/*        background-position: 3px -27px !important;*/
+/*        background-size: 100% 122% !important;*/
+/*    }*/
+/*}*/
+/*@media (min-width: 681px) and (max-width: 770px) {*/
+/*    .modal .detail-info-pet {*/
+/*        height: 122px !important;*/
+/*        background-repeat: no-repeat !important;*/
+/*        background-position: 3px -22px !important;*/
+/*        background-size: 100% 122% !important;*/
+/*    }*/
+/*}*/

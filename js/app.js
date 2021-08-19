@@ -13,14 +13,14 @@ $(document).ready(function () {
 
   }
 
-  var $sweetworldcarousel = $("#sweet-world-carousel");
-
-  $sweetworldcarousel.swiperight(function () {
-    $(this).carousel("prev");
-  });
-  $sweetworldcarousel.swipeleft(function () {
-    $(this).carousel("next");
-  });
+  // var $sweetworldcarousel = $("#sweet-world-carousel");
+  //
+  // $sweetworldcarousel.swiperight(function () {
+  //   $(this).carousel("prev");
+  // });
+  // $sweetworldcarousel.swipeleft(function () {
+  //   $(this).carousel("next");
+  // });
 
   //////////////////////////////////////
   //          SNIPPETS                //
@@ -228,7 +228,7 @@ document.addEventListener("gesturestart", function (e) {
 /////////////////////////////////////
 //         CAROUSEL FADE           //
 /////////////////////////////////////
-$(".carousel").carousel();
+$(".carousel").carousel('pause');
 
 
 var limitPage=12;

@@ -47,8 +47,6 @@
 
   $("#detail-btn-crack").on('click',async function () {
       if ($(this).parent().find(".btn-nft").text().length >= 1) {
-          $("#shop-modal-loading").modal('toggle');
-
           crackEgg($(this).parent().find(".btn-nft").text(),$(this));
       } else {
       }
@@ -159,8 +157,7 @@
         return a['nftId'] - b['nftId']
     }
 
-    function pet(i,exp,tribe,scarce,owner,price,active,id,modalwalletormarket)
-    {
+    function pet(i,exp,tribe,scarce,owner,price,active,id,modalwalletormarket) {
     var id_hidden = (active==true)?"":";display:none";
     var class_special = (modalwalletormarket == "") ? "item-special":"";
         content = " <div\n" +
@@ -314,6 +311,7 @@
         }
     }
 
+
     function forLstMyPet() {
         var content="";
         var count =0;
@@ -428,7 +426,6 @@
             // setTimeout(function(){}, 500);
         }
         if (receipt.status == true){
-            $("#shop-modal-loading").modal('toggle');
 
             var scarce = Number(thiss.parent().find(".btn-nft-scarce").text());
             var tribe = Number(thiss.parent().find(".btn-nft-tribe").text());
@@ -436,6 +433,7 @@
             thiss.parent().parent().find(".modal-header").find('.modal-title').text(petName(scarce, true, tribe));
             $(".detail-info-pet").find(".info-pet").attr('style', "display:table");
             $(".showcase-img").attr("src", imagePetOrEgg(tribe, scarce, 0, true));
+            thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Cracked");
 
             getDialog("CRACK EGG"+" DONE ! Please refesh page to update");
         }else{
