@@ -27,8 +27,8 @@
 
         }else{
             $(".detail-info-pet").attr("style","display:none");
-
             detail_btn_crack.attr("style","display:block");
+            detail_btn_crack.removeClass("disable-click");
             detail_btn_sell.attr("style","display:none");
             img.attr("style", "background-image: url(img/backgroundpet/background-"+$(this).find("#item-tribe-caption").text()+".png);background-size: 100%;padding:10%");
 
@@ -49,8 +49,9 @@
     });
 
   $("#detail-btn-crack").on('click',async function () {
+
       if ($(this).parent().find(".btn-nft").text().length >= 1) {
-          crackEgg($(this).parent().find(".btn-nft").text(),$(this));
+           crackEgg($(this).parent().find(".btn-nft").text(),$(this));
       } else {
       }
 
@@ -420,7 +421,7 @@
         });
 
         var receipt;
-        thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Cracking...");
+         thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Cracking...");
         while(1){
             receipt = await web3.eth.getTransactionReceipt(txHash);
 
@@ -437,7 +438,8 @@
             thiss.parent().parent().find(".modal-header").find('.modal-title').text(petName(scarce, true, tribe));
             $(".detail-info-pet").find(".info-pet").attr('style', "display:table");
             $(".showcase-img").attr("src", imagePetOrEgg(tribe, scarce, 0, true));
-            thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Cracked");
+            thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Crack");
+            thiss.parent().find("#detail-btn-crack").addClass("disable-click");
 
             getDialog("CRACK EGG"+" DONE ! Please refesh page to update");
         }else{

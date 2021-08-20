@@ -265,3 +265,7 @@
 /*        background-size: 100% 122% !important;*/
 /*    }*/
 /*}*/
+
+.disable-click{
+    pointer-events:none;
+}
