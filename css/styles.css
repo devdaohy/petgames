@@ -488,7 +488,7 @@ a.navbar-logo:hover {
         border-bottom: 2px dashed #d45f42;
     }
     .navbar-logo {
-        margin:11px 46% !important;
+        margin:11px 44% !important;
         transform: translateY(-5px) !important;
     }
     /*.plain-link a {*/
@@ -1809,8 +1809,8 @@ h2.tips {
     position: absolute;
     right: 0;
     text-align: left;
-    border-right: 1px solid rgba(255, 255, 255, 0.85);
-    border-left: 1px solid rgba(255, 255, 255, 0.85);
+    /*border-right: 1px solid rgba(255, 255, 255, 0.85);*/
+    /*border-left: 1px solid rgba(255, 255, 255, 0.85);*/
     transition: border 0.2s;
 }
 

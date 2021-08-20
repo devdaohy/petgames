@@ -1,7 +1,7 @@
 <?php ?>
 <?php  include "header.php"?>
 <link href="css/monster.css" rel="stylesheet" />
-<link href="css/mypet.css" rel="stylesheet" />
+<!--<link href="css/mypet.css" rel="stylesheet" />-->
 
 <!-- ============== STORE SECTION =============== -->
 
@@ -11,7 +11,7 @@
 
 </div>
 <div class="row items-container" >
-    <div class="col-xs-6 col-sm-4 gallery-item item1-1" style="box-shadow: none;background: none">
+    <div class="col-xs-6 col-sm-3 gallery-item item1-1" style="box-shadow: none;background: none;margin-top: 0px;">
         <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" data-interval="false">
 
            
@@ -69,7 +69,7 @@
             <span class="button-game-bg-right-buy"></span>
         </a>
     </div>
-    <div id="item-2" class="col-xs-5 col-xs-offset-2 col-sm-3 col-sm-offset-1  gallery-item item-2 thumbnail-50 background-config" style="background-image: url(img/monster/monster.png);" data-toggle="modal" data-target="#shop-modal">
+    <div id="item-2" class="col-xs-5  col-sm-3 col-sm-offset-1  gallery-item item-2 thumbnail-50 background-config" style="background-image: url(img/monster/monster.png);" data-toggle="modal" data-target="#shop-modal">
 
         <img src="img/monster/m2.png" class="image-egg-magic" alt="Avatar Pet" width="440" height="750"  />
         <div class="panel-item__text">
@@ -139,7 +139,7 @@
             <span class="button-game-bg-right-buy"></span>
         </a>
     </div>
-    <div id="item-4" class="col-xs-5 col-sm-3 col-xs-offset-2 col-sm-offset-1 gallery-item  item-4  thumbnail-50 background-config" style=" background-image: url(img/monster/monster.png);" data-toggle="modal" data-target="#shop-modal">
+    <div id="item-4" class="col-xs-5 col-sm-3  col-sm-offset-1 gallery-item  item-4  thumbnail-50 background-config" style=" background-image: url(img/monster/monster.png);" data-toggle="modal" data-target="#shop-modal">
 
         <img src="img/monster/m4.png" class="image-egg-magic" alt="Avatar Pet" width="440" height="750"/>
         <div class="panel-item__text">

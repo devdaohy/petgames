@@ -86,8 +86,8 @@ function pet(i,exp,tribe,scarce,owner,price,active,id,modalwalletormarket) {
     var class_special = (modalwalletormarket == "") ? "item-special":"";
     content = " <div\n" +
         "                                id=\"item-"+ i + "\"\n" +
-        "                                class=\"col-sm-7 col-xs-12 gallery-item itemmonster-1 thumbnail-50 background-config "+ class_special +"\""+
-        "                                style=\"background-image: url(img/imageframe/imageframe-"+tribe+".png); \"\n" +
+        "                                class=\"gallery-item itemmonster-1 thumbnail-50 background-config "+ class_special +"\""+
+        "                                style=\"background-image: url(img/imageframe/imageframe-"+tribe+".png);margin: 23px \"\n" +
         "                                data-toggle=\"modal\"\n" +
         "                                data-target=\"#shop-modal"+modalwalletormarket+"\"\n" +
         "                        >\n" +
@@ -103,13 +103,7 @@ function pet(i,exp,tribe,scarce,owner,price,active,id,modalwalletormarket) {
         petInfo(active,price,exp,tribe,scarce,modalwalletormarket) +
         "                            </div>\n" +
 
-        "                            <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
-        "                                <span class=\"button-game-bg-left-buy\"></span>\n" +
-        "                                <span class=\"button-game-bg-mid\">\n" +
-        "                    <span style=\"font-size: 20px\">Detail</span>\n" +
-        "                  </span>\n" +
-        "                                <span class=\"button-game-bg-right-buy\"></span>\n" +
-        "                            </a>\n" +
+
         "                        </div>";
     return content;
 }
@@ -194,3 +188,28 @@ function petInfo(active,price,exp,tribe,scarce,modalwalletormarket){
     }
 
 }
+
+
+$(window)
+    .resize(function () {
+        var width = $(window).width();
+        if (width >= 600 && width <= 1024) {
+            $(".item1-1")
+                .removeClass("col-sm-3 col-xs-12")
+                .addClass("col-sm-5 col-xs-6");
+
+
+        } else if(width >= 10 && width <= 599){
+            $(".item1-1")
+                .removeClass("col-sm-5 col-xs-6")
+                .addClass("col-sm-5 col-xs-12");
+
+        }
+        else{
+            $(".item1-1")
+                .removeClass("col-sm-5 col-xs-12")
+                .addClass("col-sm-3 col-xs-6");
+
+
+        }
+    }).resize();
