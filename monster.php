@@ -1,10 +1,14 @@
 <?php ?>
 <?php  include "header.php"?>
 <link href="css/monster.css" rel="stylesheet" />
-<!--<link href="css/mypet.css" rel="stylesheet" />-->
 
 <!-- ============== STORE SECTION =============== -->
 
+<div class="container" style="    background-position: 50% 51% !important;
+background-repeat: no-repeat !important;
+    margin-top: 2rem;
+    background: url(img/other/backgroungmonster.png) ;
+    background-size: 210% !important;" >
 
 <div class="row" id="play" >
     <h2 style="margin-bottom: 0px">MONSTER</h2>
@@ -36,25 +40,25 @@
 
         <img src="img/monster/m1.png" class="image-egg-magic" alt="Avatar Pet" width="400" height="750" />
          <div class="panel-item__text">
-            <h4 class="panel-item__title">Water Egg</h4>
+            <h4 class="panel-item__title">Aguila</h4>
 
            <table class="info-monster">
                 <tbody>
                 <tr>
                     <td>Level</td>
-                    <td>111111111</td>
+                    <td>1</td>
                 </tr>
                 <tr>
                     <td>Win Rate</td>
-                    <td>1</td>
+                    <td>80%</td>
                 </tr>
                 <tr>
                     <td>Reward</td>
-                    <td>1</td>
+                    <td>1000-2000</td>
                 </tr>
                 <tr>
                     <td>EXP</td>
-                    <td>1</td>
+                    <td>1-20</td>
                 </tr>
                 </tbody>
             </table>
@@ -64,7 +68,7 @@
         <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
-                                <span id="egg-water" style="font-size: 20px">Buy</span>
+                                <span id="egg-water" style="font-size: 20px">Fight</span>
                             </span>
             <span class="button-game-bg-right-buy"></span>
         </a>
@@ -73,24 +77,24 @@
 
         <img src="img/monster/m2.png" class="image-egg-magic" alt="Avatar Pet" width="440" height="750"  />
         <div class="panel-item__text">
-            <h4 class="panel-item__title">Fire Egg</h4>
+            <h4 class="panel-item__title">Akkuman</h4>
            <table class="info-monster">
                 <tbody>
                 <tr>
                     <td>Level</td>
-                    <td></td>
+                    <td>1</td>
                 </tr>
                 <tr>
                     <td>Win Rate</td>
-                    <td></td>
+                    <td>70</td>
                 </tr>
                 <tr>
                     <td>Reward</td>
-                    <td></td>
+                    <td>1000-2000</td>
                 </tr>
                 <tr>
                     <td>EXP</td>
-                    <td></td>
+                    <td>1-20</td>
                 </tr>
                 </tbody>
             </table>
@@ -108,7 +112,7 @@
 
         <img src="img/monster/m3.png" class="image-egg-magic" alt="Avatar Pet" width="440" height="750"/>
           <div class="panel-item__text">
-            <h4 class="panel-item__title">Wood Egg</h4>
+            <h4 class="panel-item__title">Tauron</h4>
            <table class="info-monster">
                 <tbody>
                 <tr>
@@ -117,15 +121,15 @@
                 </tr>
                 <tr>
                     <td>Win Rate</td>
-                    <td></td>
+                    <td>60Em </td>
                 </tr>
                 <tr>
                     <td>Reward</td>
-                    <td></td>
+                    <td>1000-2000</td>
                 </tr>
                 <tr>
                     <td>EXP</td>
-                    <td></td>
+                    <td>1-20</td>
                 </tr>
                 </tbody>
             </table>
@@ -143,24 +147,24 @@
 
         <img src="img/monster/m4.png" class="image-egg-magic" alt="Avatar Pet" width="440" height="750"/>
         <div class="panel-item__text">
-            <h4 class="panel-item__title">Metal Egg</h4>
+            <h4 class="panel-item__title">Drum</h4>
            <table class="info-monster">
                 <tbody>
                 <tr>
                     <td>Level</td>
-                    <td></td>
+                    <td>1</td>
                 </tr>
                 <tr>
                     <td>Win Rate</td>
-                    <td></td>
+                    <td>30</td>
                 </tr>
                 <tr>
                     <td>Reward</td>
-                    <td></td>
+                    <td>1000-2000</td>
                 </tr>
                 <tr>
                     <td>EXP</td>
-                    <td></td>
+                    <td>1-20</td>
                 </tr>
                 </tbody>
             </table>

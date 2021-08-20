@@ -1877,8 +1877,8 @@ h2.tips {
 }
 
 .gallery-item:hover .panel-item__text {
-    border-right: 1px solid rgba(255, 255, 255, 0.85);
-    border-left: 1px solid rgba(255, 255, 255, 0.85);
+    /*border-right: 1px solid rgba(255, 255, 255, 0.85);*/
+    /*border-left: 1px solid rgba(255, 255, 255, 0.85);*/
 }
 
 .gallery-item:hover .panel-item__title {
