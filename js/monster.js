@@ -5,28 +5,119 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 $("#btn-fight-1").on("click",function () {
     var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
     var level =1;
-    console.log(nft_id);
+    fightMonster(nft_id, level);
 });
 $("#btn-fight-2").on("click",function () {
     var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
     var level =2;
-
+    fightMonster(nft_id, level);
 
 });
 $("#btn-fight-3").on("click",function () {
     var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
     var level =3;
-
+    fightMonster(nft_id, level);
 
 });
 $("#btn-fight-4").on("click",function () {
     var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
     var level =4;
-
+    fightMonster(nft_id, level);
 
 });
 
 
+
+async function expFightMonster(monsterLv){
+
+    // testnet
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    expFight = await monsterContract.methods._expFightMonster1(monsterLv).call();
+    console.log(expFight);
+}
+
+async function rewardFightMonster(nftId, monsterLv){
+
+    // testnet
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    rewardFight = await monsterContract.methods._rewardFightMonster1(nftId, monsterLv).call();
+    console.log(rewardFight);
+}
+
+
+async function getTimeFightMonster1(nftId){
+
+    // testnet
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    timeFight = await monsterContract.methods.getTimeFightMonster1(nftId).call();
+    console.log(timeFight);
+}
+
+async function fightMonster(nftId, monsterLv){
+
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    encoded = monsterContract.methods.fightMonster1(nftId, monsterLv).encodeABI();
+
+    const transactionParameters = {
+      nonce: '0x00', // ignored by MetaMask
+      to: MONSTER, // Required except during contract publications.
+      from: ethereum.selectedAddress, // must match user's active address.
+      value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+      data: encoded
+    };
+
+    const txHash = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+    });
+
+    getFightResult(web3, txHash, monsterContract);
+}
+
+
+async function getFightResult(web3, txHash, monsterContract){
+
+  var receipt;
+
+  while(1){
+    receipt = await web3.eth.getTransactionReceipt(txHash);
+
+    if (receipt != null) break;
+
+    // setTimeout(function(){}, 500);
+  }
+
+  if (receipt.status == true){
+
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+
+    lastFight = await monsterContract.methods.getLastFightMonster(myAddress).call();
+
+    if(lastFight['win']==true){
+        getDialog("You win, exp:"+lastFight['exp']+", reward:"+lastFight['reward']);   
+    }else{
+        getDialog("You lose, exp:"+lastFight['exp']);   
+    }
+
+    
+  }else{
+    getDialog("Fight Monster FAIL !");
+  }
+
+}
 
 
 var lstMyPet = new Array();
