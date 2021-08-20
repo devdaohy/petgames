@@ -1,5 +1,34 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
+
+
+$("#btn-fight-1").on("click",function () {
+    var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
+    var level =1;
+    console.log(nft_id);
+});
+$("#btn-fight-2").on("click",function () {
+    var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
+    var level =2;
+
+
+});
+$("#btn-fight-3").on("click",function () {
+    var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
+    var level =3;
+
+
+});
+$("#btn-fight-4").on("click",function () {
+    var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
+    var level =4;
+
+
+});
+
+
+
+
 var lstMyPet = new Array();
 
 loadMyPet();
@@ -213,3 +242,5 @@ $(window)
 
         }
     }).resize();
+
+

@@ -68,7 +68,7 @@ background-repeat: no-repeat !important;
         <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
-                                <span id="egg-water" style="font-size: 20px">Fight</span>
+                                <span id="btn-fight-1" style="font-size: 20px">Fight</span>
                             </span>
             <span class="button-game-bg-right-buy"></span>
         </a>
@@ -82,11 +82,11 @@ background-repeat: no-repeat !important;
                 <tbody>
                 <tr>
                     <td>Level</td>
-                    <td>1</td>
+                    <td>2</td>
                 </tr>
                 <tr>
                     <td>Win Rate</td>
-                    <td>70</td>
+                    <td>70%</td>
                 </tr>
                 <tr>
                     <td>Reward</td>
@@ -103,7 +103,7 @@ background-repeat: no-repeat !important;
         <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
-                                <span id="egg-fire" style="font-size: 20px">Buy</span>
+                                <span id="btn-fight-2" style="font-size: 20px">Fight</span>
                               </span>
             <span class="button-game-bg-right-buy"></span>
         </a>
@@ -117,11 +117,11 @@ background-repeat: no-repeat !important;
                 <tbody>
                 <tr>
                     <td>Level</td>
-                    <td></td>
+                    <td>3</td>
                 </tr>
                 <tr>
                     <td>Win Rate</td>
-                    <td>60Em </td>
+                    <td>60% </td>
                 </tr>
                 <tr>
                     <td>Reward</td>
@@ -138,7 +138,7 @@ background-repeat: no-repeat !important;
         <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
-                                <span id="egg-wood" style="font-size: 20px">Buy</span>
+                                <span id="btn-fight-3" style="font-size: 20px">Fight</span>
                               </span>
             <span class="button-game-bg-right-buy"></span>
         </a>
@@ -152,11 +152,11 @@ background-repeat: no-repeat !important;
                 <tbody>
                 <tr>
                     <td>Level</td>
-                    <td>1</td>
+                    <td>4</td>
                 </tr>
                 <tr>
                     <td>Win Rate</td>
-                    <td>30</td>
+                    <td>30%</td>
                 </tr>
                 <tr>
                     <td>Reward</td>
@@ -173,7 +173,7 @@ background-repeat: no-repeat !important;
         <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
-                    <span id="egg-metal" style="font-size: 20px">Buy</span>
+                    <span id="btn-fight-4" style="font-size: 20px">Fight</span>
                   </span>
             <span class="button-game-bg-right-buy"></span>
         </a>
