@@ -16,6 +16,8 @@
         var detail_btn_sell=$("#detail-btn-sell");
         var detail_btn_crack=$("#detail-btn-crack");
         var active_pet=$(this).find("#active-pet");
+        $("#detail-btn-transfer").removeClass("disable-click");
+        detail_btn_crack.removeClass("disable-click");
 
         if(active_pet.text()== "true")
         {
@@ -28,7 +30,6 @@
         }else{
             $(".detail-info-pet").attr("style","display:none");
             detail_btn_crack.attr("style","display:block");
-            detail_btn_crack.removeClass("disable-click");
             detail_btn_sell.attr("style","display:none");
             img.attr("style", "background-image: url(img/backgroundpet/background-"+$(this).find("#item-tribe-caption").text()+".png);background-size: 100%;padding:10%");
 
@@ -421,7 +422,9 @@
         });
 
         var receipt;
-         thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Cracking...");
+        thiss.parent().find("#detail-btn-crack").addClass("disable-click");
+        thiss.parent().find("#detail-btn-transfer").addClass("disable-click");
+        thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Cracking...");
         while(1){
             receipt = await web3.eth.getTransactionReceipt(txHash);
 
@@ -439,7 +442,6 @@
             $(".detail-info-pet").find(".info-pet").attr('style', "display:table");
             $(".showcase-img").attr("src", imagePetOrEgg(tribe, scarce, 0, true));
             thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Crack");
-            thiss.parent().find("#detail-btn-crack").addClass("disable-click");
 
             getDialog("CRACK EGG"+" DONE ! Please refesh page to update");
         }else{

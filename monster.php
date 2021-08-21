@@ -15,7 +15,7 @@ background-repeat: no-repeat !important;
 
 </div>
 <div class="row items-container" >
-    <div class="col-xs-6 col-sm-3 gallery-item item1-1" style="box-shadow: none;background: none;margin-top: 0px;">
+    <div class="col-xs-6 col-sm-4 gallery-item item1-1" style="box-shadow: none;background: none;margin-top: 0px;">
         <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" data-interval="false">
 
            

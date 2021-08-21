@@ -26,7 +26,10 @@ $("#btn-fight-4").on("click",function () {
 
 });
 
-
+expFightMonster(1);
+expFightMonster(2);
+expFightMonster(3);
+expFightMonster(4);
 
 async function expFightMonster(monsterLv){
 
@@ -35,9 +38,26 @@ async function expFightMonster(monsterLv){
 
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
-    expFight = await monsterContract.methods._expFightMonster1(monsterLv).call();
-    console.log(expFight);
+    var expFight = await monsterContract.methods._expFightMonster1(monsterLv).call();
+    $("#item-"+ monsterLv +" .info-monster tr:nth-child(4) td:nth-child(2)").text(expFight);
+
+
 }
+rewardFightMonster(22,1);
+rewardFightMonster(22,2);
+rewardFightMonster(22,3);
+rewardFightMonster(22,4);
+
+$(".carousel-control-next-icon").on("click",function () {
+    setTimeout(function(){
+        var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
+        rewardFightMonster(nft_id,1);
+        rewardFightMonster(nft_id,2);
+        rewardFightMonster(nft_id,3);
+        rewardFightMonster(nft_id,4);
+        getTimeFightMonster1(nft_id);
+    }, 700);
+});
 
 async function rewardFightMonster(nftId, monsterLv){
 
@@ -47,7 +67,9 @@ async function rewardFightMonster(nftId, monsterLv){
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
     rewardFight = await monsterContract.methods._rewardFightMonster1(nftId, monsterLv).call();
-    console.log(rewardFight);
+
+    $("#item-"+ monsterLv +" .info-monster tr:nth-child(3) td:nth-child(2)").text(Math.floor(0.75*rewardFight) +" - " + rewardFight);
+
 }
 
 
@@ -59,7 +81,15 @@ async function getTimeFightMonster1(nftId){
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
     timeFight = await monsterContract.methods.getTimeFightMonster1(nftId).call();
-    console.log(timeFight);
+    if( Math.floor($.now()/1000) > timeFight){
+       time =  Math.floor($.now()/1000)-timeFight;
+        $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(3) td:nth-child(1)').text(Math.floor($.now()/1000)-timeFight);
+
+    }else{
+        $("#btn-fight-1").addClass("disable-click");
+
+    }
+
 }
 
 async function fightMonster(nftId, monsterLv){
@@ -121,6 +151,7 @@ async function getFightResult(web3, txHash, monsterContract){
 
 
 var lstMyPet = new Array();
+var lstMyPetD = new Array();
 
 loadMyPet();
 
@@ -151,20 +182,21 @@ async function loadMyPet(){
 async function readMyPet(from, to, sender){
     for(let i = from; i < to; i++){
 
+
         var nftId = await petNFTContract.methods.tokenOfOwnerByIndex(sender, Number(i)).call();
 
         var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
+        lstMyPetD.push(petNFTInfo);
 
         if(petNFTInfo['active'] == true)
         {
-            console.log(petNFTInfo['active']);
 
             lstMyPet.push(petNFTInfo);
         }
+
     }
+    if(lstMyPetD.length == myBalance){
 
-
-    if(to == myBalance){
         lstMyPet.sort(sortByNftId);
         console.log(lstMyPet);
         forLstMyPet();
@@ -220,7 +252,7 @@ function pet(i,exp,tribe,scarce,owner,price,active,id,modalwalletormarket) {
         "                            <span id=\"item-name-caption\" class=\"item-name-caption hidden-xs\">"+ petName(scarce,active,tribe)+"</span>\n" +
         "                            <div class=\"panel-item__text\">\n" +
         "                                <h4 class=\"panel-item__title\">"+ petName(scarce,active,tribe)+"</h4>\n" +
-        petInfo(active,price,exp,tribe,scarce,modalwalletormarket) +
+        petInfo(active,price,exp,tribe,scarce,modalwalletormarket,id) +
         "                            </div>\n" +
 
 
@@ -263,7 +295,7 @@ function petOrEgg(active){
         return "Egg";
     }
 }
-function petInfo(active,price,exp,tribe,scarce,modalwalletormarket){
+function petInfo(active,price,exp,tribe,scarce,modalwalletormarket,id){
     var content = "";
     if(active == true) {
         content = "<table class=\"info-pet\" >\n";
@@ -295,6 +327,13 @@ function petInfo(active,price,exp,tribe,scarce,modalwalletormarket){
         "                                                <i style=\"margin-right: 5px\" class=\"bx bxl-sketch\"></i>Scarce: "+scarce+"\n" +
         "                                            </p>\n" +
         "                                        </td>\n" +
+        "                                    </tr>\n"  +
+        "                                    <tr>\n" +
+        "                                        <td colspan=\"2\">\n" +
+        "                                            <p class=\"panel-item__summary\" >\n" +
+        "                                            </p>\n" +
+        "                                        </td>\n" +
+
         "                                    </tr>\n"  +
         "                                </table>\n";
     if(modalwalletormarket == "")
@@ -328,7 +367,7 @@ $(window)
         else{
             $(".item1-1")
                 .removeClass("col-sm-5 col-xs-12")
-                .addClass("col-sm-3 col-xs-6");
+                .addClass("col-sm-5 col-xs-6");
 
 
         }

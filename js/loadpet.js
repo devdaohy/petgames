@@ -1,12 +1,10 @@
 function petName(scarce,active,tribe){
     if(active ==true) {
-
-
-        if (scarce == 1) return "Mushroom";
-        else if (scarce == 2) return "Tree God";
-        else if (scarce == 3) return "Sagittarius";
-        else if (scarce == 4) return "Rabbit Ninja";
-        else if (scarce == 5) return "Druid";
+        if (scarce == 1) return "Sagittarius";
+        else if (scarce == 2) return "Rabbit Ninja";
+        else if (scarce == 3) return "Druid";
+        else if (scarce == 4) return "Lucy Cat";
+        else if (scarce == 5) return "Pig hunter";
         else if (scarce == 6) return "Robo X";
         else if (scarce == 7) return "Ghost Knight";
         else if (scarce == 8) return "Super Knight";

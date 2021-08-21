@@ -415,7 +415,9 @@
     margin-top: 10%;
 }
 
-
+.disable-click{
+    pointer-events:none;
+}
 /*@media (min-width: 200px) and (max-width: 399px) {*/
 /*    .image-egg-magic{*/
 /*        margin-bottom: 65% !important;*/
