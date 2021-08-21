@@ -612,7 +612,7 @@
             method: 'eth_sendTransaction',
             params: [transactionParameters],
         });
-        $("#shop-modal1").modal('toggle');
+        // $("#shop-modal1").modal('toggle');
 
         await getTransaction(web3, txHash, "UPDATE SALE PRICE");
         await loadMyPetMarket(1);
