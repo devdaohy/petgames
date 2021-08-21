@@ -49,7 +49,8 @@ async function expFightMonster(monsterLv){
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
     var expFight = await monsterContract.methods._expFightMonster1(monsterLv).call();
-    $("#item-"+ monsterLv +" .info-monster tr:nth-child(4) td:nth-child(2)").text(expFight);
+
+    $("#item-"+ monsterLv +" .info-monster tr:nth-child(4) td:nth-child(2)").text( Math.floor(0.75*expFight) +" - " + expFight);
 
 
 }
@@ -100,6 +101,7 @@ async function rewardFightMonster(nftId, monsterLv){
     $("#item-"+ monsterLv +" .info-monster tr:nth-child(3) td:nth-child(2)").text(Math.floor(0.75*rewardFight) +" - " + rewardFight);
 
 }
+
 async function updateRealTimeFight(){
     $('.carousel-inner').find('.item').each(function (index)
     {
@@ -109,6 +111,7 @@ async function updateRealTimeFight(){
     });
 
 }
+
 setInterval(updateRealTimeFight, 1000);
 
 async function getTimeFightMonster1(nftId){
@@ -401,14 +404,19 @@ function petInfo(active,price,exp,tribe,scarce,modalwalletormarket,id){
         "                                    </tr>\n"  +
         "                                    <tr>\n" +
         "                                        <td colspan=\"2\">\n" +
-        "                                            <p class=\"panel-item__summary\" >\n" +
+        "                                            <p style='    background-color: #ff9900d1;\n" +
+        "    width: 40%;\n" +
+        "    text-align: center;\n" +
+        "    margin: auto;\n" +
+        "    border-radius: 10px;\n" +
+        "    padding: 2px;' class=\"panel-item__summary\" >\n" +
         "                                            </p>\n" +
         "                                        </td>\n" +
 
         "                                    </tr>\n"  +
         "                                    <tr style='display: none'>\n" +
         "                                        <td colspan=\"2\">\n" +
-        "                                            <p class=\"panel-item__summary\" >\n" +
+        "                                            <p  class=\"panel-item__summary\" >\n" +
         "                                            </p>\n" +
         "                                        </td>\n" +
 

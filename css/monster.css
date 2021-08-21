@@ -10,10 +10,13 @@
     margin-left: 13%;
 }
 .col-sm-4{
-    width: 27% !important;
+    width: 24% !important;
 }
 
-
+.info-pet {
+    margin-left: 9% !important;
+    width: 89% !important;
+}
 
 .carousel-control-prev-icon, .carousel-control-next-icon{
     display: inline-block;
@@ -326,7 +329,7 @@
         font-size: 11px !important;
     }
     .panel-item__summary{
-        font-size: 11px !important;
+        font-size: 15px !important;
     }
     .modal .panel-item__summary{
         font-size: 12px !important;
@@ -350,13 +353,13 @@
         font-size: 11px !important;
     }
     .panel-item__summary{
-        font-size: 11px !important;
+        font-size: 17px !important;
     }
     .modal .panel-item__summary{
         font-size: 11px !important;
     }
     .item-special .image-pet{
-        margin-bottom: 58% !important;;
+        margin-bottom: 70% !important;;
     }
     .image-egg-magic{
         margin-bottom: 45% !important;
@@ -374,7 +377,7 @@
         font-size: 15px !important;
     }
     .panel-item__summary{
-        font-size: 15px !important;
+        font-size: 20px !important;
     }
     .modal .panel-item__summary{
         font-size: 15px !important;
@@ -422,7 +425,7 @@
         font-size: 12px !important;
     }
     .panel-item__summary{
-        font-size: 20px !important;
+        font-size: 16px !important;
     }
     .modal  .panel-item__summary{
         font-size: 15px !important;
@@ -442,7 +445,7 @@
 }
 @media (min-width: 1201px)  {
     .item-special .image-pet{
-        margin-bottom: 60% !important;
+        margin-bottom: 68% !important;
     }
     .panel-item__summary{
         font-size: 21px !important;
