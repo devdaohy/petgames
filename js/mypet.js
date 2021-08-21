@@ -290,7 +290,7 @@
         console.log(myBalance);
 
         for(let from=0;from<myBalance;){
-            to = Math.min(from+12, myBalance);
+            to = Math.min(from+6, myBalance);
             readMyPet(from, to, myAddress);
             from = to;
         }
@@ -517,7 +517,7 @@
         console.log(yourSaleSize);
 
         for(let from=0;from<yourSaleSize;){
-            to = Math.min(from+12, yourSaleSize);
+            to = Math.min(from+6, yourSaleSize);
             readMyPetMarket(from, to, myAddress);
             from = to;
         }
