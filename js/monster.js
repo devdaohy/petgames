@@ -1,6 +1,16 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
 
+// $("#shop-modal-win").modal('toggle');
+// $("#shop-modal-lose").modal('toggle');
+$("#shop-modal-win .button-game-bg-mid").on("click",function () {
+    $("#shop-modal-win").modal('toggle');
+
+});
+$("#shop-modal-lose .button-game-bg-mid").on("click",function () {
+    $("#shop-modal-lose").modal('toggle');
+
+});
 
 $("#btn-fight-1").on("click",function () {
     var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
@@ -50,6 +60,25 @@ rewardFightMonster(22,4);
 
 $(".carousel-control-next-icon").on("click",function () {
     setTimeout(function(){
+        $("#btn-fight-1").removeClass("disable-click");
+        $("#btn-fight-2").removeClass("disable-click");
+        $("#btn-fight-3").removeClass("disable-click");
+        $("#btn-fight-4").removeClass("disable-click");
+        var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
+        rewardFightMonster(nft_id,1);
+        rewardFightMonster(nft_id,2);
+        rewardFightMonster(nft_id,3);
+        rewardFightMonster(nft_id,4);
+        getTimeFightMonster1(nft_id);
+    }, 700);
+});
+
+$(".carousel-control-prev-icon").on("click",function () {
+    setTimeout(function(){
+        $("#btn-fight-1").removeClass("disable-click");
+        $("#btn-fight-2").removeClass("disable-click");
+        $("#btn-fight-3").removeClass("disable-click");
+        $("#btn-fight-4").removeClass("disable-click");
         var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
         rewardFightMonster(nft_id,1);
         rewardFightMonster(nft_id,2);
@@ -71,7 +100,16 @@ async function rewardFightMonster(nftId, monsterLv){
     $("#item-"+ monsterLv +" .info-monster tr:nth-child(3) td:nth-child(2)").text(Math.floor(0.75*rewardFight) +" - " + rewardFight);
 
 }
+async function updateRealTimeFight(){
+    $('.carousel-inner').find('.item').each(function (index)
+    {
+      var  time = $(this).find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text();
+console.log(string1.toString());
+        // $(this.find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
+    });
 
+}
+setInterval(updateRealTimeFight, 1000);
 
 async function getTimeFightMonster1(nftId){
 
@@ -81,12 +119,23 @@ async function getTimeFightMonster1(nftId){
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
     timeFight = await monsterContract.methods.getTimeFightMonster1(nftId).call();
-    if( Math.floor($.now()/1000) > timeFight){
-       time =  Math.floor($.now()/1000)-timeFight;
-        $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(3) td:nth-child(1)').text(Math.floor($.now()/1000)-timeFight);
+    console.log(timeFight);
+    console.log($.now()/1000);
+    if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
+        totalSeconds =  Math.floor(timeFight-($.now()/1000 ));
+        hours = Math.floor(totalSeconds / 3600);
+        totalSeconds %= 3600;
+        minutes = Math.floor(totalSeconds / 60);
+        seconds = totalSeconds % 60;
+        $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
+        $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text(timeFight);
+        $("#btn-fight-1").addClass("disable-click");
+        $("#btn-fight-2").addClass("disable-click");
+        $("#btn-fight-3").addClass("disable-click");
+        $("#btn-fight-4").addClass("disable-click");
 
     }else{
-        $("#btn-fight-1").addClass("disable-click");
+        $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");
 
     }
 
@@ -137,9 +186,15 @@ async function getFightResult(web3, txHash, monsterContract){
     lastFight = await monsterContract.methods.getLastFightMonster(myAddress).call();
 
     if(lastFight['win']==true){
-        getDialog("You win, exp:"+lastFight['exp']+", reward:"+lastFight['reward']);   
+        $("#shop-modal-win").modal('toggle');
+        $("#shop-modal-win .detail-info-pet").html("You win, exp:"+lastFight['exp']+", reward:"+lastFight['reward']);
+
+        // getDialog("You win, exp:"+lastFight['exp']+", reward:"+lastFight['reward']);
     }else{
-        getDialog("You lose, exp:"+lastFight['exp']);   
+        $("#shop-modal-lose").modal('toggle');
+        $("#shop-modal-lose .detail-info-pet").html("You lose, exp:"+lastFight['exp']);
+
+        // getDialog("You lose, exp:"+lastFight['exp']);
     }
 
     
@@ -152,6 +207,7 @@ async function getFightResult(web3, txHash, monsterContract){
 
 var lstMyPet = new Array();
 var lstMyPetD = new Array();
+var lstMyPetTimeFight = new Array();
 
 loadMyPet();
 
@@ -192,6 +248,7 @@ async function readMyPet(from, to, sender){
         {
 
             lstMyPet.push(petNFTInfo);
+
         }
 
     }
@@ -199,10 +256,13 @@ async function readMyPet(from, to, sender){
 
         lstMyPet.sort(sortByNftId);
         console.log(lstMyPet);
-        forLstMyPet();
+         forLstMyPet();
+        $(".carousel-control-prev").attr("style","display:flex");
+        $(".carousel-control-next").attr("style","display:flex");
+        // updateRealTimeFight();
     }
 }
-function forLstMyPet() {
+async function forLstMyPet() {
     var count =0;
 
     for(let i=0; i<lstMyPet.length;i++)
@@ -226,6 +286,12 @@ function forLstMyPet() {
                 "            </div>";
         count++;
         $(".carousel-inner").append(content);
+
+        if(i==0)
+        {
+            await  getTimeFightMonster1(petNFTInfo['nftId']);
+        }
+
 
     }
 
@@ -335,6 +401,13 @@ function petInfo(active,price,exp,tribe,scarce,modalwalletormarket,id){
         "                                        </td>\n" +
 
         "                                    </tr>\n"  +
+        "                                    <tr style='display: none'>\n" +
+        "                                        <td colspan=\"2\">\n" +
+        "                                            <p class=\"panel-item__summary\" >\n" +
+        "                                            </p>\n" +
+        "                                        </td>\n" +
+
+        "                                    </tr>\n"  +
         "                                </table>\n";
     if(modalwalletormarket == "")
     {
@@ -354,20 +427,20 @@ $(window)
         var width = $(window).width();
         if (width >= 600 && width <= 1024) {
             $(".item1-1")
-                .removeClass("col-sm-3 col-xs-12")
-                .addClass("col-sm-5 col-xs-6");
+                .removeClass("col-sm-4 col-xs-12")
+                .addClass("col-sm-6 col-xs-6");
 
 
         } else if(width >= 10 && width <= 599){
             $(".item1-1")
-                .removeClass("col-sm-5 col-xs-6")
-                .addClass("col-sm-5 col-xs-12");
+                .removeClass("col-sm-6 col-xs-6")
+                .addClass("col-sm-6 col-xs-12");
 
         }
         else{
             $(".item1-1")
-                .removeClass("col-sm-5 col-xs-12")
-                .addClass("col-sm-5 col-xs-6");
+                .removeClass("col-sm-6 col-xs-12")
+                .addClass("col-sm-4 col-xs-6");
 
 
         }

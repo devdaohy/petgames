@@ -14,7 +14,74 @@ background-repeat: no-repeat !important;
     <h2 style="margin-bottom: 0px">MONSTER</h2>
 
 </div>
-<div class="row items-container" >
+    <div class="row items-container bottom-wrapper">
+        <!-- Modal -->
+        <div class="modal fade modalpet" id="shop-modal-win" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header pattern">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel" >WIN</h4>
+                    </div>
+                    <div class="modal-body pattern clearfix" id="modalBody">
+                        <img src="img/other/win.png" style="background: #008000bd" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+
+                        <div class="detail-info-pet" >
+                        </div>
+                        <div class="div-info-sell-tranfer">
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer pattern" style="border-top: 0px">
+                        <a  xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
+                            <span class="button-game-bg-left"></span>
+                            <span class="button-game-bg-mid">
+                                          <span>OK</span>
+                                        </span>
+                            <span class="button-game-bg-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade modalpet" id="shop-modal-lose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header pattern">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel"> LOSE</h4>
+                    </div>
+                    <div class="modal-body pattern clearfix" id="modalBody">
+                        <img src="img/other/lose.png" style="background: #ff0000d6" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+
+                        <div class="detail-info-pet" >
+                        </div>
+                        <div class="div-info-sell-tranfer">
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer pattern" style="border-top: 0px">
+                        <a  xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
+                            <span class="button-game-bg-left"></span>
+                            <span class="button-game-bg-mid">
+                                          <span>OK</span>
+                                        </span>
+                            <span class="button-game-bg-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row items-container" >
     <div class="col-xs-6 col-sm-4 gallery-item item1-1" style="box-shadow: none;background: none;margin-top: 0px;">
         <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" data-interval="false">
 
@@ -22,11 +89,11 @@ background-repeat: no-repeat !important;
             <div class="carousel-inner" role="listbox">
 
             </div>
-            <a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev" >
+            <a class="carousel-control-prev" style="display:none" href="#multi-item-example" role="button" data-slide="prev" >
                 <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
                 <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#multi-item-example" role="button" data-slide="next">
+            <a class="carousel-control-next" style="display:none" href="#multi-item-example" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
