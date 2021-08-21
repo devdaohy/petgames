@@ -103,8 +103,8 @@ async function rewardFightMonster(nftId, monsterLv){
 async function updateRealTimeFight(){
     $('.carousel-inner').find('.item').each(function (index)
     {
-      var  time = $(this).find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text();
-console.log(string1.toString());
+        var  time = $(this).find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text();
+        console.log(string1.toString());
         // $(this.find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
     });
 
@@ -121,6 +121,11 @@ async function getTimeFightMonster1(nftId){
     timeFight = await monsterContract.methods.getTimeFightMonster1(nftId).call();
     console.log(timeFight);
     console.log($.now()/1000);
+
+    setTimeout(function(){
+    
+    }, 1000);
+
     if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
         totalSeconds =  Math.floor(timeFight-($.now()/1000 ));
         hours = Math.floor(totalSeconds / 3600);
@@ -185,14 +190,14 @@ async function getFightResult(web3, txHash, monsterContract){
 
     lastFight = await monsterContract.methods.getLastFightMonster(myAddress).call();
 
-    if(lastFight['win']==true){
+    if(lastFight['win']==true){WWWWW
         $("#shop-modal-win").modal('toggle');
-        $("#shop-modal-win .detail-info-pet").html("You win, exp:"+lastFight['exp']+", reward:"+lastFight['reward']);
+        $("#shop-modal-win .detail-info-pet").html("You win <br>Exp: "+lastFight['exp']+"<br>Reward: "+lastFight['reward']+" PETG");
 
         // getDialog("You win, exp:"+lastFight['exp']+", reward:"+lastFight['reward']);
     }else{
         $("#shop-modal-lose").modal('toggle');
-        $("#shop-modal-lose .detail-info-pet").html("You lose, exp:"+lastFight['exp']);
+        $("#shop-modal-lose .detail-info-pet").html("You lose <br>Exp: "+lastFight['exp']);
 
         // getDialog("You lose, exp:"+lastFight['exp']);
     }
@@ -230,7 +235,7 @@ async function loadMyPet(){
     console.log(myBalance);
 
     for(let from=0;from<myBalance;){
-        to = Math.min(from+12, myBalance);
+        to = Math.min(from+6, myBalance);
         readMyPet(from, to, myAddress);
         from = to;
     }
