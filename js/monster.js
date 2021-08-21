@@ -1,7 +1,7 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
 
-// $("#shop-modal-win").modal('toggle');
+$("#shop-modal-win").modal('toggle');
 // $("#shop-modal-lose").modal('toggle');
 $("#shop-modal-win .button-game-bg-mid").on("click",function () {
     $("#shop-modal-win").modal('toggle');
@@ -420,26 +420,47 @@ function petInfo(active,price,exp,tribe,scarce,modalwalletormarket,id){
     }
 
 }
+var width = $(window).width();
+if(width >= 10 && width <= 599){
+    $(".item1-1")
+        .removeClass("col-sm-4 col-sm-6 col-xs-6 col-xs-12")
+        .addClass("col-sm-6 col-xs-12");
 
+}
+else if (width >= 600 && width <= 1024) {
+    $(".item1-1")
+        .removeClass("col-sm-4 col-sm-6 col-xs-6 col-xs-12")
+        .addClass("col-sm-6 col-xs-6");
+
+
+}
+else{
+    $(".item1-1")
+        .removeClass("col-sm-4 col-sm-6 col-xs-12 col-xs-12")
+        .addClass("col-sm-4 col-xs-6");
+
+
+}
 
 $(window)
     .resize(function () {
         var width = $(window).width();
-        if (width >= 600 && width <= 1024) {
+        if(width >= 10 && width <= 599){
             $(".item1-1")
-                .removeClass("col-sm-4 col-xs-12")
+                .removeClass("col-sm-4 col-sm-6 col-xs-6 col-xs-12")
+                .addClass("col-sm-6 col-xs-12");
+
+        }
+        else if (width >= 600 && width <= 1024) {
+            $(".item1-1")
+                .removeClass("col-sm-4 col-sm-6 col-xs-6 col-xs-12")
                 .addClass("col-sm-6 col-xs-6");
 
-
-        } else if(width >= 10 && width <= 599){
-            $(".item1-1")
-                .removeClass("col-sm-6 col-xs-6")
-                .addClass("col-sm-6 col-xs-12");
 
         }
         else{
             $(".item1-1")
-                .removeClass("col-sm-6 col-xs-12")
+                .removeClass("col-sm-4 col-sm-6 col-xs-12 col-xs-12")
                 .addClass("col-sm-4 col-xs-6");
 
 
