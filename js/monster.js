@@ -135,7 +135,7 @@ async function updateRealTimeFight(){
 
 }
 
-// setInterval(updateRealTimeFight, 1000);
+setInterval(updateRealTimeFight, 1000);
 
 async function getTimeFightMonster1(nftId){
 
