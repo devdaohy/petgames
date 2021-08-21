@@ -235,8 +235,6 @@ var limitPage=12;
 async function getTransaction(web3, txHash, mess){
 
   var receipt;
-  $("#shop-modal").modal('toggle');
-
   while(1){
     receipt = await web3.eth.getTransactionReceipt(txHash);
 
@@ -248,7 +246,7 @@ async function getTransaction(web3, txHash, mess){
   if (receipt.status == true){
 
 
-    getDialog(mess+" DONE ! Please refesh page to update");
+    getDialog(mess+" DONE ");
   }else{
     $(".shop-modal").attr("style","display:none");
 

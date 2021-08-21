@@ -3,7 +3,6 @@
     <link href="css/marketplace.css" rel="stylesheet" />
     <link href="css/mypet.css" rel="stylesheet" />
     <!-- ============== STORE SECTION =============== -->
-
 <div class="container" style="margin-top: 2rem">
                 <div class="row" id="play">
                     <h2>MYPET</h2>

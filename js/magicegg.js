@@ -104,7 +104,19 @@ async function buyEgg(tribe, amount){
         params: [transactionParameters],
     });
 
-    getTransaction(web3, txHash, "BUY EGG");
+    // getTransaction(web3, txHash, "BUY EGG");
+    var receipt;
+    while(1){
+        receipt = await web3.eth.getTransactionReceipt(txHash);
+        if (receipt != null) break;
+    }
+
+    if (receipt.status == true){
+        getDialog("BUY EGG DONE !");
+    }else{
+        $(".shop-modal").attr("style","display:none");
+        getDialog(mess+" FAIL !");
+    }
 
 }
 
@@ -130,6 +142,7 @@ async function buyEggRandom(amount) {
         method: 'eth_sendTransaction',
         params: [transactionParameters],
     });
+    $("#shop-modal").modal('toggle');
 
     getTransaction(web3, txHash, "BUY EGG");
 }

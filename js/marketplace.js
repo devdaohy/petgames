@@ -33,9 +33,11 @@ $(".store .container").on("click",".gallery-item", function () {
 $(".store .container").on("click","#detail-btn-cancel-market", function () {
 	var nft_id=$(this).parent().parent().find("button").text();
 	// console.log(nft_id);
-	 cancelOrder(nft_id);
+	$('#shop-modal').modal('hide');
+	cancelOrder(nft_id);
 });
 $(".store .container").on("click", "#detail-btn-buy",function () {
+	$('#shop-modal').modal('hide');
 	buyOrder($(this).parent().parent().find("button").text());
 
 });
@@ -53,6 +55,10 @@ loadMarket();
 async function loadMarket(){
 	// testnet
  await getApprove();
+	$("div").remove(".item-pet");
+	$(".pickup-pagination").attr("style","display:none");
+	lstPetSale = new Array();
+	lstPetSaleFilter = new Array();
 	const web3 = new Web3(DATASEED);
 
 	petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
@@ -120,7 +126,7 @@ function forLstPetSale()
 
 		if(count % 4 ==0)
 		{
-			content +=" <div class=\"row items-container\">";
+			content +=" <div class=\"row items-container item-pet\">";
 			content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],petNFTInfo['nftOwner'],petNFTInfo['salePrice'],petNFTInfo['nftId'])
 		}
 		else if(count % 4 == 1){
@@ -154,8 +160,7 @@ function sortFunction(a, b) {
 	return a['salePrice'] - b['salePrice'];
 }
 
-function pet(i,exp,tribe,scarce,owner,price,id)
-{
+function pet(i,exp,tribe,scarce,owner,price,id) {
 	content = " <div\n" +
 	"                                id=\"item-"+ i + "\"\n" +
 	"                                class=\""+ positionClass(i) + "\""+
@@ -267,7 +272,8 @@ async function buyOrder(nftId){
         method: 'eth_sendTransaction',
         params: [transactionParameters],
     });
-    await getTransaction(web3, txHash, "BUY PET SALE");
+	await getTransaction(web3, txHash, "BUY PET SALE");
+	loadMarket();
 	// location.reload();
 }
 
@@ -291,11 +297,13 @@ async function cancelOrder(nftId){
             method: 'eth_sendTransaction',
             params: [transactionParameters],
         });
-        
-		await getTransaction(web3, txHash, "CANCEL SALE");
+
+	await getTransaction(web3, txHash, "CANCEL SALE");
+	loadMarket();
 	// location.reload();
 
     }
+
  function buttonBuyOrCancle(owner){
 		 var myAddress = ethereum.selectedAddress;
 	 if(approveAmount < amount){
@@ -312,7 +320,6 @@ async function cancelOrder(nftId){
 		}
 	 }
 	}
-
 function modalEnable(owner){
 	var myAddress = ethereum.selectedAddress;
 	if(approveAmount < amount){

@@ -57,10 +57,10 @@
 
 @media (min-width: 200px) and (max-width: 399px) {
     .carousel-control-prev  {
-        left: -18%;
+        left: -21%;
     }
     .carousel-control-next{
-        right: -18%;
+        right: -21%;
     }
     .itemmonster-1{
         margin: 11px 0px !important;
@@ -114,10 +114,10 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .carousel-control-prev  {
-        left: -29%;
+        left: -30%;
     }
     .carousel-control-next{
-        right: -27%;
+        right: -30%;
     }
     .carousel-control-prev, .carousel-control-next{
         width: 29%;
@@ -127,10 +127,10 @@
 
 @media (min-width: 1025px) and (max-width: 1199px) {
     .carousel-control-prev  {
-        left: -32%;
+        left: -40%;
     }
     .carousel-control-next{
-        right: -30%;
+        right: -40%;
     }
     .carousel-control-prev, .carousel-control-next{
         width: 32%;
@@ -140,10 +140,10 @@
 
 @media (min-width: 1200px) {
     .carousel-control-prev  {
-        left: -25%;
+        left: -35%;
     }
     .carousel-control-next{
-        right: -25%;
+        right: -35%;
     }
     .carousel-control-prev, .carousel-control-next{
         width: 25%;
@@ -335,7 +335,7 @@
         font-size: 12px !important;
     }
     .item-special .image-pet{
-        margin-bottom: 66% !important;
+        margin-bottom: 76% !important;
     }
     .image-egg-magic{
         margin-bottom: 50% !important;
@@ -425,7 +425,7 @@
         font-size: 12px !important;
     }
     .panel-item__summary{
-        font-size: 16px !important;
+        font-size: 14px !important;
     }
     .modal  .panel-item__summary{
         font-size: 15px !important;
@@ -448,7 +448,7 @@
         margin-bottom: 68% !important;
     }
     .panel-item__summary{
-        font-size: 21px !important;
+        font-size: 18px !important;
     }
     .image-egg-magic{
         margin-bottom: 45% !important;
@@ -531,3 +531,29 @@
 
 
 }
+
+.background-monster{
+
+}
+
+@media (max-width: 600px)
+{
+    .background-monster{
+
+        background-size: 1215% !important;
+
+
+    }
+}
+
+@media (max-width: 1023px)
+{
+    .background-monster{
+
+        background-size: 511% !important;
+
+
+    }
+}
+
+background-monster

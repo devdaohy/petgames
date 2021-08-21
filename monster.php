@@ -4,11 +4,11 @@
 
 <!-- ============== STORE SECTION =============== -->
 
-<div class="container" style="    background-position: 50% 51% !important;
+<div class="container background-monster" style="    background-position: 50% 51% !important;
 background-repeat: no-repeat !important;
     margin-top: 2rem;
     background: url(img/other/backgroungmonster.png) ;
-    background-size: 210% !important;" >
+    background-size: 230% " >
 
 <div class="row" id="play" >
     <h2 style="margin-bottom: 0px">MONSTER</h2>
@@ -75,6 +75,21 @@ background-repeat: no-repeat !important;
                             <span class="button-game-bg-right"></span>
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade modalpet" id="shop-modal-fight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div>
+
+
+                        <img src="img/other/gifFighting2.gif" style="width: 46%;background: #ff0000d6;border-radius: 25px" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+
+<!--                        <div class="detail-info-pet" >-->
+<!--                        </div>-->
+
+
+
                 </div>
             </div>
         </div>

@@ -1,7 +1,6 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
 
-// $("#shop-modal-win").modal('toggle');
 // $("#shop-modal-lose").modal('toggle');
 $("#shop-modal-win .button-game-bg-mid").on("click",function () {
     $("#shop-modal-win").modal('toggle');
@@ -15,23 +14,31 @@ $("#shop-modal-lose .button-game-bg-mid").on("click",function () {
 $("#btn-fight-1").on("click",function () {
     var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
     var level =1;
+    $("#shop-modal-fight").modal('toggle');
+
     fightMonster(nft_id, level);
 });
 $("#btn-fight-2").on("click",function () {
     var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
     var level =2;
+    $("#shop-modal-fight").modal('toggle');
+
     fightMonster(nft_id, level);
 
 });
 $("#btn-fight-3").on("click",function () {
     var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
     var level =3;
+    $("#shop-modal-fight").modal('toggle');
+
     fightMonster(nft_id, level);
 
 });
 $("#btn-fight-4").on("click",function () {
     var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
     var level =4;
+    $("#shop-modal-fight").modal('toggle');
+
     fightMonster(nft_id, level);
 
 });
@@ -105,14 +112,30 @@ async function rewardFightMonster(nftId, monsterLv){
 async function updateRealTimeFight(){
     $('.carousel-inner').find('.item').each(function (index)
     {
-        var  time = $(this).find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text();
-        console.log(string1.toString());
-        // $(this.find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
+        var  timeFight = $(this).find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text();
+        console.log(timeFight);
+        if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
+            totalSeconds =  Math.floor(timeFight-($.now()/1000 ));
+            hours = Math.floor(totalSeconds / 3600);
+            totalSeconds %= 3600;
+            minutes = Math.floor(totalSeconds / 60);
+            seconds = totalSeconds % 60;
+            $(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
+            $("#btn-fight-1").addClass("disable-click");
+            $("#btn-fight-2").addClass("disable-click");
+            $("#btn-fight-3").addClass("disable-click");
+            $("#btn-fight-4").addClass("disable-click");
+
+        }else{
+            $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");
+
+        }
+         $(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
     });
 
 }
 
-setInterval(updateRealTimeFight, 1000);
+// setInterval(updateRealTimeFight, 1000);
 
 async function getTimeFightMonster1(nftId){
 
@@ -144,6 +167,7 @@ async function getTimeFightMonster1(nftId){
 
     }else{
         $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");
+        $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text(timeFight);
 
     }
 
@@ -170,7 +194,9 @@ async function fightMonster(nftId, monsterLv){
         params: [transactionParameters],
     });
 
-    getFightResult(web3, txHash, monsterContract);
+    await getFightResult(web3, txHash, monsterContract);
+    $("#shop-modal-fight").modal('toggle');
+
 }
 
 

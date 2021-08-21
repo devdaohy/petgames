@@ -104,7 +104,9 @@
         {
             if(Number.isInteger(Number(amount)) && Number(amount) > 0)
             {
-               createOrder($("#detail-btn-sell").parent().find(".btn-nft").text(),amount);
+                $("#shop-modal").modal('toggle');
+
+                createOrder($("#detail-btn-sell").parent().find(".btn-nft").text(),amount);
             }else{
                 $(".error-price-syntax").attr("style","display:block;color: red;font-size: 70%;");
             }
@@ -117,7 +119,8 @@
        id = id.trim();
          if(id.length >0)
         {
-                transfer($("#detail-btn-sell").parent().find(".btn-nft").text(),id);
+            $("#shop-modal").modal('toggle');
+            transfer($("#detail-btn-sell").parent().find(".btn-nft").text(),id);
         }else{
              $(".error-transfer-empty").attr("style","display:block;color: red;font-size: 70%;");
 
@@ -127,13 +130,14 @@
 
 
     $("#detail-btn-cancel-sell-market").on('click',function () {
+        $("#shop-modal1").modal('toggle');
         cancelOrder($("#detail-btn-cancel-sell-market").parent().find(".btn-nft").text());
     });
     $(".div-info-sell-update").on("keyup",".price",function () {
         pricePet = $(this).val();
     });
     $("#detail-btn-update").on('click',function () {
-
+        $("#shop-modal1").modal('toggle');
         updatePriceOrder($("#detail-btn-cancel-sell-market").parent().find(".btn-nft").text(), pricePet);
     });
 
@@ -277,6 +281,11 @@
     }
 
     async function loadMyPet(){
+
+        $("div").remove(".item-pet");
+        $(".pickup-pagination").attr("style","display:none");
+         lstMyPet = new Array();
+         // lstMyPetMarket = new Array();
         // var myAddress =await ethereum.selectedAddress;
         const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
         myAddress = accounts[0];
@@ -290,6 +299,8 @@
         console.log(myBalance);
 
         for(let from=0;from<myBalance;){
+            console.log(myBalance);
+
             to = Math.min(from+6, myBalance);
             readMyPet(from, to, myAddress);
             from = to;
@@ -312,7 +323,6 @@
             forLstMyPet();
             $(".scarce-2").removeAttr("disabled");
             $(".image-load").attr("style","display:none");
-
         }
     }
 
@@ -400,6 +410,8 @@
         $(".total-page").text(Math.ceil(lstMyPetMarket.length / limitPage));
 
     }
+
+
     async function crackEgg(nftId,thiss){
 
         const web3 = new Web3(DATASEED);
@@ -443,7 +455,7 @@
             $(".showcase-img").attr("src", imagePetOrEgg(tribe, scarce, 0, true));
             thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Crack");
 
-            getDialog("CRACK EGG"+" DONE ! Please refesh page to update");
+            getDialog("CRACK EGG"+" DONE ");
         }else{
             getDialog("CRACK EGG"+" FAIL !");
         }
@@ -473,6 +485,8 @@
         });
 
         await getTransaction(web3, txHash, "CREATE SALE");
+        // setTimeout(function () {},1000);
+       await loadMyPet();
         // location.reload();
 
     }
@@ -496,15 +510,21 @@
             method: 'eth_sendTransaction',
             params: [transactionParameters],
         });
-        
-       await getTransaction(web3, txHash, "TRANSFER PET");
+
+        await getTransaction(web3, txHash, "TRANSFER PET");
+        await loadMyPet();
+
         // location.reload();
     }
 
 
     //update pet in market
-    async function loadMyPetMarket(){
+    async function loadMyPetMarket(updateAfterTransaction){
 
+        $("div").remove(".item-pet");
+        $(".pickup-pagination").attr("style","display:none");
+
+        lstMyPetMarket = new Array();
         // var myAddress =await ethereum.selectedAddress;
         const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
         myAddress = accounts[0];
@@ -518,12 +538,12 @@
 
         for(let from=0;from<yourSaleSize;){
             to = Math.min(from+6, yourSaleSize);
-            readMyPetMarket(from, to, myAddress);
+            readMyPetMarket(from, to, myAddress,updateAfterTransaction);
             from = to;
         }
     }
 
-    async function readMyPetMarket(from, to, sender){
+    async function readMyPetMarket(from, to, sender,updateAfterTransaction){
 
         for(let i = from; i < to; i++){
 
@@ -536,6 +556,10 @@
 
         if(lstMyPetMarket.length == yourSaleSize){
             console.log(lstMyPetMarket);
+            if(updateAfterTransaction ==1)
+            {
+                forLstMyPetMarket();
+            }
         }
     }
 
@@ -563,6 +587,7 @@
         });
 
         await   getTransaction(web3, txHash, "CANCEL SALE");
+       await loadMyPetMarket(1);
         // location.reload();
     }
 
@@ -587,8 +612,10 @@
             method: 'eth_sendTransaction',
             params: [transactionParameters],
         });
+        $("#shop-modal1").modal('toggle');
 
         await getTransaction(web3, txHash, "UPDATE SALE PRICE");
+        await loadMyPetMarket(1);
         // location.reload();
     }
 

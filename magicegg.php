@@ -3,9 +3,7 @@
 <link href="css/magicegg.css" rel="stylesheet" />
 
     <!-- ============== STORE SECTION =============== -->
-
 <div class="container" style="margin-top: 2rem">
-
                 <div class="row" id="play">
                     <h2 style="margin-bottom: 0px">MAGIC EGG</h2>
 
