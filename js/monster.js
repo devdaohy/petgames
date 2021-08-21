@@ -122,9 +122,9 @@ async function getTimeFightMonster1(nftId){
     console.log(timeFight);
     console.log($.now()/1000);
 
-    setTimeout(function(){
-    
-    }, 1000);
+    // setTimeout(function(){
+    //
+    // }, 1000);
 
     if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
         totalSeconds =  Math.floor(timeFight-($.now()/1000 ));
@@ -190,7 +190,7 @@ async function getFightResult(web3, txHash, monsterContract){
 
     lastFight = await monsterContract.methods.getLastFightMonster(myAddress).call();
 
-    if(lastFight['win']==true){WWWWW
+    if(lastFight['win']==true){
         $("#shop-modal-win").modal('toggle');
         $("#shop-modal-win .detail-info-pet").html("You win <br>Exp: "+lastFight['exp']+"<br>Reward: "+lastFight['reward']+" PETG");
 
