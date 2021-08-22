@@ -13,15 +13,25 @@
 @media (max-width: 600px)
 {
     .pattern{
-        background-size: 1170% !important;
+        background-size: 310% !important;
     }
 }
 
-@media (min-width: 600px) and (max-width: 1023px)
+@media (min-width: 600px) and (max-width:800px)
 {
     .pattern{
 
-        background-size: 470% !important;
+        background-size: 265% !important;
+
+
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1023px)
+{
+    .pattern{
+
+        background-size: 185% !important;
 
 
     }
@@ -31,7 +41,7 @@
 {
     .pattern{
 
-        background-size: 230% !important;
+        background-size: 160% !important;
 
 
     }
@@ -40,7 +50,7 @@
 {
     .pattern{
 
-        background-size: 180% !important;
+        background-size: 145% !important;
 
 
     }
@@ -48,13 +58,13 @@
 @media (min-width: 1401px) and (max-width: 1600px)
 {
     .pattern{
-        background-size: 185% !important;
+        background-size: 120% !important;
     }
 }
 
 @media (min-width: 1601px) and (max-width: 1800px)
 {
     .pattern{
-        background-size: 165% !important;
+        background-size: 100% !important;
     }
 }

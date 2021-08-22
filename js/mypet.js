@@ -1,8 +1,10 @@
     document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
-    async function getDialog(message) {
-        $.MessageBox(message);
-
-    }
+    $(window)
+        .resize(function () {
+            var height = $(window).height();
+            height = height -100;
+            $(".pattern").attr("style","height:"+height +"px");
+        }).resize();
     var pricePet ="";
 
     $(".store .container").on("click",".gallery-item", function () {

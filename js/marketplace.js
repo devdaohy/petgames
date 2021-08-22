@@ -1,5 +1,10 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
-
+$(window)
+	.resize(function () {
+		var height = $(window).height();
+		height = height -100;
+		$(".pattern").attr("style","height:"+height +"px");
+	}).resize();
 $(".store .container").on("click",".gallery-item", function () {
 	var label = $("#myModalLabel");
 	var img = $("#showcase-img");
