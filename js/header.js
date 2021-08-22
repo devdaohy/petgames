@@ -2134,8 +2134,7 @@ async function getAccount() {
 
 		const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
 		myAddress = accounts[0];
-		myAddress = Math.floor(myAddress);
-		
+
 		$("#btn-connect").text(encryptAccount(myAddress));	
 	}
 
@@ -2148,6 +2147,8 @@ async function getAccount() {
 	var myBalance = await petGamesTokenContract.methods.balanceOf(myAddress).call();
 
 	myBalance = myBalance/1000000000000000000;
+	myBalance = Math.floor(myBalance);
+
 	//$("#my-balance img").clear();
 	$("#my-balance").html("Balance:  " + myBalance + "<img src=\"img/logo.png\" style=\"width:35px;margin-left: 10px\">");
 }
