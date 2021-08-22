@@ -379,26 +379,26 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         {
             var petNFTInfo=lstMyPetMarket[i];
 
-            if(count % 4 ==0)
+            if(i % 4 ==0)
             {
                 content +=" <div class=\"row items-container item-pet\">";
                 content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"1")
             }
-            else if(count % 4 == 1){
+            else if(i % 4 == 1){
                 content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"1")
-                if(count == lstMyPet.length -1)
+                if(i == lstMyPetMarket.length -1)
                 {
                     content +=" </div>";
                 }
             }
-            else if(count % 4 == 2){
+            else if(i % 4 == 2){
                 content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"1")
-                if(count == lstMyPet.length -1)
+                if(i == lstMyPetMarket.length -1)
                 {
                     content +=" </div>";
                 }
             }
-            else if (count % 4 == 3){
+            else if (i % 4 == 3){
                 content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"1")
 
                 content +=" </div>";
