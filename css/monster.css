@@ -547,7 +547,7 @@
 }
 
 .pattern{
-    background: url(../img/other/test.png);
+    background: url(../img/other/backgroungmonster.png);
     background-position: 50% 51% !important;
     background-repeat: no-repeat !important;
     background-size: 230%;
@@ -601,4 +601,3 @@
         background-size: 165% !important;
     }
 }
-background-monster

@@ -215,7 +215,7 @@ h3 {
 }
 
 .pattern-dark {
-    background-image: url(../img/background-green.jpg);
+    background-image: url(../img/menu-pattern.jpg);
     background-size: cover;
 }
 
@@ -2536,9 +2536,9 @@ ul#model-feats {
     text-rendering: optimizeLegibility;
     letter-spacing: 0.2rem;
     text-align: center;
-    margin-top: 1.75rem;
-    margin-bottom: 1.75rem;
-    color: #3fd7e2;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: rgba(255, 0, 0, 0.91);
     font-size: 140%;
 }
 

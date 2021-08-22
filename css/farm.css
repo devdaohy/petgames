@@ -1,0 +1,60 @@
+.pattern{
+    background: url(../img/other/backgroundfarm.png);
+    background-position: 50% 51% !important;
+    background-repeat: no-repeat !important;
+    background-size: 230%;
+}
+
+.store .container{
+    background: none !important;
+    border: none;
+}
+
+@media (max-width: 600px)
+{
+    .pattern{
+        background-size: 1170% !important;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1023px)
+{
+    .pattern{
+
+        background-size: 470% !important;
+
+
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px)
+{
+    .pattern{
+
+        background-size: 230% !important;
+
+
+    }
+}
+@media (min-width: 1201px) and (max-width: 1400px)
+{
+    .pattern{
+
+        background-size: 180% !important;
+
+
+    }
+}
+@media (min-width: 1401px) and (max-width: 1600px)
+{
+    .pattern{
+        background-size: 185% !important;
+    }
+}
+
+@media (min-width: 1601px) and (max-width: 1800px)
+{
+    .pattern{
+        background-size: 165% !important;
+    }
+}
