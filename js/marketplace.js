@@ -54,7 +54,8 @@ loadMarket();
 
 async function loadMarket(){
 	// testnet
- await getApprove();
+	getAccount();
+    await getApprove();
 	$("div").remove(".item-pet");
 	$(".pickup-pagination").attr("style","display:none");
 	lstPetSale = new Array();

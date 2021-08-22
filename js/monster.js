@@ -1,7 +1,7 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
 
-// $("#shop-modal-lose").modal('toggle');
+// $("#shop-modal-fight").modal('toggle');
 $("#shop-modal-win .button-game-bg-mid").on("click",function () {
     $("#shop-modal-win").modal('toggle');
 
@@ -134,7 +134,7 @@ async function updateRealTimeFight(){
 
 }
 
-setInterval(updateRealTimeFight, 1000);
+setInterval(updateRealTimeFight, 1800);
 
 async function getTimeFightMonster1(nftId){
 

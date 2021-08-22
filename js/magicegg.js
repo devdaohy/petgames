@@ -87,6 +87,7 @@ async function approve(petGamesTokenContract){
 }
 
 function loadPage(){
+    getAccount();
     $(".egg").remove("item-egg");
     $(".egg").append("                <div class=\"row items-container item-egg\">\n" +
         "                    <div id=\"item-1\" class=\"col-xs-5 col-sm-3 gallery-item item-1 thumbnail-50 background-config\" style=\"background-image: url(img/imageframe/imageframe-1.png); \" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +

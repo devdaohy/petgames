@@ -4,11 +4,7 @@
 
 <!-- ============== STORE SECTION =============== -->
 
-<div class="container background-monster" style="    background-position: 50% 51% !important;
-background-repeat: no-repeat !important;
-    margin-top: 2rem;
-    background: url(img/other/backgroungmonster.png) ;
-    background-size: 230% " >
+<div class="container" style="margin-top: 0px " >
 
 <div class="row" id="play" >
     <h2 style="margin-bottom: 0px">MONSTER</h2>
@@ -83,7 +79,7 @@ background-repeat: no-repeat !important;
                 <div>
 
 
-                        <img src="img/other/gifFighting2.gif" style="width: 46%;background: #ff0000d6;border-radius: 25px" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+                        <img src="img/other/gifFighting2.gif" style="width: 46%;background: #ff0000d6;border-radius: 25px;box-shadow: none" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
 
 <!--                        <div class="detail-info-pet" >-->
 <!--                        </div>-->

@@ -86,7 +86,7 @@
     </div>
     <div class="row pattern">
         <section class="store" id="store">
-            <div class="container" style="padding: 2px 0px">
+            <div class="container" style="padding: 2px 0px;background: url(img/creampaper.png) !important;">
                 <div class="row" style="margin: 4px">
                     <div class="list-scarces">
                         <ul class="scarces" style="margin: 0px">

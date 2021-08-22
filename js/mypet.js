@@ -3,7 +3,6 @@
         $.MessageBox(message);
 
     }
-
     var pricePet ="";
 
     $(".store .container").on("click",".gallery-item", function () {
@@ -285,7 +284,7 @@
     }
 
     async function loadMyPet(){
-
+        getAccount();
         $("div").remove(".item-pet");
         $(".pickup-pagination").attr("style","display:none");
          lstMyPet = new Array();
@@ -522,7 +521,7 @@
 
     //update pet in market
     async function loadMyPetMarket(updateAfterTransaction){
-
+        getAccount();
         $("div").remove(".item-pet");
         $(".pickup-pagination").attr("style","display:none");
 

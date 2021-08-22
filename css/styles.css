@@ -479,10 +479,18 @@ a.navbar-logo:hover {
     }
 }
 
-@media (max-width: 768px) {
-    .navbar-collapse.in .plain-link a {
-        border: none;
-    }
+
+.plain-link a {
+    color: #d45f42 !important;
+    font-size: 100%;
+    transition: all 0.33s;
+    text-shadow: -1px 3px 0.3px #eee8d0, 1px 3px 0.3px #eee8d0, 0 -3px 0.3px #eee8d0, -3px 0 0.3px #eee8d0, 3px 0 0.3px #eee8d0, -3px -3px 0.3px #eee8d0, 3px -3px 0.3px #eee8d0, -3px 3px 0.3px #eee8d0, 3px 3px 0.3px #eee8d0, 3px 3px 3px rgba(0, 0, 0, 0.8);
+    font-weight: 900;
+    border-left: 2px dashed #d45f42;
+    text-transform: uppercase;
+}
+@media (max-width: 767px) {
+
     .plain-link {
         background: url(../img/menu-pattern.jpg);
         border-bottom: 2px dashed #d45f42;
@@ -491,9 +499,9 @@ a.navbar-logo:hover {
         margin:11px 44% !important;
         transform: translateY(-5px) !important;
     }
-    /*.plain-link a {*/
-    /*    border-left: none !important;*/
-    /*}*/
+    .plain-link a {
+        border-left: none !important;
+    }
     .plain-link:first-child {
         border-top: 2px dashed #d45f42;
     }
@@ -509,17 +517,9 @@ a.navbar-logo:hover {
         display: none;
     }
 
+
 }
 
-.plain-link a {
-    color: #d45f42 !important;
-    font-size: 100%;
-    transition: all 0.33s;
-    text-shadow: -1px 3px 0.3px #eee8d0, 1px 3px 0.3px #eee8d0, 0 -3px 0.3px #eee8d0, -3px 0 0.3px #eee8d0, 3px 0 0.3px #eee8d0, -3px -3px 0.3px #eee8d0, 3px -3px 0.3px #eee8d0, -3px 3px 0.3px #eee8d0, 3px 3px 0.3px #eee8d0, 3px 3px 3px rgba(0, 0, 0, 0.8);
-    font-weight: 900;
-    border-left: 2px dashed #d45f42;
-    text-transform: uppercase;
-}
 
 @media (min-width: 768px) and (max-width: 992px) {
     /* .navbar-collapse {

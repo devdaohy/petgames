@@ -535,22 +535,40 @@
 .background-monster{
 
 }
+.store .container{
+    background: none !important;
+    border: none;
+}
+
+.pattern{
+    background: url(../img/other/backgroungmonster.png);
+    background-position: 50% 51% !important;
+    background-repeat: no-repeat !important;
+    background-size: 230%;
+}
 
 @media (max-width: 600px)
 {
-    .background-monster{
+    .pattern{
+        background-size: 1300% !important;
+    }
+}
 
-        background-size: 1215% !important;
+@media (min-width: 600px) and (max-width: 1023px)
+{
+   .pattern{
+
+        background-size: 560% !important;
 
 
     }
 }
 
-@media (max-width: 1023px)
+@media (min-width: 1024px)
 {
-    .background-monster{
+    .pattern{
 
-        background-size: 511% !important;
+        background-size: 240% !important;
 
 
     }
