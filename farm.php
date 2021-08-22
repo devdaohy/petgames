@@ -8,7 +8,7 @@
         <h2 style="margin-bottom: 0px">Farm</h2>
 
     </div> <div class="row farm" id="play">
-        <h2 style="margin: 100px">Comming Soon</h2>
+        <h2 style="margin: 100px">Coming Soon</h2>
 
     </div>
     </section>
