@@ -79,7 +79,7 @@
                 <div>
 
 
-                        <img src="img/other/gifFighting2.gif" style="width: 46%;background: #ff0000d6;border-radius: 25px;box-shadow: none" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+                        <img src="img/other/gifFighting2.gif" style="width: 46%;background: #00FFFF;border-radius: 25px;box-shadow: none" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
 
 <!--                        <div class="detail-info-pet" >-->
 <!--                        </div>-->

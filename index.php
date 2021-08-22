@@ -1,2 +1,2 @@
 <?php
-header("Location: magicegg.php");
+header("Location: magicegg");

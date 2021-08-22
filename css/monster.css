@@ -15,7 +15,7 @@
 
 .info-pet {
     margin-left: 15% !important;
-    width: 87% !important;
+    width: 70% !important;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon{
@@ -556,7 +556,7 @@
 @media (max-width: 600px)
 {
     .pattern{
-        background-size: 1300% !important;
+        background-size: 1170% !important;
     }
 }
 
@@ -564,13 +564,22 @@
 {
    .pattern{
 
-        background-size: 560% !important;
+        background-size: 470% !important;
 
 
     }
 }
 
-@media (min-width: 1024px)
+@media (min-width: 1024px) and (max-width: 1200px)
+{
+    .pattern{
+
+        background-size: 230% !important;
+
+
+    }
+}
+@media (min-width: 1201px) and (max-width: 1400px)
 {
     .pattern{
 
@@ -579,5 +588,17 @@
 
     }
 }
+@media (min-width: 1401px) and (max-width: 1600px)
+{
+    .pattern{
+        background-size: 185% !important;
+    }
+}
 
+@media (min-width: 1601px) and (max-width: 1800px)
+{
+    .pattern{
+        background-size: 165% !important;
+    }
+}
 background-monster
