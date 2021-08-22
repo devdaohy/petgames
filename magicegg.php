@@ -3,12 +3,12 @@
 <link href="css/magicegg.css" rel="stylesheet" />
 
     <!-- ============== STORE SECTION =============== -->
-<div class="container" style="margin-top: 2rem">
+<div class="container egg" style="margin-top: 2rem">
                 <div class="row" id="play">
                     <h2 style="margin-bottom: 0px">MAGIC EGG</h2>
 
                 </div>
-                <div class="row items-container">
+                <div class="row items-container item-egg">
                     <div id="item-1" class="col-xs-5 col-sm-3 gallery-item item-1 thumbnail-50 background-config" style="background-image: url(img/imageframe/imageframe-1.png); " data-toggle="modal" data-target="#shop-modal">
 
                         <img src="img/egg/1-egg.png" class="image-egg-magic" alt="Avatar Pet" width="400" height="750" />
@@ -101,7 +101,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="row items-container">
+                <div class="row items-container item-egg">
                     <div id="item-5" class="col-xs-5 col-sm-3 gallery-item item-1 thumbnail-50 background-config" style="background-image: url(img/imageframe/imageframe-5.png);" data-toggle="modal" data-target="#shop-modal">
                         <img src="img/egg/5-egg.png" class="image-egg-magic" alt="Avatar Pet" width="440" height="750" />
                         <div class="panel-item__text">

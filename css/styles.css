@@ -6518,6 +6518,30 @@ ul#model-feats {
     padding: 10px;
     border-radius: 15px;
 }
+
+.modal .modal-dialog {
+    width: 30% !important;
+    margin: 7% 35% !important;
+}
+@media (max-width: 500px)  {
+    .modal .modal-dialog{
+        width: 60% !important;
+        margin: 30% 20% !important;
+    }
+
+
+}
+
+@media (min-width: 501px) and (max-width: 1024px)  {
+    .modal .modal-dialog{
+        width: 40% !important;
+        margin: 7% 30% !important;
+    }
+
+
+}
+
+
 /*.modal .detail-info-pet{*/
 /*    height: 224px;*/
 /*    background-repeat: no-repeat;*/

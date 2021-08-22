@@ -40,7 +40,7 @@
                                     <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
 
                                     <div class="detail-info-pet" ></div>
-                                    <div class="div-info-sell-tranfer">
+                                    <div class="div-info-sell-tranfer" style="margin-top: 15px">
 
                                     </div>
 

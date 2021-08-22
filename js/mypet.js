@@ -17,6 +17,7 @@
         var detail_btn_crack=$("#detail-btn-crack");
         var active_pet=$(this).find("#active-pet");
         $("#detail-btn-transfer").removeClass("disable-click");
+        detail_btn_crack.find(".button-game-bg-mid").find("span").text("Crack");
         detail_btn_crack.removeClass("disable-click");
 
         if(active_pet.text()== "true")
@@ -50,6 +51,9 @@
     });
 
   $("#detail-btn-crack").on('click',async function () {
+      $(this).parent().find("#detail-btn-crack").addClass("disable-click");
+      $(this).parent().find("#detail-btn-transfer").addClass("disable-click");
+      $(this).parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Cracking...");
 
       if ($(this).parent().find(".btn-nft").text().length >= 1) {
            crackEgg($(this).parent().find(".btn-nft").text(),$(this));
@@ -434,10 +438,7 @@
         });
 
         var receipt;
-        thiss.parent().find("#detail-btn-crack").addClass("disable-click");
-        thiss.parent().find("#detail-btn-transfer").addClass("disable-click");
-        thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Cracking...");
-        while(1){
+         while(1){
             receipt = await web3.eth.getTransactionReceipt(txHash);
 
             if (receipt != null) break;
@@ -459,6 +460,7 @@
         }else{
             getDialog("CRACK EGG"+" FAIL !");
         }
+        loadMyPet();
         // getTransaction(web3, txHash, "CRACK EGG");
 
 

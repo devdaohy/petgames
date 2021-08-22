@@ -1,4 +1,4 @@
-$(".button-game-bg-mid span").on( "click", function() {
+$(".container").on( "click",".button-game-bg-mid span" ,function() {
     if($(this).text()=="Approve"){
         const web3 = new Web3(DATASEED);
          approve(new web3.eth.Contract(petGamesTokenAbi, PETGAMES));
@@ -21,6 +21,8 @@ $(".button-game-bg-mid span").on( "click", function() {
     }
 
 });
+
+
 
 function triberToNumber(tribername)
 {
@@ -80,7 +82,150 @@ async function approve(petGamesTokenContract){
     });
 
     getTransaction(web3, txHash, "APPROVE");
+    loadPage();
 
+}
+
+function loadPage(){
+    $(".egg").remove("item-egg");
+    $(".egg").append("                <div class=\"row items-container item-egg\">\n" +
+        "                    <div id=\"item-1\" class=\"col-xs-5 col-sm-3 gallery-item item-1 thumbnail-50 background-config\" style=\"background-image: url(img/imageframe/imageframe-1.png); \" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +
+        "\n" +
+        "                        <img src=\"img/egg/1-egg.png\" class=\"image-egg-magic\" alt=\"Avatar Pet\" width=\"400\" height=\"750\" />\n" +
+        "                         <div class=\"panel-item__text\">\n" +
+        "                            <h4 class=\"panel-item__title\">Water Egg</h4>\n" +
+        "\n" +
+        "                            <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/></img></p>\n" +
+        "                            <div class=\"div-amount\">\n" +
+        "                                <form>\n" +
+        "                                    <label>Amount</label>\n" +
+        "                                    <input type=\"number\" class=\"amount\" value=\"1\"/>\n" +
+        "                                </form>\n" +
+        "\n" +
+        "                            </div>\n" +
+        "                        </div>\n" +
+        "\n" +
+        "\n" +
+        "                        <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
+        "                            <span class=\"button-game-bg-left-buy\"></span>\n" +
+        "                            <span class=\"button-game-bg-mid\">\n" +
+        "                                <span id=\"egg-water\" style=\"font-size: 20px\">Buy</span>\n" +
+        "                            </span>\n" +
+        "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
+        "                        </a>\n" +
+        "                    </div>\n" +
+        "                    <div id=\"item-2\" class=\"col-xs-5  col-sm-3 col-sm-offset-1  gallery-item item-2 thumbnail-50 background-config\" style=\"background-image: url(img/imageframe/imageframe-2.png);\" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +
+        "\n" +
+        "                        <img src=\"img/egg/2-egg.png\" class=\"image-egg-magic\" alt=\"Avatar Pet\" width=\"440\" height=\"750\"  />\n" +
+        "                         <div class=\"panel-item__text\">\n" +
+        "                            <h4 class=\"panel-item__title\">Fire Egg</h4>\n" +
+        "                            <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/></img></p>\n" +
+        "                              <div class=\"div-amount\">\n" +
+        "                                <div>\n" +
+        "                                    <label>Amount</label>\n" +
+        "                                    <input type=\"number\" class=\"amount\" value=\"1\"/>\n" +
+        "                                </div>\n" +
+        "\n" +
+        "                            </div>\n" +
+        "                        </div>\n" +
+        "                        <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
+        "                            <span class=\"button-game-bg-left-buy\"></span>\n" +
+        "                            <span class=\"button-game-bg-mid\">\n" +
+        "                                <span id=\"egg-fire\" style=\"font-size: 20px\">Buy</span>\n" +
+        "                              </span>\n" +
+        "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
+        "                        </a>\n" +
+        "                    </div>\n" +
+        "                    <div id=\"item-3\" class=\"col-xs-5 col-sm-3 col-sm-offset-1 gallery-item item-3 thumbnail-50 background-config\" style=\" background-image: url(img/imageframe/imageframe-3.png);\" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +
+        "\n" +
+        "                        <img src=\"img/egg/3-egg.png\" class=\"image-egg-magic\" alt=\"Avatar Pet\" width=\"440\" height=\"750\"/>\n" +
+        "                        <div class=\"panel-item__text\">\n" +
+        "                            <h4 class=\"panel-item__title\">Wood Egg</h4>\n" +
+        "                            <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/></img></p>\n" +
+        "                              <div class=\"div-amount\">\n" +
+        "                                <div>\n" +
+        "                                    <label>Amount</label>\n" +
+        "                                    <input type=\"number\" class=\"amount\" value=\"1\"/>\n" +
+        "                                </div>\n" +
+        "\n" +
+        "                            </div>\n" +
+        "                        </div>\n" +
+        "                        <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
+        "                            <span class=\"button-game-bg-left-buy\"></span>\n" +
+        "                            <span class=\"button-game-bg-mid\">\n" +
+        "                                <span id=\"egg-wood\" style=\"font-size: 20px\">Buy</span>\n" +
+        "                              </span>\n" +
+        "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
+        "                        </a>\n" +
+        "                    </div>\n" +
+        "                    <div id=\"item-4\" class=\"col-xs-5 col-sm-3  col-sm-offset-1 gallery-item  item-4  thumbnail-50 background-config\" style=\" background-image: url(img/imageframe/imageframe-4.png);\" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +
+        "\n" +
+        "                        <img src=\"img/egg/4-egg.png\" class=\"image-egg-magic\" alt=\"Avatar Pet\" width=\"440\" height=\"750\"/>\n" +
+        "                       <div class=\"panel-item__text\">\n" +
+        "                            <h4 class=\"panel-item__title\">Metal Egg</h4>\n" +
+        "                            <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/></img></p>\n" +
+        "                              <div class=\"div-amount\">\n" +
+        "                                <div>\n" +
+        "                                    <label>Amount</label>\n" +
+        "                                    <input type=\"number\" class=\"amount\" value=\"1\"/>\n" +
+        "                                </div>\n" +
+        "\n" +
+        "                            </div>\n" +
+        "                        </div>\n" +
+        "                        <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
+        "                            <span class=\"button-game-bg-left-buy\"></span>\n" +
+        "                            <span class=\"button-game-bg-mid\">\n" +
+        "                    <span id=\"egg-metal\" style=\"font-size: 20px\">Buy</span>\n" +
+        "                  </span>\n" +
+        "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
+        "                        </a>\n" +
+        "                    </div>\n" +
+        "                </div>\n");
+    $(".egg").append("                <div class=\"row items-container item-egg\">\n" +
+        "                    <div id=\"item-5\" class=\"col-xs-5 col-sm-3 gallery-item item-1 thumbnail-50 background-config\" style=\"background-image: url(img/imageframe/imageframe-5.png);\" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +
+        "                        <img src=\"img/egg/5-egg.png\" class=\"image-egg-magic\" alt=\"Avatar Pet\" width=\"440\" height=\"750\" />\n" +
+        "                        <div class=\"panel-item__text\">\n" +
+        "                            <h4 class=\"panel-item__title\">Earth Egg</h4>\n" +
+        "                            <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/></img></p>\n" +
+        "                              <div class=\"div-amount\">\n" +
+        "                                <div>\n" +
+        "                                    <label>Amount</label>\n" +
+        "                                    <input type=\"number\" class=\"amount\" value=\"1\"/>\n" +
+        "                                </div>\n" +
+        "\n" +
+        "                            </div>\n" +
+        "                        </div>\n" +
+        "                        <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
+        "                            <span class=\"button-game-bg-left-buy\"></span>\n" +
+        "                            <span class=\"button-game-bg-mid\">\n" +
+        "                    <span id=\"egg-earth\" style=\"font-size: 20px\">Buy</span>\n" +
+        "                  </span>\n" +
+        "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
+        "                        </a>\n" +
+        "                    </div>\n" +
+        "                    <div id=\"item-6\" class=\"col-xs-5  col-sm-3 col-sm-offset-1 gallery-item   item-2  thumbnail-50  background-config \" style=\" background-image: url(img/imageframe/imageframe-6.png);\" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +
+        "                        <img src=\"img/egg/0-egg.png\" class=\"image-egg-magic\" alt=\"Avatar Pet\" width=\"440\" height=\"750\"/>\n" +
+        "                       <div class=\"panel-item__text\">\n" +
+        "                            <h4 class=\"panel-item__title\">Random Egg</h4>\n" +
+        "                            <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/></img></p>\n" +
+        "                            <div class=\"div-amount\">\n" +
+        "                                <div>\n" +
+        "                                    <label>Amount</label>\n" +
+        "                                    <input type=\"number\" class=\"amount\" value=\"1\"/>\n" +
+        "                                </div>\n" +
+        "\n" +
+        "                            </div>\n" +
+        "                        </div>\n" +
+        "                        <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
+        "                            <span class=\"button-game-bg-left-buy\"></span>\n" +
+        "                            <span class=\"button-game-bg-mid\">\n" +
+        "                    <span id=\"egg-random\" style=\"font-size: 20px\">Buy</span>\n" +
+        "                  </span>\n" +
+        "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
+        "                        </a>\n" +
+        "                    </div>\n" +
+        "\n" +
+        "                </div>\n");
 }
 
 async function buyEgg(tribe, amount){

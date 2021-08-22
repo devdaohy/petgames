@@ -113,25 +113,24 @@ async function updateRealTimeFight(){
     $('.carousel-inner').find('.item').each(function (index)
     {
         var  timeFight = $(this).find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text();
-        console.log(timeFight);
-        if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
-            totalSeconds =  Math.floor(timeFight-($.now()/1000 ));
-            hours = Math.floor(totalSeconds / 3600);
-            totalSeconds %= 3600;
-            minutes = Math.floor(totalSeconds / 60);
-            seconds = totalSeconds % 60;
-            $(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
-            $("#btn-fight-1").addClass("disable-click");
-            $("#btn-fight-2").addClass("disable-click");
-            $("#btn-fight-3").addClass("disable-click");
-            $("#btn-fight-4").addClass("disable-click");
+        if(timeFight != 0)
+        {
+            console.log($(this).find('.pet-no').text());
 
-        }else{
-            $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");
+            if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
+                totalSeconds =  Math.floor(timeFight-($.now()/1000 ));
+                hours = Math.floor(totalSeconds / 3600);
+                totalSeconds %= 3600;
+                minutes = Math.floor(totalSeconds / 60);
+                seconds = totalSeconds % 60;
+                $(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
 
+            }else{
+                $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");
+
+            }
         }
-         $(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
-    });
+         });
 
 }
 
@@ -196,7 +195,7 @@ async function fightMonster(nftId, monsterLv){
 
     await getFightResult(web3, txHash, monsterContract);
     $("#shop-modal-fight").modal('toggle');
-
+    getTimeFightMonster1(nftId);
 }
 
 

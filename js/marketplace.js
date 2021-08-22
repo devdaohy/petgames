@@ -103,8 +103,7 @@ async function readMarket(from, to, sender){
 	}
 }
 
-function forLstPetSale()
-{
+function forLstPetSale() {
 	var content="";
 	console.log(scarce);
 	if(scarce >0)
@@ -215,7 +214,6 @@ function pet(i,exp,tribe,scarce,owner,price,id) {
 	return content;
 }
 
-//getApprove();
 
 async function getApprove(){
     // var myAddress = await ethereum.selectedAddress;
@@ -248,6 +246,7 @@ async function approve(petGamesTokenContract){
     const web3 = new Web3(DATASEED);
 
    await getTransaction(web3,txHash, "APPROVE");
+	loadMarket();
 	// location.reload();
 
 }
