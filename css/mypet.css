@@ -278,9 +278,9 @@
 .disable-click .button-game-bg-mid{
      background: url(../img/buttonSprite_2.png) repeat-x 0 0 !important;
  }
-.button-game .button-game-bg-mid:after{
-    background: url(../img/buttonSprite_2.png) repeat-x 0 0 !important;
-}
+/*.button-game .button-game-bg-mid:after{*/
+/*    background: url(../img/buttonSprite_2.png) repeat-x 0 0 !important;*/
+/*}*/
 .disable-click .button-game-bg-left{
     background: url(../img/buttonSprite_2.png) no-repeat 0 -108px !important;
 }
