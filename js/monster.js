@@ -68,10 +68,10 @@ rewardFightMonster(22,4);
 
 $(".carousel-control-next-icon").on("click",function () {
     setTimeout(function(){
-        $("#btn-fight-1").removeClass("disable-click");
-        $("#btn-fight-2").removeClass("disable-click");
-        $("#btn-fight-3").removeClass("disable-click");
-        $("#btn-fight-4").removeClass("disable-click");
+        $("#btn-fight-1").parent().parent().removeClass("disable-click");
+        $("#btn-fight-2").parent().parent().removeClass("disable-click");
+        $("#btn-fight-3").parent().parent().removeClass("disable-click");
+        $("#btn-fight-4").parent().parent().removeClass("disable-click");
         var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
         rewardFightMonster(nft_id,1);
         rewardFightMonster(nft_id,2);
@@ -83,10 +83,10 @@ $(".carousel-control-next-icon").on("click",function () {
 
 $(".carousel-control-prev-icon").on("click",function () {
     setTimeout(function(){
-        $("#btn-fight-1").removeClass("disable-click");
-        $("#btn-fight-2").removeClass("disable-click");
-        $("#btn-fight-3").removeClass("disable-click");
-        $("#btn-fight-4").removeClass("disable-click");
+        $("#btn-fight-1").parent().parent().removeClass("disable-click");
+        $("#btn-fight-2").parent().parent().removeClass("disable-click");
+        $("#btn-fight-3").parent().parent().removeClass("disable-click");
+        $("#btn-fight-4").parent().parent().removeClass("disable-click");
         var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
         rewardFightMonster(nft_id,1);
         rewardFightMonster(nft_id,2);
@@ -162,10 +162,10 @@ async function getTimeFightMonster1(nftId){
         seconds = totalSeconds % 60;
         $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
         $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text(timeFight);
-        $("#btn-fight-1").addClass("disable-click");
-        $("#btn-fight-2").addClass("disable-click");
-        $("#btn-fight-3").addClass("disable-click");
-        $("#btn-fight-4").addClass("disable-click");
+        $("#btn-fight-1").parent().parent().addClass("disable-click");
+        $("#btn-fight-2").parent().parent().addClass("disable-click");
+        $("#btn-fight-3").parent().parent().addClass("disable-click");
+        $("#btn-fight-4").parent().parent().addClass("disable-click");
 
     }else{
         $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");

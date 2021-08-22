@@ -474,6 +474,14 @@
 .disable-click{
     pointer-events:none;
 }
+.disable-click .button-game-bg-left-buy{
+    background: url(../img/buttonSprite_2.png) no-repeat 0 -108px !important;
+}
+.disable-click .button-game-bg-right-buy{
+    background: url(../img/buttonSprite_2.png) no-repeat 0 -162px !important;
+}.disable-click .button-game-bg-mid{
+     background: url(../img/buttonSprite_2.png) repeat-x 0 0 !important;
+}
 /*@media (min-width: 200px) and (max-width: 399px) {*/
 /*    .image-egg-magic{*/
 /*        margin-bottom: 65% !important;*/
@@ -553,20 +561,49 @@
     background-size: 230%;
 }
 
-@media (max-width: 600px)
+@media (min-width: 200px) and (max-width: 401px)
 {
     .pattern{
-        background-size: 1170% !important;
+        background-size: 1500% !important;
+    }
+    .copyright{
+        font-size: 21px !important;
     }
 }
 
-@media (min-width: 600px) and (max-width: 1023px)
+@media (min-width: 400px) and (max-width: 600px)
+{
+    .pattern{
+        background-size: 1400% !important;
+    }
+    .copyright{
+        font-size: 25px !important;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 801px)
 {
    .pattern{
 
-        background-size: 470% !important;
+        background-size: 480% !important;
 
 
+    }
+    .copyright{
+        font-size: 25px !important;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1023px)
+{
+    .pattern{
+
+        background-size: 480% !important;
+
+
+    }
+    .copyright{
+        font-size: 25px !important;
     }
 }
 
@@ -583,7 +620,7 @@
 {
     .pattern{
 
-        background-size: 180% !important;
+        background-size: 220% !important;
 
 
     }
@@ -604,13 +641,13 @@
 @media (min-width: 1601px) and (max-width: 1800px)
 {
     .pattern{
-        background-size: 105% !important;
+        background-size: 165% !important;
     }
 }
 @media (min-width: 1801px) and (max-width: 2000px)
 {
     .pattern{
-        background-size: 100% !important;
+        background-size: 165% !important;
     }
 }
 @media (min-width: 2001px) and (max-width: 2200px)
