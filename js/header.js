@@ -2121,6 +2121,7 @@ getAccount();
 
 window.ethereum.on('accountsChanged', function (accounts) {
 	getAccount();
+	location.reload();
 })
 
 $("#btn-connect").click(function(){
