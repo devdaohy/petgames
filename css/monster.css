@@ -601,3 +601,21 @@
         background-size: 165% !important;
     }
 }
+@media (min-width: 1601px) and (max-width: 1800px)
+{
+    .pattern{
+        background-size: 105% !important;
+    }
+}
+@media (min-width: 1801px) and (max-width: 2000px)
+{
+    .pattern{
+        background-size: 100% !important;
+    }
+}
+@media (min-width: 2001px) and (max-width: 2200px)
+{
+    .pattern{
+        background-size: 100% !important;
+    }
+}
