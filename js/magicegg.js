@@ -263,6 +263,7 @@ async function buyEgg(tribe, amount){
         $(".shop-modal").attr("style","display:none");
         getDialog(mess+" FAIL !");
     }
+    getAccount();
 
 }
 
@@ -290,7 +291,8 @@ async function buyEggRandom(amount) {
     });
     $("#shop-modal").modal('toggle');
 
-    getTransaction(web3, txHash, "BUY EGG");
+   await getTransaction(web3, txHash, "BUY EGG");
+    getAccount();
 }
 
 async function getEggPrice(){
