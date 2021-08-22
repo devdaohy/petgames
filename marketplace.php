@@ -125,4 +125,5 @@
     page=page.get('page');
     console.log(page);
 </script>
+<script type="text/javascript" src="js/loadpet.js" ></script>
 <script type="text/javascript" src="js/marketplace.js"></script>

@@ -271,5 +271,6 @@
         var page =1;
 
 </script>
+<script type="text/javascript" src="js/loadpet.js" ></script>
 <script src="js/monster.js"></script>
 

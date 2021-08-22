@@ -168,4 +168,5 @@
     console.log(page);
 
 </script>
+<script type="text/javascript" src="js/loadpet.js" ></script>
 <script src="js/mypet.js"></script>

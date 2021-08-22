@@ -1,4 +1,4 @@
-    document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
+document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
     var pricePet ="";
 
@@ -485,6 +485,8 @@
         await getTransaction(web3, txHash, "CREATE SALE");
         // setTimeout(function () {},1000);
        await loadMyPet();
+        await loadMyPetMarket();
+
         // location.reload();
 
     }
@@ -585,6 +587,7 @@
         });
 
         await   getTransaction(web3, txHash, "CANCEL SALE");
+        await  loadMyPet();
        await loadMyPetMarket(1);
         // location.reload();
     }
