@@ -14,8 +14,8 @@
 }
 
 .info-pet {
-    margin-left: 9% !important;
-    width: 89% !important;
+    margin-left: 15% !important;
+    width: 87% !important;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon{
@@ -431,7 +431,7 @@
         font-size: 15px !important;
     }
     .item-special .image-pet{
-        margin-bottom: 70% !important;
+        margin-bottom: 86% !important;
     }
     .image-egg-magic{
         margin-bottom: 50% !important;
@@ -440,15 +440,15 @@
         font-size: 13px;
     }
     .item1-1 .panel-item__text{
-        bottom: 35px !important;
+        bottom: 70px !important;
     }
 }
 @media (min-width: 1201px)  {
     .item-special .image-pet{
-        margin-bottom: 68% !important;
+        margin-bottom: 70% !important;
     }
     .panel-item__summary{
-        font-size: 18px !important;
+        font-size: 15px !important;
     }
     .image-egg-magic{
         margin-bottom: 45% !important;
@@ -457,7 +457,7 @@
         font-size: 17px;
     }
     .item1-1 .panel-item__text{
-        bottom: 35px !important;
+        bottom: 70px !important;
     }
 }
 

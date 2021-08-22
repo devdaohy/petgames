@@ -116,6 +116,8 @@ async function updateRealTimeFight(){
         if(timeFight != 0)
         {
             console.log($(this).find('.pet-no').text());
+            console.log(timeFight);
+            console.log($.now()/1000);
 
             if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
                 totalSeconds =  Math.floor(timeFight-($.now()/1000 ));
@@ -126,7 +128,8 @@ async function updateRealTimeFight(){
                 $(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
 
             }else{
-                $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");
+
+                $(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");
 
             }
         }
@@ -134,7 +137,7 @@ async function updateRealTimeFight(){
 
 }
 
-setInterval(updateRealTimeFight, 1800);
+setInterval(updateRealTimeFight, 1000);
 
 async function getTimeFightMonster1(nftId){
 
