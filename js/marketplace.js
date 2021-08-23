@@ -63,11 +63,15 @@ async function loadMarket(){
 	const web3 = new Web3(DATASEED);
 
 	petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+	myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
 
 	marketSize = await petNFTContract.methods.balanceOf(PETNFT).call();
 	$("#amount-pet-sale").text(marketSize+" Pets For Sales");
-	myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
+	if(marketSize == 0)
+	{
+		$(".image-load").attr("style","display:none");
 
+	}
 	for(let from=0;from<marketSize;){
 
 		to = Math.min(from+4, marketSize);

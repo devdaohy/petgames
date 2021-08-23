@@ -23,13 +23,10 @@
                     </div>
                     <div class="modal-body pattern clearfix" id="modalBody">
                         <img src="img/other/win.png" style="background: #008000bd" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
-
                         <div class="detail-info-pet" >
                         </div>
                         <div class="div-info-sell-tranfer">
-
                         </div>
-
                     </div>
                     <div class="modal-footer pattern" style="border-top: 0px">
                         <a  xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
@@ -54,13 +51,10 @@
                     </div>
                     <div class="modal-body pattern clearfix" id="modalBody">
                         <img src="img/other/lose.png" style="background: #ff0000d6" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
-
                         <div class="detail-info-pet" >
                         </div>
                         <div class="div-info-sell-tranfer">
-
                         </div>
-
                     </div>
                     <div class="modal-footer pattern" style="border-top: 0px">
                         <a  xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
@@ -77,15 +71,7 @@
         <div class="modal fade modalpet" id="shop-modal-fight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div>
-
-
                         <img src="img/other/gifFighting2.gif" style="width: 46%;background: #66c6e0;border-radius: 25px;box-shadow: none" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
-
-<!--                        <div class="detail-info-pet" >-->
-<!--                        </div>-->
-
-
-
                 </div>
             </div>
         </div>

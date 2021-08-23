@@ -2,7 +2,6 @@
 <?php  include "header.php"?>
 <link href="css/farm.css" rel="stylesheet" />
 
-<!-- ============== STORE SECTION =============== -->
 <div class="container farrm" style="margin-top: 2rem">
     <div class="row" id="play">
         <h2 style="margin-bottom: 0px">Farm</h2>

@@ -27,7 +27,6 @@
 <script type="text/javascript" src="js/header.js"></script>
 <script src="js/app.js"></script>
 <script src="js/jquery-mobile-custom/jquery.mobile.custom.min.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.4.0/web3.min.js"></script>   -->
 </body>
 
 </html>

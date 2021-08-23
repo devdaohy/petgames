@@ -10,16 +10,12 @@
     />
     <meta name="keywords" content="game, gamefi, bsc, petgames, play-to-earn" />
     <title>PET GAMES</title>
-    <!-- Bootstrap -->
     <link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet" />
     <link href="fonts/ionicons/2.0.1/css/ionicons.min.css" type="text/css" media="screen" rel="stylesheet" />
-    <!-- Boxicons CSS -->
     <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/fontawesome/fontawesome/css/all.css" rel="stylesheet" />
-    <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-    <![endif]-->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
@@ -41,7 +37,6 @@
     <div class="row">
         <!-- ============== HEADER =============== -->
         <header id="home">
-            <!-- Main nav -->
             <nav class="navbar navbar-inverse navbar-custom navbar-fixed-top">
                 <div class="container">
                     <div class="navbar navbar-header">
@@ -74,14 +69,7 @@
                     <hr class="Divider-rule" />
                 </div>
             </nav>
-            <!-- <h1>
-    <img
-      onload="this.style.opacity='1';"
-      class="big-logo"
-      src="img/Sweet-World-Logo.png"
-      alt="Sweet World big logo"
-    />
-  </h1> -->
+
         </header>
     </div>
     <div class="row pattern">
@@ -91,7 +79,7 @@
                     <div class="list-scarces">
                         <ul class="scarces" style="margin: 0px">
                             <li>
-                                <a href="#" style="color: black">
+                                <a href="https://t.me/PetGamesBSC" style="color: black">
                                  <p>Telegram  <i class="fab fa-telegram" style="color: #2e6da4;font-size: 26px"></i></p>
                                 </a>
                             </li>
@@ -99,7 +87,7 @@
                                 <p style="text-align: center;font-size:25px;line-height: 30px;margin: 0px" id="my-balance">Balance: <img src="img/logo.png" style="width:35px;margin-left: 10px"></p>
                             </li>
                             <li style="border-left: 2px dashed #d45f42;padding-left: 15px">
-                                <a href="#" style="color: black">
+                                <a href="https://twitter.com/PetGamesBsc" style="color: black">
                                  <p>Twitter <i class="fab fa-twitter" style="color: #2e6da4;font-size: 26px"></i></p>
                                 </a>
                             </li>
