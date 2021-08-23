@@ -132,11 +132,11 @@
                 </tr>
                 <tr>
                     <td>Reward</td>
-                    <td>1000-2000</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>EXP</td>
-                    <td>1-20</td>
+                    <td></td>
                 </tr>
                 </tbody>
             </table>
@@ -168,11 +168,11 @@
                 </tr>
                 <tr>
                     <td>Reward</td>
-                    <td>1000-2000</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>EXP</td>
-                    <td>1-20</td>
+                    <td></td>
                 </tr>
                 </tbody>
             </table>
@@ -203,11 +203,11 @@
                 </tr>
                 <tr>
                     <td>Reward</td>
-                    <td>1000-2000</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>EXP</td>
-                    <td>1-20</td>
+                    <td></td>
                 </tr>
                 </tbody>
             </table>
@@ -238,11 +238,11 @@
                 </tr>
                 <tr>
                     <td>Reward</td>
-                    <td>1000-2000</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>EXP</td>
-                    <td>1-20</td>
+                    <td></td>
                 </tr>
                 </tbody>
             </table>
