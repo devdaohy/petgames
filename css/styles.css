@@ -2529,7 +2529,6 @@ ul#model-feats {
     /* padding: 0.5rem; */
     border: none !important;
 }
-
 .footer .copyright {
     font-family: "Changa", Verdana, sans-serif;
     font-weight: 600;
@@ -6540,6 +6539,22 @@ ul#model-feats {
 
 
 }
+@media (min-width: 200px) and (max-width: 400px)  {
+    .copyright {
+        font-size: 15px !important;
+    }
+}
+@media (min-width: 401px) and (max-width: 800px)  {
+    .copyright {
+        font-size: 20px !important;
+    }
+}
+@media (min-width: 801px) and (max-width: 1000px)  {
+    .copyright {
+        font-size: 30px !important;
+    }
+}
+
 
 
 /*.modal .detail-info-pet{*/
