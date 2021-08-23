@@ -80,6 +80,7 @@ $(".carousel-control-next-icon").on("click",function () {
 
 $(".carousel-control-prev-icon").on("click",function () {
     setTimeout(function(){
+        console.log(      Number($('.carousel-inner').find('.active').find('.info-pet tr:nth-child(2) td:nth-child(1)').find('p').text().split('Exp:')[1]));
         $("#btn-fight-1").parent().parent().removeClass("disable-click");
         $("#btn-fight-2").parent().parent().removeClass("disable-click");
         $("#btn-fight-3").parent().parent().removeClass("disable-click");
@@ -220,16 +221,18 @@ async function getFightResult(web3, txHash, monsterContract){
     if(lastFight['win']==true){
         $("#shop-modal-win").modal('toggle');
         $("#shop-modal-win .detail-info-pet").html("You win <br>Exp: "+lastFight['exp']+"<br>Reward: "+lastFight['reward']+" PETG");
-
         // getDialog("You win, exp:"+lastFight['exp']+", reward:"+lastFight['reward']);
     }else{
         $("#shop-modal-lose").modal('toggle');
         $("#shop-modal-lose .detail-info-pet").html("You lose <br>Exp: "+lastFight['exp']);
-
-        // getDialog("You lose, exp:"+lastFight['exp']);
     }
+    var exp = Number(lastFight['exp']) + Number($('.carousel-inner').find('.active').find('.info-pet tr:nth-child(2) td:nth-child(1)').find('p').text().split('Exp:')[1]);
 
-    
+    var lv = level(exp);
+      $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(1) td:nth-child(1)').find('p').html("<i style=\"margin-right: 5px\" class=\"bx bxs-graduation\"></i>Lv: "+lv);
+      $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(2) td:nth-child(1)').find('p').html("<i style=\"margin-right: 5px\" class=\"bx bxs-droplet\"></i>Exp: <br>" + exp);
+
+
   }else{
     getDialog("Fight Monster FAIL !");
   }

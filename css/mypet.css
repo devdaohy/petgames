@@ -6,6 +6,12 @@
 .panel-item__text{
     bottom: 65px;
 }
+.modal .info-pet{
+    width: 100% !important;
+}
+.modal .info-pet tr > td:first-child{
+    width: 42% !important;
+}
 
 @media (max-width: 320px)  {
     .item-special .image-pet{

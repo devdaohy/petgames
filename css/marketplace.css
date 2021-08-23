@@ -1,6 +1,9 @@
 .info-pet tr > td:first-child{
     width: 42%;
 }
+.modal .info-pet{
+    width: 100% !important;
+}
 .modal .modal-dialog {
     width: 28% !important;
     margin: 7% 36% !important;

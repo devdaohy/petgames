@@ -2050,7 +2050,9 @@ ul#model-feats {
     z-index: 100;
 }
 
-
+.disable-click .button-game-bg-mid:after{
+    background: url(../img/buttonSprite_2.png) repeat-x 0 0 !important;
+}
 
 
 
@@ -6340,7 +6342,7 @@ ul#model-feats {
 .modal .info-pet{
 }
 .modal .info-pet tr > td:first-child{
-   width: 50%;
+   width: 42%;
 }
 .modal .info-pet tr > td{
     text-align: left;

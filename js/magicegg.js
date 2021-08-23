@@ -115,7 +115,7 @@ function loadPage(){
         "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
         "                        </a>\n" +
         "                    </div>\n" +
-        "                    <div id=\"item-2\" class=\"col-xs-5  col-sm-3 col-sm-offset-1  gallery-item item-2 thumbnail-50 background-config\" style=\"background-image: url(img/imageframe/imageframe-2.png);\" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +
+        "                    <div id=\"item-2\" class=\"col-xs-5  col-sm-3 col-sm-offset-1 col-xs-offset-1 gallery-item item-2 thumbnail-50 background-config\" style=\"background-image: url(img/imageframe/imageframe-2.png);\" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +
         "\n" +
         "                        <img src=\"img/egg/2-egg.png\" class=\"image-egg-magic\" alt=\"Avatar Pet\" width=\"440\" height=\"750\"  />\n" +
         "                         <div class=\"panel-item__text\">\n" +
@@ -159,7 +159,7 @@ function loadPage(){
         "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
         "                        </a>\n" +
         "                    </div>\n" +
-        "                    <div id=\"item-4\" class=\"col-xs-5 col-sm-3  col-sm-offset-1 gallery-item  item-4  thumbnail-50 background-config\" style=\" background-image: url(img/imageframe/imageframe-4.png);\" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +
+        "                    <div id=\"item-4\" class=\"col-xs-5 col-sm-3  col-sm-offset-1 col-xs-offset-1 gallery-item  item-4  thumbnail-50 background-config\" style=\" background-image: url(img/imageframe/imageframe-4.png);\" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +
         "\n" +
         "                        <img src=\"img/egg/4-egg.png\" class=\"image-egg-magic\" alt=\"Avatar Pet\" width=\"440\" height=\"750\"/>\n" +
         "                       <div class=\"panel-item__text\">\n" +
@@ -204,7 +204,7 @@ function loadPage(){
         "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
         "                        </a>\n" +
         "                    </div>\n" +
-        "                    <div id=\"item-6\" class=\"col-xs-5  col-sm-3 col-sm-offset-1 gallery-item   item-2  thumbnail-50  background-config \" style=\" background-image: url(img/imageframe/imageframe-6.png);\" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +
+        "                    <div id=\"item-6\" class=\"col-xs-5  col-sm-3 col-sm-offset-1 col-xs-offset-1 gallery-item   item-2  thumbnail-50  background-config \" style=\" background-image: url(img/imageframe/imageframe-6.png);\" data-toggle=\"modal\" data-target=\"#shop-modal\">\n" +
         "                        <img src=\"img/egg/0-egg.png\" class=\"image-egg-magic\" alt=\"Avatar Pet\" width=\"440\" height=\"750\"/>\n" +
         "                       <div class=\"panel-item__text\">\n" +
         "                            <h4 class=\"panel-item__title\">Random Egg</h4>\n" +
