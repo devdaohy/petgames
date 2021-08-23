@@ -2538,7 +2538,7 @@ ul#model-feats {
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
     color: rgba(255, 0, 0, 0.91);
-    font-size: 140%;
+    font-size: 100%;
 }
 
 
@@ -6541,17 +6541,17 @@ ul#model-feats {
 }
 @media (min-width: 200px) and (max-width: 400px)  {
     .copyright {
-        font-size: 15px !important;
+        font-size: 13px !important;
     }
 }
 @media (min-width: 401px) and (max-width: 800px)  {
     .copyright {
-        font-size: 20px !important;
+        font-size: 17px !important;
     }
 }
 @media (min-width: 801px) and (max-width: 1000px)  {
     .copyright {
-        font-size: 30px !important;
+        font-size: 27px !important;
     }
 }
 
