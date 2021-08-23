@@ -1,2 +1,2 @@
 <?php
-header("Location: magicegg");
+header("Location: fanpage");
