@@ -122,8 +122,11 @@ async function updateRealTimeFight(){
                 $(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
 
             }else{
-
                 $(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");
+                $("#btn-fight-1").parent().parent().removeClass("disable-click");
+                $("#btn-fight-2").parent().parent().removeClass("disable-click");
+                $("#btn-fight-3").parent().parent().removeClass("disable-click");
+                $("#btn-fight-4").parent().parent().removeClass("disable-click");
 
             }
         }
