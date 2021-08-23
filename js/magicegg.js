@@ -304,7 +304,7 @@ async function getEggPrice(){
     eggPrice = await petNFTContract.methods.getBoxPrice().call();
 
     $(".panel-item__text p").append(eggPrice);
-    console.log(eggPrice);
+
 }
 
 

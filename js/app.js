@@ -242,7 +242,6 @@ async function getTransaction(web3, txHash, mess){
 
     // setTimeout(function(){}, 500);
   }
-  console.log(mess);
   if (receipt.status == true){
 
 

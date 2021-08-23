@@ -115,10 +115,6 @@ async function updateRealTimeFight(){
         var  timeFight = $(this).find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text();
         if(timeFight != 0)
         {
-            console.log($(this).find('.pet-no').text());
-            console.log(timeFight);
-            console.log($.now()/1000);
-
             if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
                 totalSeconds =  Math.floor(timeFight-($.now()/1000 ));
                 hours = Math.floor(totalSeconds / 3600);
@@ -147,8 +143,7 @@ async function getTimeFightMonster1(nftId){
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
     timeFight = await monsterContract.methods.getTimeFightMonster1(nftId).call();
-    console.log(timeFight);
-    console.log($.now()/1000);
+
 
     // setTimeout(function(){
     //
@@ -170,7 +165,10 @@ async function getTimeFightMonster1(nftId){
     }else{
         $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");
         $('.carousel-inner').find('.active').find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text(timeFight);
-
+        $("#btn-fight-1").parent().parent().removeClass("disable-click");
+        $("#btn-fight-2").parent().parent().removeClass("disable-click");
+        $("#btn-fight-3").parent().parent().removeClass("disable-click");
+        $("#btn-fight-4").parent().parent().removeClass("disable-click");
     }
 
 }
@@ -264,7 +262,7 @@ async function loadMyPet(){
     petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
 
     myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
-    console.log(myBalance);
+
 
     for(let from=0;from<myBalance;){
         to = Math.min(from+6, myBalance);
@@ -292,7 +290,7 @@ async function readMyPet(from, to, sender){
     if(lstMyPetD.length == myBalance){
 
         lstMyPet.sort(sortByNftId);
-        console.log(lstMyPet);
+
          forLstMyPet();
         $(".carousel-control-prev").attr("style","display:flex");
         $(".carousel-control-next").attr("style","display:flex");

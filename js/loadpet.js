@@ -93,38 +93,3 @@ function imagePetOrEgg(tribe,scarce,exp,active) {
 
 }
 
-$(".current-page").text(page >=1 ? page: "1");
-$(".next-btn").on("click",function () {
-    page=Number(page)+1;
-    if(page > Number($(".total-page").text()))
-    {
-        page = page -1;
-    }
-    var url=new URLSearchParams(window.location.search);
-    if(url.has("page"))
-    {
-        url.set("page",page);
-    }else{
-        url.append("page",page);
-    }
-
-    document.location = "?"+url.toString();
-
-});
-$(".prev-btn").on("click",function () {
-    page=Number(page)-1;
-    if(page == 0 )
-    {
-        page = page + 1;
-    }
-    var url=new URLSearchParams(window.location.search);
-    if(url.has("page"))
-    {
-        url.set("page",page);
-    }else{
-        url.append("page",page);
-    }
-
-    document.location = "?"+url.toString();
-
-});

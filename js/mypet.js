@@ -43,7 +43,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         $(".div-info-sell-tranfer").html("");
         $(".detail-info-pet").html($(this).find(".panel-item__text").html());
         $(".detail-info-pet").find("h4").remove();
-        console.log($(this).find("#item-tribe-caption").text());
+
     });
 
   $("#detail-btn-crack").on('click',async function () {
@@ -111,7 +111,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
                 $(".error-price-syntax").attr("style","display:block;color: red;font-size: 70%;");
             }
         }else{
-            console.log($(".error-price-empty").attr("class"));
+
             $(".error-price-empty").attr("style","display:block;color: red;font-size: 70%;");
         }
     });
@@ -299,10 +299,8 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         if(myBalance == 0 )
         { $(".scarce-2").removeAttr("disabled");
             $(".image-load").attr("style","display:none");}
-        console.log(myBalance);
 
         for(let from=0;from<myBalance;){
-            console.log(myBalance);
 
             to = Math.min(from+6, myBalance);
             readMyPet(from, to, myAddress);
@@ -322,7 +320,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
         if(lstMyPet.length == myBalance){
             lstMyPet.sort(sortByNftId);
-            console.log(lstMyPet);
+
             forLstMyPet();
             $(".scarce-2").removeAttr("disabled");
             $(".image-load").attr("style","display:none");
@@ -537,7 +535,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
 
         yourSaleSize = await petNFTContract.methods.yourSaleSize(myAddress).call();
-        console.log(yourSaleSize);
+
 
         for(let from=0;from<yourSaleSize;){
             to = Math.min(from+6, yourSaleSize);
@@ -558,7 +556,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         }
 
         if(lstMyPetMarket.length == yourSaleSize){
-            console.log(lstMyPetMarket);
+
             if(updateAfterTransaction ==1)
             {
                 forLstMyPetMarket();
@@ -623,7 +621,40 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         // location.reload();
     }
 
+$(".current-page").text(page >=1 ? page: "1");
+$(".next-btn").on("click",function () {
+    page=Number(page)+1;
 
+    if(page > Number($(".total-page").text()))
+    {
+        page = page -1;
+    }
+    var url=new URLSearchParams(window.location.search);
+    if(url.has("page"))
+    {
+        url.set("page",page);
+    }else{
+        url.append("page",page);
+    }
+    document.location = "?"+url.toString();
+});
+$(".prev-btn").on("click",function () {
+    page=Number(page)-1;
+    if(page == 0 )
+    {
+        page = page + 1;
+    }
+    var url=new URLSearchParams(window.location.search);
+    if(url.has("page"))
+    {
+        url.set("page",page);
+    }else{
+        url.append("page",page);
+    }
+
+    document.location = "?"+url.toString();
+
+});
 
 
 

@@ -143,7 +143,7 @@
         </div>
 
 
-        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
+        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game disable-click">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
                                 <span id="btn-fight-1" style="font-size: 20px">Fight</span>
@@ -178,7 +178,7 @@
             </table>
 
         </div>
-        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
+        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game disable-click">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
                                 <span id="btn-fight-2" style="font-size: 20px">Fight</span>
@@ -213,7 +213,7 @@
             </table>
 
         </div>
-        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
+        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game disable-click">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
                                 <span id="btn-fight-3" style="font-size: 20px">Fight</span>
@@ -248,7 +248,7 @@
             </table>
 
         </div>
-        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
+        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game disable-click">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
                     <span id="btn-fight-4" style="font-size: 20px">Fight</span>

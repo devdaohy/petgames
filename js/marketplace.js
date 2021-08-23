@@ -89,11 +89,9 @@ async function readMarket(from, to, sender){
 
 	if(lstPetSale.length == marketSize){
 
-		console.log(lstPetSale);
+
 		lstPetSale.sort(sortFunction);
 		forLstPetSale();
-		console.log(approveAmount);
-		console.log(amount);
 		if(approveAmount < amount){
 			$(".btn-buy").text("Approve");
 			$(".btn-buy").on("click",function () {
@@ -106,7 +104,6 @@ async function readMarket(from, to, sender){
 
 function forLstPetSale() {
 	var content="";
-	console.log(scarce);
 	if(scarce >0)
 	{
 		lstPetSaleFilter =lstPetSale.filter(function (a) {
@@ -116,7 +113,7 @@ function forLstPetSale() {
 		lstPetSaleFilter=lstPetSale;
 	}
 
-	console.log(lstPetSaleFilter);
+
 	if(page == null )page=1;
 	var count =0;
 	for(let i=((page - 1) * limitPage); i<Math.min(page*limitPage,lstPetSaleFilter.length);i++)
@@ -310,7 +307,7 @@ async function cancelOrder(nftId){
 		 return "<span class=\"btn-buy\" style=\"font-size: 20px\">Buy</span>\n";
 	 }else{
 		if(myAddress.toString().trim().toUpperCase() == owner.toString().trim().toUpperCase()){
-			console.log(owner);
+
 
 			return "<span class=\"btn-cancel\" style=\"font-size: 20px\">Cancle</span>\n";
 
@@ -344,3 +341,39 @@ function buyOrCancelText(owner){
 		}
 	}
 }
+
+
+$(".current-page").text(page >=1 ? page: "1");
+$(".next-btn").on("click",function () {
+	page=Number(page)+1;
+
+	if(page > Number($(".total-page").text()))
+	{
+		page = page -1;
+	}
+	var url=new URLSearchParams(window.location.search);
+	if(url.has("page"))
+	{
+		url.set("page",page);
+	}else{
+		url.append("page",page);
+	}
+
+	document.location = "?"+url.toString();
+
+});
+$(".prev-btn").on("click",function () {
+	page=Number(page)-1;
+	if(page == 0 )
+	{
+		page = page + 1;
+	}
+	var url=new URLSearchParams(window.location.search);
+	if(url.has("page"))
+	{
+		url.set("page",page);
+	}else{
+		url.append("page",page);
+	}
+	document.location = "?"+url.toString();
+});
