@@ -69,11 +69,9 @@
                             <a class="btn-game-fanpage" >Buy PETG
                             </a>
                         </div>
-
-                    </div>
-                    <div class="row" style="margin: 4px;">
+                        <br>
                         <div class="list-scarces">
-                            <ul class="scarces" style="margin: 0px">
+                            <ul class="scarces" style="margin: 0px;border: 1px solid black">
                                 <li>
                                     <a href="#" style="color: white">
                                         <p>Telegram  <i class="fab fa-telegram" style="color: blue;font-size: 26px"></i></p>
@@ -87,7 +85,9 @@
 
                             </ul>
                         </div>
+
                     </div>
+
 
                 </div>
 
