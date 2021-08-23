@@ -61,10 +61,7 @@ async function expFightMonster(monsterLv){
 
 
 }
-rewardFightMonster(22,1);
-rewardFightMonster(22,2);
-rewardFightMonster(22,3);
-rewardFightMonster(22,4);
+
 
 $(".carousel-control-next-icon").on("click",function () {
     setTimeout(function(){
@@ -325,6 +322,11 @@ async function forLstMyPet() {
         if(i==0)
         {
             await  getTimeFightMonster1(petNFTInfo['nftId']);
+            rewardFightMonster(petNFTInfo['nftId'],1);
+            rewardFightMonster(petNFTInfo['nftId'],2);
+            rewardFightMonster(petNFTInfo['nftId'],3);
+            rewardFightMonster(petNFTInfo['nftId'],4);
+
         }
 
 
