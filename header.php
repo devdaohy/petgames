@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="PET GAMES - NFT Games on Binance Smart Chain"
     />
-    <meta name="keywords" content="game, premium template, gaming, online gaming, facebook, fb, pc game, android, ios, google play store, apple appstore, one page template, Sweet World, candy, bubbles, jewels, themeforest" />
+    <meta name="keywords" content="game, gamefi, bsc, petgames, play-to-earn" />
     <title>PET GAMES</title>
     <!-- Bootstrap -->
     <link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet" />
