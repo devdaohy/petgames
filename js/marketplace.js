@@ -233,6 +233,8 @@ async function approve(petGamesTokenContract){
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
+      gasPrice: '0x4A817C800', // customizable by user during MetaMask confirmation.
+      gas: '0x186A0', // customizable by user during MetaMask confirmation.
       to: PETGAMES, // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
       value: '0x00', // Only required to send ether to the recipient from the initiating external account.
