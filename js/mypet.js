@@ -296,6 +296,9 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
 
         myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
+        if(myBalance == 0 )
+        { $(".scarce-2").removeAttr("disabled");
+            $(".image-load").attr("style","display:none");}
         console.log(myBalance);
 
         for(let from=0;from<myBalance;){
