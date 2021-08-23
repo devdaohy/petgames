@@ -43,7 +43,7 @@
         <section class="store" id="store">
             <div class="container" style=";background:none; border: transparent">
                 <div class="row items-container" >
-                    <div class="col-xs-12  col-sm-7 gallery-item" >
+                    <div class="col-xs-12  col-sm-6 gallery-item" >
 
                         <h4 class="text-white" data-i18n="banner.contract">Contract Address:</h4>
 
@@ -71,7 +71,7 @@
                         </div>
                         <br>
                         <div class="list-scarces">
-                            <ul class="scarces" style="margin: 0px;border: 1px solid black">
+                            <ul class="scarces" style="margin: 0px;">
                                 <li>
                                     <a href="#" style="color: white">
                                         <p>Telegram  <i class="fab fa-telegram" style="color: blue;font-size: 26px"></i></p>
