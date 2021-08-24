@@ -2,10 +2,8 @@ $(".container").on( "click",".button-game-bg-mid span" ,function() {
     if($(this).text()=="Approve"){
         const web3 = new Web3(DATASEED);
          approve(new web3.eth.Contract(petGamesTokenAbi, PETGAMES));
-        // location.reload();
 
     }else{
-      //  console.log($(this).parent().parent().parent().find('input').val());
         if($(this).parent().parent().parent().find('input').val().length >0)
         {
             if(Number.isInteger(Number($(this).parent().parent().parent().find('input').val())) && Number($(this).parent().parent().parent().find('input').val()) >0)

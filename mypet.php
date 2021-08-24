@@ -20,10 +20,23 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="list-scarces" style="float: right; border-radius: 23px">
+                        <select id="mySelectScarce" disabled style="border-radius: 15px">
+                            <option value="0">All Scarce</option>
+                            <option value="1">Scarce 1</option>
+                            <option value="2">Scarce 2</option>
+                            <option value="3">Scarce 3</option>
+                            <option value="4">Scarc 4</option>
+                            <option value="5">Scarc 5</option>
+                            <option value="6">Scarc 6</option>
+                            <option value="7">Scarc 7</option>
+                            <option value="8">Scarc 8</option>
+                            <option value="9">Egg</option>
+
+                        </select>
+                    </div>
+
                 </div>
-                <div class="image-load row items-container bottom-wrapper" ></div>
-
-
                 <div class="row items-container bottom-wrapper">
                     <div class="modal fade modalpet" id="shop-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
@@ -51,22 +64,22 @@
                                     <a id="detail-btn-crack" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
                                         <span class="button-game-bg-left"></span>
                                         <span class="button-game-bg-mid">
-                                          <span>Crack</span>
-                                        </span>
+                                                      <span>Crack</span>
+                                                    </span>
                                         <span class="button-game-bg-right"></span>
                                     </a>
                                     <a id="detail-btn-sell" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide">
                                         <span class="button-game-bg-left"></span>
                                         <span class="button-game-bg-mid">
-                                          <span>Sell</span>
-                                        </span>
+                                                      <span>Sell</span>
+                                                    </span>
                                         <span class="button-game-bg-right"></span>
                                     </a>
                                     <a id="detail-btn-transfer" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide">
                                         <span class="button-game-bg-left"></span>
                                         <span class="button-game-bg-mid">
-                                          <span>Transfer</span>
-                                        </span>
+                                                      <span>Transfer</span>
+                                                    </span>
                                         <span class="button-game-bg-right"></span>
                                     </a>
                                 </div>
@@ -76,65 +89,64 @@
 
                 </div>
                 <div class="row items-container bottom-wrapper">
-                    <div class="modal fade" id="shop-modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header pattern">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h4 class="modal-title" id="myModalLabel" >Modal title</h4>
-                                </div>
-                                <div class="modal-body pattern clearfix" id="modalBody">
-                                    <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+        <div class="modal fade" id="shop-modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header pattern">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel" >Modal title</h4>
+                    </div>
+                    <div class="modal-body pattern clearfix" id="modalBody">
+                        <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
 
-                                    <div class="detail-info-pet" ></div>
+                        <div class="detail-info-pet" ></div>
 
-                                    <div class="div-info-sell-update">
-                                        <form>
-                                            <label>Price</label>
-                                            <input type="text" class="price" placeholder="Price" style="width: 40% !important;border-radius: 13px"/>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="modal-footer pattern">
-                                    <a type="button" class="btn-nft" style="display: none"></a>
-                                    <a type="button" class="btn-nft-price" style="display: none"></a>
-                                    <a type="button" class="btn-nft-img" style="display: none"></a>
-                                    <a type="button" class="btn-nft-name" style="display: none"></a>
-                                    <a type="button" class="btn-nft-tribe" style="display: none"></a>
-                                    <a type="button" class="btn-nft-scarce" style="display: none"></a>
-                                    <a id="detail-btn-update" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
-                                        <span class="button-game-bg-left"></span>
-                                        <span class="button-game-bg-mid">
-                                          <span>Update</span>
-                                        </span>
-                                        <span class="button-game-bg-right"></span>
-                                    </a>
-                                    <a id="detail-btn-cancel-sell-market" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
-                                        <span class="button-game-bg-left"></span>
-                                        <span class="button-game-bg-mid">
-                                          <span>Cancel</span>
-                                        </span>
-                                        <span class="button-game-bg-right"></span>
-                                    </a>
-
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="div-info-sell-update">
+                            <form>
+                                <label>Price</label>
+                                <input type="text" class="price" placeholder="Price" style="width: 40% !important;border-radius: 13px"/>
+                            </form>
                         </div>
                     </div>
-                </div>
+                    <div class="modal-footer pattern">
+                        <a type="button" class="btn-nft" style="display: none"></a>
+                        <a type="button" class="btn-nft-price" style="display: none"></a>
+                        <a type="button" class="btn-nft-img" style="display: none"></a>
+                        <a type="button" class="btn-nft-name" style="display: none"></a>
+                        <a type="button" class="btn-nft-tribe" style="display: none"></a>
+                        <a type="button" class="btn-nft-scarce" style="display: none"></a>
+                        <a id="detail-btn-update" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
+                            <span class="button-game-bg-left"></span>
+                            <span class="button-game-bg-mid">
+                                          <span>Update</span>
+                                        </span>
+                            <span class="button-game-bg-right"></span>
+                        </a>
+                        <a id="detail-btn-cancel-sell-market" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
+                            <span class="button-game-bg-left"></span>
+                            <span class="button-game-bg-mid">
+                                          <span>Cancel</span>
+                                        </span>
+                            <span class="button-game-bg-right"></span>
+                        </a>
 
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                <div class="image-load row items-container bottom-wrapper" ></div>
                 <div class="pickup-pagination" style="display: none">
                     <button class="prev-btn"><span>❮</span></button>
                     <div>
-                        <span class="current-page">1</span>/<span class="total-page"
-                        >1</span
-                        >
+                        <input type="text" style="width: 35px" class="current-page" value="1" onkeyup="this.style.width = (15+(this.value.length + 1) * 10) + 'px';"></input>/<span class="total-page">1</span>
                     </div>
                     <button class="next-btn"><span>❯</span></button>
                 </div>
+                <div class="error-input" style="display: none">Please enter only number </div>
             </div>
         </section>
     </div>

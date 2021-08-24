@@ -6458,6 +6458,12 @@ ul#model-feats {
         font-size: 27px !important;
     }
 }
+.current-page{
+    border-radius: 13px;
+    width: 35px;
+    text-align: center;
+    margin-right: 3px;
+}
 
 
 

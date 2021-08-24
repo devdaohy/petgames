@@ -1,7 +1,15 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
     var pricePet ="";
-
+    var amount="";
+    page=1;
+    var id="";
+    var placPetIn ="";
+    placPetIn = "wallet";
+    var scarce =0;
+    var lstMyPet = new Array();
+    var lstMyPetMarket = new Array();
+    var yourSaleSize;
     $(".store .container").on("click",".gallery-item", function () {
         var label = $(".modal-title");
         var img = $(".showcase-img");
@@ -57,8 +65,8 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
       }
 
   });
-    var amount="";
-    var id="";
+
+
     $("#detail-btn-sell").on('click',function () {
         $(".div-info-sell-tranfer").html(" <form>\n" +
             "                                            <input type=\"text\" class=\"amount\" placeholder=\"Price\" style=\"width: 21% !important;border-radius: 13px\"/>\n" +
@@ -87,6 +95,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
     $(".div-info-sell-tranfer").on("keyup",".transfer",function () {
         $(".error-transfer-empty").attr("style","display:none;color: red;font-size: 70%;");
         id =$(this).val();
+
     });
 
 
@@ -141,24 +150,44 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         updatePriceOrder($("#detail-btn-cancel-sell-market").parent().find(".btn-nft").text(), pricePet);
     });
 
-
-
     $(".scarce-2").on("click",function () {
         $("div").remove(".item-pet");
         $(".pickup-pagination").attr("style","display:none");
+        $("#mySelectScarce").val(0);
+        page=1;
+        scarce=0;
+        placPetIn ="market";
         forLstMyPetMarket();
-
     });
     $(".scarce-1").on("click",function () {
         $("div").remove(".item-pet");
         $(".pickup-pagination").attr("style","display:plex");
+        $("#mySelectScarce").val(0);
+        page=1;
+        scarce=0;
+
+        placPetIn ="wallet";
         forLstMyPet();
 
     });
 
-    var lstMyPet = new Array();
-    var lstMyPetMarket = new Array();
-    var yourSaleSize;
+    $('#mySelectScarce').change(function(){
+        $("div").remove(".item-pet");
+        if(placPetIn == "wallet")
+        {
+            $(".pickup-pagination").attr("style","display:plex");
+            scarce = $(this).val();
+            forLstMyPet();
+        }else{
+            $("div").remove(".item-pet");
+            scarce = $(this).val();
+
+            $(".pickup-pagination").attr("style","display:none");
+            forLstMyPetMarket();
+        }
+
+    })
+
     loadMyPet();
     loadMyPetMarket();
     function sortByNftId(a, b) {
@@ -296,9 +325,12 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
 
         myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
+
+
         if(myBalance == 0 )
         { $(".scarce-2").removeAttr("disabled");
-            $(".image-load").attr("style","display:none");}
+            $(".image-load").attr("style","display:none");
+        }
 
         for(let from=0;from<myBalance;){
 
@@ -322,63 +354,111 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
             lstMyPet.sort(sortByNftId);
 
             forLstMyPet();
-            $(".scarce-2").removeAttr("disabled");
-            $(".image-load").attr("style","display:none");
+
+
         }
+                $(".image-load").attr("style","display:none");
+                 $(".scarce-2").removeAttr("disabled");
+                    $("#mySelectScarce").removeAttr("disabled");
+                    $(".pickup-pagination").attr("style","display:flex");
+
     }
 
 
     function forLstMyPet() {
-        var content="";
+
+        var lstMyPetFilter = new Array();
+
+        if(scarce >0)
+        {
+            if(scarce == 9){
+                lstMyPetFilter =lstMyPet.filter(function (a) {
+                    return a['active'] === false;
+                });
+            }else{
+                lstMyPetFilter =lstMyPet.filter(function (a) {
+                    return a['active'] === true;
+                });
+                lstMyPetFilter =lstMyPetFilter.filter(function (a) {
+                    return a['scarce'] === scarce;
+                });
+            }
+        }else{
+            lstMyPetFilter=lstMyPet;
+        }
+
+
         var count =0;
         if(page == null )page=1;
-            for(let i=((page - 1) * limitPage); i<Math.min(page*limitPage,lstMyPet.length);i++)
-
-            {
-            var petNFTInfo=lstMyPet[i];
-
+        var content="";
+        for(let i=((page - 1) * limitPage); i<Math.min(page*limitPage,lstMyPetFilter.length);i++)
+        {
+            var petNFTInfo= lstMyPetFilter[i];
             if(count % 4 ==0)
-            {
-                content +=" <div class=\"row items-container item-pet\">";
-                content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
-            }
-            else if(count % 4 == 1){
-                content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
-                if(count == lstMyPet.length -1)
-                {
-                    content +=" </div>";
-                }
-            }
-            else if(count % 4 == 2){
-                content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
-                if(count == lstMyPet.length -1)
-                {
-                    content +=" </div>";
-                }
-            }
-            else if (i % 4 == 3){
-                content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
+        {
+            content +=" <div class=\"row items-container item-pet\">";
+            content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
 
+            if(count == lstMyPetFilter.length -1 || count ==limitPage -1)
+            {
                 content +=" </div>";
             }
-            count++;
+        }
+        else if(count % 4 == 1){
+            content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
+            if(count == lstMyPetFilter.length -1 || count ==limitPage -1)
+            {
+                content +=" </div>";
+            }
+        }
+        else if(count % 4 == 2){
+            content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
+            if(count == lstMyPetFilter.length -1 || count ==limitPage -1)
+            {
+                content +=" </div>";
+            }
+        }
+        else if (count % 4 == 3){
+            content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
 
+            content +=" </div>";
+        }
+        count++;
         }
         $(content).insertBefore(".store .container .pickup-pagination");
-        $(".total-page").text(Math.ceil(lstMyPet.length / limitPage));
-        $(".pickup-pagination").attr("style","display:flex");
+
+        $(".total-page").text(Math.ceil(lstMyPetFilter.length / limitPage));
 
 
     }
     function forLstMyPetMarket() {
         var content="";
         var count =0;
+        var lstMyPetFilter = new Array();
+
+        if(scarce >0)
+        {
+            if(scarce == 9){
+                lstMyPetFilter =lstMyPetMarket.filter(function (a) {
+                    return a['active'] === false;
+                });
+            }else{
+                lstMyPetFilter =lstMyPetMarket.filter(function (a) {
+                    return a['active'] === true;
+                });
+                lstMyPetFilter =lstMyPetFilter.filter(function (a) {
+                    return a['scarce'] === scarce;
+                });
+            }
+        }else{
+            lstMyPetFilter=lstMyPetMarket;
+        }
         if(page == null )page=1;
         // for(let i=((page - 1) * limitPage); i<Math.min(page*limitPage,lstMyPetMarket.length);i++)
-        for(let i=0; i<lstMyPetMarket.length;i++)
+        for(let i=0; i<lstMyPetFilter.length;i++)
 
         {
-            var petNFTInfo=lstMyPetMarket[i];
+            var petNFTInfo=lstMyPetFilter[i];
 
             if(i % 4 ==0)
             {
@@ -387,14 +467,14 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
             }
             else if(i % 4 == 1){
                 content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"1")
-                if(i == lstMyPetMarket.length -1)
+                if(i == lstMyPetFilter.length -1)
                 {
                     content +=" </div>";
                 }
             }
             else if(i % 4 == 2){
                 content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"1")
-                if(i == lstMyPetMarket.length -1)
+                if(i == lstMyPetFilter.length -1)
                 {
                     content +=" </div>";
                 }
@@ -408,7 +488,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
         }
         $(content).insertBefore(".store .container .pickup-pagination");
-        $(".total-page").text(Math.ceil(lstMyPetMarket.length / limitPage));
+        $(".total-page").text(Math.ceil(lstMyPetFilter.length / limitPage));
 
     }
 
@@ -623,6 +703,8 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
 $(".current-page").text(page >=1 ? page: "1");
 $(".next-btn").on("click",function () {
+    page = $(".current-page").val();
+
     page=Number(page)+1;
 
     if(page > Number($(".total-page").text()))
@@ -636,9 +718,22 @@ $(".next-btn").on("click",function () {
     }else{
         url.append("page",page);
     }
-    document.location = "?"+url.toString();
+    // document.location = "?"+url.toString();
+    $(".current-page").val(page);
+
+    if(placPetIn == "wallet")
+    {
+        $("div").remove(".item-pet");
+        $(".pickup-pagination").attr("style","display:plex");
+        forLstMyPet();
+    }else{
+        $("div").remove(".item-pet");
+        $(".pickup-pagination").attr("style","display:none");
+        forLstMyPetMarket();
+    }
 });
 $(".prev-btn").on("click",function () {
+   page = $(".current-page").val();
     page=Number(page)-1;
     if(page == 0 )
     {
@@ -651,10 +746,52 @@ $(".prev-btn").on("click",function () {
     }else{
         url.append("page",page);
     }
+    $(".current-page").val(page);
 
-    document.location = "?"+url.toString();
-
+    // document.location = "?"+url.toString();
+    if(placPetIn == "wallet")
+    {
+        $("div").remove(".item-pet");
+        $(".pickup-pagination").attr("style","display:plex");
+        forLstMyPet();
+    }else{
+        $("div").remove(".item-pet");
+        $(".pickup-pagination").attr("style","display:none");
+        forLstMyPetMarket();
+    }
 });
+
+$(".current-page").keyup(function(event){
+    $(".error-input").attr("style","display:none");
+
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if (keycode == '13') {
+        if(Number($(this).val()))
+        {
+            page = Number($(this).val());
+
+            if(page > Number($(".total-page").text()))
+            {
+                page = Number($(".total-page").text());
+            }
+            else if(page == 0 )
+            {
+                page = page + 1;
+            }else if (page < 0)
+            {
+                page =1;
+            }
+            $(this).val(page);
+            $("div").remove(".item-pet");
+            forLstMyPet();
+        }else{
+            $(".error-input").attr("style","display:block");
+        }
+    }else{
+
+    }
+});
+
 
 
 

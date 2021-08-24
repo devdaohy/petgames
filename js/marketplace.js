@@ -1,5 +1,13 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
+var lstPetSale = new Array();
+var lstPetSaleFilter = new Array();
+var amount = 1000000 * 100000000000;
+var approveAmount ="";
+var petGamesTokenContract="";
+page=1;
+
+
 $(".store .container").on("click",".gallery-item", function () {
 	var label = $("#myModalLabel");
 	var img = $("#showcase-img");
@@ -32,7 +40,6 @@ $(".store .container").on("click",".gallery-item", function () {
 
 $(".store .container").on("click","#detail-btn-cancel-market", function () {
 	var nft_id=$(this).parent().parent().find("button").text();
-	// console.log(nft_id);
 	$('#shop-modal').modal('hide');
 	cancelOrder(nft_id);
 });
@@ -42,13 +49,38 @@ $(".store .container").on("click", "#detail-btn-buy",function () {
 
 });
 
+$(".current-page").keyup(function(event){
+	$(".error-input").attr("style","display:none");
 
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+	if (keycode == '13') {
+		if(Number($(this).val()))
+		{
+			page = Number($(this).val());
 
-var lstPetSale = new Array();
-var lstPetSaleFilter = new Array();
-var amount = 1000000 * 100000000000;
-var approveAmount ="";
-var petGamesTokenContract="";
+			if(page > Number($(".total-page").text()))
+			{
+				page = Number($(".total-page").text());
+			}
+			else if(page == 0 )
+			{
+				page = page + 1;
+			}
+			else if (page < 0)
+			{
+				page =1;
+			}
+			$(this).val(page);
+			$("div").remove(".item-pet");
+			forLstPetSale();
+		}else{
+			$(".error-input").attr("style","display:block");
+		}
+	}else{
+
+	}
+});
+
 getApprove();
 loadMarket();
 
@@ -107,7 +139,8 @@ async function readMarket(from, to, sender){
 }
 
 function forLstPetSale() {
-	var content="";
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
 	if(scarce >0)
 	{
 		lstPetSaleFilter =lstPetSale.filter(function (a) {
@@ -116,10 +149,12 @@ function forLstPetSale() {
 	}else{
 		lstPetSaleFilter=lstPetSale;
 	}
-
+	console.log(lstPetSale);
 
 	if(page == null )page=1;
 	var count =0;
+	var content="";
+
 	for(let i=((page - 1) * limitPage); i<Math.min(page*limitPage,lstPetSaleFilter.length);i++)
 	{
 
@@ -129,25 +164,35 @@ function forLstPetSale() {
 		{
 			content +=" <div class=\"row items-container item-pet\">";
 			content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],petNFTInfo['nftOwner'],petNFTInfo['salePrice'],petNFTInfo['nftId'])
+
+			if(count == lstPetSaleFilter.length -1 || count ==limitPage -1)
+			{
+
+
+				content +=" </div>";
+				}
 		}
 		else if(count % 4 == 1){
 			content += pet(2,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],petNFTInfo['nftOwner'],petNFTInfo['salePrice'],petNFTInfo['nftId'])
-			if(count == lstPetSale.length -1)
+			if(count == lstPetSaleFilter.length -1 || count ==limitPage -1)
 			{
 				content +=" </div>";
+
 			}
 		}
 		else if(count % 4 == 2){
 			content += pet(3,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],petNFTInfo['nftOwner'],petNFTInfo['salePrice'],petNFTInfo['nftId'])
-			if(count == lstPetSale.length -1)
+			if(count == lstPetSaleFilter.length -1 || count ==limitPage -1)
 			{
 				content +=" </div>";
+
 			}
 		}
 		else if (count % 4 == 3){
 			content += pet(4,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],petNFTInfo['nftOwner'],petNFTInfo['salePrice'],petNFTInfo['nftId'])
 
 			content +=" </div>";
+
 		}
 		count++;
 
@@ -158,7 +203,7 @@ function forLstPetSale() {
 }
 
 function sortFunction(a, b) {
-	return a['salePrice'] - b['salePrice'];
+	return a['salePrice'] > b['salePrice'] ? 1:(a['salePrice'] === b['salePrice']) ? ((a['exp'] < b['exp']) ? 1 : -1) : -1 ;
 }
 
 function pet(i,exp,tribe,scarce,owner,price,id) {
@@ -349,7 +394,7 @@ function buyOrCancelText(owner){
 }
 
 
-$(".current-page").text(page >=1 ? page: "1");
+// $(".current-page").text(page >=1 ? page: "1");
 $(".next-btn").on("click",function () {
 	page=Number(page)+1;
 
@@ -364,9 +409,13 @@ $(".next-btn").on("click",function () {
 	}else{
 		url.append("page",page);
 	}
+	$("div").remove(".item-pet");
 
-	document.location = "?"+url.toString();
+	// document.location = "?"+url.toString();
+	$(".current-page").val(page);
 
+	$("div").remove(".item-pet");
+	forLstPetSale();
 });
 $(".prev-btn").on("click",function () {
 	page=Number(page)-1;
@@ -381,5 +430,9 @@ $(".prev-btn").on("click",function () {
 	}else{
 		url.append("page",page);
 	}
-	document.location = "?"+url.toString();
+	$(".current-page").val(page);
+
+	$("div").remove(".item-pet");
+	forLstPetSale();
+	// document.location = "?"+url.toString();
 });

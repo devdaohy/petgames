@@ -80,7 +80,6 @@ $(".carousel-control-next-icon").on("click",function () {
 
 $(".carousel-control-prev-icon").on("click",function () {
     setTimeout(function(){
-        console.log(      Number($('.carousel-inner').find('.active').find('.info-pet tr:nth-child(2) td:nth-child(1)').find('p').text().split('Exp:')[1]));
         $("#btn-fight-1").parent().parent().removeClass("disable-click");
         $("#btn-fight-2").parent().parent().removeClass("disable-click");
         $("#btn-fight-3").parent().parent().removeClass("disable-click");
@@ -138,18 +137,11 @@ setInterval(updateRealTimeFight, 1000);
 
 async function getTimeFightMonster1(nftId){
 
-    // testnet
     const web3 = new Web3(DATASEED);
 
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
     timeFight = await monsterContract.methods.getTimeFightMonster1(nftId).call();
-
-
-    // setTimeout(function(){
-    //
-    // }, 1000);
-
     if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
         totalSeconds =  Math.floor(timeFight-($.now()/1000 ));
         hours = Math.floor(totalSeconds / 3600);
@@ -211,7 +203,6 @@ async function getFightResult(web3, txHash, monsterContract){
 
     if (receipt != null) break;
 
-    // setTimeout(function(){}, 500);
   }
 
   if (receipt.status == true){
@@ -224,7 +215,6 @@ async function getFightResult(web3, txHash, monsterContract){
     if(lastFight['win']==true){
         $("#shop-modal-win").modal('toggle');
         $("#shop-modal-win .detail-info-pet").html("You win <br>Exp: "+lastFight['exp']+"<br>Reward: "+lastFight['reward']+" PETG");
-        // getDialog("You win, exp:"+lastFight['exp']+", reward:"+lastFight['reward']);
     }else{
         $("#shop-modal-lose").modal('toggle');
         $("#shop-modal-lose .detail-info-pet").html("You lose <br>Exp: "+lastFight['exp']);
@@ -255,7 +245,6 @@ function sortByNftId(a, b) {
 }
 
 async function loadMyPet(){
-    // var myAddress =await ethereum.selectedAddress;
     const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
     myAddress = accounts[0];
 
@@ -297,7 +286,6 @@ async function readMyPet(from, to, sender){
          forLstMyPet();
         $(".carousel-control-prev").attr("style","display:flex");
         $(".carousel-control-next").attr("style","display:flex");
-        // updateRealTimeFight();
     }
 }
 async function forLstMyPet() {

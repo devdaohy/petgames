@@ -204,3 +204,9 @@
         margin-bottom: 88% !important;
     }
 }
+.error-input{
+    font-size: 15px;
+    color:red;
+    text-align: center;
+    font-size: 10px
+}

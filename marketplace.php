@@ -106,14 +106,14 @@
                     <div class="pickup-pagination" style="display: none">
                         <button class="prev-btn"><span>❮</span></button>
                         <div>
-                            <span class="current-page">1</span>/<span class="total-page"
-                        >1</span
-                        >
+                            <input type="text" style="width: 35px" class="current-page" value="1" onkeyup="this.style.width = (15+(this.value.length + 1) * 10) + 'px';"></input>/<span class="total-page">1</span>
                         </div>
                         <button class="next-btn"><span>❯</span></button>
                     </div>
+                    <div class="error-input" style="display: none">Please enter only number </div>
 
-                </div>
+
+</div>
             </section>
         </div>
 
