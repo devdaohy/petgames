@@ -146,10 +146,12 @@ function forLstPetSale() {
 		lstPetSaleFilter =lstPetSale.filter(function (a) {
 			return a['scarce'] === scarce;
 		});
+
 	}else{
 		lstPetSaleFilter=lstPetSale;
 	}
-	console.log(lstPetSale);
+	lstPetSaleFilter.sort(sortFunction);
+	console.log(lstPetSaleFilter);
 
 	if(page == null )page=1;
 	var count =0;
@@ -203,7 +205,9 @@ function forLstPetSale() {
 }
 
 function sortFunction(a, b) {
-	return a['salePrice'] > b['salePrice'] ? 1:(a['salePrice'] === b['salePrice']) ? ((a['exp'] < b['exp']) ? 1 : -1) : -1 ;
+	// return a['salePrice'] > b['salePrice'] ? 1:((a['salePrice'] == b['salePrice']) ? 1: ((a['exp'] < b['exp']) ? 1 : -1) );
+	return a['salePrice'] - b['salePrice'] ;
+
 }
 
 function pet(i,exp,tribe,scarce,owner,price,id) {
