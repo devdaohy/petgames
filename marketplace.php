@@ -23,11 +23,11 @@
                                         <option value="1">Scarce 1</option>
                                         <option value="2">Scarce 2</option>
                                         <option value="3">Scarce 3</option>
-                                        <option value="4">Scarc 4</option>
-                                        <option value="5">Scarc 5</option>
-                                        <option value="6">Scarc 6</option>
-                                        <option value="7">Scarc 7</option>
-                                        <option value="8">Scarc 8</option>
+                                        <option value="4">Scarce 4</option>
+                                        <option value="5">Scarce 5</option>
+                                        <option value="6">Scarce 6</option>
+                                        <option value="7">Scarce 7</option>
+                                        <option value="8">Scarce 8</option>
                                         <option value="9">Egg</option>
 
                                     </select>

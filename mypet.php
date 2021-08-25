@@ -23,6 +23,23 @@
                     <div class="list-scarces">
                         <ul class="scarces">
                             <li>
+                                <select id="mySelectScarce" disabled style="width: 120px;border-radius: 15px">
+                                    <option value="0">All Scarce</option>
+                                    <option value="1">Scarce 1</option>
+                                    <option value="2">Scarce 2</option>
+                                    <option value="3">Scarce 3</option>
+                                    <option value="4">Scarce 4</option>
+                                    <option value="5">Scarce 5</option>
+                                    <option value="6">Scarce 6</option>
+                                    <option value="7">Scarce 7</option>
+                                    <option value="8">Scarce 8</option>
+                                    <option value="9">Egg</option>
+
+                                </select>
+
+                            </li>
+                            <li>
+
                                 <select id="mySelectLevel" disabled style="width: 120px;border-radius: 15px">
                                     <option value="0">All level </option>
                                     <option value="1">Level 1</option>
@@ -37,31 +54,11 @@
                                 </select>
 
                             </li>
-                            <li>
-                                <select id="mySelectScarce" disabled style="width: 120px;border-radius: 15px">
-                                    <option value="0">All Scarce</option>
-                                    <option value="1">Scarce 1</option>
-                                    <option value="2">Scarce 2</option>
-                                    <option value="3">Scarce 3</option>
-                                    <option value="4">Scarc 4</option>
-                                    <option value="5">Scarc 5</option>
-                                    <option value="6">Scarc 6</option>
-                                    <option value="7">Scarc 7</option>
-                                    <option value="8">Scarc 8</option>
-                                    <option value="9">Egg</option>
-
-                                </select>
-
-                            </li>
                         </ul>
                     </div>
 
                 </div>
-    <div class="row items-container">
-        <div class="list-scarces list-select-level" style="">
-        </div>
-        <div class="list-scarces list-select-scarce" style="">
-        </div>
+
 
 
     </div>
