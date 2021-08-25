@@ -205,8 +205,22 @@ function forLstPetSale() {
 }
 
 function sortFunction(a, b) {
+	if(Number(a['salePrice']) > Number(b['salePrice']))
+	{
+		return 1;
+	}else if(Number(a['salePrice']) == Number(b['salePrice'])){
+		if(Number(a['exp']) > Number(b['exp'])){
+			return 1;
+		}else if(Number(a['exp']) == Number(b['exp'])){
+			return 0;
+		}else{
+			return -1;
+		}
+	}else {
+		return -1;
+	}
 	// return a['salePrice'] > b['salePrice'] ? 1:((a['salePrice'] == b['salePrice']) ? 1: ((a['exp'] < b['exp']) ? 1 : -1) );
-	return a['salePrice'] - b['salePrice'] ;
+	// return a['salePrice'] - b['salePrice'] ;
 
 }
 

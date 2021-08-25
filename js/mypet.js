@@ -192,7 +192,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
     loadMyPetMarket();
     function sortByNftId(a, b) {
 
-        return a['nftId'] - b['nftId']
+        return Number(a['nftId']) - Number(b['nftId']);
     }
 
     function pet(i,exp,tribe,scarce,owner,price,active,id,modalwalletormarket) {

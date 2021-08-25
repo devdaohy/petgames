@@ -248,7 +248,7 @@ loadMyPet();
 
 function sortByNftId(a, b) {
 
-    return a['nftId'] - b['nftId']
+    return Number(a['nftId']) - Number(b['nftId']);
 }
 
 async function loadMyPet(){

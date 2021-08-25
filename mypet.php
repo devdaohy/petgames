@@ -20,23 +20,26 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="list-scarces" style="float: right; border-radius: 23px">
-                        <select id="mySelectScarce" disabled style="border-radius: 15px">
-                            <option value="0">All Scarce</option>
-                            <option value="1">Scarce 1</option>
-                            <option value="2">Scarce 2</option>
-                            <option value="3">Scarce 3</option>
-                            <option value="4">Scarc 4</option>
-                            <option value="5">Scarc 5</option>
-                            <option value="6">Scarc 6</option>
-                            <option value="7">Scarc 7</option>
-                            <option value="8">Scarc 8</option>
-                            <option value="9">Egg</option>
-
-                        </select>
-                    </div>
 
                 </div>
+    <div class="row items-container">
+        <div class="list-scarces list-select-scarce" style="">
+            <select id="mySelectScarce" disabled style="width: 120px;border-radius: 15px">
+                <option value="0">All Scarce</option>
+                <option value="1">Scarce 1</option>
+                <option value="2">Scarce 2</option>
+                <option value="3">Scarce 3</option>
+                <option value="4">Scarc 4</option>
+                <option value="5">Scarc 5</option>
+                <option value="6">Scarc 6</option>
+                <option value="7">Scarc 7</option>
+                <option value="8">Scarc 8</option>
+                <option value="9">Egg</option>
+
+            </select>
+        </div>
+
+    </div>
                 <div class="row items-container bottom-wrapper">
                     <div class="modal fade modalpet" id="shop-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
