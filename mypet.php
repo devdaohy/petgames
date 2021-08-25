@@ -37,9 +37,9 @@
 
                                 </select>
 
+
                             </li>
                             <li>
-
                                 <select id="mySelectLevel" disabled style="width: 120px;border-radius: 15px">
                                     <option value="0">All level </option>
                                     <option value="1">Level 1</option>
@@ -50,7 +50,6 @@
                                     <option value="6">Level 6</option>
                                     <option value="7">Level 7</option>
                                     <option value="8">Level 8</option>
-
                                 </select>
 
                             </li>
@@ -58,7 +57,7 @@
                     </div>
 
                 </div>
-
+    <div class="row items-container">
 
 
     </div>
