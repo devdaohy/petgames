@@ -65,10 +65,10 @@ async function expFightMonster(monsterLv){
 
 $(".carousel-control-next-icon").on("click",function () {
     setTimeout(function(){
-        $("#btn-fight-1").parent().parent().removeClass("disable-click");
-        $("#btn-fight-2").parent().parent().removeClass("disable-click");
-        $("#btn-fight-3").parent().parent().removeClass("disable-click");
-        $("#btn-fight-4").parent().parent().removeClass("disable-click");
+        // $("#btn-fight-1").parent().parent().removeClass("disable-click");
+        // $("#btn-fight-2").parent().parent().removeClass("disable-click");
+        // $("#btn-fight-3").parent().parent().removeClass("disable-click");
+        // $("#btn-fight-4").parent().parent().removeClass("disable-click");
         var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
         rewardFightMonster(nft_id,1);
         rewardFightMonster(nft_id,2);
@@ -80,10 +80,10 @@ $(".carousel-control-next-icon").on("click",function () {
 
 $(".carousel-control-prev-icon").on("click",function () {
     setTimeout(function(){
-        $("#btn-fight-1").parent().parent().removeClass("disable-click");
-        $("#btn-fight-2").parent().parent().removeClass("disable-click");
-        $("#btn-fight-3").parent().parent().removeClass("disable-click");
-        $("#btn-fight-4").parent().parent().removeClass("disable-click");
+        // $("#btn-fight-1").parent().parent().removeClass("disable-click");
+        // $("#btn-fight-2").parent().parent().removeClass("disable-click");
+        // $("#btn-fight-3").parent().parent().removeClass("disable-click");
+        // $("#btn-fight-4").parent().parent().removeClass("disable-click");
         var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
         rewardFightMonster(nft_id,1);
         rewardFightMonster(nft_id,2);
@@ -119,13 +119,20 @@ async function updateRealTimeFight(){
                 minutes = Math.floor(totalSeconds / 60);
                 seconds = totalSeconds % 60;
                 $(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
-
+                if($(this).hasClass("active")){
+                    $("#btn-fight-1").parent().parent().addClass("disable-click");
+                    $("#btn-fight-2").parent().parent().addClass("disable-click");
+                    $("#btn-fight-3").parent().parent().addClass("disable-click");
+                    $("#btn-fight-4").parent().parent().addClass("disable-click");
+                }
             }else{
                 $(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");
-                $("#btn-fight-1").parent().parent().removeClass("disable-click");
-                $("#btn-fight-2").parent().parent().removeClass("disable-click");
-                $("#btn-fight-3").parent().parent().removeClass("disable-click");
-                $("#btn-fight-4").parent().parent().removeClass("disable-click");
+                if($(this).hasClass("active")){
+                    $("#btn-fight-1").parent().parent().removeClass("disable-click");
+                    $("#btn-fight-2").parent().parent().removeClass("disable-click");
+                    $("#btn-fight-3").parent().parent().removeClass("disable-click");
+                    $("#btn-fight-4").parent().parent().removeClass("disable-click");
+                }
 
             }
         }

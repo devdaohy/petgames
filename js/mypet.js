@@ -526,12 +526,15 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
             var scarce = Number(thiss.parent().find(".btn-nft-scarce").text());
             var tribe = Number(thiss.parent().find(".btn-nft-tribe").text());
-            $(".detail-info-pet").attr("style","display:block");
+            if(nftId == Number(thiss.parent().find(".btn-nft").text())){
+                $(".detail-info-pet").attr("style","display:block");
+                thiss.parent().parent().find(".modal-header").find('.modal-title').text(petName(scarce, true, tribe));
+                $(".detail-info-pet").find(".info-pet").attr('style', "display:table");
+                $(".showcase-img").attr("src", imagePetOrEgg(tribe, scarce, 0, true));
+                thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Crack");
 
-            thiss.parent().parent().find(".modal-header").find('.modal-title').text(petName(scarce, true, tribe));
-            $(".detail-info-pet").find(".info-pet").attr('style', "display:table");
-            $(".showcase-img").attr("src", imagePetOrEgg(tribe, scarce, 0, true));
-            thiss.parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Crack");
+            }
+
 
             getDialog("CRACK EGG"+" DONE ");
         }else{
