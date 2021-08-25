@@ -6,6 +6,7 @@ var amount = 1000000 * 100000000000;
 var approveAmount ="";
 var petGamesTokenContract="";
 var levelPet=0;
+var scarce = 0;
 page=1;
 
 
@@ -138,6 +139,8 @@ async function readMarket(from, to, sender){
 		}
 		$(".image-load").attr("style","display:none");
 		$("#mySelectLevel").removeAttr("disabled");
+		$("#mySelectScarce").removeAttr("disabled");
+
 
 	}
 }
@@ -145,14 +148,12 @@ async function readMarket(from, to, sender){
 function forLstPetSale() {
 	document.body.scrollTop = 0;
 	document.documentElement.scrollTop = 0;
+	scarce = Number(scarce);
 	if(scarce >0)
 	{
 		lstPetSaleFilter =lstPetSale.filter(function (a) {
-			return a['scarce'] === scarce;
+			return Number(a['scarce']) === Number(scarce);
 		});
-
-
-
 	}else{
 		lstPetSaleFilter=lstPetSale;
 	}
@@ -468,8 +469,16 @@ $(".prev-btn").on("click",function () {
 	// document.location = "?"+url.toString();
 });
 $('#mySelectLevel').change(function(){
-	$("div").remove(".item-pet");
+		$("div").remove(".item-pet");
 		$(".pickup-pagination").attr("style","display:plex");
 		levelPet = $(this).val();
 		forLstPetSale();
 })
+$('#mySelectScarce').change(function(){
+		$("div").remove(".item-pet");
+		$(".pickup-pagination").attr("style","display:plex");
+		scarce = $(this).val();
+
+	forLstPetSale();
+
+});

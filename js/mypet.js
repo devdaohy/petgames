@@ -388,7 +388,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
     function forLstMyPet() {
 
         var lstMyPetFilter = new Array();
-
+        scarce= Number(scarce);
         if(scarce >0)
         {
             if(scarce == 9){
@@ -400,7 +400,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
                     return a['active'] === true;
                 });
                 lstMyPetFilter =lstMyPetFilter.filter(function (a) {
-                    return a['scarce'] === scarce;
+                    return Number(a['scarce']) === scarce;
                 });
             }
         }else{
@@ -409,14 +409,16 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         if(levelPet !=0)
         {
             lstMyPetFilter =lstMyPetFilter.filter(function (a) {
-                console.log(levelPet);
+                return a['active'] === true;
+            });
+            lstMyPetFilter =lstMyPetFilter.filter(function (a) {
+
                 if(level(Number(a['exp'])) === Number(levelPet)){
                     return a['exp'];
                 }
             });
         }
 
-        console.log(lstMyPetFilter);
 
         var count =0;
         if(page == null )page=1;
@@ -477,7 +479,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
                     return a['active'] === true;
                 });
                 lstMyPetFilter =lstMyPetFilter.filter(function (a) {
-                    return a['scarce'] === scarce;
+                    return Number(a['scarce']) === scarce;
                 });
             }
         }else{
@@ -486,7 +488,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         if(levelPet !=0)
         {
             lstMyPetFilter =lstMyPetFilter.filter(function (a) {
-                console.log(levelPet);
+
                 if(level(Number(a['exp'])) === Number(levelPet)){
                     return a['exp'];
                 }

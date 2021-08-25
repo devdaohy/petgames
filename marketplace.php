@@ -18,70 +18,72 @@
                         <div class="list-scarces">
                             <ul class="scarces">
                                 <li>
-                                    <a href="marketplace.php"><button class="scarce-all">
-                                            <i class="bx bxl-sketch"></i>All Scarce
-                                        </button></a>
+                                    <select id="mySelectScarce" disabled style="width: 120px;border-radius: 15px">
+                                        <option value="0">All Scarce</option>
+                                        <option value="1">Scarce 1</option>
+                                        <option value="2">Scarce 2</option>
+                                        <option value="3">Scarce 3</option>
+                                        <option value="4">Scarc 4</option>
+                                        <option value="5">Scarc 5</option>
+                                        <option value="6">Scarc 6</option>
+                                        <option value="7">Scarc 7</option>
+                                        <option value="8">Scarc 8</option>
+                                        <option value="9">Egg</option>
+
+                                    </select>
+
                                 </li>
                                 <li>
-                                    <a href="marketplace.php?scarce=1"><button class="scarce-1">
-                                        <i class="bx bxl-sketch"></i>Scarce 1
-                                    </button></a>
+                                    <select id="mySelectLevel" disabled style="width: 120px;border-radius: 15px">
+                                        <option value="0">All level </option>
+                                        <option value="1">Level 1</option>
+                                        <option value="2">Level 2</option>
+                                        <option value="3">Level 3</option>
+                                        <option value="4">Level 4</option>
+                                        <option value="5">Level 5</option>
+                                        <option value="6">Level 6</option>
+                                        <option value="7">Level 7</option>
+                                        <option value="8">Level 8</option>
+
+                                    </select>
                                 </li>
-                                <li>
-                                    <a href="marketplace.php?scarce=2"><button class="scarce-2">
-                                        <i class="bx bxl-sketch"></i>Scarce 2
-                                    </button></a>
-                                </li>
-                                <li>
-                                    <a href="marketplace.php?scarce=3"><button class="scarce-3">
-                                        <i class="bx bxl-sketch"></i> Scarce 3
-                                        </button></a>
-                                </li>
-                                <li>
-                                    <a href="marketplace.php?scarce=4"><button class="scarce-4">
-                                        <i class="bx bxl-sketch"></i>Scarce 4
-                                        </button></a>
-                                </li>
-                                <li>
-                                    <a href="marketplace.php?scarce=5"><button class="scarce-5">
-                                        <i class="bx bxl-sketch"></i>Scarce 5
-                                        </button></a>
-                                </li>
-                                <li>
-                                    <a href="marketplace.php?scarce=6"><button class="scarce-6">
-                                        <i class="bx bxl-sketch"></i>Scarce 6
-                                        </button></a>
-                                </li>
-                                <li>
-                                    <a href="marketplace.php?scarce=7"><button class="scarce-7">
-                                        <i class="bx bxl-sketch"></i>Scarce 7
-                                        </button></a>
-                                </li>
-                                <li>
-                                    <a href="marketplace.php?scarce=8"><button class="scarce-8">
-                                        <i class="bx bxl-sketch"></i>Scarce 8
-                                        </button></a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
-    <div class="row items-container">
-        <div class="list-scarces list-select-level" style="">
-            <select id="mySelectLevel" disabled style="width: 120px;border-radius: 15px">
-                <option value="0">All level </option>
-                <option value="1">Level 1</option>
-                <option value="2">Level 2</option>
-                <option value="3">Level 3</option>
-                <option value="4">Level 4</option>
-                <option value="5">Level 5</option>
-                <option value="6">Level 6</option>
-                <option value="7">Level 7</option>
-                <option value="8">Level 8</option>
-
-            </select>
-        </div>
-
-    </div>
+<!--    <div class="row items-container">-->
+<!--        <div class="list-scarces list-select-scarce" style="">-->
+<!--            <select id="mySelectScarce" disabled style="width: 120px;border-radius: 15px">-->
+<!--                <option value="0">All Scarce</option>-->
+<!--                <option value="1">Scarce 1</option>-->
+<!--                <option value="2">Scarce 2</option>-->
+<!--                <option value="3">Scarce 3</option>-->
+<!--                <option value="4">Scarc 4</option>-->
+<!--                <option value="5">Scarc 5</option>-->
+<!--                <option value="6">Scarc 6</option>-->
+<!--                <option value="7">Scarc 7</option>-->
+<!--                <option value="8">Scarc 8</option>-->
+<!--                <option value="9">Egg</option>-->
+<!---->
+<!--            </select>-->
+<!--        </div>-->
+<!--        <div class="list-scarces list-select-level" style="">-->
+<!--            <select id="mySelectLevel" disabled style="width: 120px;border-radius: 15px">-->
+<!--                <option value="0">All level </option>-->
+<!--                <option value="1">Level 1</option>-->
+<!--                <option value="2">Level 2</option>-->
+<!--                <option value="3">Level 3</option>-->
+<!--                <option value="4">Level 4</option>-->
+<!--                <option value="5">Level 5</option>-->
+<!--                <option value="6">Level 6</option>-->
+<!--                <option value="7">Level 7</option>-->
+<!--                <option value="8">Level 8</option>-->
+<!---->
+<!--            </select>-->
+<!--        </div>-->
+<!---->
+<!---->
+<!--    </div>-->
                     <div class="row items-container bottom-wrapper">
                         <!-- Modal -->
                         <div class="modal fade" id="shop-modal" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
