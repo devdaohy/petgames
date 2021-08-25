@@ -211,8 +211,8 @@
     font-size: 10px
 }
 
-#mySelectLevel{
-    /*background: url(../img/menu-pattern.jpg);*/
+#mySelectLevel, #mySelectScarce{
+    padding-left: 10px;
 }
  option {
     background-color: #6cbfd8 !important;
@@ -221,15 +221,15 @@
     border: none;}
 
 .list-select-level{
-    /*float: right;*/
     border-radius: 23px
 }
 #mySelectScarce:focus{ outline: none;
     border: none;}
 .list-select-scarce{
-    /*float: right; */
     border-radius: 23px
 }
+
+
 /*@media (min-width: 200px) and (max-width: 599px)  {*/
 /*    .list-select-level{*/
 /*        float: none;*/
