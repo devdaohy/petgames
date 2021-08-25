@@ -60,12 +60,12 @@ function positionClass(i)
 
 function level(exp){
     if(exp < 100) return 1;
-    if(exp < 300) return 2;
-    if(exp < 900) return 3;
-    if(exp < 1800) return 4;
-    if(exp < 3600) return 5;
-    if(exp < 7200) return 6;
-    if(exp < 12000) return 7;
+    else if(exp < 300) return 2;
+    else if(exp < 900) return 3;
+    else if(exp < 1800) return 4;
+    else if(exp < 3600) return 5;
+    else if(exp < 7200) return 6;
+    else if(exp < 12000) return 7;
 
     return 8;
 }

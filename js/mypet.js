@@ -7,6 +7,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
     var placPetIn ="";
     placPetIn = "wallet";
     var scarce =0;
+    var levelPet=0;
     var lstMyPet = new Array();
     var lstMyPetMarket = new Array();
     var yourSaleSize;
@@ -156,6 +157,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         $("#mySelectScarce").val(0);
         page=1;
         scarce=0;
+        levelPet=0;
         placPetIn ="market";
         forLstMyPetMarket();
     });
@@ -165,7 +167,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         $("#mySelectScarce").val(0);
         page=1;
         scarce=0;
-
+        levelPet=0;
         placPetIn ="wallet";
         forLstMyPet();
 
@@ -186,7 +188,23 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
             forLstMyPetMarket();
         }
 
+    });
+    $('#mySelectLevel').change(function(){
+        $("div").remove(".item-pet");
+        if(placPetIn == "wallet")
+        {
+            $(".pickup-pagination").attr("style","display:plex");
+            levelPet = $(this).val();
+            forLstMyPet();
+        }else{
+            $("div").remove(".item-pet");
+            levelPet = $(this).val();
+
+            $(".pickup-pagination").attr("style","display:none");
+            forLstMyPetMarket();
+        }
     })
+
 
     loadMyPet();
     loadMyPetMarket();
@@ -357,10 +375,12 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
 
         }
-                $(".image-load").attr("style","display:none");
-                 $(".scarce-2").removeAttr("disabled");
-                    $("#mySelectScarce").removeAttr("disabled");
-                    $(".pickup-pagination").attr("style","display:flex");
+        $(".image-load").attr("style","display:none");
+         $(".scarce-2").removeAttr("disabled");
+            $("#mySelectScarce").removeAttr("disabled");
+            $(".pickup-pagination").attr("style","display:flex");
+            $("#mySelectLevel").removeAttr("disabled");
+
 
     }
 
@@ -386,7 +406,17 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         }else{
             lstMyPetFilter=lstMyPet;
         }
+        if(levelPet !=0)
+        {
+            lstMyPetFilter =lstMyPetFilter.filter(function (a) {
+                console.log(levelPet);
+                if(level(Number(a['exp'])) === Number(levelPet)){
+                    return a['exp'];
+                }
+            });
+        }
 
+        console.log(lstMyPetFilter);
 
         var count =0;
         if(page == null )page=1;
@@ -453,10 +483,19 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         }else{
             lstMyPetFilter=lstMyPetMarket;
         }
+        if(levelPet !=0)
+        {
+            lstMyPetFilter =lstMyPetFilter.filter(function (a) {
+                console.log(levelPet);
+                if(level(Number(a['exp'])) === Number(levelPet)){
+                    return a['exp'];
+                }
+            });
+        }
+
         if(page == null )page=1;
         // for(let i=((page - 1) * limitPage); i<Math.min(page*limitPage,lstMyPetMarket.length);i++)
         for(let i=0; i<lstMyPetFilter.length;i++)
-
         {
             var petNFTInfo=lstMyPetFilter[i];
 

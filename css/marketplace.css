@@ -210,3 +210,42 @@
     text-align: center;
     font-size: 10px
 }
+
+#mySelectLevel{
+    /*background: url(../img/menu-pattern.jpg);*/
+}
+ option {
+    background-color: #6cbfd8 !important;
+}
+#mySelectLevel:focus{ outline: none;
+    border: none;}
+
+.list-select-level{
+    float: right; border-radius: 23px
+}
+@media (min-width: 200px) and (max-width: 599px)  {
+    .list-select-level{
+        float: none;
+        text-align: center;
+    }
+}
+@media (min-width: 600px) and (max-width: 767px)  {
+    .list-select-level{
+        margin-right: 16px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px)  {
+    .list-select-level{
+        margin-right: 32px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1024px)  {
+    .list-select-level{
+        margin-right: 46px;
+    }
+}
+@media (min-width: 1025px) {
+    .list-select-level{
+        margin-right: 10px;
+    }
+}

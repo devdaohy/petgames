@@ -233,23 +233,30 @@
     background: url(../img/buttonSprite_2.png) no-repeat 0 -162px !important;
 }
 #mySelectScarce{
-    background: url(../img/menu-pattern.jpg);
+    /*background: url(../img/menu-pattern.jpg);*/
+}
+option {
+    background-color: #6cbfd8 !important;
 }
 #mySelectScarce:focus{ outline: none;
     border: none;}
 .list-select-scarce{
     float: right; border-radius: 23px
 }
+
 @media (min-width: 200px) and (max-width: 599px)  {
     .list-select-scarce{
        float: none;
         text-align: center;
+        margin-top: 10px;
     }
+
 }
 @media (min-width: 600px) and (max-width: 767px)  {
     .list-select-scarce{
         margin-right: 16px;
     }
+
 }
 @media (min-width: 768px) and (max-width: 991px)  {
     .list-select-scarce{
