@@ -426,7 +426,7 @@ function buyOrCancelText(owner){
 }
 
 
-// $(".current-page").text(page >=1 ? page: "1");
+$(".current-page").text(page >=1 ? page: "1");
 $(".next-btn").on("click",function () {
 	page=Number(page)+1;
 
@@ -472,13 +472,16 @@ $('#mySelectLevel').change(function(){
 		$("div").remove(".item-pet");
 		$(".pickup-pagination").attr("style","display:plex");
 		levelPet = $(this).val();
+		$(".current-page").val("1");
+		page=1;
 		forLstPetSale();
 })
 $('#mySelectScarce').change(function(){
 		$("div").remove(".item-pet");
 		$(".pickup-pagination").attr("style","display:plex");
 		scarce = $(this).val();
-
-	forLstPetSale();
+		$(".current-page").val("1");
+		page=1;
+		forLstPetSale();
 
 });
