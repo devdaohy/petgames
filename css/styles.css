@@ -814,7 +814,9 @@ a.navbar-logo:hover {
         font-size: 15px !important;
     }
 }
-
+.button-game{
+    cursor: pointer;
+}
 .button-game .button-game-bg-mid {
     background: url(../img/button-sprite.png) repeat-x 0 0;
     display: block;
@@ -822,6 +824,7 @@ a.navbar-logo:hover {
     letter-spacing: 1px;
     font-weight: 600;
     padding: 0 42px;
+    margin: 0 20px;
     position: relative;
     transition: color 0.2s;
     color: #d45f42;
@@ -883,7 +886,7 @@ a.navbar-logo:hover {
 .button-game .button-game-bg-left {
     background: url(../img/button-sprite.png) no-repeat 0 -108px;
     height: 54px;
-    left: -20px;
+    left: 1px;
     position: absolute;
     top: 0;
     width: 51px;
@@ -904,7 +907,7 @@ a.navbar-logo:hover {
     background: url(../img/button-sprite.png) no-repeat 0 -162px;
     height: 54px;
     position: absolute;
-    right: -20px;
+    right: 1px;
     top: 0;
     width: 51px;
     z-index: 1;

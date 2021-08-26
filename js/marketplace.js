@@ -223,13 +223,22 @@ function sortFunction(a, b) {
 	{
 		return 1;
 	}else if(Number(a['salePrice']) == Number(b['salePrice'])){
-		if(Number(a['exp']) > Number(b['exp'])){
+		if(Number(a['scarce']) < Number(b['scarce']) )
+		{
 			return 1;
-		}else if(Number(a['exp']) == Number(b['exp'])){
-			return 0;
+		}else if (Number(a['scarce']) == Number(b['scarce']) )
+		{
+			if(Number(a['exp']) < Number(b['exp'])){
+				return 1;
+			}else if(Number(a['exp']) == Number(b['exp'])){
+				return 0;
+			}else{
+				return -1;
+			}
 		}else{
 			return -1;
 		}
+
 	}else {
 		return -1;
 	}
