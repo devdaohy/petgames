@@ -65,13 +65,13 @@
                     <div class="modal fade modalpet" id="shop-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <div class="modal-header pattern">
+                                <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     <h4 class="modal-title" id="myModalLabel" >Modal title</h4>
                                 </div>
-                                <div class="modal-body pattern clearfix" id="modalBody">
+                                <div class="modal-body clearfix" id="modalBody">
                                     <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
 
                                     <div class="detail-info-pet" ></div>
@@ -80,7 +80,7 @@
                                     </div>
 
                                 </div>
-                                <div class="modal-footer pattern" style="border-top: 0px">
+                                <div class="modal-footer" style="border-top: 0px">
                                     <a type="button" class="btn-nft" style="display: none"></a>
                                     <a type="button" class="btn-nft-price" style="display: none"></a>
                                     <a type="button" class="btn-nft-tribe" style="display: none"></a>
@@ -116,13 +116,13 @@
         <div class="modal fade" id="shop-modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header pattern">
+                    <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <h4 class="modal-title" id="myModalLabel" >Modal title</h4>
                     </div>
-                    <div class="modal-body pattern clearfix" id="modalBody">
+                    <div class="modal-body clearfix" id="modalBody">
                         <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
 
                         <div class="detail-info-pet" ></div>
@@ -134,7 +134,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="modal-footer pattern">
+                    <div class="modal-footer">
                         <a type="button" class="btn-nft" style="display: none"></a>
                         <a type="button" class="btn-nft-price" style="display: none"></a>
                         <a type="button" class="btn-nft-img" style="display: none"></a>

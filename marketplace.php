@@ -88,19 +88,19 @@
                         <div class="modal fade" id="shop-modal" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    <div class="modal-header pattern">
+                                    <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                                     </div>
-                                    <div class="modal-body pattern clearfix" id="modalBody">
+                                    <div class="modal-body clearfix" id="modalBody">
                                         <img src="" id="showcase-img" class="img-thumbnail" alt="Showcase Sweet World Game"/>
                                         <div class="detail-info-pet" ></div>
 
                                         <div class="price" id="modal-price-tag"></div>
                                     </div>
-                                    <div class="modal-footer pattern">
+                                    <div class="modal-footer">
                                         <button type="button" class="btn hidden btn-nft-id"></button>
                                         <a xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide">
                                             <span class="button-game-bg-left"></span>

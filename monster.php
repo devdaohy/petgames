@@ -15,20 +15,20 @@
         <div class="modal fade modalpet" id="shop-modal-win" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header pattern">
+                    <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <h4 class="modal-title" id="myModalLabel" >WIN</h4>
                     </div>
-                    <div class="modal-body pattern clearfix" id="modalBody">
+                    <div class="modal-body clearfix" id="modalBody">
                         <img src="img/other/win.png" style="background: #008000bd" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
                         <div class="detail-info-pet" >
                         </div>
                         <div class="div-info-sell-tranfer">
                         </div>
                     </div>
-                    <div class="modal-footer pattern" style="border-top: 0px">
+                    <div class="modal-footer" style="border-top: 0px">
                         <a  xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
                             <span class="button-game-bg-left"></span>
                             <span class="button-game-bg-mid">
@@ -43,20 +43,20 @@
         <div class="modal fade modalpet" id="shop-modal-lose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header pattern">
+                    <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <h4 class="modal-title" id="myModalLabel"> LOSE</h4>
                     </div>
-                    <div class="modal-body pattern clearfix" id="modalBody">
+                    <div class="modal-body clearfix" id="modalBody">
                         <img src="img/other/lose.png" style="background: #ff0000d6" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
                         <div class="detail-info-pet" >
                         </div>
                         <div class="div-info-sell-tranfer">
                         </div>
                     </div>
-                    <div class="modal-footer pattern" style="border-top: 0px">
+                    <div class="modal-footer" style="border-top: 0px">
                         <a  xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
                             <span class="button-game-bg-left"></span>
                             <span class="button-game-bg-mid">
@@ -129,10 +129,10 @@
         </div>
 
 
-        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game disable-click">
+        <a id="btn-fight-1" xmlns="http://www.w3.org/1999/xhtml" class="button-game disable-click">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
-                                <span id="btn-fight-1" style="font-size: 20px">Fight</span>
+                                <span  style="font-size: 20px">Fight</span>
                             </span>
             <span class="button-game-bg-right-buy"></span>
         </a>
@@ -164,10 +164,10 @@
             </table>
 
         </div>
-        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game disable-click">
+        <a id="btn-fight-2" xmlns="http://www.w3.org/1999/xhtml" class="button-game disable-click">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
-                                <span id="btn-fight-2" style="font-size: 20px">Fight</span>
+                                <span  style="font-size: 20px">Fight</span>
                               </span>
             <span class="button-game-bg-right-buy"></span>
         </a>
@@ -199,10 +199,10 @@
             </table>
 
         </div>
-        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game disable-click">
+        <a id="btn-fight-3" xmlns="http://www.w3.org/1999/xhtml" class="button-game disable-click">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
-                                <span id="btn-fight-3" style="font-size: 20px">Fight</span>
+                                <span  style="font-size: 20px">Fight</span>
                               </span>
             <span class="button-game-bg-right-buy"></span>
         </a>
@@ -234,10 +234,10 @@
             </table>
 
         </div>
-        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game disable-click">
+        <a id="btn-fight-4" xmlns="http://www.w3.org/1999/xhtml" class="button-game disable-click">
             <span class="button-game-bg-left-buy"></span>
             <span class="button-game-bg-mid">
-                    <span id="btn-fight-4" style="font-size: 20px">Fight</span>
+                    <span  style="font-size: 20px">Fight</span>
                   </span>
             <span class="button-game-bg-right-buy"></span>
         </a>

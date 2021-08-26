@@ -1959,6 +1959,7 @@ h2.tips {
 .modal .modal-content {
     box-shadow: -1px 6px 0.3px #eee8d0, 1px 6px 0.3px #eee8d0, 0 -6px 0.3px #eee8d0, -6px 0 0.3px #eee8d0, 6px 0 0.3px #eee8d0, -6px -6px 0.3px #eee8d0, 6px -6px 0.3px #eee8d0, -6px 6px 0.3px #eee8d0, 6px 6px 0.3px #eee8d0, 6px 6px 3px rgba(0, 0, 0, 0.8);
     border-radius: 1rem;
+    background-image: url(../img/tablecloth-pattern.jpg);
 }
 
 .modal img {
