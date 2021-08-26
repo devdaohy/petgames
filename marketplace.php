@@ -28,7 +28,6 @@
                                         <option value="6">Scarce 6</option>
                                         <option value="7">Scarce 7</option>
                                         <option value="8">Scarce 8</option>
-                                        <option value="9">Egg</option>
 
                                     </select>
 

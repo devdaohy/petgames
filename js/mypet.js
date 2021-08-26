@@ -2,12 +2,12 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
     var pricePet ="";
     var amount="";
-    page=1;
+    page=Number(1);
     var id="";
     var placPetIn ="";
     placPetIn = "wallet";
-    var scarce =0;
-    var levelPet=0;
+    var scarce = Number(0);
+    var levelPet=Number(0);
     var lstMyPet = new Array();
     var lstMyPetMarket = new Array();
     var yourSaleSize;
@@ -155,34 +155,41 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         $("div").remove(".item-pet");
         $(".pickup-pagination").attr("style","display:none");
         $("#mySelectScarce").val(0);
+        $("#mySelectLevel").val(0);
+
         page=1;
         scarce=0;
         levelPet=0;
         placPetIn ="market";
+        $("#mySelectScarce option[value='9']").remove();
         forLstMyPetMarket();
     });
     $(".scarce-1").on("click",function () {
         $("div").remove(".item-pet");
         $(".pickup-pagination").attr("style","display:plex");
         $("#mySelectScarce").val(0);
+        $("#mySelectLevel").val(0);
         page=1;
         scarce=0;
         levelPet=0;
         placPetIn ="wallet";
+        $("#mySelectScarce").append('<option value=9>Egg</option>');
         forLstMyPet();
 
     });
+
 
     $('#mySelectScarce').change(function(){
         $("div").remove(".item-pet");
         if(placPetIn == "wallet")
         {
+            $("div").remove(".item-pet");
             $(".pickup-pagination").attr("style","display:plex");
-            scarce = $(this).val();
+            scarce = Number($(this).val());
             forLstMyPet();
         }else{
             $("div").remove(".item-pet");
-            scarce = $(this).val();
+            scarce = Number($(this).val());
 
             $(".pickup-pagination").attr("style","display:none");
             forLstMyPetMarket();
@@ -194,11 +201,11 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         if(placPetIn == "wallet")
         {
             $(".pickup-pagination").attr("style","display:plex");
-            levelPet = $(this).val();
+            levelPet = Number($(this).val());
             forLstMyPet();
         }else{
             $("div").remove(".item-pet");
-            levelPet = $(this).val();
+            levelPet = Number($(this).val());
 
             $(".pickup-pagination").attr("style","display:none");
             forLstMyPetMarket();
@@ -406,7 +413,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         }else{
             lstMyPetFilter=lstMyPet;
         }
-        if(levelPet !=0)
+        if(levelPet !=0 && scarce !=9)
         {
             lstMyPetFilter =lstMyPetFilter.filter(function (a) {
                 return a['active'] === true;
@@ -467,7 +474,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         var content="";
         var count =0;
         var lstMyPetFilter = new Array();
-
+        scarce= Number(scarce);
         if(scarce >0)
         {
             if(scarce == 9){
@@ -485,15 +492,16 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         }else{
             lstMyPetFilter=lstMyPetMarket;
         }
-        if(levelPet !=0)
+        if(levelPet !=0 && scarce !=9)
         {
             lstMyPetFilter =lstMyPetFilter.filter(function (a) {
 
                 if(level(Number(a['exp'])) === Number(levelPet)){
-                    return a['exp'];
+                    return true;
                 }
             });
         }
+        console.log(lstMyPetFilter);
 
         if(page == null )page=1;
         // for(let i=((page - 1) * limitPage); i<Math.min(page*limitPage,lstMyPetMarket.length);i++)

@@ -161,7 +161,7 @@ function forLstPetSale() {
 	{
 		lstPetSaleFilter =lstPetSaleFilter.filter(function (a) {
 			if(level(Number(a['exp'])) === Number(levelPet)){
-				return a['exp'];
+				return true;
 			}
 		});
 	}
@@ -480,7 +480,7 @@ $(".prev-btn").on("click",function () {
 $('#mySelectLevel').change(function(){
 		$("div").remove(".item-pet");
 		$(".pickup-pagination").attr("style","display:plex");
-		levelPet = $(this).val();
+		levelPet = Number($(this).val());
 		$(".current-page").val("1");
 		page=1;
 		forLstPetSale();
@@ -488,7 +488,7 @@ $('#mySelectLevel').change(function(){
 $('#mySelectScarce').change(function(){
 		$("div").remove(".item-pet");
 		$(".pickup-pagination").attr("style","display:plex");
-		scarce = $(this).val();
+		scarce = Number($(this).val());
 		$(".current-page").val("1");
 		page=1;
 		forLstPetSale();
