@@ -538,7 +538,6 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         }
         $(content).insertBefore(".store .container .pickup-pagination");
         $(".total-page").text(Math.ceil(lstMyPetFilter.length / limitPage));
-
     }
 
 

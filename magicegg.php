@@ -19,10 +19,10 @@
                                 </form>
                             </div>
                         </div>
-                        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
+                        <a id="egg-water" xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                             <span class="button-game-bg-left-buy"></span>
                             <span class="button-game-bg-mid">
-                                <span id="egg-water" style="font-size: 20px">Buy</span>
+                                <span  style="font-size: 20px">Buy</span>
                             </span>
                             <span class="button-game-bg-right-buy"></span>
                         </a>
@@ -40,10 +40,10 @@
 
                             </div>
                         </div>
-                        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
+                        <a id="egg-fire" xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                             <span class="button-game-bg-left-buy"></span>
                             <span class="button-game-bg-mid">
-                                <span id="egg-fire" style="font-size: 20px">Buy</span>
+                                <span  style="font-size: 20px">Buy</span>
                               </span>
                             <span class="button-game-bg-right-buy"></span>
                         </a>
@@ -62,10 +62,10 @@
 
                             </div>
                         </div>
-                        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
+                        <a id="egg-wood" xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                             <span class="button-game-bg-left-buy"></span>
                             <span class="button-game-bg-mid">
-                                <span id="egg-wood" style="font-size: 20px">Buy</span>
+                                <span  style="font-size: 20px">Buy</span>
                               </span>
                             <span class="button-game-bg-right-buy"></span>
                         </a>
@@ -82,11 +82,11 @@
                                 </div>
                             </div>
                         </div>
-                        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
+                        <a id="egg-metal" xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                             <span class="button-game-bg-left-buy"></span>
                             <span class="button-game-bg-mid">
-                    <span id="egg-metal" style="font-size: 20px">Buy</span>
-                  </span>
+                                <span id="egg-metal" style="font-size: 20px">Buy</span>
+                              </span>
                             <span class="button-game-bg-right-buy"></span>
                         </a>
                     </div>
@@ -105,11 +105,11 @@
 
                             </div>
                         </div>
-                        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
+                        <a id="egg-earth" xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                             <span class="button-game-bg-left-buy"></span>
                             <span class="button-game-bg-mid">
-                    <span id="egg-earth" style="font-size: 20px">Buy</span>
-                  </span>
+                                <span  style="font-size: 20px">Buy</span>
+                              </span>
                             <span class="button-game-bg-right-buy"></span>
                         </a>
                     </div>
@@ -126,11 +126,11 @@
 
                             </div>
                         </div>
-                        <a xmlns="http://www.w3.org/1999/xhtml" class="button-game">
+                        <a  id="egg-random"  xmlns="http://www.w3.org/1999/xhtml" class="button-game">
                             <span class="button-game-bg-left-buy"></span>
                             <span class="button-game-bg-mid">
-                    <span id="egg-random" style="font-size: 20px">Buy</span>
-                  </span>
+                                <span style="font-size: 20px">Buy</span>
+                              </span>
                             <span class="button-game-bg-right-buy"></span>
                         </a>
                     </div>

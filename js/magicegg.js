@@ -1,16 +1,20 @@
-$(".container").on( "click",".button-game-bg-mid span" ,function() {
-    if($(this).text()=="Approve"){
+$(".container").on( "click",".button-game" ,function() {
+    if($(this).find('.button-game-bg-mid').find('span').text()=="Approve"){
         const web3 = new Web3(DATASEED);
          approve(new web3.eth.Contract(petGamesTokenAbi, PETGAMES));
 
     }else{
-        if($(this).parent().parent().parent().find('input').val().length >0)
+        if($(this).parent().find('input').val().length >0)
         {
-            if(Number.isInteger(Number($(this).parent().parent().parent().find('input').val())) && Number($(this).parent().parent().parent().find('input').val()) >0)
+            if(Number.isInteger(Number($(this).parent().find('input').val())) && Number($(this).parent().find('input').val()) >0)
             {
                 num = triberToNumber($(this).attr("id"));
-                amount = Number($(this).parent().parent().parent().find('input').val());
-                if (num > 0)buyEgg(num,amount);
+                console.log(num);
+
+                amount = Number($(this).parent().find('input').val());
+                if (num > 0){
+                    buyEgg(num,amount);
+                }
                 else {
                     buyEggRandom(amount);
                 }
@@ -48,8 +52,7 @@ async function getApprove(){
     petGamesTokenContract = new web3.eth.Contract(petGamesTokenAbi, PETGAMES);
 
     var approveAmount = await petGamesTokenContract.methods.allowance(myAddress, BUYEGG).call();
-
-    amount = 1000000 * 100000000000;
+    amount = 1000000 * 1000000000000000;
 
     //approve
     if(approveAmount < amount){
@@ -81,7 +84,7 @@ async function approve(petGamesTokenContract){
         params: [transactionParameters],
     });
 
-    getTransaction(web3, txHash, "APPROVE");
+   await getTransaction(web3, txHash, "APPROVE");
     loadPage();
 
 }
@@ -107,10 +110,10 @@ function loadPage(){
         "                        </div>\n" +
         "\n" +
         "\n" +
-        "                        <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
+        "                        <a id=\"egg-water\" xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
         "                            <span class=\"button-game-bg-left-buy\"></span>\n" +
         "                            <span class=\"button-game-bg-mid\">\n" +
-        "                                <span id=\"egg-water\" style=\"font-size: 20px\">Buy</span>\n" +
+        "                                <span  style=\"font-size: 20px\">Buy</span>\n" +
         "                            </span>\n" +
         "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
         "                        </a>\n" +
@@ -129,10 +132,10 @@ function loadPage(){
         "\n" +
         "                            </div>\n" +
         "                        </div>\n" +
-        "                        <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
+        "                        <a id=\"egg-fire\" xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
         "                            <span class=\"button-game-bg-left-buy\"></span>\n" +
         "                            <span class=\"button-game-bg-mid\">\n" +
-        "                                <span id=\"egg-fire\" style=\"font-size: 20px\">Buy</span>\n" +
+        "                                <span  style=\"font-size: 20px\">Buy</span>\n" +
         "                              </span>\n" +
         "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
         "                        </a>\n" +
@@ -151,10 +154,10 @@ function loadPage(){
         "\n" +
         "                            </div>\n" +
         "                        </div>\n" +
-        "                        <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
+        "                        <a id=\"egg-wood\" xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
         "                            <span class=\"button-game-bg-left-buy\"></span>\n" +
         "                            <span class=\"button-game-bg-mid\">\n" +
-        "                                <span id=\"egg-wood\" style=\"font-size: 20px\">Buy</span>\n" +
+        "                                <span  style=\"font-size: 20px\">Buy</span>\n" +
         "                              </span>\n" +
         "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
         "                        </a>\n" +
@@ -173,11 +176,11 @@ function loadPage(){
         "\n" +
         "                            </div>\n" +
         "                        </div>\n" +
-        "                        <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
+        "                        <a id=\"egg-metal\" xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
         "                            <span class=\"button-game-bg-left-buy\"></span>\n" +
         "                            <span class=\"button-game-bg-mid\">\n" +
-        "                    <span id=\"egg-metal\" style=\"font-size: 20px\">Buy</span>\n" +
-        "                  </span>\n" +
+                "                    <span  style=\"font-size: 20px\">Buy</span>\n" +
+                "                  </span>\n" +
         "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
         "                        </a>\n" +
         "                    </div>\n" +
@@ -196,10 +199,10 @@ function loadPage(){
         "\n" +
         "                            </div>\n" +
         "                        </div>\n" +
-        "                        <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
+        "                        <a id=\"egg-earth\" xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
         "                            <span class=\"button-game-bg-left-buy\"></span>\n" +
         "                            <span class=\"button-game-bg-mid\">\n" +
-        "                    <span id=\"egg-earth\" style=\"font-size: 20px\">Buy</span>\n" +
+        "                    <span  style=\"font-size: 20px\">Buy</span>\n" +
         "                  </span>\n" +
         "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
         "                        </a>\n" +
@@ -217,10 +220,10 @@ function loadPage(){
         "\n" +
         "                            </div>\n" +
         "                        </div>\n" +
-        "                        <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
+        "                        <a id=\"egg-random\" xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
         "                            <span class=\"button-game-bg-left-buy\"></span>\n" +
         "                            <span class=\"button-game-bg-mid\">\n" +
-        "                    <span id=\"egg-random\" style=\"font-size: 20px\">Buy</span>\n" +
+        "                    <span  style=\"font-size: 20px\">Buy</span>\n" +
         "                  </span>\n" +
         "                            <span class=\"button-game-bg-right-buy\"></span>\n" +
         "                        </a>\n" +

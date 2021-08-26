@@ -212,6 +212,7 @@ h3 {
 
 .pattern {
     background-image: url(../img/tablecloth-pattern.jpg);
+    min-height: calc(100vh - 95px) !important;
 }
 
 .pattern-dark {
@@ -823,8 +824,8 @@ a.navbar-logo:hover {
     font-family: "Changa", Verdana, sans-serif;
     letter-spacing: 1px;
     font-weight: 600;
-    padding: 0 42px;
-    margin: 0 20px;
+    padding: 0 !important;
+    margin: 0 21px;
     position: relative;
     transition: color 0.2s;
     color: #d45f42;
@@ -3296,19 +3297,8 @@ ul#model-feats {
 .ion-university:before,
 .ion-unlocked:before,
 .ion-upload:before,
-.ion-usb:before,
-.ion-videocamera:before,
-.ion-volume-high:before,
-.ion-volume-low:before,
-.ion-volume-medium:before,
-.ion-volume-mute:before,
-.ion-wand:before,
-.ion-waterdrop:before,
-.ion-wifi:before,
-.ion-wineglass:before,
-.ion-woman:before,
-.ion-wrench:before,
-.ion-xbox:before {
+.ion-usb:before, .ion-videocamera:before, .ion-volume-high:before, .ion-volume-low:before, .ion-volume-medium:before, .ion-volume-mute:before, .ion-wand:before, .ion-waterdrop:before, .ion-wifi:before, .ion-wineglass:before, .ion-woman:before,
+.ion-wrench:before, .ion-xbox:before {
     display: inline-block;
     font-family: "Ionicons";
     speak: none;
@@ -6469,6 +6459,21 @@ ul#model-feats {
 }
 
 
+.btn-game-buypets{
+    padding: 0 40px;
+    background-size: 102% !important;
+    background-position: center !important;
+    width:200px;
+    height:54px;
+    line-height:54px;
+    border: none;
+    color: black;
+    background: url(../img/buttonSpriteFull.png) no-repeat;
+}
+.btn-game-buypets:hover{
+    color: black;
+    cursor: pointer;
+}
 
 
 

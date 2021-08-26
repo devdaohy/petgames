@@ -1,20 +1,23 @@
 <?php
 ?>
 <!-- ============== DIVIDER ============== -->
-<div class="Divider">
-    <hr class="Divider-rule" />
+<div id="footer">
+    <div class="Divider">
+        <hr class="Divider-rule" />
+    </div>
+
+    <!-- ============== FOOTER =============== -->
+    <div class="row pattern-dark">
+        <footer class="container footer">
+
+            <div class="row">
+                <p class="copyright">Copyright &copy; 2021 PET GAMES.</p>
+            </div>
+        </footer>
+    </div>
+</div>
 </div>
 
-<!-- ============== FOOTER =============== -->
-<div class="row pattern-dark">
-    <footer class="container footer">
-
-        <div class="row">
-            <p class="copyright">Copyright &copy; 2021 PET GAMES.</p>
-        </div>
-    </footer>
-</div>
-</div>
 <!-- ============== SCRIPTS =============== -->
 <!--<script src="js/jquery-1.12.4.min.js"></script>-->
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>

@@ -241,7 +241,9 @@ option {
 #mySelectScarce:focus{ outline: none;
     border: none;}
 
-
+.btn-game-buypets{
+    background: url(../img/buttonSpriteFull.png) no-repeat;
+}
 
 /*.list-select-scarce{*/
 /*    float: right; border-radius: 23px*/
