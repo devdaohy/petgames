@@ -501,3 +501,30 @@
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }
+
+#shop-modal-fight .modal-dialog {
+    width: 30% !important;
+    margin: 7% 35% !important;
+
+    position: relative;
+    left: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+}
+@media (max-width: 500px)  {
+    #shop-modal-fight  .modal-dialog{
+        width: 60% !important;
+        margin: 30% 20% !important;
+    }
+
+
+}
+
+@media (min-width: 501px) and (max-width: 1024px)  {
+    #shop-modal-fight  .modal-dialog{
+        width: 40% !important;
+        margin: 7% 30% !important;
+    }
+
+
+}
