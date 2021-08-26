@@ -493,5 +493,11 @@
     background: url(../img/other/backgroungmonster.png) !important;
     background-position: 50% 51% !important;
     background-repeat: no-repeat !important;
-    background-size: cover;
+    background-size: cover !important;
+}
+.pattern{
+    background: url(../img/other/backgroungmonster.png) !important;
+    background-position: 50% 51% !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 }
