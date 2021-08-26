@@ -1,9 +1,9 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
 
-$("#shop-modal-fight").modal('toggle');
-$("#shop-modal-win").modal('toggle');
-$("#shop-modal-lose").modal('toggle');
+// $("#shop-modal-fight").modal('toggle');
+// $("#shop-modal-win").modal('toggle');
+// $("#shop-modal-lose").modal('toggle');
 $("#shop-modal-win .button-game-bg-mid").on("click",function () {
     $("#shop-modal-win").modal('toggle');
 
