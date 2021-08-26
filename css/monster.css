@@ -482,38 +482,15 @@
 }.disable-click .button-game-bg-mid {
      background: url(../img/buttonSprite_2.png) repeat-x 0 0 !important;
  }
-.modal .modal-dialog {
-    width: 30% !important;
-    margin: 7% 35% !important;
-}
-@media (max-width: 500px)  {
-    .modal .modal-dialog{
-        width: 60% !important;
-        margin: 30% 20% !important;
-    }
 
 
-}
-
-@media (min-width: 501px) and (max-width: 1024px)  {
-    .modal .modal-dialog{
-        width: 40% !important;
-        margin: 7% 30% !important;
-    }
-
-
-}
-
-.background-monster{
-
-}
 .store .container{
     background: none !important;
     border: none;
 }
 
-.pattern{
-    background: url(../img/other/backgroungmonster.png);
+.modal-content{
+    background: url(../img/other/backgroungmonster.png) !important;
     background-position: 50% 51% !important;
     background-repeat: no-repeat !important;
     background-size: cover;

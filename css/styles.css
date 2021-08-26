@@ -6309,8 +6309,25 @@ ul#model-feats {
     box-shadow: none;
 }
 .modal .modal-dialog{
-    width: 34%;
-    margin: 5% 33%;
+    width: 28%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)!important;
+    margin: 0 !important;
+}
+@media (max-width: 500px)  {
+    .modal .modal-dialog{
+        width: 60% !important;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 1024px)  {
+    .modal .modal-dialog{
+        width: 40% !important;
+    }
+
+
 }
 .modal .modal-title{
     font-size: 30px;
@@ -6375,23 +6392,7 @@ ul#model-feats {
     }
 }
 
-@media (max-width: 500px)  {
-    .modal .modal-dialog{
-        width: 60%;
-        margin: 5% 20%;
-    }
 
-
-}
-
-@media (min-width: 501px) and (max-width: 1024px)  {
-    .modal .modal-dialog{
-        width: 50%;
-        margin: 5% 25%;
-    }
-
-
-}
 @media (max-width: 480px)  {
     .modal .modal-header button{
         transform: translate(0px, 0px);
@@ -6416,27 +6417,6 @@ ul#model-feats {
     border-radius: 15px;
 }
 
-.modal .modal-dialog {
-    width: 30% !important;
-    margin: 7% 35% !important;
-}
-@media (max-width: 500px)  {
-    .modal .modal-dialog{
-        width: 60% !important;
-        margin: 30% 20% !important;
-    }
-
-
-}
-
-@media (min-width: 501px) and (max-width: 1024px)  {
-    .modal .modal-dialog{
-        width: 40% !important;
-        margin: 7% 30% !important;
-    }
-
-
-}
 @media (min-width: 200px) and (max-width: 400px)  {
     .copyright {
         font-size: 13px !important;

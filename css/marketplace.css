@@ -4,30 +4,7 @@
 .modal .info-pet{
     width: 100% !important;
 }
-.modal .modal-dialog {
-    width: 28% !important;
-    margin: 7% 36% !important;
-}
-@media (max-width: 500px)  {
-    .modal .modal-dialog{
-        width: 60% !important;
-        margin: 30% 20% !important;
-    }
 
-
-}
-
-@media (min-width: 501px) and (max-width: 1024px)  {
-    .modal .modal-dialog{
-        width: 40% !important;
-        margin: 7% 30% !important;
-    }
-
-
-}
-@media (min-width: 1025px) and (max-width: 1200px){
-
-}
 
 
 @media (max-width: 320px)  {

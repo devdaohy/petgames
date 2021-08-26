@@ -71,7 +71,7 @@
         <div class="modal fade modalpet" id="shop-modal-fight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div>
-                        <img src="img/other/gifFighting2.gif" style="width: 46%;background: #66c6e0;border-radius: 25px;box-shadow: none" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+                        <img src="img/other/gifFighting2.gif" style="background: #66c6e0;border-radius: 25px;box-shadow: none" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
                 </div>
             </div>
         </div>
