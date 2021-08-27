@@ -88,7 +88,6 @@ async function approve(petGamesTokenContract){
     });
 
     await getTransaction(web3, txHash, "APPROVE");
-
     loadPage();
 
 }

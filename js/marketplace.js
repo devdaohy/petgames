@@ -289,7 +289,7 @@ function pet(i,exp,tribe,scarce,owner,price,id) {
 	"                                    </tr>\n" +
 	"                                </table>\n" +
 	"                                <p class=\"panel-item__summary\" style=\"text-align: center\"><b>Owner: </b>" +encryptAccount(owner)+"</p>\n" +
-	"                                <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/>"+ price +"</p>\n" +
+	"                                <p class=\"price-pet\" style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/>"+ price +"</p>\n" +
 	"                            </div>\n" +
 	"                            <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
 	"                                <span class=\"button-game-bg-left-buy\"></span>\n" +

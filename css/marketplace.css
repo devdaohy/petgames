@@ -4,8 +4,19 @@
 .modal .info-pet{
     width: 100% !important;
 }
-
-
+.pattern{
+    background: url(../img/backgroundpage/2-gigapixel.png) !important;
+    background-position: 50% 51% !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+.price-pet{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.price-pet:hover{
+    overflow: visible;
+}
 
 @media (max-width: 320px)  {
     .image-pet{
