@@ -30,6 +30,9 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#181818" />
     <link rel="icon" type="image/png" href="img/logo.png" />
+<!--    <script type="text/javascript" src="https://itexpress.vn/js/noel.js"></script>-->
+
+
 </head>
 
 <body data-spy="scroll" data-target=".navbar-custom">

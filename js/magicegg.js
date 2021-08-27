@@ -85,7 +85,7 @@ async function approve(petGamesTokenContract){
         params: [transactionParameters],
     });
 
-    getTransaction(web3, txHash, "APPROVE");
+   await getTransaction(web3, txHash, "APPROVE");
     loadPage();
 
 }

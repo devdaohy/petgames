@@ -66,7 +66,6 @@ async function getTransaction(web3, txHash, mess){
 
     getDialog(mess+" DONE ");
   }else{
-    $(".shop-modal").attr("style","display:none");
 
     getDialog(mess+" FAIL !");
   }
