@@ -67,6 +67,8 @@ async function getApprove(){
 
 async function approve(petGamesTokenContract){
 
+    const web3 = new Web3(DATASEED);
+
     encoded = petGamesTokenContract.methods.approve(BUYEGG, "1000000000000000000000000000000").encodeABI();
 
     const transactionParameters = {
@@ -85,7 +87,7 @@ async function approve(petGamesTokenContract){
         params: [transactionParameters],
     });
 
-   await getTransaction(web3, txHash, "APPROVE");
+    await getTransaction(web3, txHash, "APPROVE");
     loadPage();
 
 }

@@ -2109,11 +2109,12 @@ var monsterAbi = [
 ];
 
 //init var
-var PETGAMES = '0x483c7fC7A3F1E7a7F8E96D3FE198125b00cf5E99';
-var PETNFT = '0xfB4083C6A954a970D5B3fB0079e9990Cd0D31582';
-var BUYEGG = '0x11Eca3e707Cf9FDB42705Ef108Bb897963d8422F';
-var MONSTER = '0x18cc2d2D0b24ED30a5a661966C013cAc2d1D5279';
-var DATASEED = 'https://data-seed-prebsc-2-s1.binance.org:8545/';
+var PETGAMES = '0xF1Aa611Ae9c54369B6008789d9d991a9A40516F7';
+var PETNFT = '0x935577b5B2A8bd6bd42738255F8AAb20BC7d504F';
+var BUYEGG = '0x4F87721790AAdae863680FaDC9D5B7B74c9ae5C0';
+var MONSTER = '0x4BBed6B4c4a87e79d93F6134d89A55EBeE862c70';
+var DATASEED = 'https://data-seed-prebsc-1-s1.binance.org:8545/';
+// var DATASEED = 'https://bsc-dataseed2.defibit.io/';
 
 var myAddress;
 
