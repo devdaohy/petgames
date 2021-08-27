@@ -52,6 +52,7 @@ async function getApprove(){
     petGamesTokenContract = new web3.eth.Contract(petGamesTokenAbi, PETGAMES);
 
     var approveAmount = await petGamesTokenContract.methods.allowance(myAddress, BUYEGG).call();
+
     amount = 1000000 * 1000000000000000;
 
     //approve
@@ -84,7 +85,7 @@ async function approve(petGamesTokenContract){
         params: [transactionParameters],
     });
 
-   await getTransaction(web3, txHash, "APPROVE");
+    getTransaction(web3, txHash, "APPROVE");
     loadPage();
 
 }
