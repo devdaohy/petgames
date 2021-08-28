@@ -1660,9 +1660,9 @@ h2.tips {
 }
 
 .store .container {
-    background: url(../img/creampaper.png);
+    /*background: url(../img/creampaper.png);*/
     padding: 0rem 2rem 2rem 2rem;
-    border: 2px dashed #d45f42;
+    /*border: 2px dashed #d45f42;*/
     border-radius: 2rem;
     margin: 2rem auto 0;
     margin-top: 4rem;
@@ -6454,6 +6454,13 @@ ul#model-feats {
 .btn-game-buypets:hover{
     color: black;
     cursor: pointer;
+}
+.price-pet{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.price-pet:hover{
+    overflow: visible;
 }
 
 

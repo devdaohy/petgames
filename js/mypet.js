@@ -328,7 +328,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
         }else{
             return content+  content1 +
-            "<p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/>"+ price +"</p>\n";
+            "<p class=\"price-pet\" style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/>"+ price +"</p>\n";
 
         }
 
