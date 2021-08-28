@@ -137,7 +137,7 @@ async function readMarket(from, to, sender){
 				approve(petGamesTokenContract);
 			});
 		}
-		// $(".image-load").attr("style","display:none");
+		$(".image-load").attr("style","display:none");
 		$("#mySelectLevel").removeAttr("disabled");
 		$("#mySelectScarce").removeAttr("disabled");
 

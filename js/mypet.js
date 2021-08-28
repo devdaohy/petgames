@@ -212,7 +212,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
     })
 
 
-    loadMyPet(1);
+    loadMyPet();
     loadMyPetMarket();
     function sortByNftId(a, b) {
 
@@ -643,7 +643,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         }else{
             getDialog("CRACK EGG"+" FAIL !");
         }
-        loadMyPet(1);
+        loadMyPet();
         // getTransaction(web3, txHash, "CRACK EGG");
 
 
