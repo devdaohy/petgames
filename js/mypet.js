@@ -174,6 +174,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         scarce=0;
         levelPet=0;
         placPetIn ="wallet";
+        $("#mySelectScarce option[value='9']").remove();
         $("#mySelectScarce").append('<option value=9>Egg</option>');
         forLstMyPet();
 
