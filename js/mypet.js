@@ -11,6 +11,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
     var lstMyPet = new Array();
     var lstMyPetMarket = new Array();
     var yourSaleSize;
+    var count_btn_crackegg=0;
     $(".store .container").on("click",".gallery-item", function () {
         var label = $(".modal-title");
         var img = $(".showcase-img");
@@ -61,6 +62,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
       $(this).parent().find("#detail-btn-crack").find(".button-game-bg-mid").find("span").text("Cracking...");
 
       if ($(this).parent().find(".btn-nft").text().length >= 1) {
+          count_btn_crackegg++;
            crackEgg($(this).parent().find(".btn-nft").text(),$(this));
       } else {
       }
@@ -630,14 +632,18 @@ var count_crack_egg=0;
         }else{
             getDialog("CRACK EGG"+" FAIL !");
         }
-        // if(count_crack_egg >=2)
-        // {
-        //     location.reload();
-        // }else{
-        //
-        // }
-        loadMyPet(1);
-        setTimeout(function () {},5000);
+        if(count_btn_crackegg==1)
+        {
+            loadMyPet(1);
+            setTimeout(function () {},5000);
+
+        }else{
+           if(count_crack_egg== count_btn_crackegg)
+           {
+               location.reload();
+           }
+        }
+
     }
     async function createOrder(nftId, price){
 
