@@ -278,20 +278,13 @@ async function readMyPet(from, to, sender){
         var nftId = await petNFTContract.methods.tokenOfOwnerByIndex(sender, Number(i)).call();
 
         var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
-        if(!lstMyPetD.includes(petNFTInfo))
-        {
+
             lstMyPetD.push(petNFTInfo);
-        }
-        // lstMyPetD.push(petNFTInfo);
+
 
         if(petNFTInfo['active'] == true)
         {
-            if(!lstMyPet.includes(petNFTInfo))
-            {
                 lstMyPet.push(petNFTInfo);
-            }
-            // lstMyPet.push(petNFTInfo);
-
         }
 
     }

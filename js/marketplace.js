@@ -389,6 +389,8 @@ async function cancelOrder(nftId){
 
 	await getTransaction(web3, txHash, "CANCEL SALE");
 	loadMarket();
+	setTimeout(function () {},6000);
+
 	// location.reload();
 
     }

@@ -212,7 +212,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
     })
 
 
-    loadMyPet();
+    loadMyPet(1);
     loadMyPetMarket();
     function sortByNftId(a, b) {
 
@@ -369,16 +369,10 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
             var nftId = await petNFTContract.methods.tokenOfOwnerByIndex(sender, Number(i)).call();
 
             var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
-            console.log(lstMyPet);
 
-            if(!lstMyPet.includes(petNFTInfo))
-            {
-                console.log(petNFTInfo);
-                lstMyPet.push(petNFTInfo);
-            }
+            lstMyPet.push(petNFTInfo);
 
         }
-        console.log(lstMyPetMarket.length);
 
         if(lstMyPet.length == myBalance){
             lstMyPet.sort(sortByNftId);
@@ -412,7 +406,6 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
     yourSaleSize = await petNFTContract.methods.yourSaleSize(myAddress).call();
 
-    // console.log(yourSaleSize);
     for(let from=0;from<yourSaleSize;){
         to = Math.min(from+6, yourSaleSize);
         readMyPetMarket(from, to, myAddress,updateAfterTransaction);
@@ -426,16 +419,10 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         var nftId = await petNFTContract.methods.yourSaleByIndex(sender, Number(i)).call();
 
         var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
-        // console.log(lstMyPetMarket);
 
-        if(!lstMyPetMarket.includes(petNFTInfo))
-        {
-            // console.log(petNFTInfo);
             lstMyPetMarket.push(petNFTInfo);
-        }
-        // lstMyPetMarket.push(petNFTInfo);
     }
-    // console.log(lstMyPetMarket.length);
+
     if(lstMyPetMarket.length == yourSaleSize){
 
         lstMyPetMarket.sort(sortByNftId);
@@ -595,7 +582,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         $(".total-page").text(Math.ceil(lstMyPetFilter.length / limitPage));
     }
 
-
+var count_crack_egg=0;
     async function crackEgg(nftId,thiss){
 
         const web3 = new Web3(DATASEED);
@@ -626,7 +613,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
             // setTimeout(function(){}, 500);
         }
         if (receipt.status == true){
-
+            count_crack_egg++;
             var scarce = Number(thiss.parent().find(".btn-nft-scarce").text());
             var tribe = Number(thiss.parent().find(".btn-nft-tribe").text());
             if(nftId == Number(thiss.parent().find(".btn-nft").text())){
@@ -643,10 +630,14 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         }else{
             getDialog("CRACK EGG"+" FAIL !");
         }
-        loadMyPet();
-        // getTransaction(web3, txHash, "CRACK EGG");
-
-
+        // if(count_crack_egg >=2)
+        // {
+        //     location.reload();
+        // }else{
+        //
+        // }
+        loadMyPet(1);
+        setTimeout(function () {},5000);
     }
     async function createOrder(nftId, price){
 
@@ -672,8 +663,8 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         await getTransaction(web3, txHash, "CREATE SALE");
         // setTimeout(function () {},1000);
        await loadMyPet(1);
-       setTimeout(function () {},1000);
         await loadMyPetMarket();
+        setTimeout(function () {},6000);
 
         // location.reload();
 
@@ -701,6 +692,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
         await getTransaction(web3, txHash, "TRANSFER PET");
         await loadMyPet(1);
+        setTimeout(function () {},6000);
 
         // location.reload();
     }
@@ -727,8 +719,9 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
         await   getTransaction(web3, txHash, "CANCEL SALE");
         await  loadMyPet();
-        setTimeout(function () {},1000);
        await loadMyPetMarket(1);
+        setTimeout(function () {},6000);
+
         // location.reload();
     }
 
@@ -757,6 +750,8 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
         await getTransaction(web3, txHash, "UPDATE SALE PRICE");
         await loadMyPetMarket(1);
+        setTimeout(function () {},6000);
+
         // location.reload();
     }
 
