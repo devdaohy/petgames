@@ -630,6 +630,7 @@ var count_crack_egg=0;
 
             getDialog("CRACK EGG"+" DONE ");
         }else{
+            count_crack_egg++;
             getDialog("CRACK EGG"+" FAIL !");
         }
         if(count_btn_crackegg==1)
@@ -640,7 +641,11 @@ var count_crack_egg=0;
         }else{
            if(count_crack_egg== count_btn_crackegg)
            {
-               location.reload();
+               // location.reload();
+               count_btn_crackegg =0;
+               count_crack_egg=0;
+               loadMyPet(1);
+               setTimeout(function () {},5000);
            }
         }
 
