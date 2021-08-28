@@ -67,7 +67,6 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
   });
 
-
     $("#detail-btn-sell").on('click',function () {
         $(".div-info-sell-tranfer").html(" <form>\n" +
             "                                            <input type=\"text\" class=\"amount\" placeholder=\"Price\" style=\"width: 21% !important;border-radius: 13px\"/>\n" +
@@ -213,7 +212,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
     })
 
 
-    loadMyPet();
+    loadMyPet(1);
     loadMyPetMarket();
     function sortByNftId(a, b) {
 
@@ -334,7 +333,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
     }
 
-    async function loadMyPet(){
+    async function loadMyPet(updateAfterTransaction){
         getAccount();
         $("div").remove(".item-pet");
         $(".pickup-pagination").attr("style","display:none");
@@ -350,7 +349,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
 
         myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
-
+        console.log(myBalance);
 
         if(myBalance == 0 )
         { $(".scarce-2").removeAttr("disabled");
@@ -360,39 +359,93 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         for(let from=0;from<myBalance;){
 
             to = Math.min(from+6, myBalance);
-            readMyPet(from, to, myAddress);
+            readMyPet(from, to, myAddress,updateAfterTransaction);
             from = to;
         }
     }
-    async function readMyPet(from, to, sender){
+    async function readMyPet(from, to, sender,updateAfterTransaction){
         for(let i = from; i < to; i++){
 
             var nftId = await petNFTContract.methods.tokenOfOwnerByIndex(sender, Number(i)).call();
 
             var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
+            console.log(lstMyPet);
 
             if(!lstMyPet.includes(petNFTInfo))
             {
+                console.log(petNFTInfo);
                 lstMyPet.push(petNFTInfo);
             }
-        }
 
+        }
+        console.log(lstMyPetMarket.length);
 
         if(lstMyPet.length == myBalance){
             lstMyPet.sort(sortByNftId);
-            console.log()
-            forLstMyPet();
-
-
+            if(updateAfterTransaction ==1)
+            {
+                forLstMyPet();
+            }
         }
-        $(".image-load").attr("style","display:none");
-         $(".scarce-2").removeAttr("disabled");
+        if(updateAfterTransaction ==1)
+        {
+            $(".image-load").attr("style","display:none");
+            $(".scarce-2").removeAttr("disabled");
             $("#mySelectScarce").removeAttr("disabled");
             $(".pickup-pagination").attr("style","display:flex");
             $("#mySelectLevel").removeAttr("disabled");
-
-
+        }
     }
+    async function loadMyPetMarket(updateAfterTransaction){
+    getAccount();
+    $("div").remove(".item-pet");
+    $(".pickup-pagination").attr("style","display:none");
+
+    lstMyPetMarket = new Array();
+    // var myAddress =await ethereum.selectedAddress;
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+    // testnet
+    const web3 = new Web3(DATASEED);
+
+    petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+
+    yourSaleSize = await petNFTContract.methods.yourSaleSize(myAddress).call();
+
+    // console.log(yourSaleSize);
+    for(let from=0;from<yourSaleSize;){
+        to = Math.min(from+6, yourSaleSize);
+        readMyPetMarket(from, to, myAddress,updateAfterTransaction);
+        from = to;
+    }
+}
+    async function readMyPetMarket(from, to, sender,updateAfterTransaction){
+
+    for(let i = from; i < to; i++){
+
+        var nftId = await petNFTContract.methods.yourSaleByIndex(sender, Number(i)).call();
+
+        var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
+        // console.log(lstMyPetMarket);
+
+        if(!lstMyPetMarket.includes(petNFTInfo))
+        {
+            // console.log(petNFTInfo);
+            lstMyPetMarket.push(petNFTInfo);
+        }
+        // lstMyPetMarket.push(petNFTInfo);
+    }
+    // console.log(lstMyPetMarket.length);
+    if(lstMyPetMarket.length == yourSaleSize){
+
+        lstMyPetMarket.sort(sortByNftId);
+
+        if(updateAfterTransaction == 1)
+        {
+            forLstMyPetMarket();
+        }
+    }
+}
 
 
     function forLstMyPet() {
@@ -436,6 +489,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         for(let i=((page - 1) * limitPage); i<Math.min(page*limitPage,lstMyPetFilter.length);i++)
         {
             var petNFTInfo= lstMyPetFilter[i];
+
             if(count % 4 ==0)
         {
             content +=" <div class=\"row items-container item-pet\">";
@@ -504,8 +558,6 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
                 }
             });
         }
-        console.log(lstMyPetFilter);
-
         if(page == null )page=1;
         // for(let i=((page - 1) * limitPage); i<Math.min(page*limitPage,lstMyPetMarket.length);i++)
         for(let i=0; i<lstMyPetFilter.length;i++)
@@ -591,7 +643,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         }else{
             getDialog("CRACK EGG"+" FAIL !");
         }
-        loadMyPet();
+        loadMyPet(1);
         // getTransaction(web3, txHash, "CRACK EGG");
 
 
@@ -619,7 +671,8 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
         await getTransaction(web3, txHash, "CREATE SALE");
         // setTimeout(function () {},1000);
-       await loadMyPet();
+       await loadMyPet(1);
+       setTimeout(function () {},1000);
         await loadMyPetMarket();
 
         // location.reload();
@@ -647,63 +700,10 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         });
 
         await getTransaction(web3, txHash, "TRANSFER PET");
-        await loadMyPet();
+        await loadMyPet(1);
 
         // location.reload();
     }
-
-
-    //update pet in market
-    async function loadMyPetMarket(updateAfterTransaction){
-        getAccount();
-        $("div").remove(".item-pet");
-        $(".pickup-pagination").attr("style","display:none");
-
-        lstMyPetMarket = new Array();
-        // var myAddress =await ethereum.selectedAddress;
-        const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
-        myAddress = accounts[0];
-        // testnet
-        const web3 = new Web3(DATASEED);
-
-        petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
-
-        yourSaleSize = await petNFTContract.methods.yourSaleSize(myAddress).call();
-
-
-        for(let from=0;from<yourSaleSize;){
-            to = Math.min(from+6, yourSaleSize);
-            readMyPetMarket(from, to, myAddress,updateAfterTransaction);
-            from = to;
-        }
-    }
-
-    async function readMyPetMarket(from, to, sender,updateAfterTransaction){
-
-        for(let i = from; i < to; i++){
-
-            var nftId = await petNFTContract.methods.yourSaleByIndex(sender, Number(i)).call();
-
-            var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
-
-            if(!lstMyPetMarket.includes(petNFTInfo))
-            {
-                lstMyPetMarket.push(petNFTInfo);
-            }
-            // lstMyPetMarket.push(petNFTInfo);
-        }
-
-        if(lstMyPetMarket.length == yourSaleSize){
-
-            if(updateAfterTransaction ==1)
-            {
-                forLstMyPetMarket();
-            }
-        }
-    }
-
-
-
     async function cancelOrder(nftId){
 
         const web3 = new Web3(DATASEED);
@@ -727,6 +727,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
         await   getTransaction(web3, txHash, "CANCEL SALE");
         await  loadMyPet();
+        setTimeout(function () {},1000);
        await loadMyPetMarket(1);
         // location.reload();
     }

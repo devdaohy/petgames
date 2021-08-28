@@ -9,12 +9,12 @@
                     <div class="list-scarces">
                         <ul class="scarces">
                             <li>
-                                <a><button class="scarce-1" style="width: 135px">
+                                <a><button class="scarce-1" style="">
                                         <i class="bx bxl-sketch"></i>Pet in wallet
                                     </button></a>
                             </li>
                             <li>
-                                <a><button class="scarce-2" style="width: 135px" disabled>
+                                <a><button class="scarce-2" style="" disabled>
                                         <i class="bx bxl-sketch"></i>Pet in market
                                     </button></a>
                             </li>
