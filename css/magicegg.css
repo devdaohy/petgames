@@ -1,9 +1,9 @@
-.pattern{
-    background: url(../img/backgroundpage/4-gigapixel.png) !important;
-    background-position: 50% 51% !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-}
+/*.pattern{*/
+/*    background: url(../img/backgroundpage/4-gigapixel.png) !important;*/
+/*    background-position: 50% 51% !important;*/
+/*    background-repeat: no-repeat !important;*/
+/*    background-size: cover !important;*/
+/*}*/
 
 @media (min-width: 200px) and (max-width: 399px) {
     .image-egg-magic{

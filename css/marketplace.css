@@ -4,12 +4,12 @@
 .modal .info-pet{
     width: 100% !important;
 }
-.pattern{
-    background: url(../img/backgroundpage/4-gigapixel.png) !important;
-    background-position: 50% 51% !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-}
+/*.pattern{*/
+/*    background: url(../img/backgroundpage/4-gigapixel.png) !important;*/
+/*    background-position: 50% 51% !important;*/
+/*    background-repeat: no-repeat !important;*/
+/*    background-size: cover !important;*/
+/*}*/
 .modal-content{
     background: url(../img/backgroundpage/4-gigapixel.png) !important;
     background-position: 50% 51% !important;
