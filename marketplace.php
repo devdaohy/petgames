@@ -95,7 +95,7 @@
                                         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                                     </div>
                                     <div class="modal-body clearfix" id="modalBody">
-                                        <img src="" id="showcase-img" class="img-thumbnail" alt="Showcase Sweet World Game"/>
+                                        <img src="" id="showcase-img" class="img-thumbnail" alt="Image Pet"/>
                                         <div class="detail-info-pet" ></div>
 
                                         <div class="price" id="modal-price-tag"></div>

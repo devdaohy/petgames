@@ -72,7 +72,7 @@
                                     <h4 class="modal-title" id="myModalLabel" >Modal title</h4>
                                 </div>
                                 <div class="modal-body clearfix" id="modalBody">
-                                    <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+                                    <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Image Pet"/>
 
                                     <div class="detail-info-pet" ></div>
                                     <div class="div-info-sell-tranfer" style="margin-top: 15px">
@@ -123,7 +123,7 @@
                         <h4 class="modal-title" id="myModalLabel" >Modal title</h4>
                     </div>
                     <div class="modal-body clearfix" id="modalBody">
-                        <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+                        <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Image Pet"/>
 
                         <div class="detail-info-pet" ></div>
 
