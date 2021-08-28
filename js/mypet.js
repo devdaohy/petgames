@@ -371,13 +371,16 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
             var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
 
-            lstMyPet.push(petNFTInfo);
+            if(!lstMyPet.includes(petNFTInfo))
+            {
+                lstMyPet.push(petNFTInfo);
+            }
         }
 
 
         if(lstMyPet.length == myBalance){
             lstMyPet.sort(sortByNftId);
-
+            console.log()
             forLstMyPet();
 
 
@@ -683,7 +686,11 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
             var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
 
-            lstMyPetMarket.push(petNFTInfo);
+            if(!lstMyPetMarket.includes(petNFTInfo))
+            {
+                lstMyPetMarket.push(petNFTInfo);
+            }
+            // lstMyPetMarket.push(petNFTInfo);
         }
 
         if(lstMyPetMarket.length == yourSaleSize){
