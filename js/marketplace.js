@@ -7,6 +7,8 @@ var approveAmount ="";
 var petGamesTokenContract="";
 var levelPet=0;
 var scarce = 0;
+var count_btn_buy_order=0;
+var count_btn_cancel_order = 0;
 page=1;
 
 
@@ -43,10 +45,12 @@ $(".store .container").on("click",".gallery-item", function () {
 $(".store .container").on("click","#detail-btn-cancel-market", function () {
 	var nft_id=$(this).parent().parent().find("button").text();
 	$('#shop-modal').modal('hide');
+	count_btn_cancel_order++;
 	cancelOrder(nft_id);
 });
 $(".store .container").on("click", "#detail-btn-buy",function () {
 	$('#shop-modal').modal('hide');
+	count_btn_buy_order++;
 	buyOrder($(this).parent().parent().find("button").text());
 
 });
@@ -340,7 +344,7 @@ async function approve(petGamesTokenContract){
 	// location.reload();
 
 }
-
+var count_buy_order =0;
 async function buyOrder(nftId){
 
     const web3 = new Web3(DATASEED);
@@ -362,10 +366,22 @@ async function buyOrder(nftId){
         params: [transactionParameters],
     });
 	await getTransaction(web3, txHash, "BUY PET SALE");
-	loadMarket();
-	// location.reload();
+	count_buy_order++;
+	if(count_btn_buy_order == 1)
+	{
+		await loadMarket();
+		setTimeout(function () {},6000);
+	}else{
+		if(count_buy_order == count_btn_buy_order)
+		{
+			count_btn_buy_order = 0;
+			count_buy_order = 0;
+			await loadMarket();
+			setTimeout(function () {},6000);
+		}
+	}
 }
-
+var count_cancel_order =0;
 async function cancelOrder(nftId){
 
         const web3 = new Web3(DATASEED);
@@ -387,12 +403,21 @@ async function cancelOrder(nftId){
             params: [transactionParameters],
         });
 
-	await getTransaction(web3, txHash, "CANCEL SALE");
-	loadMarket();
-	setTimeout(function () {},6000);
-
-	// location.reload();
-
+		await getTransaction(web3, txHash, "CANCEL SALE");
+		count_cancel_order++;
+		if(count_btn_cancel_order == 1)
+		{
+			await loadMarket();
+			setTimeout(function () {},6000);
+		}else{
+			if(count_cancel_order == count_btn_cancel_order)
+			{
+				count_btn_cancel_order = 0;
+				count_cancel_order = 0;
+				await loadMarket();
+				setTimeout(function () {},6000);
+			}
+		}
     }
 
  function buttonBuyOrCancle(owner){

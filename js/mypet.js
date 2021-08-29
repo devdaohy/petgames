@@ -802,23 +802,23 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
             });
 
             await getTransaction(web3, txHash, "UPDATE SALE PRICE");
-        count_update_price++;
-        if(count_btn_updateprice==1)
-        {
-            console.log(1);
-
-            await loadMyPetMarket(1);
-            setTimeout(function () {},6000);
-        }else{
-            if(count_update_price== count_btn_updateprice)
+            count_update_price++;
+            if(count_btn_updateprice==1)
             {
-                console.log(2);
-                count_btn_updateprice =0;
-                count_update_price=0;
+                console.log(1);
+
                 await loadMyPetMarket(1);
                 setTimeout(function () {},6000);
+            }else{
+                if(count_update_price== count_btn_updateprice)
+                {
+                    console.log(2);
+                    count_btn_updateprice =0;
+                    count_update_price=0;
+                    await loadMyPetMarket(1);
+                    setTimeout(function () {},6000);
+                }
             }
-        }
     }
 
 $(".current-page").text(page >=1 ? page: "1");
