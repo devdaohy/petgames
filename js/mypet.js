@@ -12,6 +12,10 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
     var lstMyPetMarket = new Array();
     var yourSaleSize;
     var count_btn_crackegg=0;
+    var count_btn_createorder=0;
+    var count_btn_updateprice=0;
+    var count_btn_cancelorder=0;
+    var count_btn_transfer=0;
     $(".store .container").on("click",".gallery-item", function () {
         var label = $(".modal-title");
         var img = $(".showcase-img");
@@ -116,7 +120,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
             if(Number.isInteger(Number(amount)) && Number(amount) > 0)
             {
                 $("#shop-modal").modal('toggle');
-
+                count_btn_createorder++;
                 createOrder($("#detail-btn-sell").parent().find(".btn-nft").text(),amount);
             }else{
                 $(".error-price-syntax").attr("style","display:block;color: red;font-size: 70%;");
@@ -131,6 +135,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
          if(id.length >0)
         {
             $("#shop-modal").modal('toggle');
+            count_btn_transfer++;
             transfer($("#detail-btn-sell").parent().find(".btn-nft").text(),id);
         }else{
              $(".error-transfer-empty").attr("style","display:block;color: red;font-size: 70%;");
@@ -142,6 +147,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
     $("#detail-btn-cancel-sell-market").on('click',function () {
         $("#shop-modal1").modal('toggle');
+        count_btn_cancelorder++;
         cancelOrder($("#detail-btn-cancel-sell-market").parent().find(".btn-nft").text());
     });
     $(".div-info-sell-update").on("keyup",".price",function () {
@@ -149,6 +155,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
     });
     $("#detail-btn-update").on('click',function () {
         $("#shop-modal1").modal('toggle');
+        count_btn_updateprice++;
         updatePriceOrder($("#detail-btn-cancel-sell-market").parent().find(".btn-nft").text(), pricePet);
     });
 
@@ -439,7 +446,6 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
 
     function forLstMyPet() {
-
         var lstMyPetFilter = new Array();
         scarce= Number(scarce);
         if(scarce >0)
@@ -585,7 +591,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
         $(".total-page").text(Math.ceil(lstMyPetFilter.length / limitPage));
     }
 
-var count_crack_egg=0;
+    var count_crack_egg=0;
     async function crackEgg(nftId,thiss){
 
         const web3 = new Web3(DATASEED);
@@ -651,6 +657,7 @@ var count_crack_egg=0;
         }
 
     }
+    var count_create_order = 0;
     async function createOrder(nftId, price){
 
         const web3 = new Web3(DATASEED);
@@ -673,98 +680,145 @@ var count_crack_egg=0;
         });
 
         await getTransaction(web3, txHash, "CREATE SALE");
-        // setTimeout(function () {},1000);
-       await loadMyPet(1);
-        await loadMyPetMarket();
-        setTimeout(function () {},6000);
+        count_create_order++;
+        if(count_btn_createorder==1)
+        {
 
-        // location.reload();
+            await loadMyPet(1);
+            await loadMyPetMarket();
+            setTimeout(function () {},6000);
 
+        }else{
+            if(count_create_order== count_btn_createorder)
+            {
+
+                count_btn_createorder =0;
+                count_create_order=0;
+                await loadMyPet(1);
+                await loadMyPetMarket();
+                setTimeout(function () {},6000);
+            }
+        }
     }
+    var count_transfer = 0;
     async function transfer(nftId, toAddress){
 
-        const web3 = new Web3(DATASEED);
+            const web3 = new Web3(DATASEED);
 
-        petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+            petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
 
-        encoded = petNFTContract.methods.transferFrom(ethereum.selectedAddress, toAddress, nftId).encodeABI();
+            encoded = petNFTContract.methods.transferFrom(ethereum.selectedAddress, toAddress, nftId).encodeABI();
 
-        const transactionParameters = {
-          nonce: '0x00', // ignored by MetaMask
-          to: PETNFT, // Required except during contract publications.
-          from: ethereum.selectedAddress, // must match user's active address.
-          value: '0x00', // Only required to send ether to the recipient from the initiating external account.
-          data: encoded
-        };
+            const transactionParameters = {
+              nonce: '0x00', // ignored by MetaMask
+              to: PETNFT, // Required except during contract publications.
+              from: ethereum.selectedAddress, // must match user's active address.
+              value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+              data: encoded
+            };
 
-         const txHash = await ethereum.request({
-            method: 'eth_sendTransaction',
-            params: [transactionParameters],
-        });
+             const txHash = await ethereum.request({
+                method: 'eth_sendTransaction',
+                params: [transactionParameters],
+            });
 
-        await getTransaction(web3, txHash, "TRANSFER PET");
-        await loadMyPet(1);
-        setTimeout(function () {},6000);
+            await getTransaction(web3, txHash, "TRANSFER PET");
+            count_transfer++;
+            if(count_btn_transfer==1)
+            {
+                await loadMyPet(1);
+                setTimeout(function () {},6000);
 
-        // location.reload();
-    }
+            }else{
+                if(count_transfer== count_btn_transfer)
+                {
+                    count_btn_transfer =0;
+                    count_transfer=0;
+                    await loadMyPet(1);
+                    setTimeout(function () {},6000);
+                }
+            }
+        }
+    var count_cancel_order = 0;
     async function cancelOrder(nftId){
 
-        const web3 = new Web3(DATASEED);
+            const web3 = new Web3(DATASEED);
 
-        petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+            petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
 
-        encoded = petNFTContract.methods.cancelOrderNFT(nftId).encodeABI();
+            encoded = petNFTContract.methods.cancelOrderNFT(nftId).encodeABI();
 
-        const transactionParameters = {
-          nonce: '0x00', // ignored by MetaMask
-          to: PETNFT, // Required except during contract publications.
-          from: ethereum.selectedAddress, // must match user's active address.
-          value: '0x00', // Only required to send ether to the recipient from the initiating external account.
-          data: encoded
-        };
+            const transactionParameters = {
+              nonce: '0x00', // ignored by MetaMask
+              to: PETNFT, // Required except during contract publications.
+              from: ethereum.selectedAddress, // must match user's active address.
+              value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+              data: encoded
+            };
 
-         const txHash = await ethereum.request({
-            method: 'eth_sendTransaction',
-            params: [transactionParameters],
-        });
+             const txHash = await ethereum.request({
+                method: 'eth_sendTransaction',
+                params: [transactionParameters],
+            });
 
-        await   getTransaction(web3, txHash, "CANCEL SALE");
-        await  loadMyPet();
-       await loadMyPetMarket(1);
-        setTimeout(function () {},6000);
-
-        // location.reload();
+            await   getTransaction(web3, txHash, "CANCEL SALE");
+        count_cancel_order++;
+        if(count_btn_cancelorder==1)
+        {
+            await  loadMyPet();
+            await loadMyPetMarket(1);
+            setTimeout(function () {},6000);
+        }else{
+            if(count_cancel_order== count_btn_cancelorder)
+            {
+                count_btn_cancelorder =0;
+                count_cancel_order=0;
+                await  loadMyPet();
+                await loadMyPetMarket(1);
+                setTimeout(function () {},6000);
+            }
+        }
     }
-
-
+    var count_update_price = 0;
     async function updatePriceOrder(nftId, price){
 
-        const web3 = new Web3(DATASEED);
+            const web3 = new Web3(DATASEED);
 
-        petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+            petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
 
-        encoded = petNFTContract.methods.updatePriceOrderNFT(nftId, price).encodeABI();
+            encoded = petNFTContract.methods.updatePriceOrderNFT(nftId, price).encodeABI();
 
-        const transactionParameters = {
-          nonce: '0x00', // ignored by MetaMask
-          to: PETNFT, // Required except during contract publications.
-          from: ethereum.selectedAddress, // must match user's active address.
-          value: '0x00', // Only required to send ether to the recipient from the initiating external account.
-          data: encoded
-        };
+            const transactionParameters = {
+              nonce: '0x00', // ignored by MetaMask
+              to: PETNFT, // Required except during contract publications.
+              from: ethereum.selectedAddress, // must match user's active address.
+              value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+              data: encoded
+            };
 
-         const txHash = await ethereum.request({
-            method: 'eth_sendTransaction',
-            params: [transactionParameters],
-        });
-        // $("#shop-modal1").modal('toggle');
+             const txHash = await ethereum.request({
+                method: 'eth_sendTransaction',
+                params: [transactionParameters],
+            });
 
-        await getTransaction(web3, txHash, "UPDATE SALE PRICE");
-        await loadMyPetMarket(1);
-        setTimeout(function () {},6000);
+            await getTransaction(web3, txHash, "UPDATE SALE PRICE");
+        count_update_price++;
+        if(count_btn_updateprice==1)
+        {
+            console.log(1);
 
-        // location.reload();
+            await loadMyPetMarket(1);
+            setTimeout(function () {},6000);
+        }else{
+            if(count_update_price== count_btn_updateprice)
+            {
+                console.log(2);
+                count_btn_updateprice =0;
+                count_update_price=0;
+                await loadMyPetMarket(1);
+                setTimeout(function () {},6000);
+            }
+        }
     }
 
 $(".current-page").text(page >=1 ? page: "1");
@@ -826,7 +880,6 @@ $(".prev-btn").on("click",function () {
         forLstMyPetMarket();
     }
 });
-
 $(".current-page").keyup(function(event){
     $(".error-input").attr("style","display:none");
 
