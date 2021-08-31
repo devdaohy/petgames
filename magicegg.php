@@ -13,10 +13,10 @@
                             <h4 class="panel-item__title">Water Egg</h4>
                             <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img></p>
                             <div class="div-amount">
-                                <form>
-                                    <label>Amount</label>
-                                    <input type="number" class="amount" value="1"/>
-                                </form>
+<!--                                <form>-->
+<!--                                    <label>Amount</label>-->
+<!--                                    <input type="number" class="amount" value="1"/>-->
+<!--                                </form>-->
                             </div>
                         </div>
                         <a id="egg-water" xmlns="http://www.w3.org/1999/xhtml" class="button-game">
@@ -33,10 +33,10 @@
                             <h4 class="panel-item__title">Fire Egg</h4>
                             <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img></p>
                               <div class="div-amount">
-                                <div>
-                                    <label>Amount</label>
-                                    <input type="number" class="amount" value="1"/>
-                                </div>
+<!--                                <div>-->
+<!--                                    <label>Amount</label>-->
+<!--                                    <input type="number" class="amount" value="1"/>-->
+<!--                                </div>-->
 
                             </div>
                         </div>
@@ -55,10 +55,10 @@
                             <h4 class="panel-item__title">Wood Egg</h4>
                             <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img></p>
                               <div class="div-amount">
-                                <div>
-                                    <label>Amount</label>
-                                    <input type="number" class="amount" value="1"/>
-                                </div>
+<!--                                <div>-->
+<!--                                    <label>Amount</label>-->
+<!--                                    <input type="number" class="amount" value="1"/>-->
+<!--                                </div>-->
 
                             </div>
                         </div>
@@ -76,10 +76,10 @@
                             <h4 class="panel-item__title">Metal Egg</h4>
                             <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img></p>
                               <div class="div-amount">
-                                <div>
-                                    <label>Amount</label>
-                                    <input type="number" class="amount" value="1"/>
-                                </div>
+<!--                                <div>-->
+<!--                                    <label>Amount</label>-->
+<!--                                    <input type="number" class="amount" value="1"/>-->
+<!--                                </div>-->
                             </div>
                         </div>
                         <a id="egg-metal" xmlns="http://www.w3.org/1999/xhtml" class="button-game">
@@ -98,10 +98,10 @@
                             <h4 class="panel-item__title">Earth Egg</h4>
                             <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img></p>
                               <div class="div-amount">
-                                <div>
-                                    <label>Amount</label>
-                                    <input type="number" class="amount" value="1"/>
-                                </div>
+<!--                                <div>-->
+<!--                                    <label>Amount</label>-->
+<!--                                    <input type="number" class="amount" value="1"/>-->
+<!--                                </div>-->
 
                             </div>
                         </div>
@@ -119,10 +119,10 @@
                             <h4 class="panel-item__title">Random Egg</h4>
                             <p style="text-align: center"> <img src="img/logo.png" class="imagemoney"/></img></p>
                             <div class="div-amount">
-                                <div>
-                                    <label>Amount</label>
-                                    <input type="number" class="amount" value="1"/>
-                                </div>
+<!--                                <div>-->
+<!--                                    <label>Amount</label>-->
+<!--                                    <input type="number" class="amount" value="1"/>-->
+<!--                                </div>-->
 
                             </div>
                         </div>

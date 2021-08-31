@@ -4,21 +4,14 @@ $(".container").on( "click",".button-game" ,function() {
          approve(new web3.eth.Contract(petGamesTokenAbi, PETGAMES));
 
     }else{
-        if($(this).parent().find('input').val().length >0)
-        {
-            if(Number.isInteger(Number($(this).parent().find('input').val())) && Number($(this).parent().find('input').val()) >0)
-            {
-                num = triberToNumber($(this).attr("id"));
-                console.log(num);
+        num = triberToNumber($(this).attr("id"));
+        amount = 1;
 
-                amount = Number($(this).parent().find('input').val());
-                if (num > 0){
-                    buyEgg(num,amount);
-                }
-                else {
-                    buyEggRandom(amount);
-                }
-            }
+        if (num > 0){
+            buyEgg(Number(num),Number(amount));
+        }
+        else {
+            buyEggRandom(Number(amount));
         }
     }
 
@@ -104,10 +97,6 @@ function loadPage(){
         "\n" +
         "                            <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/></img></p>\n" +
         "                            <div class=\"div-amount\">\n" +
-        "                                <form>\n" +
-        "                                    <label>Amount</label>\n" +
-        "                                    <input type=\"number\" class=\"amount\" value=\"1\"/>\n" +
-        "                                </form>\n" +
         "\n" +
         "                            </div>\n" +
         "                        </div>\n" +
@@ -128,10 +117,6 @@ function loadPage(){
         "                            <h4 class=\"panel-item__title\">Fire Egg</h4>\n" +
         "                            <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/></img></p>\n" +
         "                              <div class=\"div-amount\">\n" +
-        "                                <div>\n" +
-        "                                    <label>Amount</label>\n" +
-        "                                    <input type=\"number\" class=\"amount\" value=\"1\"/>\n" +
-        "                                </div>\n" +
         "\n" +
         "                            </div>\n" +
         "                        </div>\n" +
@@ -150,10 +135,6 @@ function loadPage(){
         "                            <h4 class=\"panel-item__title\">Wood Egg</h4>\n" +
         "                            <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/></img></p>\n" +
         "                              <div class=\"div-amount\">\n" +
-        "                                <div>\n" +
-        "                                    <label>Amount</label>\n" +
-        "                                    <input type=\"number\" class=\"amount\" value=\"1\"/>\n" +
-        "                                </div>\n" +
         "\n" +
         "                            </div>\n" +
         "                        </div>\n" +
@@ -172,10 +153,6 @@ function loadPage(){
         "                            <h4 class=\"panel-item__title\">Metal Egg</h4>\n" +
         "                            <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/></img></p>\n" +
         "                              <div class=\"div-amount\">\n" +
-        "                                <div>\n" +
-        "                                    <label>Amount</label>\n" +
-        "                                    <input type=\"number\" class=\"amount\" value=\"1\"/>\n" +
-        "                                </div>\n" +
         "\n" +
         "                            </div>\n" +
         "                        </div>\n" +
@@ -195,10 +172,6 @@ function loadPage(){
         "                            <h4 class=\"panel-item__title\">Earth Egg</h4>\n" +
         "                            <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/></img></p>\n" +
         "                              <div class=\"div-amount\">\n" +
-        "                                <div>\n" +
-        "                                    <label>Amount</label>\n" +
-        "                                    <input type=\"number\" class=\"amount\" value=\"1\"/>\n" +
-        "                                </div>\n" +
         "\n" +
         "                            </div>\n" +
         "                        </div>\n" +
@@ -216,10 +189,6 @@ function loadPage(){
         "                            <h4 class=\"panel-item__title\">Random Egg</h4>\n" +
         "                            <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/></img></p>\n" +
         "                            <div class=\"div-amount\">\n" +
-        "                                <div>\n" +
-        "                                    <label>Amount</label>\n" +
-        "                                    <input type=\"number\" class=\"amount\" value=\"1\"/>\n" +
-        "                                </div>\n" +
         "\n" +
         "                            </div>\n" +
         "                        </div>\n" +
@@ -267,7 +236,7 @@ async function buyEgg(tribe, amount){
         getDialog("BUY EGG DONE !");
     }else{
         $(".shop-modal").attr("style","display:none");
-        getDialog(mess+" FAIL !");
+        getDialog("BUY EGG"+" FAIL !");
     }
     getAccount();
 

@@ -6287,11 +6287,7 @@ ul#model-feats {
 .messagebox_buttons_button messagebox_button_done{
 
 }
-@media (min-width: 1025px) and (max-width: 1190px) {
-    .image-egg-magic{
-        margin-bottom: 80% !important;
-    }
-}
+
 .image-pet{
     margin-top:10%;
     margin-bottom: 75%;
@@ -6299,7 +6295,7 @@ ul#model-feats {
 .image-egg-magic{
     margin-top: 30%;
     width: 70% !important;
-    margin-bottom: 65% ;
+    margin-bottom: 50% ;
 }
 .amount{
     width: 30%;
@@ -6308,7 +6304,7 @@ ul#model-feats {
 }
 .div-amount{
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 .modal .detail-info-pet img{
     margin-bottom: 4px !important;
