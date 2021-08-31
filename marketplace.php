@@ -16,6 +16,8 @@
 
                       </div>
                         <div class="list-scarces">
+                            <div style="text-align: center;color: red">Please click refresh button before buying PET to avoid buying the wrong price</div>
+
                             <ul class="scarces">
                                 <li>
                                     <select id="mySelectScarce" disabled style="width: 120px;border-radius: 15px">
@@ -49,7 +51,8 @@
                                 <li>
                                     <a><button class="scarce-1 refresh-page" style="" disabled>
                                             <i class="bx bx-refresh"></i>Refesh
-                                        </button></a>
+                                        </button>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
