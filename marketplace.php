@@ -143,5 +143,5 @@
     page=page.get('page');
 
 </script>
-<script type="text/javascript" src="js/loadpet.js" ></script>
-<script type="text/javascript" src="js/marketplace.js"></script>
+<script type="text/javascript" src="js/loadpet.js?t=<?php echo  time();?>" ></script>
+<script type="text/javascript" src="js/marketplace.js?t=<?php echo  time();?>"></script>

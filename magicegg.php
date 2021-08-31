@@ -140,4 +140,4 @@
     </div>
 
 <?php  include "footer.php"?>
-<script src="js/magicegg.js"></script>
+<script src="js/magicegg.js?t=<?php echo  time();?>"></script>

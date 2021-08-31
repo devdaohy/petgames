@@ -257,6 +257,6 @@
         var page =1;
 
 </script>
-<script type="text/javascript" src="js/loadpet.js" ></script>
-<script src="js/monster.js"></script>
+<script type="text/javascript" src="js/loadpet.js?t=<?php echo  time();?>" ></script>
+<script src="js/monster.js?t=<?php echo  time();?>"></script>
 

@@ -1,4 +1,4 @@
-document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
+// document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
 var lstPetSale = new Array();
 var lstPetSaleFilter = new Array();
@@ -55,48 +55,20 @@ $(".store .container").on("click", "#detail-btn-buy",function () {
 
 });
 
-$(".current-page").keyup(function(event){
-	$(".error-input").attr("style","display:none");
-
-	var keycode = (event.keyCode ? event.keyCode : event.which);
-	if (keycode == '13') {
-		if(Number($(this).val()))
-		{
-			page = Number($(this).val());
-
-			if(page > Number($(".total-page").text()))
-			{
-				page = Number($(".total-page").text());
-			}
-			else if(page == 0 )
-			{
-				page = page + 1;
-			}
-			else if (page < 0)
-			{
-				page =1;
-			}
-			$(this).val(page);
-			$("div").remove(".item-pet");
-			forLstPetSale();
-		}else{
-			$(".error-input").attr("style","display:block");
-		}
-	}else{
-
-	}
-});
 
 getApprove();
-// loadMarket();
+loadMarket();
 
 async function loadMarket(){
 	// testnet
 	getAccount();
     await getApprove();
-	$("#mySelectLevel").val(0);
-	$("div").remove(".item-pet");
+	// $("#mySelectLevel").val(0);
+	// $("#mySelectScarce").val(0);
+	$(".image-load").attr("style","display:block");
 	$(".pickup-pagination").attr("style","display:none");
+	$("div").remove(".item-pet");
+
 	lstPetSale = new Array();
 	lstPetSaleFilter = new Array();
 	const web3 = new Web3(DATASEED);
@@ -483,7 +455,9 @@ $(".next-btn").on("click",function () {
 	$(".current-page").val(page);
 
 	$("div").remove(".item-pet");
-	forLstPetSale();
+	$(".pickup-pagination").attr("style","display:none");
+
+	loadMarket();
 });
 $(".prev-btn").on("click",function () {
 	page=Number(page)-1;
@@ -501,16 +475,52 @@ $(".prev-btn").on("click",function () {
 	$(".current-page").val(page);
 
 	$("div").remove(".item-pet");
-	forLstPetSale();
+	$(".pickup-pagination").attr("style","display:none");
+	loadMarket();
 	// document.location = "?"+url.toString();
 });
+$(".current-page").keyup(function(event){
+	$(".error-input").attr("style","display:none");
+
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+	if (keycode == '13') {
+		if(Number($(this).val()))
+		{
+			page = Number($(this).val());
+
+			if(page > Number($(".total-page").text()))
+			{
+				page = Number($(".total-page").text());
+			}
+			else if(page == 0 )
+			{
+				page = page + 1;
+			}
+			else if (page < 0)
+			{
+				page =1;
+			}
+			$(this).val(page);
+			// $("div").remove(".item-pet");
+			$(".pickup-pagination").attr("style","display:none");
+			loadMarket();
+		}else{
+			$(".error-input").attr("style","display:block");
+		}
+	}else{
+
+	}
+});
+
 $('#mySelectLevel').change(function(){
 		$("div").remove(".item-pet");
 		$(".pickup-pagination").attr("style","display:plex");
 		levelPet = Number($(this).val());
 		$(".current-page").val("1");
 		page=1;
-		forLstPetSale();
+		$(".pickup-pagination").attr("style","display:none");
+		loadMarket();
+		// forLstPetSale();
 })
 $('#mySelectScarce').change(function(){
 		$("div").remove(".item-pet");
@@ -518,6 +528,9 @@ $('#mySelectScarce').change(function(){
 		scarce = Number($(this).val());
 		$(".current-page").val("1");
 		page=1;
-		forLstPetSale();
+		$(".pickup-pagination").attr("style","display:none");
+		loadMarket();
+
+		// forLstPetSale();
 
 });

@@ -1,4 +1,4 @@
-document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
+// document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
     var pricePet ="";
     var amount="";
@@ -346,6 +346,8 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
     async function loadMyPet(updateAfterTransaction){
         getAccount();
         $("div").remove(".item-pet");
+        $(".image-load").attr("style","display:block");
+
         $(".pickup-pagination").attr("style","display:none");
          lstMyPet = new Array();
          // lstMyPetMarket = new Array();
@@ -844,11 +846,13 @@ $(".next-btn").on("click",function () {
     if(placPetIn == "wallet")
     {
         $("div").remove(".item-pet");
-        $(".pickup-pagination").attr("style","display:plex");
-        forLstMyPet();
+        $(".pickup-pagination").attr("style","display:none");
+        loadMyPet(1);
+        // forLstMyPet();
     }else{
         $("div").remove(".item-pet");
         $(".pickup-pagination").attr("style","display:none");
+
         forLstMyPetMarket();
     }
 });
@@ -872,8 +876,8 @@ $(".prev-btn").on("click",function () {
     if(placPetIn == "wallet")
     {
         $("div").remove(".item-pet");
-        $(".pickup-pagination").attr("style","display:plex");
-        forLstMyPet();
+        $(".pickup-pagination").attr("style","display:none");
+        loadMyPet(1);
     }else{
         $("div").remove(".item-pet");
         $(".pickup-pagination").attr("style","display:none");
@@ -902,7 +906,8 @@ $(".current-page").keyup(function(event){
             }
             $(this).val(page);
             $("div").remove(".item-pet");
-            forLstMyPet();
+            $(".pickup-pagination").attr("style","display:none");
+            loadMyPet(1);
         }else{
             $(".error-input").attr("style","display:block");
         }
