@@ -61,7 +61,7 @@ $(".refresh-page").on("click", "",function () {
 
 
 getApprove();
-loadMarket();
+// loadMarket();
 
 async function loadMarket(){
 	// testnet

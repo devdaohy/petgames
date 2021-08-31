@@ -202,6 +202,7 @@ function loadPage(){
         "                    </div>\n" +
         "\n" +
         "                </div>\n");
+    getEggPrice();
 }
 
 async function buyEgg(tribe, amount){
