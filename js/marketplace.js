@@ -88,7 +88,7 @@ $(".current-page").keyup(function(event){
 });
 
 getApprove();
-loadMarket();
+// loadMarket();
 
 async function loadMarket(){
 	// testnet
