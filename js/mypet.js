@@ -156,7 +156,7 @@ document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
     $("#detail-btn-update").on('click',function () {
         $("#shop-modal1").modal('toggle');
         count_btn_updateprice++;
-        updatePriceOrder($("#detail-btn-cancel-sell-market").parent().find(".btn-nft").text(), pricePet);
+        // updatePriceOrder($("#detail-btn-cancel-sell-market").parent().find(".btn-nft").text(), pricePet);
     });
 
     $(".scarce-2").on("click",function () {
