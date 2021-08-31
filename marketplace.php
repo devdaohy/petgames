@@ -16,7 +16,12 @@
 
                       </div>
                         <div class="list-scarces">
-                            <div style="text-align: center;color: red">Please click refresh button before buying PET to avoid buying the wrong price</div>
+                            <div style="text-align: center;color: red">
+                                <p style="    width: fit-content;
+    padding: 0px 18px;
+    background-color: whitesmoke;
+    border-radius: 13px;
+    margin: auto;">Please click refresh button before buying PET to avoid buying the wrong price</p></div>
 
                             <ul class="scarces">
                                 <li>
