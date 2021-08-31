@@ -54,6 +54,10 @@ $(".store .container").on("click", "#detail-btn-buy",function () {
 	buyOrder($(this).parent().parent().find("button").text());
 
 });
+$(".refresh-page").on("click", "",function () {
+
+	loadMarket();
+});
 
 
 getApprove();
@@ -65,6 +69,10 @@ async function loadMarket(){
     await getApprove();
 	// $("#mySelectLevel").val(0);
 	// $("#mySelectScarce").val(0);
+
+	$("#mySelectLevel").attr("disabled","true");
+	$("#mySelectScarce").attr("disabled","true");
+	$(".refresh-page").attr("disabled","true");
 	$(".image-load").attr("style","display:block");
 	$(".pickup-pagination").attr("style","display:none");
 	$("div").remove(".item-pet");
@@ -116,6 +124,7 @@ async function readMarket(from, to, sender){
 		$(".image-load").attr("style","display:none");
 		$("#mySelectLevel").removeAttr("disabled");
 		$("#mySelectScarce").removeAttr("disabled");
+		$(".refresh-page").removeAttr("disabled");
 
 
 	}

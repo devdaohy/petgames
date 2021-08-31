@@ -345,6 +345,8 @@
 
     async function loadMyPet(updateAfterTransaction){
         getAccount();
+        $("#mySelectLevel").attr("disabled","true");
+        $("#mySelectScarce").attr("disabled","true");
         $("div").remove(".item-pet");
         $(".image-load").attr("style","display:block");
 

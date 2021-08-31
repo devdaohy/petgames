@@ -46,7 +46,11 @@
 
                                     </select>
                                 </li>
-
+                                <li>
+                                    <a><button class="scarce-1 refresh-page" style="" disabled>
+                                            <i class="bx bx-refresh"></i>Refesh
+                                        </button></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
