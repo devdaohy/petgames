@@ -127,7 +127,7 @@
 
                         <div class="detail-info-pet" ></div>
 
-                        <div class="div-info-sell-update">
+                        <div class="div-info-sell-update" style="display: none">
                             <form>
                                 <label>Price</label>
                                 <input type="text" class="price" placeholder="Price" style="width: 40% !important;border-radius: 13px"/>
