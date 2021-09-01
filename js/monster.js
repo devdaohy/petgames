@@ -1,5 +1,5 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
-
+getTimeClaimAndReward();
 
 // $("#shop-modal-fight").modal('toggle');
 // $("#shop-modal-win").modal('toggle');
@@ -537,16 +537,25 @@ async function claim(){
 
 }
 
-async function getTimeClaim(address){
+async function getTimeClaimAndReward(){
 
     // testnet
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
     const web3 = new Web3(DATASEED);
 
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
-    var timeClaim = await monsterContract.methods.getTimeClaim(address).call();
+    var timeClaim = await monsterContract.methods.getTimeClaim(myAddress).call();
+    var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();
+    totalSeconds =  timeClaim;
+    hours = Math.floor(totalSeconds / 3600);
+    totalSeconds %= 3600;
+    minutes = Math.floor(totalSeconds / 60);
+    seconds = totalSeconds % 60;
 
-    console.log(timeClaim);
+    $(".time_claim").text(hours +" : "+ minutes+" : "+ seconds );
+    $(".money_claim").text(rewardClaim);
 }
 
 async function getRewardClaim(address){
@@ -559,4 +568,10 @@ async function getRewardClaim(address){
 
     console.log(rewardClaim);
 }
+
+
+setInterval(getTimeClaimAndReward, 1000);
+$('.btn-claim').on('click',function () {
+    claim();
+});
 
