@@ -537,8 +537,6 @@ async function claim(){
 
 }
 
-getTimeClaim('0x55975829D8132c4392C294239Af6F66F6674d527');
-
 async function getTimeClaim(address){
 
     // testnet
@@ -549,5 +547,16 @@ async function getTimeClaim(address){
     var timeClaim = await monsterContract.methods.getTimeClaim(address).call();
 
     console.log(timeClaim);
+}
+
+async function getRewardClaim(address){
+    // testnet
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    var rewardClaim = await monsterContract.methods.getRewardClaim(address).call();
+
+    console.log(rewardClaim);
 }
 
