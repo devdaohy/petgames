@@ -542,3 +542,8 @@
 .btn-claim:hover{
     cursor: pointer;
 }
+.disable-click-claim {
+    background: url(../img/buttonSpriteFullDisable.png) no-repeat;
+    pointer-events: none;
+
+}
