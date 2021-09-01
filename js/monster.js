@@ -198,7 +198,7 @@ async function fightMonster(nftId, monsterLv){
 
     await getFightResult(web3, txHash, monsterContract);
     $("#shop-modal-fight").modal('toggle');
-    getTimeFightMonster1(nftId);
+   await getTimeFightMonster1(nftId);
     getAccount();
 }
 
@@ -571,6 +571,8 @@ async function getTimeClaimAndReward(){
 
 $('.btn-claim').on('click',function () {
     claim();
+
+
 });
 // async function getRewardClaim(address){
 //     // testnet
