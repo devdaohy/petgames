@@ -516,14 +516,14 @@ $(window)
 
 async function claim(){
 
+    // const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    // myAddress = accounts[0];
+
     const web3 = new Web3(DATASEED);
-    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
-    myAddress = accounts[0];
-
-
+    
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
-    encoded = monsterContract.methods.claimReward(myAddress).encodeABI();
+    encoded = monsterContract.methods.claimReward().encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
