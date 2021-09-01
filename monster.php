@@ -6,13 +6,13 @@
 <div class="container" style="padding: 2px 0px;margin-top: 5px">
     <div class="row" style="margin: 4px">
         <div style="text-align: center;">
-            <div style="width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
+            <div style="font-size:28px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
                 <label>Countdown : </label>
                 <label class="time_claim"></label>
-                <label class="money_claim"></label>
+                <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim"></label>
                 <label><img src="img/logo.png" style="width:25px"></label>
                 <a class="btn-claim" style="text-decoration: none;margin-right: 20px">
-                    Clam
+                    Claim
                 </a>
                 </span>
                 <span class="button-game-bg-right-buy"></span>
