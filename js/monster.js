@@ -516,14 +516,8 @@ $(window)
 
 async function claim(){
 
-
-    // const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
-    // myAddress = accounts[0];
-
     const web3 = new Web3(DATASEED);
 
-    const web3 = new Web3(DATASEED);
-    
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
     encoded = monsterContract.methods.claimReward().encodeABI();
