@@ -517,10 +517,13 @@ $(window)
 async function claim(){
 
     const web3 = new Web3(DATASEED);
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+
 
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
-    encoded = monsterContract.methods.claimReward(nftId, monsterLv).encodeABI();
+    encoded = monsterContract.methods.claimReward(myAddress).encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
@@ -548,30 +551,36 @@ async function getTimeClaimAndReward(){
 
     var timeClaim = await monsterContract.methods.getTimeClaim(myAddress).call();
     var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();
-    totalSeconds =  timeClaim;
-    hours = Math.floor(totalSeconds / 3600);
-    totalSeconds %= 3600;
-    minutes = Math.floor(totalSeconds / 60);
-    seconds = totalSeconds % 60;
 
-    $(".time_claim").text(hours +" : "+ minutes+" : "+ seconds );
-    $(".money_claim").text(rewardClaim);
+    if( Number(Math.floor($.now()/1000)) < Number(timeClaim)){
+        totalSeconds =  Math.floor(timeClaim-($.now()/1000 ));
+        hours = Math.floor(totalSeconds / 3600);
+        totalSeconds %= 3600;
+        minutes = Math.floor(totalSeconds / 60);
+        seconds = totalSeconds % 60;
+        $(".time_claim").text(hours +" : "+ minutes+" : "+ seconds );
+        $(".money_claim").text(rewardClaim);
+
+    }else{
+        $(".money_claim").text(rewardClaim);
+        $('.btn-claim').on('click',function () {
+            claim();
+        });
+    }
 }
 
-async function getRewardClaim(address){
-    // testnet
-    const web3 = new Web3(DATASEED);
-
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
-
-    var rewardClaim = await monsterContract.methods.getRewardClaim(address).call();
-
-    console.log(rewardClaim);
-}
+// async function getRewardClaim(address){
+//     // testnet
+//     const web3 = new Web3(DATASEED);
+//
+//     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+//
+//     var rewardClaim = await monsterContract.methods.getRewardClaim(address).call();
+//
+//     console.log(rewardClaim);
+// }
 
 
 setInterval(getTimeClaimAndReward, 1000);
-$('.btn-claim').on('click',function () {
-    claim();
-});
+
 

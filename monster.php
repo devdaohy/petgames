@@ -11,7 +11,7 @@
                 <label class="time_claim"></label>
                 <label class="money_claim"></label>
                 <label><img src="img/logo.png" style="width:25px"></label>
-                <a class="btn-game-buypets" style="text-decoration: none;margin-right: 20px">
+                <a class="btn-claim" style="text-decoration: none;margin-right: 20px">
                     Clam
                 </a>
                 </span>
