@@ -562,6 +562,8 @@ async function getTimeClaimAndReward(){
         $(".money_claim").text(rewardClaim);
 
     }else{
+        $(".time_claim").text("0 : 0 : 0");
+
         $(".money_claim").text(rewardClaim);
         $('.btn-claim').on('click',function () {
             claim();
