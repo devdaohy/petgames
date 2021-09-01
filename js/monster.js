@@ -198,7 +198,7 @@ async function fightMonster(nftId, monsterLv){
 
     await getFightResult(web3, txHash, monsterContract);
     $("#shop-modal-fight").modal('toggle');
-    getTimeFightMonster1(nftId);
+   await getTimeFightMonster1(nftId);
     getAccount();
 }
 
@@ -516,8 +516,11 @@ $(window)
 
 async function claim(){
 
+
     // const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
     // myAddress = accounts[0];
+
+    const web3 = new Web3(DATASEED);
 
     const web3 = new Web3(DATASEED);
     
@@ -537,6 +540,7 @@ async function claim(){
         method: 'eth_sendTransaction',
         params: [transactionParameters],
     });
+    getAccount();
 
 }
 
@@ -573,6 +577,8 @@ async function getTimeClaimAndReward(){
 
 $('.btn-claim').on('click',function () {
     claim();
+
+
 });
 // async function getRewardClaim(address){
 //     // testnet
