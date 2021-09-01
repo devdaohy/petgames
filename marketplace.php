@@ -1,6 +1,6 @@
 <?php ?>
     <?php  include "header.php"?>
-<link href="css/marketplace.css" rel="stylesheet" />
+<link href="css/marketplace.css?t=<?php echo  time();?>" rel="stylesheet" />
         <!-- ============== STORE SECTION =============== -->
 
 

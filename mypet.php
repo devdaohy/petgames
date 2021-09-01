@@ -1,7 +1,7 @@
 <?php $demo="Ádfasfasd";?>
 <?php  include "header.php"?>
-    <link href="css/marketplace.css" rel="stylesheet" />
-    <link href="css/mypet.css" rel="stylesheet" />
+    <link href="css/marketplace.css?t=<?php echo  time();?>" rel="stylesheet" />
+    <link href="css/mypet.css?t=<?php echo  time();?>" rel="stylesheet" />
 <div class="container" style="margin-top: 2rem">
                 <div class="row" id="play">
                     <h2>MY PET</h2>

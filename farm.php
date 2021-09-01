@@ -1,6 +1,6 @@
 <?php ?>
 <?php  include "header.php"?>
-<link href="css/farm.css" rel="stylesheet" />
+<link href="css/farm.css?t=<?php echo  time();?>" rel="stylesheet" />
 
 <div class="container farrm" style="">
     <div class="row" id="play">

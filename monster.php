@@ -1,6 +1,6 @@
 <?php ?>
 <?php  include "header.php"?>
-<link href="css/monster.css" rel="stylesheet" />
+<link href="css/monster.css?t=<?php echo  time();?>" rel="stylesheet" />
 
 <!-- ============== STORE SECTION =============== -->
 <div class="container" style="padding: 2px 0px;margin-top: 5px">

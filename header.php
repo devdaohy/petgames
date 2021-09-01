@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Changa" rel="stylesheet" />
     <link href="fonts/ionicons/2.0.1/css/ionicons.min.css" type="text/css" media="screen" rel="stylesheet" />
     <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/styles.css?t=<?php echo  time();?>" rel="stylesheet" />
     <link href="css/fontawesome/fontawesome/css/all.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
