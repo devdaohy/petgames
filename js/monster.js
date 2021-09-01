@@ -513,3 +513,41 @@ $(window)
     }).resize();
 
 
+
+async function claim(){
+
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    encoded = monsterContract.methods.claimReward(nftId, monsterLv).encodeABI();
+
+    const transactionParameters = {
+      nonce: '0x00', // ignored by MetaMask
+      to: MONSTER, // Required except during contract publications.
+      from: ethereum.selectedAddress, // must match user's active address.
+      value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+      data: encoded
+    };
+
+    const txHash = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+    });
+
+}
+
+getTimeClaim('0x55975829D8132c4392C294239Af6F66F6674d527');
+
+async function getTimeClaim(address){
+
+    // testnet
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    var timeClaim = await monsterContract.methods.getTimeClaim(address).call();
+
+    console.log(timeClaim);
+}
+

@@ -1659,6 +1659,25 @@ var monsterAbi = [
 		"anonymous": false,
 		"inputs": [
 			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "nftId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint8",
+				"name": "monsterLv",
+				"type": "uint8"
+			}
+		],
+		"name": "FightMonster1",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
 				"indexed": true,
 				"internalType": "address",
 				"name": "previousOwner",
@@ -1673,194 +1692,6 @@ var monsterAbi = [
 		],
 		"name": "OwnershipTransferred",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "nftId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint8",
-				"name": "monsterLv",
-				"type": "uint8"
-			}
-		],
-		"name": "fightMonster1",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "nftId1",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "nftId2",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "nftId3",
-				"type": "uint256"
-			}
-		],
-		"name": "fightMonster2",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint8",
-				"name": "decimal",
-				"type": "uint8"
-			}
-		],
-		"name": "setDecimals",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "exp",
-				"type": "uint256"
-			}
-		],
-		"name": "setExpDefault",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint8",
-				"name": "rate",
-				"type": "uint8"
-			}
-		],
-		"name": "setFightMonster2Rate",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bool",
-				"name": "flag1",
-				"type": "bool"
-			},
-			{
-				"internalType": "bool",
-				"name": "flag2",
-				"type": "bool"
-			}
-		],
-		"name": "setFightMonsterStatus",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint8",
-				"name": "percent",
-				"type": "uint8"
-			}
-		],
-		"name": "setFightPercent",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint8",
-				"name": "hourMonster1",
-				"type": "uint8"
-			},
-			{
-				"internalType": "uint8",
-				"name": "hourMonster2",
-				"type": "uint8"
-			}
-		],
-		"name": "setHoursPerFightMonster",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "petAddress",
-				"type": "address"
-			}
-		],
-		"name": "setPetBSC20",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "petNFTAddress",
-				"type": "address"
-			}
-		],
-		"name": "setPetNft",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "reward",
-				"type": "uint256"
-			}
-		],
-		"name": "setRewardDefault",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "withdrawFund",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -1896,19 +1727,6 @@ var monsterAbi = [
 	},
 	{
 		"inputs": [],
-		"name": "_expFightMonster2",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "_fightMonster1",
 		"outputs": [
 			{
@@ -1922,33 +1740,7 @@ var monsterAbi = [
 	},
 	{
 		"inputs": [],
-		"name": "_fightMonster2",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "_hoursPerFightMonster1",
-		"outputs": [
-			{
-				"internalType": "uint8",
-				"name": "",
-				"type": "uint8"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "_hoursPerFightMonster2",
 		"outputs": [
 			{
 				"internalType": "uint8",
@@ -1984,32 +1776,41 @@ var monsterAbi = [
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "nftId1",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "nftId2",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "nftId3",
-				"type": "uint256"
-			}
-		],
-		"name": "_rewardFightMonster2",
+		"inputs": [],
+		"name": "bannedBSC20",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "contract IPetGamesBanned",
 				"name": "",
-				"type": "uint256"
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "claimReward",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "nftId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint8",
+				"name": "monsterLv",
+				"type": "uint8"
+			}
+		],
+		"name": "fightMonster1",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -2043,6 +1844,44 @@ var monsterAbi = [
 				"internalType": "struct Monster.FightResult",
 				"name": "",
 				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "getRewardClaim",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "getTimeClaim",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -2105,17 +1944,300 @@ var monsterAbi = [
 		],
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "addr",
+				"type": "address"
+			}
+		],
+		"name": "setBannedBSC20",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "decimal",
+				"type": "uint8"
+			}
+		],
+		"name": "setDecimals",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "exp",
+				"type": "uint256"
+			}
+		],
+		"name": "setExpDefault",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "percent",
+				"type": "uint8"
+			}
+		],
+		"name": "setExpPercent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "flag1",
+				"type": "bool"
+			}
+		],
+		"name": "setFightMonsterStatus",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "hourMonster1",
+				"type": "uint8"
+			}
+		],
+		"name": "setHoursPerFightMonster",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "petAddress",
+				"type": "address"
+			}
+		],
+		"name": "setPetBSC20",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "petNFTAddress",
+				"type": "address"
+			}
+		],
+		"name": "setPetNft",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "reward",
+				"type": "uint256"
+			}
+		],
+		"name": "setRewardDefault",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint8",
+				"name": "percent",
+				"type": "uint8"
+			}
+		],
+		"name": "setRewardPercent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "withdrawFund",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	}
 ];
 
+bannedAbi = [
+ {
+  "anonymous": false,
+  "inputs": [
+   {
+    "indexed": true,
+    "internalType": "address",
+    "name": "previousOwner",
+    "type": "address"
+   },
+   {
+    "indexed": true,
+    "internalType": "address",
+    "name": "newOwner",
+    "type": "address"
+   }
+  ],
+  "name": "OwnershipTransferred",
+  "type": "event"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "uint256",
+    "name": "nftId",
+    "type": "uint256"
+   }
+  ],
+  "name": "addNftHack",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "address",
+    "name": "addr",
+    "type": "address"
+   }
+  ],
+  "name": "banAddress",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "address",
+    "name": "addr",
+    "type": "address"
+   }
+  ],
+  "name": "checkBanAddress",
+  "outputs": [
+   {
+    "internalType": "bool",
+    "name": "",
+    "type": "bool"
+   }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "uint256",
+    "name": "nftId",
+    "type": "uint256"
+   }
+  ],
+  "name": "checkNftHack",
+  "outputs": [
+   {
+    "internalType": "bool",
+    "name": "",
+    "type": "bool"
+   }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+ },
+ {
+  "inputs": [],
+  "name": "initHack",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+ },
+ {
+  "inputs": [],
+  "name": "nftHackSize",
+  "outputs": [
+   {
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+   }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+ },
+ {
+  "inputs": [],
+  "name": "owner",
+  "outputs": [
+   {
+    "internalType": "address",
+    "name": "",
+    "type": "address"
+   }
+  ],
+  "stateMutability": "view",
+  "type": "function"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "address",
+    "name": "addr",
+    "type": "address"
+   }
+  ],
+  "name": "removeBanAddress",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+ },
+ {
+  "inputs": [
+   {
+    "internalType": "uint256",
+    "name": "nftId",
+    "type": "uint256"
+   }
+  ],
+  "name": "removeNftHack",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+ }
+];
+
 //init var
-var PETGAMES = '0x09607078980CbB0665ABa9c6D1B84b8eAD246aA0';
-var PETNFT = '0xFeEa83A7Ed219828e61B4D71CFf7EEeDa2769075';
-var BUYBOX = '0x3412E38BF7aDf7d985a2732BDe69077b39f53Aa0';
-var MONSTER = '0x1435E121C5856dA2e9b592eE45983bEc81bC77C1';
-var DATASEED = 'https://bsc-dataseed1.defibit.io/';
-var BUYEGG = BUYBOX;
-// var DATASEED = 'https://bsc-dataseed2.defibit.io/';
+var PETGAMES = '0x82e4D442762181a0e08d451bF18ea2AEEBdaC6Bc';
+var PETNFT = '0xd7336426BCD27C7e1b529DEBbf38c932A4a7bf77';
+var PETGAMESBANNED = '0x8c39687Fa615254ba28977572D9c3c742359C7B1';
+var BUYEGG = '0x15B27DE792E835714bF685C6e41d703f1bb283fe';
+var MONSTER = '0xA460963885DDeFC4013dccA9BD4C3630b147816e';
+
+// var DATASEED = 'https://bsc-dataseed1.defibit.io/';
+var DATASEED = 'https://data-seed-prebsc-2-s1.binance.org:8545/'
 
 var myAddress;
 
