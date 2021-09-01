@@ -534,7 +534,19 @@ async function claim(){
         method: 'eth_sendTransaction',
         params: [transactionParameters],
     });
-    getAccount();
+    var receipt;
+    while(1){
+        receipt = await web3.eth.getTransactionReceipt(txHash);
+        if (receipt != null) break;
+    }
+
+    if (receipt.status == true){
+        getAccount();
+
+    }else{
+        $(".shop-modal").attr("style","display:none");
+        getDialog("CLAIM "+" FAIL !");
+    }
 
 }
 
