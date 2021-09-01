@@ -210,9 +210,16 @@ h3 {
 
 -------------------------------------------------------------------*/
 
+
 .pattern {
-    background-image: url(../img/tablecloth-pattern.jpg);
+    /*background-image: url(../img/tablecloth-pattern.jpg);*/
     min-height: calc(100vh - 95px) !important;
+}
+.pattern{
+    background: url(../img/backgroundpage/4-gigapixel.jpg) !important;
+    background-position: 50% 51% !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
 }
 
 .pattern-dark {
@@ -1660,12 +1667,13 @@ h2.tips {
 }
 
 .store .container {
-    background: url(../img/creampaper.png);
+    /*background: url(../img/creampaper.png);*/
     padding: 0rem 2rem 2rem 2rem;
-    border: 2px dashed #d45f42;
+    /*border: 2px dashed #d45f42;*/
     border-radius: 2rem;
     margin: 2rem auto 0;
     margin-top: 4rem;
+    background-color: rgb(230 226 226 / 27%);
 }
 
 
@@ -1706,10 +1714,10 @@ h2.tips {
 
 .store .container .list-scarces .scarces li button {
     cursor: pointer;
-    width: 120px;
+    /*width: 120px;*/
     height: 40px;
     line-height: 30px;
-    font-size: 13px;
+    font-size: 20px;
     color: #ffffff;
     border-radius: 10px;
     border: none;
@@ -6279,11 +6287,7 @@ ul#model-feats {
 .messagebox_buttons_button messagebox_button_done{
 
 }
-@media (min-width: 1025px) and (max-width: 1190px) {
-    .image-egg-magic{
-        margin-bottom: 80% !important;
-    }
-}
+
 .image-pet{
     margin-top:10%;
     margin-bottom: 75%;
@@ -6291,7 +6295,7 @@ ul#model-feats {
 .image-egg-magic{
     margin-top: 30%;
     width: 70% !important;
-    margin-bottom: 65% ;
+    margin-bottom: 50% ;
 }
 .amount{
     width: 30%;
@@ -6300,7 +6304,7 @@ ul#model-feats {
 }
 .div-amount{
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 .modal .detail-info-pet img{
     margin-bottom: 4px !important;
@@ -6454,6 +6458,13 @@ ul#model-feats {
 .btn-game-buypets:hover{
     color: black;
     cursor: pointer;
+}
+.price-pet{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.price-pet:hover{
+    overflow: visible;
 }
 
 

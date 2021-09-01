@@ -8,7 +8,7 @@
 <div class="container" style="margin-top: 2rem">
                     <div id="div_element"></div>
                     <div class="row" id="play">
-                        <h2>MARKETPLACE</h2>
+                        <h2>MARKETPLACE Maintenance</h2>
                         <h3 id="amount-pet-sale" style="text-align: center;margin-bottom: 0px"></h3>
 
                         <div>
@@ -16,6 +16,13 @@
 
                       </div>
                         <div class="list-scarces">
+                            <div style="text-align: center;color: red">
+                                <p style="    width: fit-content;
+    padding: 0px 18px;
+    background-color: whitesmoke;
+    border-radius: 13px;
+    margin: auto;">Please click refresh button before buying PET to avoid buying the wrong price</p></div>
+
                             <ul class="scarces">
                                 <li>
                                     <select id="mySelectScarce" disabled style="width: 120px;border-radius: 15px">
@@ -46,7 +53,12 @@
 
                                     </select>
                                 </li>
-
+                                <li>
+                                    <a><button class="scarce-1 refresh-page" style="" disabled>
+                                            <i class="bx bx-refresh"></i>Refesh
+                                        </button>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -95,7 +107,7 @@
                                         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                                     </div>
                                     <div class="modal-body clearfix" id="modalBody">
-                                        <img src="" id="showcase-img" class="img-thumbnail" alt="Showcase Sweet World Game"/>
+                                        <img src="" id="showcase-img" class="img-thumbnail" alt="Image Pet"/>
                                         <div class="detail-info-pet" ></div>
 
                                         <div class="price" id="modal-price-tag"></div>
@@ -143,5 +155,5 @@
     page=page.get('page');
 
 </script>
-<script type="text/javascript" src="js/loadpet.js" ></script>
-<script type="text/javascript" src="js/marketplace.js"></script>
+<script type="text/javascript" src="js/loadpet.js?t=<?php echo  time();?>" ></script>
+<script type="text/javascript" src="js/marketplace.js?t=<?php echo  time();?>"></script>

@@ -9,12 +9,12 @@
                     <div class="list-scarces">
                         <ul class="scarces">
                             <li>
-                                <a><button class="scarce-1" style="width: 135px">
+                                <a><button class="scarce-1" style="">
                                         <i class="bx bxl-sketch"></i>Pet in wallet
                                     </button></a>
                             </li>
                             <li>
-                                <a><button class="scarce-2" style="width: 135px" disabled>
+                                <a><button class="scarce-2" style="" disabled>
                                         <i class="bx bxl-sketch"></i>Pet in market
                                     </button></a>
                             </li>
@@ -72,7 +72,7 @@
                                     <h4 class="modal-title" id="myModalLabel" >Modal title</h4>
                                 </div>
                                 <div class="modal-body clearfix" id="modalBody">
-                                    <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+                                    <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Image Pet"/>
 
                                     <div class="detail-info-pet" ></div>
                                     <div class="div-info-sell-tranfer" style="margin-top: 15px">
@@ -123,11 +123,11 @@
                         <h4 class="modal-title" id="myModalLabel" >Modal title</h4>
                     </div>
                     <div class="modal-body clearfix" id="modalBody">
-                        <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+                        <img src="" id="showcase-img" class="img-thumbnail showcase-img" alt="Image Pet"/>
 
                         <div class="detail-info-pet" ></div>
 
-                        <div class="div-info-sell-update">
+                        <div class="div-info-sell-update" style="display: none">
                             <form>
                                 <label>Price</label>
                                 <input type="text" class="price" placeholder="Price" style="width: 40% !important;border-radius: 13px"/>
@@ -141,13 +141,13 @@
                         <a type="button" class="btn-nft-name" style="display: none"></a>
                         <a type="button" class="btn-nft-tribe" style="display: none"></a>
                         <a type="button" class="btn-nft-scarce" style="display: none"></a>
-                        <a id="detail-btn-update" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
-                            <span class="button-game-bg-left"></span>
-                            <span class="button-game-bg-mid">
-                                          <span>Update</span>
-                                        </span>
-                            <span class="button-game-bg-right"></span>
-                        </a>
+<!--                        <a id="detail-btn-update" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >-->
+<!--                            <span class="button-game-bg-left"></span>-->
+<!--                            <span class="button-game-bg-mid">-->
+<!--                                          <span>Update</span>-->
+<!--                                        </span>-->
+<!--                            <span class="button-game-bg-right"></span>-->
+<!--                        </a>-->
                         <a id="detail-btn-cancel-sell-market" xmlns="http://www.w3.org/1999/xhtml" class="button-game shop-modal-hide" >
                             <span class="button-game-bg-left"></span>
                             <span class="button-game-bg-mid">
@@ -183,5 +183,5 @@
 
 
 </script>
-<script type="text/javascript" src="js/loadpet.js" ></script>
-<script src="js/mypet.js"></script>
+<script type="text/javascript" src="js/loadpet.js?t=<?php echo  time();?>" ></script>
+<script src="js/mypet.js?t=<?php echo  time();?>"></script>

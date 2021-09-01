@@ -1,4 +1,4 @@
-document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
+// document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 
 var lstPetSale = new Array();
 var lstPetSaleFilter = new Array();
@@ -7,6 +7,8 @@ var approveAmount ="";
 var petGamesTokenContract="";
 var levelPet=0;
 var scarce = 0;
+var count_btn_buy_order=0;
+var count_btn_cancel_order = 0;
 page=1;
 
 
@@ -43,56 +45,38 @@ $(".store .container").on("click",".gallery-item", function () {
 $(".store .container").on("click","#detail-btn-cancel-market", function () {
 	var nft_id=$(this).parent().parent().find("button").text();
 	$('#shop-modal').modal('hide');
+	count_btn_cancel_order++;
 	cancelOrder(nft_id);
 });
 $(".store .container").on("click", "#detail-btn-buy",function () {
 	$('#shop-modal').modal('hide');
+	count_btn_buy_order++;
 	buyOrder($(this).parent().parent().find("button").text());
 
 });
+$(".refresh-page").on("click", "",function () {
 
-$(".current-page").keyup(function(event){
-	$(".error-input").attr("style","display:none");
-
-	var keycode = (event.keyCode ? event.keyCode : event.which);
-	if (keycode == '13') {
-		if(Number($(this).val()))
-		{
-			page = Number($(this).val());
-
-			if(page > Number($(".total-page").text()))
-			{
-				page = Number($(".total-page").text());
-			}
-			else if(page == 0 )
-			{
-				page = page + 1;
-			}
-			else if (page < 0)
-			{
-				page =1;
-			}
-			$(this).val(page);
-			$("div").remove(".item-pet");
-			forLstPetSale();
-		}else{
-			$(".error-input").attr("style","display:block");
-		}
-	}else{
-
-	}
+	loadMarket();
 });
 
+
 getApprove();
-loadMarket();
+// loadMarket();
 
 async function loadMarket(){
 	// testnet
 	getAccount();
     await getApprove();
-	$("#mySelectLevel").val(0);
-	$("div").remove(".item-pet");
+	// $("#mySelectLevel").val(0);
+	// $("#mySelectScarce").val(0);
+
+	$("#mySelectLevel").attr("disabled","true");
+	$("#mySelectScarce").attr("disabled","true");
+	$(".refresh-page").attr("disabled","true");
+	$(".image-load").attr("style","display:block");
 	$(".pickup-pagination").attr("style","display:none");
+	$("div").remove(".item-pet");
+
 	lstPetSale = new Array();
 	lstPetSaleFilter = new Array();
 	const web3 = new Web3(DATASEED);
@@ -140,6 +124,7 @@ async function readMarket(from, to, sender){
 		$(".image-load").attr("style","display:none");
 		$("#mySelectLevel").removeAttr("disabled");
 		$("#mySelectScarce").removeAttr("disabled");
+		$(".refresh-page").removeAttr("disabled");
 
 
 	}
@@ -289,7 +274,7 @@ function pet(i,exp,tribe,scarce,owner,price,id) {
 	"                                    </tr>\n" +
 	"                                </table>\n" +
 	"                                <p class=\"panel-item__summary\" style=\"text-align: center\"><b>Owner: </b>" +encryptAccount(owner)+"</p>\n" +
-	"                                <p style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/>"+ price +"</p>\n" +
+	"                                <p class=\"price-pet\" style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/>"+ price +"</p>\n" +
 	"                            </div>\n" +
 	"                            <a xmlns=\"http://www.w3.org/1999/xhtml\" class=\"button-game\">\n" +
 	"                                <span class=\"button-game-bg-left-buy\"></span>\n" +
@@ -340,7 +325,7 @@ async function approve(petGamesTokenContract){
 	// location.reload();
 
 }
-
+var count_buy_order =0;
 async function buyOrder(nftId){
 
     const web3 = new Web3(DATASEED);
@@ -362,10 +347,22 @@ async function buyOrder(nftId){
         params: [transactionParameters],
     });
 	await getTransaction(web3, txHash, "BUY PET SALE");
-	loadMarket();
-	// location.reload();
+	count_buy_order++;
+	if(count_btn_buy_order == 1)
+	{
+		await loadMarket();
+		setTimeout(function () {},6000);
+	}else{
+		if(count_buy_order == count_btn_buy_order)
+		{
+			count_btn_buy_order = 0;
+			count_buy_order = 0;
+			await loadMarket();
+			setTimeout(function () {},6000);
+		}
+	}
 }
-
+var count_cancel_order =0;
 async function cancelOrder(nftId){
 
         const web3 = new Web3(DATASEED);
@@ -387,10 +384,21 @@ async function cancelOrder(nftId){
             params: [transactionParameters],
         });
 
-	await getTransaction(web3, txHash, "CANCEL SALE");
-	loadMarket();
-	// location.reload();
-
+		await getTransaction(web3, txHash, "CANCEL SALE");
+		count_cancel_order++;
+		if(count_btn_cancel_order == 1)
+		{
+			await loadMarket();
+			setTimeout(function () {},6000);
+		}else{
+			if(count_cancel_order == count_btn_cancel_order)
+			{
+				count_btn_cancel_order = 0;
+				count_cancel_order = 0;
+				await loadMarket();
+				setTimeout(function () {},6000);
+			}
+		}
     }
 
  function buttonBuyOrCancle(owner){
@@ -456,7 +464,9 @@ $(".next-btn").on("click",function () {
 	$(".current-page").val(page);
 
 	$("div").remove(".item-pet");
-	forLstPetSale();
+	$(".pickup-pagination").attr("style","display:none");
+
+	loadMarket();
 });
 $(".prev-btn").on("click",function () {
 	page=Number(page)-1;
@@ -474,16 +484,52 @@ $(".prev-btn").on("click",function () {
 	$(".current-page").val(page);
 
 	$("div").remove(".item-pet");
-	forLstPetSale();
+	$(".pickup-pagination").attr("style","display:none");
+	loadMarket();
 	// document.location = "?"+url.toString();
 });
+$(".current-page").keyup(function(event){
+	$(".error-input").attr("style","display:none");
+
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+	if (keycode == '13') {
+		if(Number($(this).val()))
+		{
+			page = Number($(this).val());
+
+			if(page > Number($(".total-page").text()))
+			{
+				page = Number($(".total-page").text());
+			}
+			else if(page == 0 )
+			{
+				page = page + 1;
+			}
+			else if (page < 0)
+			{
+				page =1;
+			}
+			$(this).val(page);
+			// $("div").remove(".item-pet");
+			$(".pickup-pagination").attr("style","display:none");
+			loadMarket();
+		}else{
+			$(".error-input").attr("style","display:block");
+		}
+	}else{
+
+	}
+});
+
 $('#mySelectLevel').change(function(){
 		$("div").remove(".item-pet");
 		$(".pickup-pagination").attr("style","display:plex");
 		levelPet = Number($(this).val());
 		$(".current-page").val("1");
 		page=1;
-		forLstPetSale();
+		$(".pickup-pagination").attr("style","display:none");
+		loadMarket();
+		// forLstPetSale();
 })
 $('#mySelectScarce').change(function(){
 		$("div").remove(".item-pet");
@@ -491,6 +537,9 @@ $('#mySelectScarce').change(function(){
 		scarce = Number($(this).val());
 		$(".current-page").val("1");
 		page=1;
-		forLstPetSale();
+		$(".pickup-pagination").attr("style","display:none");
+		loadMarket();
+
+		// forLstPetSale();
 
 });

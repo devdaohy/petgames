@@ -1,32 +1,39 @@
+/*.pattern{*/
+/*    background: url(../img/backgroundpage/4-gigapixel.png) !important;*/
+/*    background-position: 50% 51% !important;*/
+/*    background-repeat: no-repeat !important;*/
+/*    background-size: cover !important;*/
+/*}*/
+
 @media (min-width: 200px) and (max-width: 399px) {
     .image-egg-magic{
-        margin-bottom: 65% !important;
+        margin-bottom: 43% !important;
     }
 }
 
 @media (min-width: 400px) and (max-width: 599px) {
     .image-egg-magic{
-        margin-bottom: 48% !important;
+        margin-bottom: 37% !important;
     }
 }
 
 @media (min-width: 600px) and (max-width: 767px) {
     .image-egg-magic{
-        margin-bottom: 68% !important;
+        margin-bottom: 50% !important;
     }
 }
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .image-egg-magic{
-        margin-bottom: 53% !important;
+        margin-bottom: 36% !important;
     }
 
 }
 
 @media (min-width: 1025px) and (max-width: 1199px) {
     .image-egg-magic{
-        margin-bottom: 70% !important;
+        margin-bottom: 60% !important;
     }
 
 }

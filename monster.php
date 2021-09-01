@@ -3,7 +3,25 @@
 <link href="css/monster.css" rel="stylesheet" />
 
 <!-- ============== STORE SECTION =============== -->
+<div class="container" style="padding: 2px 0px;margin-top: 5px">
+    <div class="row" style="margin: 4px">
+        <div style="text-align: center;">
+            <div style="font-size:28px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
+                <label>Countdown : </label>
+                <label class="time_claim"></label>
+                <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim"></label>
+                <label><img src="img/logo.png" style="width:25px"></label>
+                <a class="btn-claim" style="text-decoration: none;margin-right: 20px">
+                    Claim
+                </a>
+                </span>
+                <span class="button-game-bg-right-buy"></span>
+                </a>
+            </div>
+        </div>
 
+    </div>
+</div>
 <div class="container" style="margin-top: 0px " >
 
 <div class="row" id="play" >
@@ -22,7 +40,7 @@
                         <h4 class="modal-title" id="myModalLabel" >WIN</h4>
                     </div>
                     <div class="modal-body clearfix" id="modalBody">
-                        <img src="img/other/win.png" style="background: #008000bd" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+                        <img src="img/other/win.png" style="background: #008000bd" id="showcase-img" class="img-thumbnail showcase-img" alt="Image Pet"/>
                         <div class="detail-info-pet" >
                         </div>
                         <div class="div-info-sell-tranfer">
@@ -50,7 +68,7 @@
                         <h4 class="modal-title" id="myModalLabel"> LOSE</h4>
                     </div>
                     <div class="modal-body clearfix" id="modalBody">
-                        <img src="img/other/lose.png" style="background: #ff0000d6" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+                        <img src="img/other/lose.png" style="background: #ff0000d6" id="showcase-img" class="img-thumbnail showcase-img" alt="Image Pet"/>
                         <div class="detail-info-pet" >
                         </div>
                         <div class="div-info-sell-tranfer">
@@ -71,7 +89,7 @@
         <div class="modal fade modalpet" id="shop-modal-fight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div>
-                        <img src="img/other/gifFighting2.gif" style="width: 46%;background: #66c6e0;border-radius: 25px;box-shadow: none" id="showcase-img" class="img-thumbnail showcase-img" alt="Showcase Sweet World Game"/>
+                        <img src="img/other/gifFighting2.gif" style="width: 46%;background: #66c6e0;border-radius: 25px;box-shadow: none" id="showcase-img" class="img-thumbnail showcase-img" alt="Image Fight"/>
                 </div>
             </div>
         </div>
@@ -257,6 +275,6 @@
         var page =1;
 
 </script>
-<script type="text/javascript" src="js/loadpet.js" ></script>
-<script src="js/monster.js"></script>
+<script type="text/javascript" src="js/loadpet.js?t=<?php echo  time();?>" ></script>
+<script src="js/monster.js?t=<?php echo  time();?>"></script>
 

@@ -528,3 +528,22 @@
 
 
 }
+.btn-claim{
+    padding: 0 40px;
+    background-size: 97% !important;
+    background-position: center !important;
+    width: 200px;
+    height: 54px;
+    line-height: 54px;
+    border: none;
+    color: black;
+    background: url(../img/buttonSpriteFull.png) no-repeat;
+}
+.btn-claim:hover{
+    cursor: pointer;
+}
+.disable-click-claim {
+    background: url(../img/buttonSpriteFullDisable.png) no-repeat;
+    pointer-events: none;
+
+}

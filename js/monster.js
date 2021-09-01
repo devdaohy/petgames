@@ -1,5 +1,5 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
-
+getTimeClaimAndReward();
 
 // $("#shop-modal-fight").modal('toggle');
 // $("#shop-modal-win").modal('toggle');
@@ -198,7 +198,7 @@ async function fightMonster(nftId, monsterLv){
 
     await getFightResult(web3, txHash, monsterContract);
     $("#shop-modal-fight").modal('toggle');
-    getTimeFightMonster1(nftId);
+   await getTimeFightMonster1(nftId);
     getAccount();
 }
 
@@ -278,13 +278,13 @@ async function readMyPet(from, to, sender){
         var nftId = await petNFTContract.methods.tokenOfOwnerByIndex(sender, Number(i)).call();
 
         var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
-        lstMyPetD.push(petNFTInfo);
+
+            lstMyPetD.push(petNFTInfo);
+
 
         if(petNFTInfo['active'] == true)
         {
-
-            lstMyPet.push(petNFTInfo);
-
+                lstMyPet.push(petNFTInfo);
         }
 
     }
@@ -511,5 +511,81 @@ $(window)
 
         }
     }).resize();
+
+
+
+async function claim(){
+
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    encoded = monsterContract.methods.claimReward().encodeABI();
+
+    const transactionParameters = {
+      nonce: '0x00', // ignored by MetaMask
+      to: MONSTER, // Required except during contract publications.
+      from: ethereum.selectedAddress, // must match user's active address.
+      value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+      data: encoded
+    };
+
+    const txHash = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+    });
+    getAccount();
+
+}
+
+async function getTimeClaimAndReward(){
+
+    // testnet
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    var timeClaim = await monsterContract.methods.getTimeClaim(myAddress).call();
+    var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();
+
+    if( Number(Math.floor($.now()/1000)) < Number(timeClaim)){
+        totalSeconds =  Math.floor(timeClaim-($.now()/1000 ));
+        hours = Math.floor(totalSeconds / 3600);
+        totalSeconds %= 3600;
+        minutes = Math.floor(totalSeconds / 60);
+        seconds = totalSeconds % 60;
+        $(".time_claim").text(hours +" : "+ minutes+" : "+ seconds );
+        $(".money_claim").text(rewardClaim);
+        $(".btn-claim").addClass("disable-click-claim");
+
+    }else{
+        $(".btn-claim").removeClass("disable-click-claim");
+
+        $(".time_claim").text("0 : 0 : 0");
+        $(".money_claim").text(rewardClaim);
+
+    }
+}
+
+$('.btn-claim').on('click',function () {
+    claim();
+
+
+});
+// async function getRewardClaim(address){
+//     // testnet
+//     const web3 = new Web3(DATASEED);
+//
+//     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+//
+//     var rewardClaim = await monsterContract.methods.getRewardClaim(address).call();
+//
+//     console.log(rewardClaim);
+// }
+
+
+setInterval(getTimeClaimAndReward, 1000);
 
 
