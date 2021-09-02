@@ -93,7 +93,7 @@ async function loadMarket(){
 	myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
 
 	marketSize = await petNFTContract.methods.balanceOf(PETNFT).call();
-	
+	countPetHack = 0;
 	if(marketSize == 0)
 	{
 		$(".image-load").attr("style","display:none");
@@ -121,7 +121,6 @@ async function readMarket(from, to, sender){
 
 	    var checkNft = await banContract.methods.checkNftHack(petNFTInfo['nftId']).call();
 
-	    console.log("CHECK"+checkAddr+"."+checkNft);
 
 	    if (!checkAddr && !checkNft){
 			lstPetSale.push(petNFTInfo);

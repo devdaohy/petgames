@@ -16,6 +16,10 @@
     var count_btn_updateprice=0;
     var count_btn_cancelorder=0;
     var count_btn_transfer=0;
+    var countPetHackMyPetInWallet = 0;
+    var countPetHackMyPetInMarket = 0;
+
+    var banContract = "";
     $(".store .container").on("click",".gallery-item", function () {
         var label = $(".modal-title");
         var img = $(".showcase-img");
@@ -363,7 +367,10 @@
         petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
 
         myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
-        console.log(myBalance);
+        banContract =  new web3.eth.Contract(bannedAbi, PETGAMESBANNED);
+        countPetHackMyPetInWallet = 0;
+        var checkAddr = await banContract.methods.checkBanAddress(petNFTInfo['nftOwner']).call();
+
 
         if(myBalance == 0 )
         { $(".scarce-2").removeAttr("disabled");
@@ -371,7 +378,10 @@
         }
 
         for(let from=0;from<myBalance;){
-
+            if(checkAddr)
+            {
+                break;
+            }
             to = Math.min(from+6, myBalance);
             readMyPet(from, to, myAddress,updateAfterTransaction);
             from = to;
@@ -384,11 +394,19 @@
 
             var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
 
-            lstMyPet.push(petNFTInfo);
+            var checkNft = await banContract.methods.checkNftHack(petNFTInfo['nftId']).call();
+
+            if(!checkNft)
+            {
+                lstMyPet.push(petNFTInfo);
+
+            }else{
+                countPetHackMyPetInWallet++;
+            }
 
         }
 
-        if(lstMyPet.length == myBalance){
+        if(lstMyPet.length == myBalance - Number(countPetHackMyPetInWallet)){
             lstMyPet.sort(sortByNftId);
             if(updateAfterTransaction ==1)
             {
@@ -420,7 +438,16 @@
 
     yourSaleSize = await petNFTContract.methods.yourSaleSize(myAddress).call();
 
+    banContract =  new web3.eth.Contract(bannedAbi, PETGAMESBANNED);
+    countPetHackMyPetInMarket = 0;
+    var checkAddr = await banContract.methods.checkBanAddress(petNFTInfo['nftOwner']).call();
+
+
     for(let from=0;from<yourSaleSize;){
+        if(checkAddr)
+        {
+            break;
+        }
         to = Math.min(from+6, yourSaleSize);
         readMyPetMarket(from, to, myAddress,updateAfterTransaction);
         from = to;
@@ -434,10 +461,16 @@
 
         var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
 
+        var checkNft = await banContract.methods.checkNftHack(petNFTInfo['nftId']).call();
+
+        if(!checkNft){
             lstMyPetMarket.push(petNFTInfo);
+        }else{
+            countPetHackMyPetInMarket++;
+        }
     }
 
-    if(lstMyPetMarket.length == yourSaleSize){
+    if(lstMyPetMarket.length == yourSaleSize - Number(countPetHackMyPetInMarket)){
 
         lstMyPetMarket.sort(sortByNftId);
 

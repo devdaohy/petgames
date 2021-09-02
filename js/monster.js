@@ -245,6 +245,9 @@ async function getFightResult(web3, txHash, monsterContract){
 var lstMyPet = new Array();
 var lstMyPetD = new Array();
 var lstMyPetTimeFight = new Array();
+var countPetHack = 0;
+
+var banContract = "";
 
 loadMyPet();
 
@@ -264,8 +267,14 @@ async function loadMyPet(){
 
     myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
 
+    banContract =  new web3.eth.Contract(bannedAbi, PETGAMESBANNED);
+    countPetHack = 0;
+    var checkAddr = await banContract.methods.checkBanAddress(petNFTInfo['nftOwner']).call();
 
     for(let from=0;from<myBalance;){
+        if(checkAddr){
+            break;
+        }
         to = Math.min(from+6, myBalance);
         readMyPet(from, to, myAddress);
         from = to;
@@ -273,22 +282,21 @@ async function loadMyPet(){
 }
 async function readMyPet(from, to, sender){
     for(let i = from; i < to; i++){
-
-
         var nftId = await petNFTContract.methods.tokenOfOwnerByIndex(sender, Number(i)).call();
-
         var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
+        var checkNft = await banContract.methods.checkNftHack(petNFTInfo['nftId']).call();
 
+        if (!checkNft){
             lstMyPetD.push(petNFTInfo);
-
-
-        if(petNFTInfo['active'] == true)
-        {
+            if(petNFTInfo['active'] == true)
+            {
                 lstMyPet.push(petNFTInfo);
+            }
+        }else{
+            countPetHack ++;
         }
-
     }
-    if(lstMyPetD.length == myBalance){
+    if(lstMyPetD.length == myBalance- Number(countPetHack)){
 
         lstMyPet.sort(sortByNftId);
 
@@ -313,12 +321,8 @@ async function forLstMyPet() {
             content +="  <div class=\"item\">\n" +
                 "                <div class=\"row items-container\">";
         }
-
-            content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
-            content +=" </div>\n" +
-                "\n" +
-                "\n" +
-                "            </div>";
+        content += pet(1,petNFTInfo['exp'],petNFTInfo['tribe'],petNFTInfo['scarce'],encryptAccount(petNFTInfo['nftOwner']),petNFTInfo['salePrice'],petNFTInfo['active'],petNFTInfo['nftId'],"")
+        content +=" </div>\n" + "\n" + "\n" + "</div>";
         count++;
         $(".carousel-inner").append(content);
 
@@ -331,11 +335,7 @@ async function forLstMyPet() {
             rewardFightMonster(petNFTInfo['nftId'],4);
 
         }
-
-
     }
-
-
 }
 
 
