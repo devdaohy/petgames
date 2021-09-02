@@ -33,7 +33,7 @@
 <div class="container" style="margin-top: 0px " >
 
 <div class="row" id="play" >
-    <h2 style="margin-bottom: 0px">MONSTER V3</h2>
+    <h2 style="margin-bottom: 0px">MONSTER </h2>
 
 </div>
     <div class="row items-container bottom-wrapper">
