@@ -11,9 +11,16 @@
                 <label class="time_claim"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim"></label>
                 <label><img src="img/logo.png" style="width:25px"></label>
-                <label>Fee : 10%</label>
-                <a class="btn-claim" style="text-decoration: none;margin-right: 20px">
+                <label style="border-left: 2px solid black; padding-left: 4px">Fee :</label>
+                <label class="fee"> </label>
+                <a class="btn-claim-group btn-claim" style="padding:0px 49px;text-decoration: none;font-size: 24px;margin-right: 6px;">
                     Claim
+                </a>
+                <a class="btn-claim-group btn-buyboxwithreward" style="padding:0px 16px;text-decoration: none;font-size: 24px;margin-right: 6px;">
+                    🥚&nbsp;Buy&nbsp;eggs
+                </a>
+                <a href="v2monster" class="btn-claim-group" style="padding: 0 22px;text-decoration: none;margin-right: 20px;font-size: 24px">
+                    Monster&nbsp;v2
                 </a>
                 </span>
                 <span class="button-game-bg-right-buy"></span>

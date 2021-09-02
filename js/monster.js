@@ -476,15 +476,11 @@ else if (width >= 600 && width <= 1024) {
     $(".item1-1")
         .removeClass("col-sm-4 col-sm-6 col-xs-6 col-xs-12")
         .addClass("col-sm-6 col-xs-6");
-
-
 }
 else{
     $(".item1-1")
         .removeClass("col-sm-4 col-sm-6 col-xs-12 col-xs-12")
         .addClass("col-sm-4 col-xs-6");
-
-
 }
 
 $(window)
@@ -512,8 +508,6 @@ $(window)
         }
     }).resize();
 
-
-
 async function claim(){
 
     const web3 = new Web3(DATASEED);
@@ -539,15 +533,14 @@ async function claim(){
         receipt = await web3.eth.getTransactionReceipt(txHash);
         if (receipt != null) break;
     }
-
     if (receipt.status == true){
-        getAccount();
+        getDialog("CLAIM "+" DONE !");
 
+        getAccount();
     }else{
         $(".shop-modal").attr("style","display:none");
         getDialog("CLAIM "+" FAIL !");
     }
-
 }
 
 async function getTimeClaimAndReward(){
@@ -561,11 +554,9 @@ async function getTimeClaimAndReward(){
 
     var timeClaim = await monsterContract.methods.getTimeClaim(myAddress).call();
     var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();
-    var feeClaim = await monsterContract.methods.getFeeClaim(myAddress).call();
+    // var feeClaim = await monsterContract.methods.getFeeClaim(myAddress).call();
     var feePercent = await monsterContract.methods.getFeePercent(myAddress).call();
 
-    console.log("fee claim" + feeClaim);
-    console.log("fee percent" + feePercent);
 
     if( Number(Math.floor($.now()/1000)) < Number(timeClaim)){
         totalSeconds =  Math.floor(timeClaim-($.now()/1000 ));
@@ -575,36 +566,18 @@ async function getTimeClaimAndReward(){
         seconds = totalSeconds % 60;
         $(".time_claim").text(hours +" : "+ minutes+" : "+ seconds );
         $(".money_claim").text(rewardClaim);
-        //$(".btn-claim").addClass("disable-click-claim");
+        $(".fee").text(feePercent +"%");
 
     }else{
-        //$(".btn-claim").removeClass("disable-click-claim");
 
         $(".time_claim").text("0 : 0 : 0");
         $(".money_claim").text(rewardClaim);
+        $(".fee").text(feePercent +"%");
 
     }
 }
 
-$('.btn-claim').on('click',function () {
-    claim();
-
-
-});
-// async function getRewardClaim(address){
-//     // testnet
-//     const web3 = new Web3(DATASEED);
-//
-//     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
-//
-//     var rewardClaim = await monsterContract.methods.getRewardClaim(address).call();
-//
-//     console.log(rewardClaim);
-// }
-
-
 setInterval(getTimeClaimAndReward, 1000);
-
 
 async function buyBoxWithReward(){
 
@@ -633,6 +606,8 @@ async function buyBoxWithReward(){
     }
 
     if (receipt.status == true){
+        getDialog("BUY EGG RANDOM "+" DONE !");
+
         getAccount();
 
     }else{
@@ -641,3 +616,10 @@ async function buyBoxWithReward(){
     }
 
 }
+
+$('.btn-claim').on('click',function () {
+    claim();
+});
+$('.btn-buyboxwithreward').on('click',function () {
+    buyBoxWithReward();
+});

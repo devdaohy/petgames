@@ -11,11 +11,10 @@
                 <label class="time_claim"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim"></label>
                 <label><img src="img/logo.png" style="width:25px"></label>
-                <a class="btn-claim" style="text-decoration: none;margin-right: 20px">
+                <a class="btn-claim-group btn-claim" style="padding:0px 49px;text-decoration: none;font-size: 24px;margin-right: 6px;">
                     Claim
                 </a>
-                </span>
-                <span class="button-game-bg-right-buy"></span>
+
                 </a>
             </div>
         </div>
@@ -24,22 +23,22 @@
 </div>
 <div class="container" style="margin-top: 0px " >
 
-<div class="row" id="play" >
-    <h2 style="margin-bottom: 0px">MONSTER V2</h2>
 
+
+
+
+    </section>
 </div>
-    
-
 
 <?php  include "footer.php"?>
 <script>
-        $(document).ready(function (){
+    $(document).ready(function (){
 
-            $('#multi-item-example').on('slide.bs.carousel', function () {
-        $(".carousel").carousel('pause')
-            })
-        });
-        var page =1;
+        $('#multi-item-example').on('slide.bs.carousel', function () {
+            $(".carousel").carousel('pause')
+        })
+    });
+    var page =1;
 
 </script>
 <script type="text/javascript" src="js/loadpet.js?t=<?php echo  time();?>" ></script>
