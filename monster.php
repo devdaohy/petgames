@@ -11,6 +11,7 @@
                 <label class="time_claim"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim"></label>
                 <label><img src="img/logo.png" style="width:25px"></label>
+                <label>Fee : 10%</label>
                 <a class="btn-claim" style="text-decoration: none;margin-right: 20px">
                     Claim
                 </a>
@@ -25,7 +26,7 @@
 <div class="container" style="margin-top: 0px " >
 
 <div class="row" id="play" >
-    <h2 style="margin-bottom: 0px">MONSTER</h2>
+    <h2 style="margin-bottom: 0px">MONSTER V3</h2>
 
 </div>
     <div class="row items-container bottom-wrapper">

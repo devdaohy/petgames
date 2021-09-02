@@ -55,7 +55,7 @@ async function expFightMonster(monsterLv){
     // testnet
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTERV2);
 
     var expFight = await monsterContract.methods._expFightMonster1(monsterLv).call();
 
@@ -100,7 +100,7 @@ async function rewardFightMonster(nftId, monsterLv){
     // testnet
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTERV2);
 
     rewardFight = await monsterContract.methods._rewardFightMonster1(nftId, monsterLv).call();
 
@@ -148,7 +148,7 @@ async function getTimeFightMonster1(nftId){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTERV2);
 
     timeFight = await monsterContract.methods.getTimeFightMonster1(nftId).call();
     if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
@@ -179,13 +179,13 @@ async function fightMonster(nftId, monsterLv){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTERV2);
 
     encoded = monsterContract.methods.fightMonster1(nftId, monsterLv).encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
-      to: MONSTER, // Required except during contract publications.
+      to: MONSTERV2, // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
       value: '0x00', // Only required to send ether to the recipient from the initiating external account.
       data: encoded
@@ -518,13 +518,13 @@ async function claim(){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTERV2);
 
     encoded = monsterContract.methods.claimReward().encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
-      to: MONSTER, // Required except during contract publications.
+      to: MONSTERV2, // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
       value: '0x00', // Only required to send ether to the recipient from the initiating external account.
       data: encoded
@@ -557,15 +557,10 @@ async function getTimeClaimAndReward(){
     myAddress = accounts[0];
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTERV2);
 
     var timeClaim = await monsterContract.methods.getTimeClaim(myAddress).call();
     var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();
-    var feeClaim = await monsterContract.methods.getFeeClaim(myAddress).call();
-    var feePercent = await monsterContract.methods.getFeePercent(myAddress).call();
-
-    console.log("fee claim" + feeClaim);
-    console.log("fee percent" + feePercent);
 
     if( Number(Math.floor($.now()/1000)) < Number(timeClaim)){
         totalSeconds =  Math.floor(timeClaim-($.now()/1000 ));
@@ -575,10 +570,10 @@ async function getTimeClaimAndReward(){
         seconds = totalSeconds % 60;
         $(".time_claim").text(hours +" : "+ minutes+" : "+ seconds );
         $(".money_claim").text(rewardClaim);
-        //$(".btn-claim").addClass("disable-click-claim");
+        $(".btn-claim").addClass("disable-click-claim");
 
     }else{
-        //$(".btn-claim").removeClass("disable-click-claim");
+        $(".btn-claim").removeClass("disable-click-claim");
 
         $(".time_claim").text("0 : 0 : 0");
         $(".money_claim").text(rewardClaim);
@@ -606,38 +601,3 @@ $('.btn-claim').on('click',function () {
 setInterval(getTimeClaimAndReward, 1000);
 
 
-async function buyBoxWithReward(){
-
-    const web3 = new Web3(DATASEED);
-
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
-
-    encoded = monsterContract.methods.buyBoxWithReward().encodeABI();
-
-    const transactionParameters = {
-      nonce: '0x00', // ignored by MetaMask
-      to: MONSTER, // Required except during contract publications.
-      from: ethereum.selectedAddress, // must match user's active address.
-      value: '0x00', // Only required to send ether to the recipient from the initiating external account.
-      data: encoded
-    };
-
-    const txHash = await ethereum.request({
-        method: 'eth_sendTransaction',
-        params: [transactionParameters],
-    });
-    var receipt;
-    while(1){
-        receipt = await web3.eth.getTransactionReceipt(txHash);
-        if (receipt != null) break;
-    }
-
-    if (receipt.status == true){
-        getAccount();
-
-    }else{
-        $(".shop-modal").attr("style","display:none");
-        getDialog("BUY EGG "+" FAIL !");
-    }
-
-}
