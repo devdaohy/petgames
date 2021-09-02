@@ -10,6 +10,10 @@ var scarce = 0;
 var count_btn_buy_order=0;
 var count_btn_cancel_order = 0;
 page=1;
+var countPetHack = 0;
+
+var banContract = "";
+
 
 
 
@@ -64,25 +68,6 @@ $(".refresh-page").on("click", "",function () {
 getApprove();
 loadMarket();
 
-checkBan();
-
-async function checkBan(){
-
-    const web3 = new Web3(DATASEED);
-    
-    banContract = new web3.eth.Contract(bannedAbi, PETGAMESBANNED);
-    
-    bool checkAddr = await banContract.methods.checkBanAddress('0x55975829D8132c4392C294239Af6F66F6674d527').call();
-
-    bool checkNft = await banContract.methods.checkNftHack(7746).call();
-
-    console.log(checkAddr);
-
-    console.log(checkNft);
-
-}
-
-
 async function loadMarket(){
 	// testnet
 	getAccount();
@@ -102,10 +87,13 @@ async function loadMarket(){
 	const web3 = new Web3(DATASEED);
 
 	petNFTContract = new web3.eth.Contract(petNFTAbi, PETNFT);
+
+	banContract =  new web3.eth.Contract(bannedAbi, PETGAMESBANNED);
+
 	myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
 
 	marketSize = await petNFTContract.methods.balanceOf(PETNFT).call();
-	$("#amount-pet-sale").text(marketSize+" Pets For Sales");
+	
 	if(marketSize == 0)
 	{
 		$(".image-load").attr("style","display:none");
@@ -113,7 +101,7 @@ async function loadMarket(){
 	}
 	for(let from=0;from<marketSize;){
 
-		to = Math.min(from+4, marketSize);
+		to = Math.min(from+1, marketSize);
 		readMarket(from, to, PETNFT);
 		from = to;
 	}
@@ -121,18 +109,28 @@ async function loadMarket(){
 }
 
 async function readMarket(from, to, sender){
+
+
 	var content="";
 	for(let i = from; i < to; i++){
 		var nftId = await petNFTContract.methods.tokenOfOwnerByIndex(sender, Number(i)).call();
 
 		var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
 
+	    var checkAddr = await banContract.methods.checkBanAddress(petNFTInfo['nftOwner']).call();
 
+	    var checkNft = await banContract.methods.checkNftHack(petNFTInfo['nftId']).call();
 
-		lstPetSale.push(petNFTInfo);
+	    console.log("CHECK"+checkAddr+"."+checkNft);
+
+	    if (!checkAddr && !checkNft){
+			lstPetSale.push(petNFTInfo);
+		}else{
+			countPetHack ++;
+		}
 	}
 
-	if(lstPetSale.length == marketSize){
+	if(lstPetSale.length == marketSize - Number(countPetHack)){
 
 
 		lstPetSale.sort(sortFunction);
@@ -148,7 +146,7 @@ async function readMarket(from, to, sender){
 		$("#mySelectScarce").removeAttr("disabled");
 		$(".refresh-page").removeAttr("disabled");
 
-
+		$("#amount-pet-sale").text(marketSize - Number(countPetHack)+" Pets For Sales");
 	}
 }
 

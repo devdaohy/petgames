@@ -8,7 +8,7 @@
 <div class="container" style="margin-top: 2rem">
                     <div id="div_element"></div>
                     <div class="row" id="play">
-                        <h2>MARKETPLACE Maintenance</h2>
+                        <h2>MARKETPLACE</h2>
                         <h3 id="amount-pet-sale" style="text-align: center;margin-bottom: 0px"></h3>
 
                         <div>
