@@ -12,6 +12,7 @@ var count_btn_cancel_order = 0;
 page=1;
 
 
+
 $(".store .container").on("click",".gallery-item", function () {
 	var label = $("#myModalLabel");
 	var img = $("#showcase-img");
@@ -61,7 +62,26 @@ $(".refresh-page").on("click", "",function () {
 
 
 getApprove();
-// loadMarket();
+loadMarket();
+
+checkBan();
+
+async function checkBan(){
+
+    const web3 = new Web3(DATASEED);
+    
+    banContract = new web3.eth.Contract(bannedAbi, PETGAMESBANNED);
+    
+    bool checkAddr = await banContract.methods.checkBanAddress('0x55975829D8132c4392C294239Af6F66F6674d527').call();
+
+    bool checkNft = await banContract.methods.checkNftHack(7746).call();
+
+    console.log(checkAddr);
+
+    console.log(checkNft);
+
+}
+
 
 async function loadMarket(){
 	// testnet
@@ -106,6 +126,8 @@ async function readMarket(from, to, sender){
 		var nftId = await petNFTContract.methods.tokenOfOwnerByIndex(sender, Number(i)).call();
 
 		var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
+
+
 
 		lstPetSale.push(petNFTInfo);
 	}
@@ -543,3 +565,4 @@ $('#mySelectScarce').change(function(){
 		// forLstPetSale();
 
 });
+

@@ -606,7 +606,7 @@ async function buyBoxWithReward(){
     }
 
     if (receipt.status == true){
-        getDialog("BUY EGG RANDOM "+" DONE !");
+        getDialog("BUY RANDOM EGG"+" DONE !");
 
         getAccount();
 
