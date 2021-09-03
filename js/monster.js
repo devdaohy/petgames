@@ -269,7 +269,7 @@ async function loadMyPet(){
 
     banContract =  new web3.eth.Contract(bannedAbi, PETGAMESBANNED);
     countPetHack = 0;
-    var checkAddr = await banContract.methods.checkBanAddress(petNFTInfo['nftOwner']).call();
+    var checkAddr = await banContract.methods.checkBanAddress(myAddress).call();
 
     for(let from=0;from<myBalance;){
         if(checkAddr){

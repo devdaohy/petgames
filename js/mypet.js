@@ -369,7 +369,7 @@
         myBalance = await petNFTContract.methods.balanceOf(myAddress).call();
         banContract =  new web3.eth.Contract(bannedAbi, PETGAMESBANNED);
         countPetHackMyPetInWallet = 0;
-        var checkAddr = await banContract.methods.checkBanAddress(petNFTInfo['nftOwner']).call();
+        var checkAddr = await banContract.methods.checkBanAddress(myAddress).call();
 
 
         if(myBalance == 0 )
@@ -440,7 +440,7 @@
 
     banContract =  new web3.eth.Contract(bannedAbi, PETGAMESBANNED);
     countPetHackMyPetInMarket = 0;
-    var checkAddr = await banContract.methods.checkBanAddress(petNFTInfo['nftOwner']).call();
+    var checkAddr = await banContract.methods.checkBanAddress(myAddress).call();
 
 
     for(let from=0;from<yourSaleSize;){
