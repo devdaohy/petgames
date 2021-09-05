@@ -765,9 +765,6 @@ async function getBonus(){
     var bonus = await monsterContract.methods.getBonusPercent(myAddress).call();
 
     $(".bonus").text(bonus);
-
-
-
 }
 $(".btn-update-super-mode").on("click", function () {
     updateSuperMode(Number($("#mySelectLevel").val()));
