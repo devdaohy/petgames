@@ -40,7 +40,7 @@
             </div>
             <br>
             <div style="font-size:20px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
-                <select id="mySelectLevel" style="width: 120px;border-radius: 15px">
+                <select id="mySelectLevel" style="font-size: 19px;width: 120px;border-radius: 15px">
                     <option value="0">All level </option>
                     <option value="1">Level 1</option>
                     <option value="2">Level 2</option>
