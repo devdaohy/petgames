@@ -7,9 +7,8 @@
     <div class="row" style="margin: 4px">
         <div style="text-align: center;">
             <div style="font-size:20px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
-                <label>Countdown : </label>
                 <label class="time_claim"></label>
-                <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim"></label>
+                <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim">&nbsp;</label>
                 <label><img src="img/logo.png" style="width:25px"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px">Fee :</label>
                 <label class="fee"> </label>
@@ -24,9 +23,8 @@
             </div>
             <br>
             <div style="font-size:20px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
-                <label>Countdown : </label>
                 <label class="time_claim_2"></label>
-                <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim_2"></label>
+                <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim_2">&nbsp;</label>
                 <label><img src="img/logox.png" style="width:28px"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px">Fee :</label>
                 <label class="fee_2"> </label>
@@ -40,19 +38,12 @@
             </div>
             <br>
             <div style="font-size:20px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
-                <select id="mySelectLevel" style="font-size: 19px;width: 120px;border-radius: 15px">
-                    <option value="0">All level </option>
+                <select id="mySelectLevel" disabled style="font-size: 19px;width: 120px;border-radius: 15px">
                     <option value="1">Level 1</option>
-                    <option value="2">Level 2</option>
-                    <option value="3">Level 3</option>
-                    <option value="4">Level 4</option>
-                    <option value="5">Level 5</option>
-                    <option value="6">Level 6</option>
-                    <option value="7">Level 7</option>
-                    <option value="8">Level 8</option>
+
                 </select>
 
-                <a class="btn-claim-group btn-claim" style="padding:9px 10px;text-decoration: none;font-size: 18px;margin-right: 6px;">
+                <a class="btn-claim-group btn-update-super-mode" style="padding:9px 10px;text-decoration: none;font-size: 18px;margin-right: 6px;">
                     Update&nbsp;super&nbsp;mode
                 </a>
                 <label style="border-left: 2px solid black; padding-left: 4px">Bonus: </label>

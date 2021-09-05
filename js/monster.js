@@ -1,5 +1,6 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 getTimeClaimAndReward();
+getTimeClaimAndReward2();
 
 // $("#shop-modal-fight").modal('toggle');
 // $("#shop-modal-win").modal('toggle');
@@ -549,8 +550,6 @@ async function claim(){
         getDialog("CLAIM "+" FAIL !");
     }
 }
-
-
 async function claim2(){
 
     const web3 = new Web3(DATASEED);
@@ -597,8 +596,6 @@ async function getTimeClaimAndReward(){
 
     var timeClaim = await monsterContract.methods.getTimeClaim(myAddress).call();
 
-    console.log(timeClaim);
-
     var rewardClaim = await monsterContract.methods.getWalletBalance(myAddress).call();
     // var feeClaim = await monsterContract.methods.getFeeClaim(myAddress).call();
     var feePercent = await monsterContract.methods.getFeePercent(myAddress, 1).call();
@@ -622,8 +619,42 @@ async function getTimeClaimAndReward(){
 
     }
 }
+async function getTimeClaimAndReward2(){
+
+    // testnet
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
+
+    var timeClaim = await monsterContract.methods.getTimeClaim2(myAddress).call();
+    var rewardClaim = await monsterContract.methods.getWallet2Balance(myAddress).call();
+    // var feeClaim = await monsterContract.methods.getFeeClaim(myAddress).call();
+    var feePercent = await monsterContract.methods.getFeePercent(myAddress, 2).call();
+
+
+    if( Number(Math.floor($.now()/1000)) < Number(timeClaim)){
+        totalSeconds =  Math.floor(timeClaim-($.now()/1000 ));
+        hours = Math.floor(totalSeconds / 3600);
+        totalSeconds %= 3600;
+        minutes = Math.floor(totalSeconds / 60);
+        seconds = totalSeconds % 60;
+        $(".time_claim_2").text(hours +" : "+ minutes+" : "+ seconds );
+        $(".money_claim_2").text(rewardClaim);
+        $(".fee_2").text(feePercent +"%");
+
+    }else{
+
+        $(".time_claim_2").text("0 : 0 : 0");
+        $(".money_claim_2").text(rewardClaim);
+        $(".fee_2").text(feePercent +"%");
+
+    }
+}
 
 setInterval(getTimeClaimAndReward, 1000);
+setInterval(getTimeClaimAndReward2, 1000);
 
 async function buyBoxWithReward(){
 
@@ -662,8 +693,6 @@ async function buyBoxWithReward(){
     }
 
 }
-
-
 async function buyTicket(){
 
     const web3 = new Web3(DATASEED);
@@ -710,45 +739,19 @@ $('.btn-buyboxwithreward').on('click',function () {
 });
 
 $('.btn-claim-2').on('click',function () {
-    claim();
+    claim2();
 });
 $('.btn-buy-ticket').on('click',function () {
     buyTicket();
 });
 
-async function getTimeClaimAndReward2(){
-
-    // testnet
-    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
-    myAddress = accounts[0];
-    const web3 = new Web3(DATASEED);
-
-    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
-
-    var timeClaim = await monsterContract.methods.getTimeClaim2(myAddress).call();
-    var rewardClaim = await monsterContract.methods.getWallet2Balance(myAddress).call();
-    // var feeClaim = await monsterContract.methods.getFeeClaim(myAddress).call();
-    var feePercent = await monsterContract.methods.getFeePercent(myAddress, 2).call();
-
-
-    if( Number(Math.floor($.now()/1000)) < Number(timeClaim)){
-        totalSeconds =  Math.floor(timeClaim-($.now()/1000 ));
-        hours = Math.floor(totalSeconds / 3600);
-        totalSeconds %= 3600;
-        minutes = Math.floor(totalSeconds / 60);
-        seconds = totalSeconds % 60;
-        $(".time_claim_2").text(hours +" : "+ minutes+" : "+ seconds );
-        $(".money_claim_2").text(rewardClaim);
-        $(".fee_2").text(feePercent +"%");
-
-    }else{
-
-        $(".time_claim_2").text("0 : 0 : 0");
-        $(".money_claim_2").text(rewardClaim);
-        $(".fee_2").text(feePercent +"%");
-
-    }
-}
+getBonus();
+getMaxSuperModeLv();
+checkLockWallet(1);
+checkLockWallet(2);
+setInterval(getBonus,1000);
+setInterval(checkLockWallet(1),1000);
+setInterval(checkLockWallet(2),1000);
 
 async function getBonus(){
 
@@ -761,27 +764,40 @@ async function getBonus(){
 
     var bonus = await monsterContract.methods.getBonusPercent(myAddress).call();
 
-    console.log(bonus)
+    $(".bonus").text(bonus);
 
 
 }
-
+$(".btn-update-super-mode").on("click", function () {
+    updateSuperMode(Number($("#mySelectLevel").val()));
+});
 async function getMaxSuperModeLv(){
-
-    // testnet
     const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
     myAddress = accounts[0];
     const web3 = new Web3(DATASEED);
-
     monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
-
-    //max
     maxSuperModeLv = await monsterContract.methods.maxSuperModeLv().call();
 
-    //now
-    superModeLv = await monsterContract.methods.getSuperModeLv(myAddress).call();
+    $('#mySelectLevel').find('option').remove().end()
 
-    console.log(maxSuperModeLv)
+    for(i=1;i<= maxSuperModeLv;i++){
+        $("#mySelectLevel").append('<option value='+i+'>Level '+i+'</option>');
+    }
+    $("#mySelectLevel").removeAttr("disabled");
+    getSuperModelLv();
+
+}
+async function getSuperModelLv(){
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+    const web3 = new Web3(DATASEED);
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
+    // maxSuperModeLv = await monsterContract.methods.maxSuperModeLv().call();
+
+    superModeLv = await monsterContract.methods.getSuperModeLv(myAddress).call();
+    if(Number(superModeLv) ==0) superModeLv=1;
+    $(".super_mode_now").text(superModeLv);
+    $('#mySelectLevel option[value="'+superModeLv+'"]').attr('selected','selected');
 
 }
 
@@ -813,33 +829,45 @@ async function updateSuperMode(lv){
     }
 
     if (receipt.status == true){
-        getDialog("BUY TICKET"+" DONE !");
-
+        getDialog("UPDATE SUPER MODE"+" DONE !");
+        var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
+        rewardFightMonster(nft_id,1);
+        rewardFightMonster(nft_id,2);
+        rewardFightMonster(nft_id,3);
+        rewardFightMonster(nft_id,4);
         getAccount();
-
+        getMaxSuperModeLv();
     }else{
         $(".shop-modal").attr("style","display:none");
-        getDialog("BUY TICKET "+" FAIL !");
+        getDialog("UPDATE SUPER MODE "+" FAIL !");
     }
 
 }
 
 
-async function checkLockWallet(address, number){
+async function checkLockWallet(number){
 
     const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
     myAddress = accounts[0];
     const web3 = new Web3(DATASEED);
-
     monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
+    flag = await monsterContract.methods.checkLockWallet(myAddress, number).call();
+    console.log(flag);
+    if(number==1)
+    {
+     if(flag==false){
+         $(".btn-claim").removeClass(" disable-click-claim");
+     }else{
+         $(".btn-claim").addClass(" disable-click-claim");
 
-    //max
-    flag = await monsterContract.methods.checkLockWallet(address, number).call();
-
-
-
+     }
+    }else{
+        if(flag==false){
+            $(".btn-claim-2").removeClass(" disable-click-claim");
+        }else{
+            $(".btn-claim-2").addClass(" disable-click-claim");
+        }
+    }
 }
 
-
-setInterval(getTimeClaimAndReward2, 1000);
 
