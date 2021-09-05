@@ -3738,10 +3738,13 @@ async function getAccount() {
 	myBalance = myBalance/1000000000000000000;
 	myBalance = Math.floor(myBalance);
 
-	console.log(myBalance2);
+	myBalance2 = myBalance2/1000000000000000000;
+	myBalance2 = Math.floor(myBalance2);
 
 	//$("#my-balance img").clear();
 	$("#my-balance").html(myBalance + "<img src=\"img/logo.png\" style=\"width:35px;margin-left: 10px\">");
+
+	$("#my-balance-2").html(myBalance2 + "<img src=\"img/logox.png\" style=\"width:35px;margin-left: 10px\">");
 }
 
 function encryptAccount(account){

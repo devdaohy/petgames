@@ -97,12 +97,12 @@
 
                             </li>
                             <li style="border-left: 2px dashed #d45f42;padding-left: 15px">
-                                <p style="text-align: center;font-size:25px;line-height: 30px;margin: 0px" id="my-balance"> <img src="img/logo.png" style="width:35px;margin-left: 10px"></p>
+                                <p style="text-align: center;font-size:25px;line-height: 30px;margin: 0px" id="my-balance-2"> <img src="img/logo.png" style="width:35px;margin-left: 10px"></p>
 
                             </li>
                             <li style="padding-left: 15px">
                                 <a  href="https://pancakeswap.finance/swap?inputCurrency=BNB&outputCurrency=0x09607078980cbb0665aba9c6d1b84b8ead246aa0" target="_blank" class="btn-game-buypets" style="text-decoration: none;margin-right: 20px">
-                                    Buy PETG
+                                    Buy PETX
                                 </a>
 
                             </li>

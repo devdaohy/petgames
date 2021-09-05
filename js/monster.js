@@ -76,7 +76,7 @@ $(".carousel-control-next-icon").on("click",function () {
         rewardFightMonster(nft_id,2);
         rewardFightMonster(nft_id,3);
         rewardFightMonster(nft_id,4);
-        getTimeFightMonster1(nft_id);
+        getTimeFightMonster(nft_id);
     }, 700);
 });
 
@@ -91,7 +91,7 @@ $(".carousel-control-prev-icon").on("click",function () {
         rewardFightMonster(nft_id,2);
         rewardFightMonster(nft_id,3);
         rewardFightMonster(nft_id,4);
-        getTimeFightMonster1(nft_id);
+        getTimeFightMonster(nft_id);
     }, 700);
 });
 
@@ -100,9 +100,16 @@ async function rewardFightMonster(nftId, monsterLv){
     // testnet
     const web3 = new Web3(DATASEED);
 
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+
+
+
     monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
 
-    rewardFight = await monsterContract.methods._rewardFightMonster(nftId, monsterLv).call();
+    superModeLv = await monsterContract.methods.getSuperModeLv(myAddress).call();
+
+    rewardFight = await monsterContract.methods._rewardFightMonster(myAddress, nftId, monsterLv, Number(superModeLv)).call();
 
     $("#item-"+ monsterLv +" .info-monster tr:nth-child(3) td:nth-child(2)").text(Math.floor(0.75*rewardFight) +" - " + rewardFight);
 
@@ -144,13 +151,13 @@ async function updateRealTimeFight(){
 
 setInterval(updateRealTimeFight, 1000);
 
-async function getTimeFightMonster1(nftId){
+async function getTimeFightMonster(nftId){
 
     const web3 = new Web3(DATASEED);
 
     monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
 
-    timeFight = await monsterContract.methods.getTimeFightMonster1(nftId).call();
+    timeFight = await monsterContract.methods.getTimeFightMonster(nftId).call();
     if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
         totalSeconds =  Math.floor(timeFight-($.now()/1000 ));
         hours = Math.floor(totalSeconds / 3600);
@@ -198,7 +205,7 @@ async function fightMonster(nftId, monsterLv){
 
     await getFightResult(web3, txHash, monsterContract);
     $("#shop-modal-fight").modal('toggle');
-   await getTimeFightMonster1(nftId);
+   await getTimeFightMonster(nftId);
     getAccount();
 }
 
@@ -328,7 +335,7 @@ async function forLstMyPet() {
 
         if(i==0)
         {
-            await  getTimeFightMonster1(petNFTInfo['nftId']);
+            await  getTimeFightMonster(petNFTInfo['nftId']);
             rewardFightMonster(petNFTInfo['nftId'],1);
             rewardFightMonster(petNFTInfo['nftId'],2);
             rewardFightMonster(petNFTInfo['nftId'],3);
@@ -512,13 +519,49 @@ async function claim(){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
 
     encoded = monsterContract.methods.claimReward().encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
-      to: MONSTER, // Required except during contract publications.
+      to: MONSTERV4, // Required except during contract publications.
+      from: ethereum.selectedAddress, // must match user's active address.
+      value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+      data: encoded
+    };
+
+    const txHash = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+    });
+    var receipt;
+    while(1){
+        receipt = await web3.eth.getTransactionReceipt(txHash);
+        if (receipt != null) break;
+    }
+    if (receipt.status == true){
+        getDialog("CLAIM "+" DONE !");
+
+        getAccount();
+    }else{
+        $(".shop-modal").attr("style","display:none");
+        getDialog("CLAIM "+" FAIL !");
+    }
+}
+
+
+async function claim2(){
+
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
+
+    encoded = monsterContract.methods.claimReward().encodeABI();
+
+    const transactionParameters = {
+      nonce: '0x00', // ignored by MetaMask
+      to: MONSTERV4, // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
       value: '0x00', // Only required to send ether to the recipient from the initiating external account.
       data: encoded
@@ -553,6 +596,9 @@ async function getTimeClaimAndReward(){
     monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
 
     var timeClaim = await monsterContract.methods.getTimeClaim(myAddress).call();
+
+    console.log(timeClaim);
+
     var rewardClaim = await monsterContract.methods.getWalletBalance(myAddress).call();
     // var feeClaim = await monsterContract.methods.getFeeClaim(myAddress).call();
     var feePercent = await monsterContract.methods.getFeePercent(myAddress, 1).call();
@@ -583,9 +629,9 @@ async function buyBoxWithReward(){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterV4SupportAbi, MONSTERV4SUPPORT);
+    monsterSupportContract = new web3.eth.Contract(monsterV4SupportAbi, MONSTERV4SUPPORT);
 
-    encoded = monsterContract.methods.buyBoxWithReward().encodeABI();
+    encoded = monsterSupportContract.methods.buyBoxWithReward().encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
@@ -611,8 +657,47 @@ async function buyBoxWithReward(){
         getAccount();
 
     }else{
-        $(".shop-modal").attr("style","display:none");
+        // $(".shop-modal").attr("style","display:none");
         getDialog("BUY EGG "+" FAIL !");
+    }
+
+}
+
+
+async function buyTicket(){
+
+    const web3 = new Web3(DATASEED);
+
+    monsterSupportContract = new web3.eth.Contract(monsterV4SupportAbi, MONSTERV4SUPPORT);
+
+    encoded = monsterSupportContract.methods.buyTicket().encodeABI();
+
+    const transactionParameters = {
+      nonce: '0x00', // ignored by MetaMask
+      to: MONSTERV4SUPPORT, // Required except during contract publications.
+      from: ethereum.selectedAddress, // must match user's active address.
+      value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+      data: encoded
+    };
+
+    const txHash = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+    });
+    var receipt;
+    while(1){
+        receipt = await web3.eth.getTransactionReceipt(txHash);
+        if (receipt != null) break;
+    }
+
+    if (receipt.status == true){
+        getDialog("BUY TICKET"+" DONE !");
+
+        getAccount();
+
+    }else{
+        $(".shop-modal").attr("style","display:none");
+        getDialog("BUY TICKET "+" FAIL !");
     }
 
 }
@@ -623,3 +708,138 @@ $('.btn-claim').on('click',function () {
 $('.btn-buyboxwithreward').on('click',function () {
     buyBoxWithReward();
 });
+
+$('.btn-claim-2').on('click',function () {
+    claim();
+});
+$('.btn-buy-ticket').on('click',function () {
+    buyTicket();
+});
+
+async function getTimeClaimAndReward2(){
+
+    // testnet
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
+
+    var timeClaim = await monsterContract.methods.getTimeClaim2(myAddress).call();
+    var rewardClaim = await monsterContract.methods.getWallet2Balance(myAddress).call();
+    // var feeClaim = await monsterContract.methods.getFeeClaim(myAddress).call();
+    var feePercent = await monsterContract.methods.getFeePercent(myAddress, 2).call();
+
+
+    if( Number(Math.floor($.now()/1000)) < Number(timeClaim)){
+        totalSeconds =  Math.floor(timeClaim-($.now()/1000 ));
+        hours = Math.floor(totalSeconds / 3600);
+        totalSeconds %= 3600;
+        minutes = Math.floor(totalSeconds / 60);
+        seconds = totalSeconds % 60;
+        $(".time_claim_2").text(hours +" : "+ minutes+" : "+ seconds );
+        $(".money_claim_2").text(rewardClaim);
+        $(".fee_2").text(feePercent +"%");
+
+    }else{
+
+        $(".time_claim_2").text("0 : 0 : 0");
+        $(".money_claim_2").text(rewardClaim);
+        $(".fee_2").text(feePercent +"%");
+
+    }
+}
+
+async function getBonus(){
+
+    // testnet
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
+
+    var bonus = await monsterContract.methods.getBonusPercent(myAddress).call();
+
+    console.log(bonus)
+
+
+}
+
+async function getMaxSuperModeLv(){
+
+    // testnet
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
+
+    //max
+    maxSuperModeLv = await monsterContract.methods.maxSuperModeLv().call();
+
+    //now
+    superModeLv = await monsterContract.methods.getSuperModeLv(myAddress).call();
+
+    console.log(maxSuperModeLv)
+
+}
+
+
+async function updateSuperMode(lv){
+
+    const web3 = new Web3(DATASEED);
+
+    monsterSupportContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
+
+    encoded = monsterSupportContract.methods.updateSuperMode(lv).encodeABI();
+
+    const transactionParameters = {
+      nonce: '0x00', // ignored by MetaMask
+      to: MONSTERV4, // Required except during contract publications.
+      from: ethereum.selectedAddress, // must match user's active address.
+      value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+      data: encoded
+    };
+
+    const txHash = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+    });
+    var receipt;
+    while(1){
+        receipt = await web3.eth.getTransactionReceipt(txHash);
+        if (receipt != null) break;
+    }
+
+    if (receipt.status == true){
+        getDialog("BUY TICKET"+" DONE !");
+
+        getAccount();
+
+    }else{
+        $(".shop-modal").attr("style","display:none");
+        getDialog("BUY TICKET "+" FAIL !");
+    }
+
+}
+
+
+async function checkLockWallet(address, number){
+
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
+
+    //max
+    flag = await monsterContract.methods.checkLockWallet(address, number).call();
+
+
+
+}
+
+
+setInterval(getTimeClaimAndReward2, 1000);
+

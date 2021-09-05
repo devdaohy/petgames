@@ -55,8 +55,8 @@
                 <a class="btn-claim-group btn-claim" style="padding:9px 10px;text-decoration: none;font-size: 18px;margin-right: 6px;">
                     Update&nbsp;super&nbsp;mode
                 </a>
-                <label style="border-left: 2px solid black; padding-left: 4px">Bouns: </label>
-                <label class="bouns"></label>
+                <label style="border-left: 2px solid black; padding-left: 4px">Bonus: </label>
+                <label class="bonus"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px">Super&nbsp;model&nbsp;now: </label>
                 <label class="super_mode_now"></label>
             </div>
