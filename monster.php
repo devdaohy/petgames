@@ -3,7 +3,7 @@
 <link href="css/monster.css?t=<?php echo  time();?>" rel="stylesheet" />
 
 <!-- ============== STORE SECTION =============== -->
-<div class="container" style="padding: 2px 0px;margin-top: 5px">
+<div class="container " style="padding: 2px 0px;margin-top: 5px;padding: 2px 0px;background: url(img/creampaper.png) !important;">
     <div class="row" style="margin: 4px">
         <div style="text-align: center;">
             <div style="font-size:28px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
@@ -13,19 +13,49 @@
                 <label><img src="img/logo.png" style="width:25px"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px">Fee :</label>
                 <label class="fee"> </label>
-                <a class="btn-claim-group btn-claim" style="padding:0px 49px;text-decoration: none;font-size: 24px;margin-right: 6px;">
+                <a class="btn-claim-group btn-claim" style="padding:0px 50px;text-decoration: none;font-size: 20px;margin-right: 6px;">
                     Claim
                 </a>
-                <a class="btn-claim-group btn-buyboxwithreward" style="padding:0px 16px;text-decoration: none;font-size: 24px;margin-right: 6px;">
+                <a class="btn-claim-group btn-buyboxwithreward" style="padding:0px 24px;text-decoration: none;font-size: 20px;margin-right: 6px;">
                     🥚&nbsp;Buy&nbsp;eggs
                 </a>
-                <a href="v2monster" class="btn-claim-group" style="padding: 0 22px;text-decoration: none;margin-right: 20px;font-size: 24px">
-                    Monster&nbsp;v2
-                </a>
-                </span>
-                <span class="button-game-bg-right-buy"></span>
-                </a>
+
+
             </div>
+            <div style="font-size:28px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
+                <label>Countdown : </label>
+                <label class="time_claim"></label>
+                <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim"></label>
+                <label><img src="img/logo.png" style="width:25px"></label>
+                <label style="border-left: 2px solid black; padding-left: 4px">Fee :</label>
+                <label class="fee"> </label>
+                <a class="btn-claim-group btn-claim" style="padding:0px 50px;text-decoration: none;font-size: 20px;margin-right: 6px;">
+                    Claim
+                </a>
+
+            </div>
+            <div style="font-size:28px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
+                <select id="mySelectLevel" disabled style="width: 120px;border-radius: 15px">
+                    <option value="0">All level </option>
+                    <option value="1">Level 1</option>
+                    <option value="2">Level 2</option>
+                    <option value="3">Level 3</option>
+                    <option value="4">Level 4</option>
+                    <option value="5">Level 5</option>
+                    <option value="6">Level 6</option>
+                    <option value="7">Level 7</option>
+                    <option value="8">Level 8</option>
+                </select>
+
+                <a class="btn-claim-group btn-claim" style="padding:9px 10px;text-decoration: none;font-size: 18px;margin-right: 6px;">
+                    Update super mode
+                </a>
+                <label style="border-left: 2px solid black; padding-left: 4px">BOUNS : </label>
+                <label class="bouns"></label>
+                <label style="border-left: 2px solid black; padding-left: 4px">SUPER MODEL NOW : </label>
+                <label class="super_mode_now"></label>
+            </div>
+
         </div>
 
     </div>
