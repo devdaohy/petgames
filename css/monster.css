@@ -547,3 +547,8 @@
     pointer-events: none;
 
 }
+label{
+    font-family: "Changa", Verdana, sans-serif;
+    color: black;
+    font-weight: normal;
+}
