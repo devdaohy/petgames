@@ -55,9 +55,9 @@ async function expFightMonster(monsterLv){
     // testnet
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
 
-    var expFight = await monsterContract.methods._expFightMonster1(monsterLv).call();
+    var expFight = await monsterContract.methods._expFightMonster(monsterLv).call();
 
     $("#item-"+ monsterLv +" .info-monster tr:nth-child(4) td:nth-child(2)").text( Math.floor(0.75*expFight) +" - " + expFight);
 
@@ -100,9 +100,9 @@ async function rewardFightMonster(nftId, monsterLv){
     // testnet
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
 
-    rewardFight = await monsterContract.methods._rewardFightMonster1(nftId, monsterLv).call();
+    rewardFight = await monsterContract.methods._rewardFightMonster(nftId, monsterLv).call();
 
     $("#item-"+ monsterLv +" .info-monster tr:nth-child(3) td:nth-child(2)").text(Math.floor(0.75*rewardFight) +" - " + rewardFight);
 
@@ -148,7 +148,7 @@ async function getTimeFightMonster1(nftId){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
 
     timeFight = await monsterContract.methods.getTimeFightMonster1(nftId).call();
     if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
@@ -179,13 +179,13 @@ async function fightMonster(nftId, monsterLv){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
 
-    encoded = monsterContract.methods.fightMonster1(nftId, monsterLv).encodeABI();
+    encoded = monsterContract.methods.fightMonster(nftId, monsterLv).encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
-      to: MONSTER, // Required except during contract publications.
+      to: MONSTERV4, // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
       value: '0x00', // Only required to send ether to the recipient from the initiating external account.
       data: encoded
@@ -512,7 +512,7 @@ async function claim(){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTER);
 
     encoded = monsterContract.methods.claimReward().encodeABI();
 
@@ -550,12 +550,12 @@ async function getTimeClaimAndReward(){
     myAddress = accounts[0];
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterV4Abi, MONSTERV4);
 
     var timeClaim = await monsterContract.methods.getTimeClaim(myAddress).call();
-    var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();
+    var rewardClaim = await monsterContract.methods.getWalletBalance(myAddress).call();
     // var feeClaim = await monsterContract.methods.getFeeClaim(myAddress).call();
-    var feePercent = await monsterContract.methods.getFeePercent(myAddress).call();
+    var feePercent = await monsterContract.methods.getFeePercent(myAddress, 1).call();
 
 
     if( Number(Math.floor($.now()/1000)) < Number(timeClaim)){
@@ -583,13 +583,13 @@ async function buyBoxWithReward(){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterV4SupportAbi, MONSTERV4SUPPORT);
 
     encoded = monsterContract.methods.buyBoxWithReward().encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
-      to: MONSTER, // Required except during contract publications.
+      to: MONSTERV4SUPPORT, // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
       value: '0x00', // Only required to send ether to the recipient from the initiating external account.
       data: encoded
