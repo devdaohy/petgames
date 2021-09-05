@@ -6,7 +6,7 @@
 <div class="container " style="padding: 2px 0px;margin-top: 5px;padding: 2px 0px;background: url(img/creampaper.png) !important;">
     <div class="row" style="margin: 4px">
         <div style="text-align: center;">
-            <div style="font-size:18px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
+            <div style="font-size:20px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
                 <label>Countdown : </label>
                 <label class="time_claim"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim"></label>
@@ -22,7 +22,8 @@
 
 
             </div>
-            <div style="font-size:18px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
+            <br>
+            <div style="font-size:20px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
                 <label>Countdown : </label>
                 <label class="time_claim"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim"></label>
@@ -34,7 +35,8 @@
                 </a>
 
             </div>
-            <div style="font-size:18px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
+            <br>
+            <div style="font-size:20px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
                 <select id="mySelectLevel" style="width: 120px;border-radius: 15px">
                     <option value="0">All level </option>
                     <option value="1">Level 1</option>
