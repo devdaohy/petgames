@@ -27,11 +27,14 @@
                 <label>Countdown : </label>
                 <label class="time_claim"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim"></label>
-                <label><img src="img/logo.png" style="width:25px"></label>
+                <label><img src="img/logox.png" style="width:28px"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px">Fee :</label>
                 <label class="fee"> </label>
                 <a class="btn-claim-group btn-claim" style="padding:0px 50px;text-decoration: none;font-size: 20px;margin-right: 6px;">
                     Claim
+                </a>
+                <a class="btn-claim-group btn-claim" style="padding:0px 19px;text-decoration: none;font-size: 20px;margin-right: 6px;">
+                    🎟&nbsp;Buy&nbsp;Ticket
                 </a>
 
             </div>
