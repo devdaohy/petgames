@@ -101,7 +101,7 @@ async function loadMarket(){
 	}
 	for(let from=0;from<marketSize;){
 
-		to = Math.min(from+1, marketSize);
+		to = Math.min(from+2, marketSize);
 		readMarket(from, to, PETNFT);
 		from = to;
 	}
@@ -117,12 +117,12 @@ async function readMarket(from, to, sender){
 
 		var petNFTInfo = await petNFTContract.methods.getPetNFTInfo(nftId).call();
 
-	    var checkAddr = await banContract.methods.checkBanAddress(petNFTInfo['nftOwner']).call();
+	    //var checkAddr = await banContract.methods.checkBanAddress(petNFTInfo['nftOwner']).call();
 
 	    var checkNft = await banContract.methods.checkNftHack(petNFTInfo['nftId']).call();
 
 
-	    if (!checkAddr && !checkNft){
+	    if (!checkNft && petNFTInfo['isSale']){
 			lstPetSale.push(petNFTInfo);
 		}else{
 			countPetHack ++;
