@@ -444,7 +444,7 @@ function petInfo(active,price,exp,tribe,scarce,modalwalletormarket,id){
         "                                    <tr>\n" +
         "                                        <td colspan=\"2\">\n" +
         "                                            <p style='    background-color: #ff9900d1;\n" +
-        "    width: 46%;\n" +
+        "    width: 50%;\n" +
         "    text-align: center;\n" +
         "    margin: auto;\n" +
         "    border-radius: 10px;\n" +
