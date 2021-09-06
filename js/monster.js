@@ -1,5 +1,6 @@
 document.write('<script type="text/javascript" src="js/loadpet.js" ></script>');
 getTimeClaimAndReward();
+// $("#shop-modal-win .detail-info-pet").html("You win <br>Exp: "+3+"<br>Total reward: "+3+" PETG"+"<br>Locked reward: "+3+" PETG"+"<br>Unlocked reward: "+3+" PETG");
 
 // $("#shop-modal-fight").modal('toggle');
 // $("#shop-modal-win").modal('toggle');
@@ -227,10 +228,12 @@ async function getFightResult(web3, txHash, monsterContract){
     myAddress = accounts[0];
 
     lastFight = await monsterContract.methods.getLastFightMonster(myAddress).call();
-
+    console.log(lastFight);
     if(lastFight['win']==true){
         $("#shop-modal-win").modal('toggle');
         $("#shop-modal-win .detail-info-pet").html("You win <br>Exp: "+lastFight['exp']+"<br>Reward: "+lastFight['reward']+" PETG");
+        $("#shop-modal-win .detail-info-pet").html("You win <br>Exp: "+ lastFight['exp'] +"<br>Total reward: "+ lastFight['reward'] +" PETG"+"<br>Locked reward: "+ lastFight['rewardLock'] +" PETG"+"<br>Unlocked reward: "+ lastFight['rewardUnlock'] +" PETG");
+
     }else{
         $("#shop-modal-lose").modal('toggle');
         $("#shop-modal-lose .detail-info-pet").html("You lose <br>Exp: "+lastFight['exp']);
@@ -596,7 +599,7 @@ async function getRewardClaim(){
 
     var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();
     $('.current-reward').val(Number(rewardClaim));
-    $('.current-reward').width((15+(rewardClaim.toString().length + 1) * 10));
+    $('.current-reward').width((35+(rewardClaim.toString().length + 1) * 10)-1);
 
 
 }
@@ -651,7 +654,7 @@ $(".current-reward").keyup(function(event){
     if(Number($('.current-reward').val().length)==0)
     {
         $('.current-reward').val("0");
-        $('.current-reward').width((15+($('.current-reward').val().toString().length + 1) * 10));
+        $('.current-reward').width((35+($('.current-reward').val().toString().length + 1) * 10)-1);
 
     }
 });
