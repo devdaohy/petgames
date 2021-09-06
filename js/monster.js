@@ -515,13 +515,13 @@ $(window)
         }
     }).resize();
 
-async function claim(){
+async function claim(amount){
 
     const web3 = new Web3(DATASEED);
 
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
-    encoded = monsterContract.methods.claimReward().encodeABI();
+    encoded = monsterContract.methods.claimReward(amount).encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
@@ -585,6 +585,21 @@ async function getTimeClaimAndReward(){
 
     }
 }
+async function getRewardClaim(){
+
+    // testnet
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();
+    $('.current-reward').val(Number(rewardClaim));
+    $('.current-reward').width((15+(rewardClaim.toString().length + 1) * 10));
+
+
+}
 
 setInterval(getTimeClaimAndReward, 1000);
 
@@ -626,8 +641,52 @@ async function buyBoxWithReward(){
 
 }
 
+$(".current-reward").keyup(function(event){
+    $(".error-price-syntax").attr("style","display:none");
+    $(".error-0-claim").attr("style","display:none");
+    if($(".current-reward").val().charAt(0)=="0")
+    {
+        $(".current-reward").val($(".current-reward").val().slice(1,$(".current-reward").val().length));
+    }
+    if(Number($('.current-reward').val().length)==0)
+    {
+        $('.current-reward').val("0");
+        $('.current-reward').width((15+($('.current-reward').val().toString().length + 1) * 10));
+
+    }
+});
+if(Number($('.current-reward').val().length)==0)
+{
+    $('.current-reward').val("0");
+}
+
+$('.btn-max-reward-claim').on('click',function () {
+    getRewardClaim();
+});
+// $(".error-0-claim").clickOutsideThisElement(function() {
+//     $(".error-0-claim").attr("style","display:none");
+//
+// });
 $('.btn-claim').on('click',function () {
-    claim();
+    if($('.current-reward').val().toString().length==0)
+    {
+        $('.current-reward').val('0');
+    }else{
+        if(Number.isInteger(Number($('.current-reward').val())))
+        {
+            if(Number($('.current-reward').val()) ==0){
+                $(".error-0-claim").attr("style","display:block;color: red;font-size: 70%;");
+
+            } else{
+                claim(Number($('.current-reward').val()));
+            }
+        }
+        else{
+            $(".error-price-syntax").attr("style","display:block;color: red;font-size: 70%;");
+
+        }
+    }
+
 });
 $('.btn-buyboxwithreward').on('click',function () {
     buyBoxWithReward();

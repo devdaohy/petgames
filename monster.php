@@ -12,6 +12,10 @@
                 <label><img src="img/logo.png" style="width:25px"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px">Fee :</label>
                 <label class="fee"> </label>
+
+                <input type="text" style="padding-left:5px;width: 35px;border-bottom-left-radius:10px;border-top-left-radius: 10px " class="current-reward" value="" onkeyup="this.style.width = (15+(this.value.length + 1) * 10) + 'px';">
+                <button class="btn-max-reward-claim" style="margin-left: -6px;font-size: 18px;height: 34px;border: 2px solid black;border-left: 0px;border-top-right-radius: 10px;border-bottom-right-radius: 10px">MAX</button>
+
                 <a class="btn-claim-group btn-claim" style="padding:0px 50px;text-decoration: none;font-size: 20px;margin-right: 6px;">
                     Claim
                 </a>
@@ -22,6 +26,11 @@
 
             </div>
             <br>
+            <div>
+                <p class='error-price-syntax' style='margin-bottom: 0px;color: red;font-size: 70%;display: none'>Please enter only number</p>
+                <p class='error-0-claim' style='margin-bottom: 0px;color: red;font-size: 70%;display: none'>Please enter a number greater than 0</p>
+
+            </div>
             <div style="font-size:20px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
                 <label >Super&nbsp;model&nbsp;now: </label>
                 <select id="mySelectLevel" disabled style="font-size: 19px;width: 120px;border-radius: 15px">
