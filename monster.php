@@ -6,25 +6,32 @@
 <div class="container" style="padding: 2px 0px;margin-top: 5px">
     <div class="row" style="margin: 4px">
         <div style="text-align: center;">
-            <div style="font-size:28px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
-                <label>Countdown : </label>
+            <div style="font-size:20px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
                 <label class="time_claim"></label>
-                <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim"></label>
+                <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim">&nbsp;</label>
                 <label><img src="img/logo.png" style="width:25px"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px">Fee :</label>
                 <label class="fee"> </label>
-                <a class="btn-claim-group btn-claim" style="padding:0px 49px;text-decoration: none;font-size: 24px;margin-right: 6px;">
+                <a class="btn-claim-group btn-claim" style="padding:0px 50px;text-decoration: none;font-size: 20px;margin-right: 6px;">
                     Claim
                 </a>
-                <a class="btn-claim-group btn-buyboxwithreward" style="padding:0px 16px;text-decoration: none;font-size: 24px;margin-right: 6px;">
+                <a class="btn-claim-group btn-buyboxwithreward" style="padding:0px 24px;text-decoration: none;font-size: 20px;margin-right: 6px;">
                     🥚&nbsp;Buy&nbsp;eggs
                 </a>
-                <a href="v2monster" class="btn-claim-group" style="padding: 0 22px;text-decoration: none;margin-right: 20px;font-size: 24px">
-                    Monster&nbsp;v2
+
+
+            </div>
+            <br>
+            <div style="font-size:20px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
+                <label >Super&nbsp;model&nbsp;now: </label>
+                <select id="mySelectLevel" disabled style="font-size: 19px;width: 120px;border-radius: 15px">
+                    <option value="1">Level 1</option>
+                </select>
+                <a class="btn-claim-group btn-update-super-mode" style="padding:9px 10px;text-decoration: none;font-size: 18px;margin-right: 6px;">
+                    Update&nbsp;super&nbsp;mode
                 </a>
-                </span>
-                <span class="button-game-bg-right-buy"></span>
-                </a>
+<!--                <label style="border-left: 2px solid black; padding-left: 4px">Bonus: </label>-->
+<!--                <label class="bonus"></label>-->
             </div>
         </div>
 

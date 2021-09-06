@@ -567,17 +567,19 @@ async function getTimeClaimAndReward(){
 
     if( Number(Math.floor($.now()/1000)) < Number(timeClaim)){
         totalSeconds =  Math.floor(timeClaim-($.now()/1000 ));
+        date = Math.floor(totalSeconds / (3600*24));
+        totalSeconds %= (3600*24);
         hours = Math.floor(totalSeconds / 3600);
         totalSeconds %= 3600;
         minutes = Math.floor(totalSeconds / 60);
         seconds = totalSeconds % 60;
-        $(".time_claim").text(hours +" : "+ minutes+" : "+ seconds );
+        $(".time_claim").text(date+ " : " + hours +" : "+ minutes+" : "+ seconds );
         $(".money_claim").text(rewardClaim);
         $(".fee").text(feePercent +"%");
 
     }else{
 
-        $(".time_claim").text("0 : 0 : 0");
+        $(".time_claim").text("0 : 0 : 0 : 0");
         $(".money_claim").text(rewardClaim);
         $(".fee").text(feePercent +"%");
 
@@ -631,7 +633,7 @@ $('.btn-buyboxwithreward').on('click',function () {
     buyBoxWithReward();
 });
 
-async function getBootMode(nftId, monsterLv){
+async function getBootMode(){
 
     // testnet
     const web3 = new Web3(DATASEED);
@@ -642,10 +644,30 @@ async function getBootMode(nftId, monsterLv){
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
     bootMode = await monsterContract.methods.getBootMode(myAddress).call();
+    console.log(bootMode[0] +' - ' + bootMode[1]);
+    if(bootMode[0]==0)
+    {
+
+        $('#mySelectLevel option[value="1"]').attr('selected','selected');
+
+    }else{
+        $('#mySelectLevel option[value="'+ bootMode[0] +'"]').attr('selected','selected');
+    }
+    if(bootMode[1]==0){
+        $(".btn-update-super-mode").removeClass("disable-click-claim");
+    }else{
+        $(".btn-update-super-mode").addClass("disable-click-claim");
+
+    }
 }
+$(".btn-update-super-mode").on('click',function () {
+    settingBootMode(Number($('#mySelectLevel').val()));
+});
 
+getMaxBootLv();
+setInterval(getBootMode,1000);
 
-async function getMaxBootLv(nftId, monsterLv){
+async function getMaxBootLv(){
 
     // testnet
     const web3 = new Web3(DATASEED);
@@ -656,6 +678,14 @@ async function getMaxBootLv(nftId, monsterLv){
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
     maxBootLv = await monsterContract.methods._maxBootLv().call();
+    if(maxBootLv == 0) maxBootLv=1;
+    $('#mySelectLevel').find('option').remove().end();
+    for(i=1;i<=maxBootLv;i++)
+    {
+        $('#mySelectLevel').append('<option value='+ i +'>Level '+ i + '</option>');
+    }
+    $('#mySelectLevel').removeAttr("disabled");
+    getBootMode();
 }
 
 
@@ -679,5 +709,19 @@ async function settingBootMode(lv){
         method: 'eth_sendTransaction',
         params: [transactionParameters],
     });
+    var receipt;
+    while(1){
+        receipt = await web3.eth.getTransactionReceipt(txHash);
+        if (receipt != null) break;
+    }
+    if (receipt.status == true){
+        getDialog("UPDATE SUPER MODE"+" DONE !");
+
+        getAccount();
+        getMaxBootLv();
+    }else{
+        $(".shop-modal").attr("style","display:none");
+        getDialog("UPDATE SUPER MODE"+" FAIL !");
+    }
 
 }
