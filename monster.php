@@ -20,7 +20,7 @@
                     Claim
                 </a>
                 <a class="btn-claim-group btn-buyboxwithreward" style="padding:0px 24px;text-decoration: none;font-size: 20px;margin-right: 6px;">
-                    🥚&nbsp;Buy&nbsp;eggs
+                    🥚&nbsp;Buy&nbsp;eggs(15000 PETG)
                 </a>
 
 
@@ -32,12 +32,12 @@
 
             </div>
             <div style="font-size:20px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
-                <label >Super&nbsp;model&nbsp;now: </label>
+                <label >Boot&nbsp;lv: </label>
                 <select id="mySelectLevel" disabled style="font-size: 19px;width: 120px;border-radius: 15px">
                     <option value="1">Level 1</option>
                 </select>
                 <a class="btn-claim-group btn-update-super-mode" style="padding:9px 10px;text-decoration: none;font-size: 18px;margin-right: 6px;">
-                    Update&nbsp;super&nbsp;mode
+                    Update&nbsp;boot&nbsp;mode
                 </a>
 <!--                <label style="border-left: 2px solid black; padding-left: 4px">Bonus: </label>-->
 <!--                <label class="bonus"></label>-->
@@ -49,7 +49,7 @@
 <div class="container" style="margin-top: 0px " >
 
 <div class="row" id="play" >
-    <h2 style="margin-bottom: 0px">MONSTER V3</h2>
+    <h2 style="margin-bottom: 0px">MONSTER V4</h2>
 
 </div>
     <div class="row items-container bottom-wrapper">
