@@ -645,14 +645,9 @@ async function getBootMode(){
 
     bootMode = await monsterContract.methods.getBootMode(myAddress).call();
     console.log(bootMode[0] +' - ' + bootMode[1]);
-    if(bootMode[0]==0)
-    {
 
-        $('#mySelectLevel option[value="1"]').attr('selected','selected');
+    $('#mySelectLevel option[value="'+ bootMode[0] +'"]').attr('selected','selected');
 
-    }else{
-        $('#mySelectLevel option[value="'+ bootMode[0] +'"]').attr('selected','selected');
-    }
     if(bootMode[1]==0){
         $(".btn-update-super-mode").removeClass("disable-click-claim");
     }else{
@@ -665,7 +660,7 @@ $(".btn-update-super-mode").on('click',function () {
 });
 
 getMaxBootLv();
-setInterval(getBootMode,1000);
+// setInterval(getBootMode,1000);
 
 async function getMaxBootLv(){
 
@@ -678,11 +673,10 @@ async function getMaxBootLv(){
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
     maxBootLv = await monsterContract.methods._maxBootLv().call();
-    if(maxBootLv == 0) maxBootLv=1;
     $('#mySelectLevel').find('option').remove().end();
-    for(i=1;i<=maxBootLv;i++)
+    for(i=0;i<=maxBootLv;i++)
     {
-        $('#mySelectLevel').append('<option value='+ i +'>Level '+ i + '</option>');
+        $('#mySelectLevel').append('<option value='+ i +'>Level '+ (i+1) + '</option>');
     }
     $('#mySelectLevel').removeAttr("disabled");
     getBootMode();
