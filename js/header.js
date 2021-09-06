@@ -1695,6 +1695,19 @@ var monsterAbi = [
 	},
 	{
 		"inputs": [],
+		"name": "_boxPrice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "_decimals",
 		"outputs": [
 			{
@@ -1792,6 +1805,32 @@ var monsterAbi = [
 	},
 	{
 		"inputs": [],
+		"name": "_maxBootLv",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "_percentLock",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "_rewardDefault",
 		"outputs": [
 			{
@@ -1814,6 +1853,11 @@ var monsterAbi = [
 				"internalType": "uint8",
 				"name": "monsterLv",
 				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "bootLv",
+				"type": "uint256"
 			}
 		],
 		"name": "_rewardFightMonster1",
@@ -1874,7 +1918,13 @@ var monsterAbi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
 		"name": "claimReward",
 		"outputs": [],
 		"stateMutability": "nonpayable",
@@ -1902,8 +1952,44 @@ var monsterAbi = [
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "getBootMode",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "bootLv",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeSetting",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct MonsterV4.BootMode",
+				"name": "",
+				"type": "tuple"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "addr",
 				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
 			}
 		],
 		"name": "getFeeClaim",
@@ -1955,6 +2041,16 @@ var monsterAbi = [
 					},
 					{
 						"internalType": "uint256",
+						"name": "rewardUnlock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rewardLock",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
 						"name": "exp",
 						"type": "uint256"
 					},
@@ -1964,7 +2060,7 @@ var monsterAbi = [
 						"type": "bool"
 					}
 				],
-				"internalType": "struct MonsterV3.FightResult",
+				"internalType": "struct MonsterV4.FightResult",
 				"name": "",
 				"type": "tuple"
 			}
@@ -2085,11 +2181,78 @@ var monsterAbi = [
 		"inputs": [
 			{
 				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "hour",
+				"type": "uint256"
+			}
+		],
+		"name": "reduceCountdownTime",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "reduceRewardClaim",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "h",
+				"type": "uint256"
+			}
+		],
+		"name": "reduceTimeClaim",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
 				"name": "addr",
 				"type": "address"
 			}
 		],
 		"name": "setBannedBSC20",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "p",
+				"type": "uint256"
+			}
+		],
+		"name": "setBoxPrice",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -2188,6 +2351,32 @@ var monsterAbi = [
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "lv",
+				"type": "uint256"
+			}
+		],
+		"name": "setMaxBootLv",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "setOwnerReward",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "petAddress",
 				"type": "address"
@@ -2233,6 +2422,19 @@ var monsterAbi = [
 			}
 		],
 		"name": "setRewardPercent",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "lv",
+				"type": "uint256"
+			}
+		],
+		"name": "settingBootMode",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -2396,7 +2598,7 @@ var PETGAMES = '0x82e4D442762181a0e08d451bF18ea2AEEBdaC6Bc';
 var PETNFT = '0xd7336426BCD27C7e1b529DEBbf38c932A4a7bf77';
 var PETGAMESBANNED = '0x8c39687Fa615254ba28977572D9c3c742359C7B1';
 var BUYEGG = '0x59e0b388418d68dAE440A9DfCD93FFF42eEe85e0';
-var MONSTER = '0x499B088ae43D1FE02b0e5988081e973AEEEDA38C';
+var MONSTER = '0x88c31903432854b4819b99705Ca5bCb15A1cE6f4';
 var MONSTERV2 = '0x0906357aFB9F8f9f5fca1b56DD12a8Edad8D30B2';
 
 // var DATASEED = 'https://bsc-dataseed1.defibit.io/';

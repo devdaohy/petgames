@@ -100,13 +100,20 @@ async function rewardFightMonster(nftId, monsterLv){
     // testnet
     const web3 = new Web3(DATASEED);
 
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
-    rewardFight = await monsterContract.methods._rewardFightMonster1(nftId, monsterLv).call();
+    bootMode = await monsterContract.methods.getBootMode(myAddress).call();
+
+    rewardFight = await monsterContract.methods._rewardFightMonster1(nftId, monsterLv, bootMode['bootLv']).call();
 
     $("#item-"+ monsterLv +" .info-monster tr:nth-child(3) td:nth-child(2)").text(Math.floor(0.75*rewardFight) +" - " + rewardFight);
 
 }
+
+
 
 async function updateRealTimeFight(){
     $('.carousel-inner').find('.item').each(function (index)
@@ -623,3 +630,54 @@ $('.btn-claim').on('click',function () {
 $('.btn-buyboxwithreward').on('click',function () {
     buyBoxWithReward();
 });
+
+async function getBootMode(nftId, monsterLv){
+
+    // testnet
+    const web3 = new Web3(DATASEED);
+
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    bootMode = await monsterContract.methods.getBootMode(myAddress).call();
+}
+
+
+async function getMaxBootLv(nftId, monsterLv){
+
+    // testnet
+    const web3 = new Web3(DATASEED);
+
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    maxBootLv = await monsterContract.methods._maxBootLv().call();
+}
+
+
+async function settingBootMode(lv){
+
+    const web3 = new Web3(DATASEED);
+
+    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+
+    encoded = monsterContract.methods.settingBootMode(lv).encodeABI();
+
+    const transactionParameters = {
+      nonce: '0x00', // ignored by MetaMask
+      to: MONSTER, // Required except during contract publications.
+      from: ethereum.selectedAddress, // must match user's active address.
+      value: '0x00', // Only required to send ether to the recipient from the initiating external account.
+      data: encoded
+    };
+
+    const txHash = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+    });
+
+}
