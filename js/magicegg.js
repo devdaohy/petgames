@@ -60,6 +60,9 @@ async function getApprove(){
 
 async function approve(petGamesTokenContract){
 
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
+    myAddress = accounts[0];
+
     const web3 = new Web3(DATASEED);
 
     encoded = petGamesTokenContract.methods.approve(BUYEGG, "1000000000000000000000000000000").encodeABI();
@@ -69,7 +72,7 @@ async function approve(petGamesTokenContract){
       gasPrice: '0x4A817C800', // customizable by user during MetaMask confirmation.
       gas: '0x186A0', // customizable by user during MetaMask confirmation.
       to: PETGAMES, // Required except during contract publications.
-      from: ethereum.selectedAddress, // must match user's active address.
+      from: myAddress, // must match user's active address.
       value: '0x00', // Only required to send ether to the recipient from the initiating external account.
       data: encoded
     };

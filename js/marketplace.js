@@ -122,7 +122,7 @@ async function readMarket(from, to, sender){
 	    var checkNft = await banContract.methods.checkNftHack(petNFTInfo['nftId']).call();
 
 
-	    if (!checkNft && petNFTInfo['isSale']){
+	    if (!checkNft){
 			lstPetSale.push(petNFTInfo);
 		}else{
 			countPetHack ++;
