@@ -713,6 +713,11 @@ async function settingBootMode(lv){
 
         getAccount();
         getMaxBootLv();
+        var nft_id= $('.carousel-inner').find('.active').find('.pet-no').text().replace('#','');
+        rewardFightMonster(nft_id,1);
+        rewardFightMonster(nft_id,2);
+        rewardFightMonster(nft_id,3);
+        rewardFightMonster(nft_id,4);
     }else{
         $(".shop-modal").attr("style","display:none");
         getDialog("UPDATE SUPER MODE"+" FAIL !");
