@@ -446,22 +446,15 @@ function petInfo(active,price,exp,tribe,scarce,modalwalletormarket,id){
         "                                    </tr>\n"  +
         "                                    <tr>\n" +
         "                                        <td colspan=\"2\">\n" +
-        "                                            <p style='    background-color: #ff9900d1;\n" +
-        "    width: 50%;\n" +
-        "    text-align: center;\n" +
-        "    margin: auto;\n" +
-        "    border-radius: 10px;\n" +
-        "    padding: 2px;' class=\"panel-item__summary\" >\n" +
+        "                                            <p style='background-color: #ff9900d1;width: 50%;text-align: center;margin: auto;border-radius: 10px;padding: 2px;' class=\"panel-item__summary\" >\n" +
         "                                            </p>\n" +
         "                                        </td>\n" +
-
         "                                    </tr>\n"  +
         "                                    <tr style='display: none'>\n" +
         "                                        <td colspan=\"2\">\n" +
         "                                            <p  class=\"panel-item__summary\" >\n" +
         "                                            </p>\n" +
         "                                        </td>\n" +
-
         "                                    </tr>\n"  +
         "                                </table>\n";
     if(modalwalletormarket == "")

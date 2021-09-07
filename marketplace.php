@@ -62,39 +62,6 @@
                             </ul>
                         </div>
                     </div>
-<!--    <div class="row items-container">-->
-<!--        <div class="list-scarces list-select-scarce" style="">-->
-<!--            <select id="mySelectScarce" disabled style="width: 120px;border-radius: 15px">-->
-<!--                <option value="0">All Scarce</option>-->
-<!--                <option value="1">Scarce 1</option>-->
-<!--                <option value="2">Scarce 2</option>-->
-<!--                <option value="3">Scarce 3</option>-->
-<!--                <option value="4">Scarc 4</option>-->
-<!--                <option value="5">Scarc 5</option>-->
-<!--                <option value="6">Scarc 6</option>-->
-<!--                <option value="7">Scarc 7</option>-->
-<!--                <option value="8">Scarc 8</option>-->
-<!--                <option value="9">Egg</option>-->
-<!---->
-<!--            </select>-->
-<!--        </div>-->
-<!--        <div class="list-scarces list-select-level" style="">-->
-<!--            <select id="mySelectLevel" disabled style="width: 120px;border-radius: 15px">-->
-<!--                <option value="0">All level </option>-->
-<!--                <option value="1">Level 1</option>-->
-<!--                <option value="2">Level 2</option>-->
-<!--                <option value="3">Level 3</option>-->
-<!--                <option value="4">Level 4</option>-->
-<!--                <option value="5">Level 5</option>-->
-<!--                <option value="6">Level 6</option>-->
-<!--                <option value="7">Level 7</option>-->
-<!--                <option value="8">Level 8</option>-->
-<!---->
-<!--            </select>-->
-<!--        </div>-->
-<!---->
-<!---->
-<!--    </div>-->
                     <div class="row items-container bottom-wrapper">
                         <!-- Modal -->
                         <div class="modal fade" id="shop-modal" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel">

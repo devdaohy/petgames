@@ -146,6 +146,8 @@ async function readMarket(from, to, sender){
 		$(".refresh-page").removeAttr("disabled");
 
 		$("#amount-pet-sale").text(marketSize - Number(countPetHack)+" Pets For Sales");
+		getTimeFightMonster1();
+		setInterval(updateRealTimeFight, 1000);
 	}
 }
 
@@ -291,6 +293,18 @@ function pet(i,exp,tribe,scarce,owner,price,id) {
 	"                                            </p>\n" +
 	"                                        </td>\n" +
 	"                                    </tr>\n" +
+	"                                   <tr>\n" +
+	"                                        <td colspan=\"2\">\n" +
+	"                                            <p style='background-color: #ff9900d1;width: 50%;text-align: center;margin: auto;border-radius: 10px;padding: 2px;' class=\"panel-item__summary\" >\n" +
+	"                                            Can Fight</p>\n" +
+	"                                        </td>\n" +
+	"                                    </tr>\n"  +
+	"                                    <tr style='display: none'>\n" +
+	"                                        <td colspan=\"2\">\n" +
+	"                                            <p  class=\"panel-item__summary\" >\n" +
+	"                                            </p>\n" +
+	"                                        </td>\n" +
+	"                                    </tr>\n"  +
 	"                                </table>\n" +
 	"                                <p class=\"panel-item__summary\" style=\"text-align: center\"><b>Owner: </b>" +encryptAccount(owner)+"</p>\n" +
 	"                                <p class=\"price-pet\" style=\"text-align: center\"> <img src=\"img/logo.png\" class=\"imagemoney\"/>"+ price +"</p>\n" +
@@ -306,6 +320,59 @@ function pet(i,exp,tribe,scarce,owner,price,id) {
 	return content;
 }
 
+async function updateRealTimeFight(){
+	$('.container').find('.gallery-item').each(function (index)
+	{
+		var  timeFight = $(this).find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text();
+		if(timeFight != 0)
+		{
+			if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
+				totalSeconds =  Math.floor(timeFight-($.now()/1000 ));
+				hours = Math.floor(totalSeconds / 3600);
+				totalSeconds %= 3600;
+				minutes = Math.floor(totalSeconds / 60);
+				seconds = totalSeconds % 60;
+				$(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
+
+			}else{
+				$(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");
+
+
+			}
+		}
+	});
+
+}
+
+
+
+async function getTimeFightMonster1(){
+
+	const web3 = new Web3(DATASEED);
+
+	monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+	$('.container').find('.gallery-item').each(async function (index) {
+		var nftId = ($(this).find('.pet-no').text().replace("#",""));
+		timeFight = await monsterContract.methods.getTimeFightMonster1(nftId).call();
+		if(timeFight != 0)
+		{
+			if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
+				totalSeconds =  Math.floor(timeFight-($.now()/1000 ));
+				hours = Math.floor(totalSeconds / 3600);
+				totalSeconds %= 3600;
+				minutes = Math.floor(totalSeconds / 60);
+				seconds = totalSeconds % 60;
+				$(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text(hours +" : "+ minutes+" : "+ seconds );
+				$(this).find('.info-pet tr:nth-child(4) td:nth-child(1)').find('p').text(timeFight);
+
+			}else{
+				$(this).find('.info-pet tr:nth-child(3) td:nth-child(1)').find('p').text("Can fight");
+			}
+		}
+	});
+
+
+}
 
 async function getApprove(){
     // var myAddress = await ethereum.selectedAddress;
