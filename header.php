@@ -58,7 +58,7 @@
                             <li class="plain-link"><a href="mypet">My Pet</a></li>
                             <li class="plain-link"><a href="monster">Monster</a></li>
                             <li class="plain-link"><a href="farm">Farm</a></li>
-                            <li class="plain-link"><a href="#battlefield">Battlefield</a></li>
+                            <li class="plain-link"><a href="v3monster">MONSTER_V3</a></li>
                             <li class="plain-link"><a href="https://docs.petgames.io/">How to play ?</a></li>
 
                         </ul>

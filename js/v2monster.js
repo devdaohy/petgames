@@ -6,7 +6,7 @@ async function claim(){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTERV2);
+    monsterContract = new web3.eth.Contract(monsterV3Abi, MONSTERV2);
 
     encoded = monsterContract.methods.claimReward().encodeABI();
 
@@ -45,7 +45,7 @@ async function getTimeClaimAndReward(){
     myAddress = accounts[0];
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTERV2);
+    monsterContract = new web3.eth.Contract(monsterV3Abi, MONSTERV2);
 
     var timeClaim = await monsterContract.methods.getTimeClaim(myAddress).call();
     var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();

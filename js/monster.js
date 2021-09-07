@@ -108,7 +108,7 @@ async function rewardFightMonster(nftId, monsterLv){
 
     bootMode = await monsterContract.methods.getBootMode(myAddress).call();
 
-    rewardFight = await monsterContract.methods._rewardFightMonster1(nftId, monsterLv, bootMode['bootLv']).call();
+    rewardFight = await monsterContract.methods._rewardFightMonster1(nftId, monsterLv, Number(bootMode['bootLv'])+1).call();
 
     $("#item-"+ monsterLv +" .info-monster tr:nth-child(3) td:nth-child(2)").text(Math.floor(0.75*rewardFight) +" - " + rewardFight);
 

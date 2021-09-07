@@ -23,7 +23,7 @@
             </div>
             <br>
             <div style="font-size:20px;width: fit-content;padding: 0px 18px;display:inline-block;border-radius: 13px;margin: auto;">
-                <label>Price egg: 15000 PETG</label>
+                <label>Price egg: 20000 PETG</label>
 
                 <a class="btn-claim-group btn-buyboxwithreward" style="background-size:95% !important;padding:2px 34px;text-decoration: none;font-size: 18px;margin-right: 6px;">
                     🥚&nbsp;Buy&nbsp;eggs
