@@ -511,13 +511,13 @@ $(window)
         }
     }).resize();
 
-async function claim(amount){
+async function claim(){
 
     const web3 = new Web3(DATASEED);
 
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
-    encoded = monsterContract.methods.claimReward(amount).encodeABI();
+    encoded = monsterContract.methods.claimReward().encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
@@ -558,7 +558,6 @@ async function getTimeClaimAndReward(){
     var timeClaim = await monsterContract.methods.getTimeClaim(myAddress).call();
     var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();
     // var feeClaim = await monsterContract.methods.getFeeClaim(myAddress).call();
-    var feePercent = await monsterContract.methods.getFeePercent(myAddress).call();
 
 
     if( Number(Math.floor($.now()/1000)) < Number(timeClaim)){
@@ -571,13 +570,13 @@ async function getTimeClaimAndReward(){
         seconds = totalSeconds % 60;
         $(".time_claim").text(date+ " : " + hours +" : "+ minutes+" : "+ seconds );
         $(".money_claim").text(rewardClaim);
-        $(".fee").text(feePercent +"%");
+
 
     }else{
 
         $(".time_claim").text("0 : 0 : 0 : 0");
         $(".money_claim").text(rewardClaim);
-        $(".fee").text(feePercent +"%");
+
 
     }
 }
@@ -591,8 +590,6 @@ async function getRewardClaim(){
     monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
 
     var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();
-    $('.current-reward').val(Number(rewardClaim));
-    $('.current-reward').width((35+(rewardClaim.toString().length + 1) * 10)-1);
 
 
 }
@@ -637,24 +634,8 @@ async function buyBoxWithReward(){
 
 }
 
-$(".current-reward").keyup(function(event){
-    $(".error-price-syntax").attr("style","display:none");
-    $(".error-0-claim").attr("style","display:none");
-    if($(".current-reward").val().charAt(0)=="0")
-    {
-        $(".current-reward").val($(".current-reward").val().slice(1,$(".current-reward").val().length));
-    }
-    if(Number($('.current-reward').val().length)==0)
-    {
-        $('.current-reward').val("0");
-        $('.current-reward').width((35+($('.current-reward').val().toString().length + 1) * 10)-1);
 
-    }
-});
-if(Number($('.current-reward').val().length)==0)
-{
-    $('.current-reward').val("0");
-}
+
 
 $('.btn-max-reward-claim').on('click',function () {
     getRewardClaim();
@@ -664,25 +645,7 @@ $('.btn-max-reward-claim').on('click',function () {
 //
 // });
 $('.btn-claim').on('click',function () {
-    if($('.current-reward').val().toString().length==0)
-    {
-        $('.current-reward').val('0');
-    }else{
-        if(Number.isInteger(Number($('.current-reward').val())))
-        {
-            if(Number($('.current-reward').val()) ==0){
-                $(".error-0-claim").attr("style","display:block;color: red;font-size: 70%;");
-
-            } else{
-                claim(Number($('.current-reward').val()));
-            }
-        }
-        else{
-            $(".error-price-syntax").attr("style","display:block;color: red;font-size: 70%;");
-
-        }
-    }
-
+    claim();
 });
 $('.btn-buyboxwithreward').on('click',function () {
     buyBoxWithReward();

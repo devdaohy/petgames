@@ -10,11 +10,7 @@
                 <label class="time_claim"></label>
                 <label style="border-left: 2px solid black; padding-left: 4px" class="money_claim">&nbsp;</label>
                 <label><img src="img/logo.png" style="width:25px"></label>
-                <label style="border-left: 2px solid black; padding-left: 4px">Fee :</label>
-                <label class="fee"> </label>
 
-                <input type="text" style="padding-left:5px;width: 66px;border-bottom-left-radius:10px;border-top-left-radius: 10px " class="current-reward" value="" onkeyup="this.style.width = (35+(this.value.length + 1) * 10) + 'px';">
-                <button class="btn-max-reward-claim" style="margin-left: -6px;font-size: 18px;height: 34px;border: 2px solid black;border-left: 0px;border-top-right-radius: 10px;border-bottom-right-radius: 10px">MAX</button>
 
                 <a class="btn-claim-group btn-claim" style="padding:0px 50px;text-decoration: none;font-size: 20px;margin-right: 6px;">
                     Claim
