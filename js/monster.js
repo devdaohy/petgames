@@ -570,9 +570,11 @@ async function getTimeClaimAndReward(){
         seconds = totalSeconds % 60;
         $(".time_claim").text(date+ " : " + hours +" : "+ minutes+" : "+ seconds );
         $(".money_claim").text(rewardClaim);
+            $(".btn-claim").addClass("disable-click-claim");
 
 
     }else{
+            $(".btn-claim").removeClass("disable-click-claim");
 
         $(".time_claim").text("0 : 0 : 0 : 0");
         $(".money_claim").text(rewardClaim);

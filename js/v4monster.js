@@ -703,12 +703,12 @@ async function getBootMode(){
 
     $('#mySelectLevel option[value="'+ bootMode[0] +'"]').attr('selected','selected');
 
-    if( Number(Math.floor($.now()/1000)) < Number(bootMode[1])){
-        $(".btn-update-super-mode").addClass("disable-click-claim");
-    }else{
-        $(".btn-update-super-mode").removeClass("disable-click-claim");
-
-    }
+    // if( Number(Math.floor($.now()/1000)) < Number(bootMode[1])){
+    //     $(".btn-update-super-mode").addClass("disable-click-claim");
+    // }else{
+    //     $(".btn-update-super-mode").removeClass("disable-click-claim");
+    //
+    // }
 }
 $(".btn-update-super-mode").on('click',function () {
     settingBootMode(Number($('#mySelectLevel').val()));
