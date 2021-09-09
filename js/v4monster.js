@@ -56,7 +56,7 @@ async function expFightMonster(monsterLv){
     // testnet
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbiV4, MONSTERV4);
 
     var expFight = await monsterContract.methods._expFightMonster1(monsterLv).call();
 
@@ -104,11 +104,11 @@ async function rewardFightMonster(nftId, monsterLv){
     const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
     myAddress = accounts[0];
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbiV4, MONSTERV4);
 
     bootMode = await monsterContract.methods.getBootMode(myAddress).call();
 
-    rewardFight = await monsterContract.methods._rewardFightMonster1(nftId, monsterLv, Number(bootMode['bootLv'])).call();
+    rewardFight = await monsterContract.methods._rewardFightMonster1(nftId, monsterLv, Number(bootMode['bootLv'])+1).call();
 
     $("#item-"+ monsterLv +" .info-monster tr:nth-child(3) td:nth-child(2)").text(Math.floor(0.75*rewardFight) +" - " + rewardFight);
 
@@ -156,7 +156,7 @@ async function getTimeFightMonster1(nftId){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbiV4, MONSTERV4);
 
     timeFight = await monsterContract.methods.getTimeFightMonster1(nftId).call();
     if( Number(Math.floor($.now()/1000)) < Number(timeFight)){
@@ -187,13 +187,13 @@ async function fightMonster(nftId, monsterLv){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbiV4, MONSTERV4);
 
     encoded = monsterContract.methods.fightMonster1(nftId, monsterLv).encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
-      to: MONSTER, // Required except during contract publications.
+      to: MONSTERV4, // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
       value: '0x00', // Only required to send ether to the recipient from the initiating external account.
       data: encoded
@@ -515,13 +515,13 @@ async function claim(amount){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbiV4, MONSTERV4);
 
     encoded = monsterContract.methods.claimReward(amount).encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
-      to: MONSTER, // Required except during contract publications.
+      to: MONSTERV4, // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
       value: '0x00', // Only required to send ether to the recipient from the initiating external account.
       data: encoded
@@ -553,7 +553,7 @@ async function getTimeClaimAndReward(){
     myAddress = accounts[0];
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbiV4, MONSTERV4);
 
     var timeClaim = await monsterContract.methods.getTimeClaim(myAddress).call();
     var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();
@@ -588,7 +588,7 @@ async function getRewardClaim(){
     myAddress = accounts[0];
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbiV4, MONSTERV4);
 
     var rewardClaim = await monsterContract.methods.getRewardClaim(myAddress).call();
     $('.current-reward').val(Number(rewardClaim));
@@ -603,13 +603,13 @@ async function buyBoxWithReward(){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbiV4, MONSTERV4);
 
     encoded = monsterContract.methods.buyBoxWithReward().encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
-      to: MONSTER, // Required except during contract publications.
+      to: MONSTERV4, // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
       value: '0x00', // Only required to send ether to the recipient from the initiating external account.
       data: encoded
@@ -696,7 +696,7 @@ async function getBootMode(){
     const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
     myAddress = accounts[0];
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbiV4, MONSTERV4);
 
     bootMode = await monsterContract.methods.getBootMode(myAddress).call();
     console.log(bootMode[0] +' - ' + bootMode[1]);
@@ -725,7 +725,7 @@ async function getMaxBootLv(){
     const accounts = await ethereum.request({ method: 'eth_requestAccounts'});
     myAddress = accounts[0];
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbiV4, MONSTERV4);
 
     maxBootLv = await monsterContract.methods._maxBootLv().call();
     $('#mySelectLevel').find('option').remove().end();
@@ -742,13 +742,13 @@ async function settingBootMode(lv){
 
     const web3 = new Web3(DATASEED);
 
-    monsterContract = new web3.eth.Contract(monsterAbi, MONSTER);
+    monsterContract = new web3.eth.Contract(monsterAbiV4, MONSTERV4);
 
     encoded = monsterContract.methods.settingBootMode(lv).encodeABI();
 
     const transactionParameters = {
       nonce: '0x00', // ignored by MetaMask
-      to: MONSTER, // Required except during contract publications.
+      to: MONSTERV4, // Required except during contract publications.
       from: ethereum.selectedAddress, // must match user's active address.
       value: '0x00', // Only required to send ether to the recipient from the initiating external account.
       data: encoded
